@@ -225,8 +225,36 @@ return [
         'maxitems' => 99
       ]
     ],
-    'brand' => [],
-    'code' => [],
+    'project_group' => [
+      'label' => 'LLL:EXT:pim/Resources/Private/Language/locallang_tca.xlf:tx_pim_domain_model_project.project_group',
+      'exclude' => 0,
+      'config' => [
+        'type' => 'select',
+        'renderType' => 'selectSingle',
+        'foreign_table' => 'fe_groups',
+        'size' => '6',
+        'minitems' => '1',
+      ]
+    ],
+    'brand' => [
+      'label' => 'Brand',
+      'config' => [
+        'type' => 'select',
+        'renderType' => 'selectSingle',
+        'foreign_table' => 'tx_nano_domain_model_brand',
+        'size' => '6',
+        'minitems' => '1',
+        'maxitems' => '1',
+      ]
+    ],
+    'code' => [
+      'label' => 'Code',
+      'config' => [
+        'type' => 'input',
+        'size' => 30,
+        'eval' => 'trim,required'
+      ]
+    ],
     'terminal_type' => [],
     'terminal_layout' => [],
     'voltage' => [],
