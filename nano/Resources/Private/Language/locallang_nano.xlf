@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+	<file t3:id="1415814790" source-language="en" datatype="plaintext" original="messages" date="2011-10-17T20:22:32Z" product-name="nano">
+		<header/>
+		<body>
+			<trans-unit id="tx_nano_domain_model_application.label">
+				<source>Loại ắc quy</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_brand.label">
+				<source>Thương hiệu ắc quy</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_battery.label">
+				<source>Ắc quy</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_battery.label.teaser">
+				<source>Mô tả ngắn</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -3,18 +3,18 @@ defined('TYPO3_MODE') or die();
 
 return [
   'ctrl' => [
+    'title' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.label',
     'label' => 'title',
     'label_alt' => 'bodytext',
     'tstamp' => 'tstamp',
     'crdate' => 'crdate',
     'cruser_id' => 'cruser_id',
     'editlock' => 'editlock',
-    'title' => 'Battery',
     'delete' => 'deleted',
     'versioningWS' => true,
     'origUid' => 't3_origuid',
     'hideAtCopy' => true,
-    'prependAtCopy' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.prependAtCopy',
+    'prependAtCopy' => 'LLL:EXT:nano/Resources/Private/Language/locallang_general.xlf:LGL.prependAtCopy',
     'transOrigPointerField' => 'l18n_parent',
     'transOrigDiffSourceField' => 'l18n_diffsource',
     'languageField' => 'sys_language_uid',
@@ -29,10 +29,10 @@ return [
     'sortby' => 'sorting'
   ],
   'interface' => [
-    'showRecordFieldList' => 'title,teaser,bodytext,created'
+    'showRecordFieldList' => 'title,teaser,bodytext'
   ],
   'columns' => [
-    'l10n_diffsource' => [
+    'l18n_diffsource' => [
       'config' => [
         'type' => 'passthrough',
         'default' => ''
@@ -87,7 +87,7 @@ return [
     'starttime' => [
       'exclude' => true,
       'l10n_mode' => 'mergeIfNotBlank',
-      'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel',
       'config' => [
         'type' => 'input',
         'size' => 16,
@@ -98,7 +98,7 @@ return [
     'endtime' => [
       'exclude' => true,
       'l10n_mode' => 'mergeIfNotBlank',
-      'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
       'config' => [
         'type' => 'input',
         'size' => 16,
@@ -108,7 +108,7 @@ return [
     ],
     'rowDescription' => [
       'exclude' => true,
-      'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.description',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_general.xlf:LGL.description',
       'config' => [
         'type' => 'text',
         'rows' => 5,
@@ -119,7 +119,7 @@ return [
     'title' => [
       'exclude' => false,
       'l10n_mode' => 'prefixLangTitle',
-      'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_formlabel',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_ttc.xlf:header_formlabel',
       'config' => [
         'type' => 'input',
         'size' => 60,
@@ -130,7 +130,7 @@ return [
     'teaser' => [
       'exclude' => true,
       'l10n_mode' => 'noCopy',
-      'label' => 'Teaser',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.label.teaser',
       'config' => [
         'type' => 'text',
         'cols' => 60,
@@ -140,7 +140,7 @@ return [
     'bodytext' => [
       'exclude' => false,
       'l10n_mode' => 'noCopy',
-      'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel',
       'config' => [
         'type' => 'text',
         'cols' => 30,
@@ -158,24 +158,6 @@ return [
             ]
           ]
         ]
-      ]
-    ],
-    'created' => [
-      'exclude' => true,
-      'label' => 'Created',
-      'config' => [
-        'type' => 'input',
-        'size' => 16,
-        'eval' => 'datetime,required'
-      ]
-    ],
-    'updated' => [
-      'exclude' => true,
-      'label' => 'Created',
-      'config' => [
-        'type' => 'input',
-        'size' => 16,
-        'eval' => 'datetime,required'
       ]
     ],
     'seo_title' => [
@@ -209,71 +191,170 @@ return [
         'rows' => 5
       ]
     ],
-    'applications' => [
-      'exclude' => true,
+    'application' => [
+      'exclude' => 0,
       'l10n_mode' => 'mergeIfNotBlank',
-      'label' => 'Application',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_application.label',
       'config' => [
-        'type' => 'group',
-        'internal_type' => 'db',
-        'allowed' => 'tx_nano_domain_model_application',
+        'type' => 'select',
+        'render_type' => 'selectMultipleSideBySide',
         'MM' => 'tx_nano_domain_model_battery_application_mm',
         'foreign_table' => 'tx_nano_domain_model_application',
         'foreign_table_where' => 'ORDER BY tx_nano_domain_model_application.sorting',
+        'multiple' => true,
         'size' => 10,
-        'minitems' => 0,
+        'minitems' => 1,
         'maxitems' => 99
       ]
     ],
-    'project_group' => [
-      'label' => 'LLL:EXT:pim/Resources/Private/Language/locallang_tca.xlf:tx_pim_domain_model_project.project_group',
-      'exclude' => 0,
-      'config' => [
-        'type' => 'select',
-        'renderType' => 'selectSingle',
-        'foreign_table' => 'fe_groups',
-        'size' => '6',
-        'minitems' => '1',
-      ]
-    ],
     'brand' => [
-      'label' => 'Brand',
+      'exclude' => 0,
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_application.label',
       'config' => [
         'type' => 'select',
         'renderType' => 'selectSingle',
         'foreign_table' => 'tx_nano_domain_model_brand',
+        'foreign_table_where' => 'ORDER BY tx_nano_domain_model_brand.sorting',
         'size' => '6',
         'minitems' => '1',
         'maxitems' => '1',
       ]
     ],
     'code' => [
-      'label' => 'Code',
+      'exclude' => 0,
+      'label' => 'Mã sản phẩm',
       'config' => [
         'type' => 'input',
         'size' => 30,
         'eval' => 'trim,required'
       ]
     ],
-    'terminal_type' => [],
-    'terminal_layout' => [],
-    'voltage' => [],
-    'technology' => [],
-    'capacity_20' => [],
-    'capacity_100' => [],
-    'cca_en' => [],
-    'cca_sae' => [],
-    'length' => [],
-    'width' => [],
-    'height' => [],
-    'guarantee' => [],
+    'terminal_type' => [
+      'exclude' => 0,
+      'label' => 'Terminal type',
+      'config' => [
+        'type' => 'select',
+        'renderType' => 'selectSingle',
+        'items' => [
+          ['Standard UK Post', 1],
+          ['Narrow JAP Post', 2],
+          ['Square bolt throught Post', 3],
+          ['Side Terminal', 4],
+        ],
+        'minitems' => '1',
+        'maxitems' => '1',
+      ]
+    ],
+    'terminal_layout' => [
+      'exclude' => 0,
+      'label' => 'Terminal layout',
+      'config' => [
+        'type' => 'select',
+        'renderType' => 'selectSingle',
+        'items' => [
+          ['1', 1],
+          ['2', 2],
+        ],
+        'minitems' => '1',
+        'maxitems' => '1',
+      ]
+    ],
+    'voltage' => [
+      'exclude' => 0,
+      'label' => 'Voltage',
+      'config' => [
+        'type' => 'input',
+        'size' => 30,
+        'eval' => 'trim,int'
+      ]
+    ],
+    'technology' => [
+      'exclude' => 0,
+      'label' => 'Technology',
+      'config' => [
+        'type' => 'input',
+        'size' => 30,
+        'eval' => 'trim'
+      ]
+    ],
+    'capacity_20' => [
+      'exclude' => 0,
+      'label' => 'Capacity 20',
+      'config' => [
+        'type' => 'input',
+        'size' => 30,
+        'eval' => 'trim,int'
+      ]
+    ],
+    'capacity_100' => [
+      'exclude' => 0,
+      'label' => 'Capacity 100',
+      'config' => [
+        'type' => 'input',
+        'size' => 30,
+        'eval' => 'trim,int'
+      ]
+    ],
+    'cca_en' => [
+      'exclude' => 0,
+      'label' => 'CCA EN',
+      'config' => [
+        'type' => 'input',
+        'size' => 30,
+        'eval' => 'trim,int'
+      ]
+    ],
+    'cca_sae' => [
+      'exclude' => 0,
+      'label' => 'CCA SAE',
+      'config' => [
+        'type' => 'input',
+        'size' => 30,
+        'eval' => 'trim,int'
+      ]
+    ],
+    'length' => [
+      'label' => 'Length',
+      'config' => [
+        'type' => 'input',
+        'size' => 30,
+        'eval' => 'trim,int'
+      ]
+    ],
+    'width' => [
+      'exclude' => 0,
+      'label' => 'Width',
+      'config' => [
+        'type' => 'input',
+        'size' => 30,
+        'eval' => 'trim,int'
+      ]
+    ],
+    'height' => [
+      'exclude' => 0,
+      'label' => 'Height',
+      'config' => [
+        'type' => 'input',
+        'size' => 30,
+        'eval' => 'trim,int'
+      ]
+    ],
+    'guarantee' => [
+      'exclude' => 0,
+      'label' => 'Bảo hành',
+      'config' => [
+        'type' => 'input',
+        'size' => 30,
+        'eval' => 'trim'
+      ],
+    ],
     'fal_media' => [
-      'exclude' => true,
+      'exclude' => 0,
       'l10n_mode' => 'mergeIfNotBlank',
-      'label' => 'Media',
+      'label' => 'Hình ảnh',
       'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('fal_media', [
         'appearance' => [
-          'createNewRelationLinkTitle' => 'Add media',
+          'createNewRelationLinkTitle' => 'Thêm ảnh',
           'showPossibleLocalizationRecords' => true,
           'showRemovedLocalizationRecords' => true,
           'showAllLocalizationLink' => true,
@@ -288,41 +369,40 @@ return [
           'types' => [
             '0' => [
               'showitem' => '
-                                --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                                --palette--;;filePalette'
+                --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                --palette--;;filePalette'
             ],
             \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
               'showitem' => '
-                                --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                                --palette--;;filePalette'
+                --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                --palette--;;filePalette'
             ],
             \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
               'showitem' => '
-                                --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                                --palette--;;filePalette'
+                --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                --palette--;;filePalette'
             ],
             \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
               'showitem' => '
-                                --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.audioOverlayPalette;audioOverlayPalette,
-                                --palette--;;filePalette'
+                --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.audioOverlayPalette;audioOverlayPalette,
+                --palette--;;filePalette'
             ],
             \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
               'showitem' => '
-                                --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.videoOverlayPalette;videoOverlayPalette,
-                                --palette--;;filePalette'
+                --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.videoOverlayPalette;videoOverlayPalette,
+                --palette--;;filePalette'
             ],
             \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
               'showitem' => '
-                                --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                                --palette--;;filePalette'
+                --palette--;LLL:EXT:lang/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                --palette--;;filePalette'
             ]
           ]
         ]
-      ], $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext'])
+      ], 'gif,jpg,jpeg,bmp,png')
     ]
   ],
   'types' => [
-    // default battery
     '0' => [
       'columnsOverrides' => [
         'bodytext' => [
@@ -332,7 +412,7 @@ return [
           'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
         ]
       ],
-      'showitem' => 'title,teaser,bodytext'
+      'showitem' => 'title,teaser,bodytext,application,brand,code,terminal_type,terminal_layout,voltage,technology,capacity_20,capacity_100,cca_en,cca_sae,length,width,height,guarantee,fal_media'
     ]
   
   ],

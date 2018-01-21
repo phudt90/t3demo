@@ -1,0 +1,12 @@
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Config/Setup/Config.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Layout/Templates.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Language/Language.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Seo/Meta.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Seo/Headers.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Seo/GoogleSitemap.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Seo/Statistics.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Menus/MainMenu.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Menus/LanguageMenu.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Layout/Layout.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Layout/Assets.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Ress/Setup.ts">

@@ -31,15 +31,14 @@ CREATE TABLE tx_nano_domain_model_battery (
 
 	title varchar(255) NOT NULL DEFAULT '',
 	teaser text,
-	bodytext mediumtext,	
+	bodytext mediumtext,
 	created int(11) DEFAULT '0' NOT NULL,
 	updated int(11) DEFAULT '0' NOT NULL,
-	
 	seo_title varchar(255) NOT NULL DEFAULT '',
 	seo_keywords text,
 	seo_description text,
 	
-	applications int(11) DEFAULT '0' NOT NULL,
+	application int(11) DEFAULT '0' NOT NULL,
 	brand int(11) DEFAULT '0' NOT NULL,
 	code varchar(32) DEFAULT '' NOT NULL,
 	terminal_type tinyint(1) DEFAULT '0' NOT NULL,
@@ -93,6 +92,10 @@ CREATE TABLE tx_nano_domain_model_application (
 	l18n_diffsource mediumblob,
 	l10n_source int(11) DEFAULT '0' NOT NULL,
 	
+	title varchar(255) NOT NULL DEFAULT '',
+	bodytext mediumtext,
+	created int(11) DEFAULT '0' NOT NULL,
+	updated int(11) DEFAULT '0' NOT NULL,
 	seo_title varchar(255) NOT NULL DEFAULT '',
 	seo_description text,
 
@@ -132,6 +135,10 @@ CREATE TABLE tx_nano_domain_model_brand (
 	l18n_diffsource mediumblob,
 	l10n_source int(11) DEFAULT '0' NOT NULL,
 	
+	title varchar(255) NOT NULL DEFAULT '',
+	bodytext mediumtext,
+	created int(11) DEFAULT '0' NOT NULL,
+	updated int(11) DEFAULT '0' NOT NULL,	
 	seo_title varchar(255) NOT NULL DEFAULT '',
 	seo_description text,
 
