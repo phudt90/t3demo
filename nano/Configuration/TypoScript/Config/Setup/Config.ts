@@ -1,5 +1,5 @@
 config {
-  admPanel = 0
+  admPanel = {$site.admPanel}
   baseURL >
 
   // To be able to support both http and https

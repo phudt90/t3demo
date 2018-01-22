@@ -1,11 +1,12 @@
 site {
-	debug = 1
-  realUrl = 1
+	debug = 0
+	admPanel = 0
+  	realUrl = 1
 
-  compressCss = 1
-  concatenateCss = 1
-  compressJs = 1
-  concatenateJs = 1
+	compressCss = 1
+	concatenateCss = 1
+	compressJs = 1
+	concatenateJs = 1
 }
 
 ###################################################
@@ -22,7 +23,7 @@ site {
 # Localhost
 ###################################################
 
-[globalString = IENV:HTTP_HOST = *nano.local*]
+[globalString = IENV:HTTP_HOST = *nano.com*]
   site {
     realUrl = 1
     debug = 1
