@@ -9,10 +9,10 @@ config {
   // Cache: 1 week
   cache_period = 604800
 
-  concatenateCss = 1
-  concatenateJs = 1
-  compressJs = 1
-  compressCss = 1
+  concatenateCss = {$site.concatenateCss}
+  concatenateJs = {$site.concatenateJs}
+  compressJs = {$site.compressJs}
+  compressCss = {$site.compressCss}
 
   debug = {$site.debug}
   disableCharsetHeader = 0
@@ -30,8 +30,7 @@ config {
   no_cache = 0
   prefixLocalAnchors = all
 
-  // Suppression of the default JS of TYPO3
-  // (performances)
+  // Suppression of the default JS of TYPO3 (performances)
   removeDefaultJS = 1
 
   renderCharset = utf-8

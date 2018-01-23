@@ -1,7 +1,7 @@
 site {
 	debug = 0
 	admPanel = 0
-  	realUrl = 1
+	realUrl = 1
 
 	compressCss = 1
 	concatenateCss = 1
@@ -13,9 +13,13 @@ site {
 # Production Domains
 ###################################################
 
-[globalString = IENV:HTTP_HOST = *.acquynano.com]
+[globalString = IENV:HTTP_HOST = *.com]
   site {
     debug = 0
+    compressCss = 1
+		concatenateCss = 1
+		compressJs = 1
+		concatenateJs = 1
   }
 [end]
 
@@ -23,10 +27,13 @@ site {
 # Localhost
 ###################################################
 
-[globalString = IENV:HTTP_HOST = *nano.com*]
+[globalString = IENV:HTTP_HOST = *.local]
   site {
-    realUrl = 1
     debug = 1
+    compressCss = 0
+		concatenateCss = 0
+		compressJs = 0
+		concatenateJs = 0
   }
 [end]
 

@@ -25,5 +25,7 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    * Output a list view of batteries
    */
   public function listAction() {
+    $batteries = $this->batteryRepository->findAll();
+    $this->view->assign('batteries', $batteries);
   }
 }
