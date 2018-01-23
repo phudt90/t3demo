@@ -117,7 +117,7 @@ return [
     ],
     // domain model fields
     'title' => [
-      'exclude' => false,
+      'exclude' => 0,
       'l10n_mode' => 'prefixLangTitle',
       'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_ttc.xlf:header_formlabel',
       'config' => [
@@ -128,7 +128,7 @@ return [
       ]
     ],
     'teaser' => [
-      'exclude' => true,
+      'exclude' => 0,
       'l10n_mode' => 'noCopy',
       'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.label.teaser',
       'config' => [
@@ -138,7 +138,7 @@ return [
       ]
     ],
     'bodytext' => [
-      'exclude' => false,
+      'exclude' => 0,
       'l10n_mode' => 'noCopy',
       'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel',
       'config' => [

@@ -5,6 +5,7 @@
 #page.includeCSSLibs {}
 
 page.includeCSS {
+	bootstrap = EXT:nano/Resources/Public/Nano/stylesheets/bootstrap.min.css
 	main = EXT:nano/Resources/Public/Nano/stylesheets/style.css
 	responsive = EXT:nano/Resources/Public/Nano/stylesheets/responsive.css
 }

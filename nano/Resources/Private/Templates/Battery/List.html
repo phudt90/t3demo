@@ -1,14 +1,45 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:layout name="Default" />
-<f:section name="Main">
-	<div class="main-shop">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="main-shop">
+	<div class="wrap-imagebox">
 		<div class="flat-row-title">
 			<h3>Mobile &amp; Tablet</h3>
 			<span>Showing 1–15 of 20 results</span>
 			<div class="clearfix"></div>
 		</div>
+		<f:if condition="{batteries -> f:count()} > 0">
+		<div class="tab-product">
+			<div class="row sort-box">
+				<f:for each="{batteries}" as="item">
+				<div class="col-lg-4 col-sm-6">
+					<div class="product-box">
+						<div class="imagebox">
+							<div class="box-image owl-carousel-1">
+								<f:if condition="{item.firstFalMedia}">
+									<f:image image="{item.firstFalMedia}" />
+								</f:if>
+								
+							</div>
+							<!-- /.box-image -->
+							<div class="box-content">
+								<div class="cat-name">
+									<a href="#" title="">{item.brand.title}</a>
+								</div>
+								<div class="product-name">
+									<a href="#" title="">{item.title}</a>
+								</div>
+								<div class="price">
+									<span class="sale">$2,009.00</span> <span class="regular">$2,999.00</span>
+								</div>
+							</div>
+							<!-- /.box-content -->
+						</div>
+						<!-- /.imagebox -->
+					</div>
+				</div>
+				</f:for>
+			</div>
+		</div>
+		</f:if>
 	</div>
-  
-
-</f:section>
+</div>
 </html>

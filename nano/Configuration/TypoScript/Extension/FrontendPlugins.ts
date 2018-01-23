@@ -2,16 +2,16 @@
 plugin.tx_nano_battery {
   view {
     templateRootPaths {
-      0 = EXT:nano/Resources/Private/Templates/
-      10 = EXT:bootstrap_package/Resources/Private/Templates/Page
+      10 = EXT:nano/Resources/Private/Templates/Page/
+      20 = EXT:bootstrap_package/Resources/Private/Templates/Page
     }
     partialRootPaths {
-      0 = EXT:nano/Resources/Private/Partials/
-      10 = EXT:bootstrap_package/Resources/Private/Partials/Page
+      10 = EXT:nano/Resources/Private/Partials/Page/
+      20 = EXT:bootstrap_package/Resources/Private/Partials/Page
     }
     layoutRootPaths {
-      0 = EXT:nano/Resources/Private/Layouts/
-      10 = EXT:bootstrap_package/Resources/Private/Layouts/Page
+      10 = EXT:nano/Resources/Private/Layouts/Page/
+      20 = EXT:bootstrap_package/Resources/Private/Layouts/Page/
     }
   }
 }

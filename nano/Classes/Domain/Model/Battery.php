@@ -87,6 +87,12 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   
   /**
    *
+   * @var \ELCA\Nano\Domain\Model\Brand
+   */
+  protected $brand;
+  
+  /**
+   *
    * @var string
    */
   protected $keywords;
@@ -226,6 +232,22 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   }
 
   /**
+   *
+   * @return \ELCA\Nano\Domain\Model\Brand
+   */
+  public function getBrand() {
+    return $this->brand;
+  }
+
+  /**
+   *
+   * @param \ELCA\Nano\Domain\Model\Brand $brand
+   */
+  public function setBrand($brand) {
+    $this->brand = $brand;
+  }
+
+/**
    * Get keywords
    *
    * @return string
@@ -378,6 +400,16 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
    */
   public function getFirstPreview() {
     return $this->getFirstFalImagePreview();
+  }
+  
+  public function getFirstFalMedia() {
+    $mediaElements = $this->getFalMediaNonPreviews();
+    if (is_array($mediaElements)) {
+      foreach ($mediaElements as $mediaElement) {
+        return $mediaElement;
+      }
+    }
+    return null;
   }
 
   /**
