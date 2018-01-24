@@ -106,7 +106,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   /**
    * Fal media items
    *
-   * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\ELCA\Nano\Domain\Model\FileReference>
+   * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\GeorgRinger\News\Domain\Model\FileReference>
    * @lazy
    */
   protected $falMedia;
@@ -138,7 +138,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   protected $sorting;
 
   /**
-   * Initialize categories and media relation
+   * Initialize applications and media relation
    *
    * @return \ELCA\Nano\Domain\Model\Battery
    */
@@ -315,9 +315,9 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   /**
    * Add a Fal media file reference
    *
-   * @param FileReference $falMedia
+   * @param \GeorgRinger\News\Domain\Model\FileReference $falMedia
    */
-  public function addFalMedia(FileReference $falMedia) {
+  public function addFalMedia(\GeorgRinger\News\Domain\Model\FileReference $falMedia) {
     if ($this->getFalMedia() === null) {
       $this->falMedia = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
@@ -332,7 +332,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   public function getFalMediaPreviews() {
     if ($this->falMediaPreviews === null && $this->getFalMedia()) {
       $this->falMediaPreviews = [];
-      /** @var $mediaItem FileReference */
+      /** @var $mediaItem \GeorgRinger\News\Domain\Model\FileReference */
       foreach ($this->getFalMedia() as $mediaItem) {
         if ($mediaItem->getOriginalResource()->getProperty('showinpreview')) {
           $this->falMediaPreviews[] = $mediaItem;
@@ -359,7 +359,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   public function getFalMediaNonPreviews() {
     if ($this->falMediaNonPreviews === null && $this->getFalMedia()) {
       $this->falMediaNonPreviews = [];
-      /** @var $mediaItem FileReference */
+      /** @var $mediaItem \GeorgRinger\News\Domain\Model\FileReference */
       foreach ($this->getFalMedia() as $mediaItem) {
         if (! $mediaItem->getOriginalResource()->getProperty('showinpreview')) {
           $this->falMediaNonPreviews[] = $mediaItem;
@@ -381,7 +381,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   /**
    * Get first media element which is tagged as preview and is of type image
    *
-   * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference
+   * @return \GeorgRinger\News\Domain\Model\FileReference
    */
   public function getFirstFalImagePreview() {
     $mediaElements = $this->getFalMediaPreviews();
@@ -396,7 +396,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   /**
    * Short method for getFirstFalImagePreview
    *
-   * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference
+   * @return \GeorgRinger\News\Domain\Model\FileReference
    */
   public function getFirstPreview() {
     return $this->getFirstFalImagePreview();

@@ -13,22 +13,18 @@
 				<div class="col-lg-4 col-sm-6">
 					<div class="product-box">
 						<div class="imagebox">
-							<div class="box-image owl-carousel-1">
+							<div class="box-image">
 								<f:if condition="{item.firstFalMedia}">
 									<f:image image="{item.firstFalMedia}" />
 								</f:if>
-								
 							</div>
 							<!-- /.box-image -->
 							<div class="box-content">
 								<div class="cat-name">
-									<a href="#" title="">{item.brand.title}</a>
+									<f:link.action action="details" arguments="{battery:item}">{item.brand.title}</f:link.action>
 								</div>
 								<div class="product-name">
-									<a href="#" title="">{item.title}</a>
-								</div>
-								<div class="price">
-									<span class="sale">$2,009.00</span> <span class="regular">$2,999.00</span>
+									<f:link.action action="details" arguments="{battery:item}">{item.title}</f:link.action>
 								</div>
 							</div>
 							<!-- /.box-content -->

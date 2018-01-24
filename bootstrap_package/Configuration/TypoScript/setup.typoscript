@@ -136,7 +136,7 @@ page {
         templateName {
             cObject = TEXT
             cObject {
-                data = pagelayout
+                data = pageLayout
                 required = 1
                 case = uppercamelcase
                 split {
@@ -288,8 +288,7 @@ page {
             # BreadcrumbExtendedValue should be used to display the title of a
             # single record. For example the title of a news record.
             breadcrumbExtendedValue = COA
-            breadcrumbExtendedValue {
-            }
+            breadcrumbExtendedValue {}
         }
 
         stdWrap.replacement {
