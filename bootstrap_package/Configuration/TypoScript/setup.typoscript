@@ -269,6 +269,8 @@ page {
             pageTitle.data = page:title
             siteTitle = TEXT
             siteTitle.data = TSFE:tmpl|setup|sitetitle
+            tsfeParams = TEXT
+            tsfeParams.data = TSFE:cHash_array|tx_nano_battery[action]
             rootPage = TEXT
             rootPage.data = leveluid:0
             logoAlt = COA
