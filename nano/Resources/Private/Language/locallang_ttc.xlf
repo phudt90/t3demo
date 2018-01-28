@@ -720,6 +720,9 @@
 			<trans-unit id="layout_formlabel">
 				<source>Layout</source>
 			</trans-unit>
+			<trans-unit id="teaser_formlabel">
+				<source>Giới thiệu</source>
+			</trans-unit>
 			<trans-unit id="bodytext_formlabel">
 				<source>Mô tả</source>
 			</trans-unit>

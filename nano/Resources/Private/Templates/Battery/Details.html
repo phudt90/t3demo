@@ -1,3 +1,138 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-	<div>i am details</div>
+<div class="flat-product-detail style2">
+	<div class="row">
+		<div class="col-lg-5">
+			
+			<f:if condition="{battery.mediaPreviews">
+			<div class="flexslider style3">
+				<ul class="slides">
+					<f:for each="{battery.mediaPreviews}" as="item">
+						<li data-thumb="{item.originalResource.publicUrl}">
+							<a href="javascript:;" id="zoom{item.uid}" class="zoom">
+								<f:image image="{item}" width="400" height="300" />
+							</a>
+						</li>
+					</f:for>
+				</ul>
+			</div>
+			</f:if>
+		</div>
+		<div class="col-lg-4 col-md-6">
+			<div class="product-detail style2">
+				<div class="header-detail">
+					<h4 class="name">{battery.title}</h4>
+					<f:if condition="{battery.brand}">
+					<div class="category">{battery.brand.title}</div>
+					</f:if>
+					<f:if condition="{battery.code}">
+					<div class="product-id">
+						<f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.code.label" />: 
+						<span class="id">{battery.code}</span>
+					</div>
+					</f:if>
+				</div>
+				<f:if condition="{battery.teaser}">
+				<div class="content-detail">
+					<div class="info-text">
+						<f:format.html>{battery.teaser}</f:format.html>
+					</div>
+				</div>
+				</f:if>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-6">
+			<div class="product-detail style3">
+				<div class="tecnical-specs">
+					<h3>Thông số kỹ thuật</h3>
+					<table>
+						<tbody>
+							<f:if condition="{battery.terminalType}">
+								<tr>
+									<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.terminal_type.label" /></td>
+									<td>{battery.terminalType}</td>
+								</tr>
+							</f:if>
+							<f:if condition="{battery.terminalLayout}">
+								<tr>
+									<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.terminal_layout.label" /></td>
+									<td>{battery.terminalLayout}</td>
+								</tr>
+							</f:if>
+							<f:if condition="{battery.voltage}">
+								<tr>
+									<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.voltage.label" /></td>
+									<td>{battery.voltage}</td>
+								</tr>
+							</f:if>
+							<f:if condition="{battery.technology}">
+								<tr>
+									<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.technology.label" /></td>
+									<td>{battery.technology}</td>
+								</tr>
+							</f:if>
+							<f:if condition="{battery.capacity20}">
+								<tr>
+									<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.capacity_20.label" /></td>
+									<td>{battery.capacity20}</td>
+								</tr>
+							</f:if>
+							<f:if condition="{battery.capacity100}">
+								<tr>
+									<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.capacity_100.label" /></td>
+									<td>{battery.capacity100}</td>
+								</tr>
+							</f:if>
+							<f:if condition="{battery.ccaEn}">
+								<tr>
+									<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.cca_en.label" /></td>
+									<td>{battery.ccaEn}</td>
+								</tr>
+							</f:if>
+							<f:if condition="{battery.ccaSae}">
+								<tr>
+									<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.cca_sae.label" /></td>
+									<td>{battery.ccaSae}</td>
+								</tr>
+							</f:if>
+							<f:if condition="{battery.length}">
+								<tr>
+									<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.length.label" /></td>
+									<td>{battery.length}</td>
+								</tr>
+							</f:if>
+							<f:if condition="{battery.width}">
+								<tr>
+									<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.width.label" /></td>
+									<td>{battery.width}</td>
+								</tr>
+							</f:if>
+							<f:if condition="{battery.height}">
+								<tr>
+									<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.height.label" /></td>
+									<td>{battery.height}</td>
+								</tr>
+							</f:if>
+							<f:if condition="{battery.guarantee}">
+								<tr>
+									<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.guarantee.label" /></td>
+									<td>{battery.guarantee} tháng</td>
+								</tr>
+							</f:if>
+						</tbody>
+					</table>
+				</div>
+				<div class="content-detail">
+					
+				</div>
+				<div class="footer-detail">
+					<div class="box-cart style2">
+						<div class="btn-add-cart">
+							<a href="javascript:;" title=""><img src="{f:uri.resource(path: 'Nano/images/icons/add-cart.png', extensionName: 'nano')}" alt="">0165 2533 905</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 </html>

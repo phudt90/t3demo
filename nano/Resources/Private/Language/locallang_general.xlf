@@ -7,7 +7,7 @@
 				<source>Stop:</source>
 			</trans-unit>
 			<trans-unit id="LGL.hidden">
-				<source>Hide:</source>
+				<source>Không hiển thị:</source>
 			</trans-unit>
 			<trans-unit id="LGL.timestamp">
 				<source>Last Modified:</source>

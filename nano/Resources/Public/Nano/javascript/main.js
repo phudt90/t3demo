@@ -1042,11 +1042,11 @@
         }; // Accordion Toggle
 
         var flexProduct = function() {
-        	if($(".flexslider").length > 0) {
-            $('.flexslider').flexslider({
-                animation: "slide",
-                controlNav: "thumbnails"
-            });
+        	if(($(".flexslider").length > 0) && $.flexslider) {
+	            $('.flexslider').flexslider({
+	                animation: "slide",
+	                controlNav: "thumbnails"
+	            });
         	}
         }; // Flex Product
 

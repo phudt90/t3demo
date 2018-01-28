@@ -35,9 +35,6 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    * @param \ELCA\Nano\Domain\Model\Battery
    */
   public function detailsAction(\ELCA\Nano\Domain\Model\Battery $battery) {
-    d($GLOBALS['TSFE']);
     $this->view->assign('battery', $battery);
   }
-  
-  
 }

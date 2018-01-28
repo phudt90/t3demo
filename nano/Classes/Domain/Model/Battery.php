@@ -28,7 +28,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
    *
    * @var int
    */
-  protected $l10nParent;
+  protected $l18nParent;
   
   /**
    *
@@ -93,15 +93,93 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   
   /**
    *
-   * @var string
+   * @var string 
    */
-  protected $keywords;
+  protected $code;
+  
+  /**
+   *
+   * @var int
+   */
+  protected $terminalType;
+  
+  /**
+   *
+   * @var int
+   */
+  protected $terminalLayout;
+  
+  /**
+   *
+   * @var int
+   */
+  protected $voltage;
   
   /**
    *
    * @var string
    */
-  protected $description;
+  protected $technology;
+  
+  /**
+   *
+   * @var int
+   */
+  protected $capacity20;
+  
+  /**
+   *
+   * @var int
+   */
+  protected $capacity100;
+  
+  /**
+   *
+   * @var int
+   */
+  protected $ccaEn;
+  
+  /**
+   *
+   * @var int
+   */
+  protected $ccaSae;
+  
+  /**
+   *
+   * @var int
+   */
+  protected $length;
+  
+  /**
+   *
+   * @var int
+   */
+  protected $width;
+  
+  /**
+   *
+   * @var int
+   */
+  protected $height;
+  
+  /**
+   *
+   * @var int
+   */
+  protected $guarantee;
+  
+  /**
+   *
+   * @var string
+   */
+  protected $seoKeywords;
+  
+  /**
+   *
+   * @var string
+   */
+  protected $seoDescription;
   
   /**
    * Fal media items
@@ -247,42 +325,244 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
     $this->brand = $brand;
   }
 
-/**
-   * Get keywords
+  /**
    *
    * @return string
    */
-  public function getKeywords() {
-    return $this->keywords;
+  public function getCode() {
+    return $this->code;
   }
 
   /**
-   * Set keywords
    *
-   * @param string $keywords
-   * keywords
+   * @param string $code
    */
-  public function setKeywords($keywords) {
-    $this->keywords = $keywords;
+  public function setCode($code) {
+    $this->code = $code;
   }
 
   /**
-   * Get description
+   *
+   * @return number
+   */
+  public function getTerminalType() {
+    return $this->terminalType;
+  }
+
+  /**
+   *
+   * @param number $terminalType
+   */
+  public function setTerminalType($terminalType) {
+    $this->terminalType = $terminalType;
+  }
+
+  /**
+   *
+   * @return number
+   */
+  public function getTerminalLayout() {
+    return $this->terminalLayout;
+  }
+
+  /**
+   *
+   * @param number $terminalLayout
+   */
+  public function setTerminalLayout($terminalLayout) {
+    $this->terminalLayout = $terminalLayout;
+  }
+
+  /**
+   *
+   * @return number
+   */
+  public function getVoltage() {
+    return $this->voltage;
+  }
+
+  /**
+   *
+   * @param number $voltage
+   */
+  public function setVoltage($voltage) {
+    $this->voltage = $voltage;
+  }
+
+  /**
    *
    * @return string
    */
-  public function getDescription() {
-    return $this->description;
+  public function getTechnology() {
+    return $this->technology;
   }
 
   /**
-   * Set description
    *
-   * @param string $description
-   * description
+   * @param string $technology
    */
-  public function setDescription($description) {
-    $this->description = $description;
+  public function setTechnology($technology) {
+    $this->technology = $technology;
+  }
+
+  /**
+   *
+   * @return number
+   */
+  public function getCapacity20() {
+    return $this->capacity20;
+  }
+
+  /**
+   *
+   * @param number $capacity20
+   */
+  public function setCapacity20($capacity20) {
+    $this->capacity20 = $capacity20;
+  }
+
+  /**
+   *
+   * @return number
+   */
+  public function getCapacity100() {
+    return $this->capacity100;
+  }
+
+  /**
+   *
+   * @param number $capacity100
+   */
+  public function setCapacity100($capacity100) {
+    $this->capacity100 = $capacity100;
+  }
+
+  /**
+   *
+   * @return number
+   */
+  public function getCcaEn() {
+    return $this->ccaEn;
+  }
+
+  /**
+   *
+   * @param number $ccaEn
+   */
+  public function setCcaEn($ccaEn) {
+    $this->ccaEn = $ccaEn;
+  }
+
+  /**
+   *
+   * @return number
+   */
+  public function getCcaSae() {
+    return $this->ccaSae;
+  }
+
+  /**
+   *
+   * @param number $ccaSae
+   */
+  public function setCcaSae($ccaSae) {
+    $this->ccaSae = $ccaSae;
+  }
+
+  /**
+   *
+   * @return number
+   */
+  public function getLength() {
+    return $this->length;
+  }
+
+  /**
+   *
+   * @param number $length
+   */
+  public function setLength($length) {
+    $this->length = $length;
+  }
+
+  /**
+   *
+   * @return number
+   */
+  public function getWidth() {
+    return $this->width;
+  }
+
+  /**
+   *
+   * @param number $width
+   */
+  public function setWidth($width) {
+    $this->width = $width;
+  }
+
+  /**
+   *
+   * @return number
+   */
+  public function getHeight() {
+    return $this->height;
+  }
+
+  /**
+   *
+   * @param number $height
+   */
+  public function setHeight($height) {
+    $this->height = $height;
+  }
+
+  /**
+   *
+   * @return number
+   */
+  public function getGuarantee() {
+    return $this->guarantee;
+  }
+
+  /**
+   *
+   * @param number $guarantee
+   */
+  public function setGuarantee($guarantee) {
+    $this->guarantee = $guarantee;
+  }
+
+  /**
+   *
+   * @return string
+   */
+  public function getSeoKeywords() {
+    return $this->seoKeywords;
+  }
+
+  /**
+   *
+   * @param string $seoKeywords
+   */
+  public function setSeoKeywords($seoKeywords) {
+    $this->seoKeywords = $seoKeywords;
+  }
+
+  /**
+   *
+   * @return string
+   */
+  public function getSeoDescription() {
+    return $this->seoDescription;
+  }
+
+  /**
+   *
+   * @param string $seoDescription
+   */
+  public function setSeoDescription($seoDescription) {
+    $this->seoDescription = $seoDescription;
   }
 
   /**
@@ -334,9 +614,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
       $this->falMediaPreviews = [];
       /** @var $mediaItem \GeorgRinger\News\Domain\Model\FileReference */
       foreach ($this->getFalMedia() as $mediaItem) {
-        if ($mediaItem->getOriginalResource()->getProperty('showinpreview')) {
-          $this->falMediaPreviews[] = $mediaItem;
-        }
+        $this->falMediaPreviews[] = $mediaItem;
       }
     }
     return $this->falMediaPreviews;
@@ -495,21 +773,21 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   }
 
   /**
-   * Set l10n parent
+   * Set l18n parent
    *
-   * @param int $l10nParent
+   * @param int $l18nParent
    */
-  public function setL10nParent($l10nParent) {
-    $this->l10nParent = $l10nParent;
+  public function setL18nParent($l18nParent) {
+    $this->l108Parent = $l18nParent;
   }
 
   /**
-   * Get l10n parent
+   * Get l18n parent
    *
    * @return int
    */
-  public function getL10nParent() {
-    return $this->l10nParent;
+  public function getL18nParent() {
+    return $this->l18nParent;
   }
 
   /**

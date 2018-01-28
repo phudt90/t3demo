@@ -22,7 +22,7 @@ config {
   extTarget = _blank
   headerComment = {$site.copyright}
   htmlTag_dir =
-  htmlTag_langKey = fr
+  htmlTag_langKey = en
   meaningfulTempFilePrefix = 50
   moveJsFromHeaderToFooter = 0
   linkVars = L
@@ -44,9 +44,6 @@ config {
   spamProtectEmailAddresses_lastDotSubst = (dot)
   sys_language_mode = content_fallback
   sys_language_overlay = 1
-  stat = 0
-  stat_apache = 0
-  stat_mysql = 0
 
   // To make the inter-domains links work (on a multi-sites installation)
   typolinkCheckRootline = 1

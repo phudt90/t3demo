@@ -60,6 +60,12 @@
 			<trans-unit id="pages.palettes.config">
 				<source>TypoScript Configuration</source>
 			</trans-unit>
+			<trans-unit id="pages.palettes.specs">
+				<source>Thông số kỹ thuật</source>
+			</trans-unit>
+			<trans-unit id="pages.palettes.media">
+				<source>Hình ảnh</source>
+			</trans-unit>
 			<trans-unit id="pages.doktype_formlabel">
 				<source>Type</source>
 			</trans-unit>
@@ -260,6 +266,12 @@
 			</trans-unit>
 			<trans-unit id="pages.tabs.behaviour">
 				<source>Behaviour</source>
+			</trans-unit>
+			<trans-unit id="pages.tabs.specs">
+				<source>Thông số kỹ thuật</source>
+			</trans-unit>
+			<trans-unit id="pages.tabs.media">
+				<source>Hình ảnh</source>
 			</trans-unit>
 			<trans-unit id="pages.no_cache">
 				<source>No Cache:</source>

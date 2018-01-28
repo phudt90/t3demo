@@ -12,8 +12,44 @@
 			<trans-unit id="tx_nano_domain_model_battery.label">
 				<source>Ắc quy</source>
 			</trans-unit>
-			<trans-unit id="tx_nano_domain_model_battery.label.teaser">
-				<source>Mô tả ngắn</source>
+			<trans-unit id="tx_nano_domain_model_battery.code.label">
+				<source>Mã sản phẩm</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_battery.terminal_type.label">
+				<source>Loại cọc</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_battery.terminal_layout.label">
+				<source>Kiểu cọc</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_battery.voltage.label">
+				<source>Voltage</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_battery.technology.label">
+				<source>Công nghệ</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_battery.capacity_20.label">
+				<source>Capacity 20</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_battery.capacity_100.label">
+				<source>Capacity 100</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_battery.cca_en.label">
+				<source>CCA EN</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_battery.cca_sae.label">
+				<source>CCA SAE</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_battery.length.label">
+				<source>Dài</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_battery.width.label">
+				<source>Rộng</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_battery.height.label">
+				<source>Cao</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_battery.guarantee.label">
+				<source>Bảo hành</source>
 			</trans-unit>
 		</body>
 	</file>

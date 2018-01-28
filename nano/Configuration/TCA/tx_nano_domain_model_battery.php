@@ -40,7 +40,7 @@ return [
     ],
     'hidden' => [
       'exclude' => true,
-      'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
       'config' => [
         'type' => 'check',
         'default' => 0
@@ -130,7 +130,7 @@ return [
     'teaser' => [
       'exclude' => 0,
       'l10n_mode' => 'noCopy',
-      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.label.teaser',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_ttc.xlf:teaser_formlabel',
       'config' => [
         'type' => 'text',
         'cols' => 60,
@@ -209,7 +209,7 @@ return [
     ],
     'brand' => [
       'exclude' => 0,
-      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_application.label',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_brand.label',
       'config' => [
         'type' => 'select',
         'renderType' => 'selectSingle',
@@ -222,7 +222,7 @@ return [
     ],
     'code' => [
       'exclude' => 0,
-      'label' => 'Mã sản phẩm',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.code.label',
       'config' => [
         'type' => 'input',
         'size' => 30,
@@ -231,7 +231,7 @@ return [
     ],
     'terminal_type' => [
       'exclude' => 0,
-      'label' => 'Terminal type',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.terminal_type.label',
       'config' => [
         'type' => 'select',
         'renderType' => 'selectSingle',
@@ -247,13 +247,17 @@ return [
     ],
     'terminal_layout' => [
       'exclude' => 0,
-      'label' => 'Terminal layout',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.terminal_layout.label',
       'config' => [
         'type' => 'select',
         'renderType' => 'selectSingle',
         'items' => [
           ['1', 1],
           ['2', 2],
+          ['3', 3],
+          ['4', 4],
+          ['5', 5],
+          ['6', 6],
         ],
         'minitems' => '1',
         'maxitems' => '1',
@@ -261,7 +265,7 @@ return [
     ],
     'voltage' => [
       'exclude' => 0,
-      'label' => 'Voltage',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.voltage.label',
       'config' => [
         'type' => 'input',
         'size' => 30,
@@ -270,7 +274,7 @@ return [
     ],
     'technology' => [
       'exclude' => 0,
-      'label' => 'Technology',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.technology.label',
       'config' => [
         'type' => 'input',
         'size' => 30,
@@ -279,7 +283,7 @@ return [
     ],
     'capacity_20' => [
       'exclude' => 0,
-      'label' => 'Capacity 20',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.capacity_20.label',
       'config' => [
         'type' => 'input',
         'size' => 30,
@@ -288,7 +292,7 @@ return [
     ],
     'capacity_100' => [
       'exclude' => 0,
-      'label' => 'Capacity 100',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.capacity_100.label',
       'config' => [
         'type' => 'input',
         'size' => 30,
@@ -297,7 +301,7 @@ return [
     ],
     'cca_en' => [
       'exclude' => 0,
-      'label' => 'CCA EN',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.cca_en.label',
       'config' => [
         'type' => 'input',
         'size' => 30,
@@ -306,7 +310,7 @@ return [
     ],
     'cca_sae' => [
       'exclude' => 0,
-      'label' => 'CCA SAE',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.cca_sae.label',
       'config' => [
         'type' => 'input',
         'size' => 30,
@@ -314,7 +318,7 @@ return [
       ]
     ],
     'length' => [
-      'label' => 'Length',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.length.label',
       'config' => [
         'type' => 'input',
         'size' => 30,
@@ -323,7 +327,7 @@ return [
     ],
     'width' => [
       'exclude' => 0,
-      'label' => 'Width',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.width.label',
       'config' => [
         'type' => 'input',
         'size' => 30,
@@ -332,7 +336,7 @@ return [
     ],
     'height' => [
       'exclude' => 0,
-      'label' => 'Height',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.height.label',
       'config' => [
         'type' => 'input',
         'size' => 30,
@@ -341,7 +345,7 @@ return [
     ],
     'guarantee' => [
       'exclude' => 0,
-      'label' => 'Bảo hành',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.guarantee.label',
       'config' => [
         'type' => 'input',
         'size' => 30,
@@ -412,9 +416,37 @@ return [
           'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
         ]
       ],
-      'showitem' => 'title,teaser,bodytext,application,brand,code,terminal_type,terminal_layout,voltage,technology,capacity_20,capacity_100,cca_en,cca_sae,length,width,height,guarantee,fal_media'
+      'showitem' => 'title,--palette--;;paletteCore,teaser,bodytext,
+        --div--;LLL:EXT:nano/Resources/Private/Language/locallang_tca.xlf:pages.tabs.specs,
+				--palette--;LLL:EXT:nano/Resources/Private/Language/locallang_tca.xlf:pages.palettes.specs;paletteSpecs,
+        --div--;LLL:EXT:nano/Resources/Private/Language/locallang_tca.xlf:pages.tabs.media,
+				--palette--;LLL:EXT:nano/Resources/Private/Language/locallang_tca.xlf:pages.palettes.media;paletteMedia,
+        --div--;LLL:EXT:nano/Resources/Private/Language/locallang_tca.xlf:pages.tabs.metadata,
+				--palette--;LLL:EXT:nano/Resources/Private/Language/locallang_tca.xlf:pages.palettes.metatags;metatags,
+        --div--;LLL:EXT:nano/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
+        --palette--;LLL:EXT:nano/Resources/Private/Language/locallang_ttc.xlf:palette.access;paletteAccess
+      '
     ]
   
   ],
-  'palettes' => []
+  'palettes' => [
+    'paletteCore' => [
+      'showitem' => 'code,hidden,--linebreak--,application,--linebreak--,brand',
+    ],
+    'paletteSpecs' => [
+      'showitem' => 'terminal_type,terminal_layout,voltage,technology,capacity_20,capacity_100,cca_en,cca_sae,length,width,height,guarantee'
+    ],
+    'paletteMedia' => [
+      'showitem' => 'fal_media'
+    ],
+    'metatags' => [
+      'showitem' => 'seo_title,--linebreak--,seo_keywords,--linebreak--,seo_description,',
+    ],
+    'paletteAccess' => [
+      'showitem' => 'starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
+					endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel,
+					--linebreak--, fe_group;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:fe_group_formlabel,
+					--linebreak--,editlock,'
+    ],
+  ]
 ];

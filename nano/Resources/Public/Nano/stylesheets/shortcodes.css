@@ -213,7 +213,7 @@
 	cursor:pointer;
 	color:#919191;
 	font-size:18px;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 	font-weight:300;
 	padding:17px 0 13px;
 	margin-right:54px;
@@ -1158,7 +1158,7 @@
 	border-radius:10px;
 	display:inline-block;
 	margin-right:14px;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 }
 
 .counter.style1 .item-special {
@@ -1166,7 +1166,7 @@
 	color:#2d2d2d;
 	font-weight:bold;
 	font-size:18px;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 }
 
 .counter.style1 .counter-content {
@@ -1402,7 +1402,7 @@
 	color: #2d2d2d;
 	text-align:center;
 	font-size:25px;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 	font-weight:500;
 	border:2px solid #e5e5e5;
 	border-radius:50%;
@@ -1413,7 +1413,7 @@
 	margin-left:-4px;
 	color:#f28b00;
 	font-size:20px;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 	font-weight:500;
 }
 
@@ -2075,7 +2075,7 @@ ul.flat-infomation.style1 li img {
 
 .slider .slider-item .item-text .header-item p {
 	color:#919191;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 	font-size:16px;
 	font-weight:300;
 }
@@ -2089,7 +2089,7 @@ ul.flat-infomation.style1 li img {
 }
 
 .slider .slider-item .item-text .header-item h2 {
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 	font-size:70px;
 	font-weight:500;
 	color:#f28b00;
@@ -2121,7 +2121,7 @@ ul.flat-infomation.style1 li img {
 .slider .slider-item .item-text .content-item .regular {
 	font-size:18px;
 	color:#919191;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 	margin-top:10px;
 	margin-left:4px;
 }
@@ -2159,13 +2159,13 @@ ul.flat-infomation.style1 li img {
 	text-align:center;
 	padding-top:32px;
 	font-size:25px;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 	font-weight:bold;
 }
 
 .slider .slider-item .item-image .sale-off span {
 	font-size:20px;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 	margin-top:2px;
 	display:block;
 	font-weight:400;
@@ -3647,7 +3647,7 @@ body.background .flat-imagebox.style4 .owl-carousel-3.owl-theme .owl-controls .o
 
 .flat-newsletter .form-newsletter .left .title {
 	float:left;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 	font-weight:500;
 	font-size:30px;
 	margin-right:50px;
@@ -4527,7 +4527,7 @@ input[type="checkbox"]:checked + label:before {
 	color:#919191;
 	font-size:20px;
 	font-weight:300;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 	cursor:pointer;
 	padding:14px 30px 14px 26px;
 	position:relative;
@@ -4562,7 +4562,7 @@ input[type="checkbox"]:checked + label:before {
 /* Product Detail Style2 */
 .product-detail.style2 {
 	background-color:#fff;
-	padding:36px 1px 34px;
+	padding:20px 1px 25px;
 }
 
 .product-detail.style2 .content-detail .info-text {
@@ -4627,7 +4627,7 @@ input[type="checkbox"]:checked + label:before {
 
 /* Product Detail Style3 */
 .product-detail.style3 {
-	padding:22px 31px 33px;
+	padding:20px 20px 20px;
 	margin-left:-15px;
 }
 
@@ -4767,6 +4767,9 @@ input[type="checkbox"]:checked + label:before {
 	font-family:'Open Sans';
 }
 
+.tecnical-specs h3{
+	margin: 5px 0 10px;
+}
 .tecnical-specs table {
 	width:100%;
 }
@@ -4776,11 +4779,11 @@ input[type="checkbox"]:checked + label:before {
 }
 
 .tecnical-specs table tr td {
-	padding:15px 0;
+	padding:8px 5px;
 }
 
 .tecnical-specs table tr td:first-child {
-	width:120px;
+	width:auto;
 	font-weight:bold;
 	color:#484848;
 }
@@ -5437,7 +5440,7 @@ input[type="checkbox"]:checked + label:before {
 	margin-right:40px;
 	color:#989898;
 	font-size:16px;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 }
 
 .table-cart tr td .quanlity {
@@ -5504,7 +5507,7 @@ input[type="checkbox"]:checked + label:before {
 .table-cart tr td .total {
 	color:#f28b00;
 	font-size:20px;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 }
 
 .table-cart tr td > span {
@@ -5582,13 +5585,13 @@ input[type="checkbox"]:checked + label:before {
 .cart-totals table tr td.subtotal {
 	color:#8c8c8c;
 	font-size:19px;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 }
 
 .cart-totals table tr td.price-total {
 	font-size:24px;
 	font-weight:500;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 	color:#f28b00;
 	padding:22px 0;
 }
@@ -6170,7 +6173,7 @@ table.product thead tr th:last-child {
 .table-wishlist tbody tr td > div.price {
 	color:#f28b00;
 	font-size:20px;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 }
 
 .table-wishlist tbody tr td > div.status-product,
@@ -6275,7 +6278,7 @@ table.product thead tr th:last-child {
 	color:#2d2d2d;
 	font-size:20px;
 	font-weight:500;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 	padding-left:54px;
 }
 
@@ -6315,7 +6318,7 @@ table.product thead tr th:last-child {
 .table-compare tr td.price {
 	color:#f28b00;
 	font-size:22px;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 	font-weight:500;
 	padding:35px 0px 32px 0;
 }
@@ -6555,7 +6558,7 @@ table.product thead tr th:last-child {
 .accordion-toggle .toggle-title {
 	font-size:18px;
 	font-weight:500;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 	color:#2d2d2d;
 	padding:19px 33px 13px;
 	border:2px solid #e5e5e5;
@@ -6919,7 +6922,7 @@ table.product thead tr th:last-child {
 .flat-tab ul.tab-list li {
 	display:inline-block;
 	cursor:pointer;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 	font-size:18px;
 	font-weight:500;
 	color:#919191;
@@ -6962,7 +6965,7 @@ table.product thead tr th:last-child {
 	letter-spacing:0;
 	font-size:17px;
 	font-weight:bold;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 	color:#2d2d2d;
 }
 
@@ -6970,7 +6973,7 @@ table.product thead tr th:last-child {
 	text-align:right;
 	font-size:17px;
 	font-weight:bold;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 	color:#2d2d2d;
 	padding-bottom:19px;
 	width:0;
@@ -7022,7 +7025,7 @@ table.product thead tr th:last-child {
 .progress-circle .circle-item .text-name {
 	text-align:center;
 	font-size:16px;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 	font-weight:bold;
 	margin-top:24px;
 }
@@ -7153,7 +7156,7 @@ ul.brands-tablist {
 
 ul.brands-tablist li {
 	display:inline-block;
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 	font-weight:bold;
 	font-size:18px;
 	color:#484848;
@@ -7566,7 +7569,7 @@ ul.brands-tablist li.active {
 }
 
 .offer {
-	font-family:'BloggerSans';
+	font-family:'Open Sans';
 	font-size:18px;
 	font-weight:500;
 	color:#484848;

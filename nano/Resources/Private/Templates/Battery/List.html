@@ -9,22 +9,22 @@
 		<f:if condition="{batteries -> f:count()} > 0">
 		<div class="tab-product">
 			<div class="row sort-box">
-				<f:for each="{batteries}" as="item">
+				<f:for each="{batteries}" as="battery">
 				<div class="col-lg-4 col-sm-6">
 					<div class="product-box">
 						<div class="imagebox">
 							<div class="box-image">
-								<f:if condition="{item.firstFalMedia}">
-									<f:image image="{item.firstFalMedia}" />
+								<f:if condition="{battery.firstFalMedia}">
+									<f:image image="{battery.firstFalMedia}" />
 								</f:if>
 							</div>
 							<!-- /.box-image -->
 							<div class="box-content">
 								<div class="cat-name">
-									<f:link.action action="details" arguments="{battery:item}">{item.brand.title}</f:link.action>
+									<f:link.action action="details" arguments="{battery:battery}">{battery.brand.title}</f:link.action>
 								</div>
 								<div class="product-name">
-									<f:link.action action="details" arguments="{battery:item}">{item.title}</f:link.action>
+									<f:link.action action="details" arguments="{battery:battery}">{battery.title}</f:link.action>
 								</div>
 							</div>
 							<!-- /.box-content -->

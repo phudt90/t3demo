@@ -9,3 +9,10 @@
 #<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Menus/MainMenu.ts">
 #<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Menus/LanguageMenu.ts">
 #<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Ress/Setup.ts">
+      
+[globalVar = TSFE:cHash_array|tx_nano_battery[action] = details]
+	page.10.templateName >
+	page.10 {
+		templateName = Default
+	}
+[end]
