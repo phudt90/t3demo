@@ -1,13 +1,17 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:spaceless>
-	<div class="boxed">
+	<div class="boxed style1">
+		<div class="overlay"></div>
 		<div class="preloader">
 			<div class="clear-loading loading-effect-2">
 				<span></span>
 			</div>
 		</div>
 		<div id="top"></div>
+		
 		<f:render partial="Structure/Header" arguments="{_all}" />
+		
+		<div class="divider30"></div>
 		
 		<div class="body-bg{f:if(condition:settings.navigation.type, then:' body-bg-{settings.navigation.type}')}">
 
@@ -16,9 +20,6 @@
 			<div id="content" class="main-section">
 				<f:render section="Main" />
 			</div>
-
-			<f:render partial="Structure/Footer" arguments="{_all}" />
-			<f:render partial="Structure/ScrollTop" arguments="{_all}" />
 
 		</div>
 	</div>

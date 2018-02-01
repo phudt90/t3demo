@@ -3,6 +3,8 @@
 namespace ELCA\Nano\Controller;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use ELCA\Nano\Domain\Model\Application as ApplicationModel;
+use ELCA\Nano\Domain\Model\Battery as BatteryModel;
 
 /**
  * Battery controller
@@ -25,16 +27,18 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
   /**
    * Output a list view of batteries
+   * @param ApplicationModel
+   * 
    */
-  public function listAction() {
+  public function listAction(ApplicationModel $application = null) {
     $batteries = $this->batteryRepository->findAll();
     $this->view->assign('batteries', $batteries);
   }
   
   /**
-   * @param \ELCA\Nano\Domain\Model\Battery
+   * @param BatteryModel
    */
-  public function detailsAction(\ELCA\Nano\Domain\Model\Battery $battery) {
+  public function detailsAction(BatteryModel $battery) {
     $this->view->assign('battery', $battery);
   }
 }

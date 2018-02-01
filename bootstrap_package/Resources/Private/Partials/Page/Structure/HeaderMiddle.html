@@ -1,0 +1,85 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="header-middle">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div id="logo" class="logo style1">
+					<f:if condition="{settings.logo.file}">
+						<f:then>
+							<f:link.page pageUid="{rootPage}" class="navbar-brand navbar-brand-image" title="{settings.logo.linktitle}">
+								<img class="navbar-brand-logo-normal" 
+									src="{f:uri.image(src: settings.logo.file)}" 
+									alt="{logoAlt}" height="{settings.logo.height}" 
+									width="{settings.logo.width}">
+								<img class="navbar-brand-logo-inverted"
+									src="{f:uri.image(src: settings.logo.fileInverted)}"
+									alt="{logoAlt}" height="{settings.logo.height}"
+									width="{settings.logo.width}">
+							</f:link.page>
+						</f:then>
+						<f:else>
+							<f:link.page pageUid="{rootPage}" class="navbar-brand" title="{settings.logo.linktitle}">{siteTitle}</f:link.page>
+						</f:else>
+					</f:if>
+				</div>
+				<f:if condition="{mainnavigation}">
+					<div class="nav-wrap">
+						<div id="mainnav" class="mainnav style1">
+							<ul class="menu">
+								<f:for each="{mainnavigation}" as="mainnavigationItem">
+									<li class="{f:if(condition: mainnavigationItem.active, then:'active')} {f:if(condition: mainnavigationItem.children, then:'dropdown dropdown-hover')} column-1">
+										<a href="{mainnavigationItem.link}" title="{mainnavigationItem.title}">
+											<f:if condition="{mainnavigationItem.icon}">
+												<span class="navbar-item-icon"> 
+													<f:image
+														image="{mainnavigationItem.icon.0}"
+														alt="{mainnavigationItem.icon.0.alternative}"
+														title="{mainnavigationItem.icon.0.title}"
+														width="{settings.navigation.icon.width}"
+														height="{settings.navigation.icon.height}" />
+												</span>
+											</f:if> 
+											<span class="navbar-item-text">{mainnavigationItem.title}</span>
+											<f:if condition="{mainnavigationItem.children}">
+												<b class="caret"></b>
+											</f:if>
+										</a> 
+										<f:if condition="{mainnavigationItem.children}">
+											<ul class="submenu">
+												<f:for each="{mainnavigationItem.children}" as="child">
+													<li class="{f:if(condition: child.active, then:'active')}">
+														<a href="{child.link}" {f:if(condition:child.target, then: ' target="{child.target}"')} title="{child.title}"> 
+															<f:if condition="{child.icon}">
+																<span class="navbar-item-icon"> 
+																	<f:image
+																		image="{child.icon.0}"
+																		alt="{child.icon.0.alternative}"
+																		title="{child.icon.0.title}"
+																		width="{settings.navigation.icon.width}"
+																		height="{settings.navigation.icon.height}" />
+																</span>
+															</f:if> 
+															<span class="navbar-item-text">{child.title}</span>
+														</a>
+													</li>
+												</f:for>
+											</ul>
+										</f:if>
+									</li>
+								</f:for>
+							</ul>
+						</div>
+					</div>
+				</f:if>
+				<div class="btn-menu style1">
+					<span></span>
+				</div>
+				<ul class="flat-infomation style1">
+					<li class="phone"><img src="{f:uri.resource(path:'Nano/images/icons/call-3.png', extensionName: 'nano')}" alt="Liên hệ">
+						Liên hệ: <a href="tel:01652533905" title="">0165 25 33 905</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+</html>

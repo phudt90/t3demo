@@ -7,6 +7,7 @@
 page.includeCSS {
 	bootstrap = EXT:nano/Resources/Public/Nano/stylesheets/bootstrap.min.css
 	main = EXT:nano/Resources/Public/Nano/stylesheets/style.css
+	nano = EXT:nano/Resources/Public/Nano/stylesheets/nano.css
 	responsive = EXT:nano/Resources/Public/Nano/stylesheets/responsive.css
 }
 

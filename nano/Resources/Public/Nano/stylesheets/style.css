@@ -1282,7 +1282,7 @@ ul.flat-unstyled li > ul > li > a {
 	font-size:16px;
 	color:#fefefe;
 	height:65px;
-	padding-left:87px;
+	padding-left:67px;
 	line-height:65px;
 	background-color:#484848;
 	border-top-left-radius:9px;
@@ -1307,7 +1307,7 @@ ul.flat-unstyled li > ul > li > a {
 	position:absolute;
 	height:2px;
 	width:18px;
-	left:46px;
+	left:26px;
 	top:31px;
 	background-color:#fff;
 	display:inline-block;
@@ -1341,7 +1341,7 @@ ul.flat-unstyled li > ul > li > a {
 	top:-40px;
 	opacity:0;
 	visibility:hidden;
-	height:516px;
+	height:216px;
 	-webkit-transition:all 0.3s ease-in-out;
 	-moz-transition:all 0.3s ease-in-out;
 	-ms-transition:all 0.3s ease-in-out;
@@ -1352,7 +1352,7 @@ ul.flat-unstyled li > ul > li > a {
 #mega-menu > ul.menu > li > a {
 	height:50px;
 	line-height:51px;
-	padding:0 24px;
+	padding:0 18px;
 	border-bottom:1px solid #e5e5e5;
 	display:block;
 	position:relative;
@@ -1376,7 +1376,7 @@ ul.flat-unstyled li > ul > li > a {
 }
 
 #mega-menu > ul.menu > li > a .menu-img {
-	margin-right:18px;
+	margin-right:10px;
 	min-width:30px;
 	display:inline-block;
 	text-align:center;
