@@ -201,7 +201,7 @@ return [
         'MM' => 'tx_nano_domain_model_battery_application_mm',
         'foreign_table' => 'tx_nano_domain_model_application',
         'foreign_table_where' => 'ORDER BY tx_nano_domain_model_application.sorting',
-        'multiple' => true,
+        'multiple' => false,
         'size' => 10,
         'minitems' => 1,
         'maxitems' => 99

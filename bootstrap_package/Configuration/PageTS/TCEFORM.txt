@@ -18,7 +18,10 @@ TCEFORM {
             }
         }
         layout {
-            removeItems = 1,2,3
+            removeItems = 2,3
+            altLabels {
+      				1 = Flat image box
+    				}
             disableNoMatchingValueElement = 1
             types {
                 uploads {

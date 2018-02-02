@@ -7,10 +7,10 @@ namespace ELCA\Nano\Domain\Repository;
  */
 class BatteryRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
-  public function findByApplicaationId($appId) {
+  public function findByApplicaationIds(array $appIds, $limit) {
     $query = $this->createQuery();
-    $query->matching($query->logicalAnd($query->equals('applications.uid', $appId)));
-    //$this->debugQuery($query);
+    $query->matching($query->logicalAnd($query->in('applications.uid', $appIds)));
+    $query->setLimit($limit);
     return $query->execute();
   }
   
