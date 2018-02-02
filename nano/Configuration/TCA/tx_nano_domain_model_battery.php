@@ -191,7 +191,7 @@ return [
         'rows' => 5
       ]
     ],
-    'application' => [
+    'applications' => [
       'exclude' => 0,
       'l10n_mode' => 'mergeIfNotBlank',
       'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_application.label',
@@ -431,7 +431,7 @@ return [
   ],
   'palettes' => [
     'paletteCore' => [
-      'showitem' => 'code,hidden,--linebreak--,application,--linebreak--,brand',
+      'showitem' => 'code,hidden,--linebreak--,applications,--linebreak--,brand',
     ],
     'paletteSpecs' => [
       'showitem' => 'terminal_type,terminal_layout,voltage,technology,capacity_20,capacity_100,cca_en,cca_sae,length,width,height,guarantee'

@@ -30,8 +30,19 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    * @param ApplicationModel
    * 
    */
-  public function listAction(ApplicationModel $application = null) {
+  public function listAction() {
     $batteries = $this->batteryRepository->findAll();
+    $this->view->assign('batteries', $batteries);
+  }
+  
+  /**
+   * Output a list view of batteries by application
+   * @param ApplicationModel
+   *
+   */
+  public function batteryByApplicationAction() {
+    $appId = 2;
+    $batteries = $this->batteryRepository->findByApplicaationId($appId);
     $this->view->assign('batteries', $batteries);
   }
   

@@ -38,7 +38,7 @@ CREATE TABLE tx_nano_domain_model_battery (
 	seo_keywords text,
 	seo_description text,
 	
-	application int(11) DEFAULT '0' NOT NULL,
+	applications int(11) DEFAULT '0' NOT NULL,
 	brand int(11) DEFAULT '0' NOT NULL,
 	code varchar(32) DEFAULT '' NOT NULL,
 	terminal_type tinyint(1) DEFAULT '0' NOT NULL,
