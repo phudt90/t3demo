@@ -8,7 +8,7 @@ defined('TYPO3_MODE') or die();
  */
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'Battery', 'Ắc quy xe');
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'BatteryByApplication', 'Ắc quy xe theo loại xe');
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'BatteryByApplication', 'Ắc quy theo loại xe');
 
 $pluginSignature = 'nano_batterybyapplication';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';

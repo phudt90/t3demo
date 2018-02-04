@@ -16,6 +16,7 @@ site {
 [globalString = IENV:HTTP_HOST = *.com]
   site {
     debug = 0
+    admPanel = 0
     compressCss = 1
 		concatenateCss = 1
 		compressJs = 1

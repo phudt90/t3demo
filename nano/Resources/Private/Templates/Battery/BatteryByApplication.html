@@ -6,7 +6,7 @@
 		<div class="product-box style1">
 			<div class="imagebox style1">
 				<div class="box-image">
-					<f:link.action action="details" arguments="{battery:battery}">
+					<f:link.action pageUid="shop" action="details" arguments="{battery:battery}">
 						<f:if condition="{battery.firstFalMedia}">
 							<f:image image="{battery.firstFalMedia}" />
 						</f:if>
@@ -14,10 +14,10 @@
 				</div>
 				<div class="box-content">
 					<div class="cat-name">
-						<f:link.action action="details" arguments="{battery:battery}">{battery.brand.title}</f:link.action>
+						<f:link.action pageUid="shop" action="details" arguments="{battery:battery}">{battery.brand.title}</f:link.action>
 					</div>
 					<div class="product-name">
-						<f:link.action action="details" arguments="{battery:battery}">{battery.title}</f:link.action>
+						<f:link.action pageUid="shop" action="details" arguments="{battery:battery}">{battery.title}</f:link.action>
 						<div class="product-meta">
 							<span>Code: {battery.code}</span>
 							<f:if condition="{battery.voltage}>0">
@@ -29,7 +29,7 @@
 				</div>
 				<div class="box-bottom">
 					<div class="btn-add-cart">
-						<f:link.action action="details" arguments="{battery:battery}">Chi tiết</f:link.action>
+						<f:link.action pageUid="shop" action="details" arguments="{battery:battery}">Chi tiết</f:link.action>
 					</div>
 				</div>
 			</div>

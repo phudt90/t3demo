@@ -1,40 +1,140 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:if condition="{showFooter}">
-    <footer>
-        <section class="section footer-section footer-section-content">
-            <div class="container">
-                <div class="section-row">
-                    <div class="section-column footer-section-content-column-left">
-                        <f:cObject typoscriptObjectPath="lib.dynamicContentSlide" data="{pageUid: '{data.uid}', colPos: '10'}" />
-                    </div>
-                    <div class="section-column footer-section-content-column-middle">
-                        <f:cObject typoscriptObjectPath="lib.dynamicContentSlide" data="{pageUid: '{data.uid}', colPos: '11'}" />
-                    </div>
-                    <div class="section-column footer-section-content-column-right">
-                        <f:cObject typoscriptObjectPath="lib.dynamicContentSlide" data="{pageUid: '{data.uid}', colPos: '12'}" />
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="section section-small footer-section footer-section-meta">
-            <div class="container">
-                <f:if condition="{settings.meta.enable}">
-                    <div class="frame frame-small default meta">
-                        <f:render partial="Navigation/Meta" arguments="{_all}" />
-                    </div>
-                </f:if>
-                <f:if condition="{settings.language.enable}">
-                    <div class="frame frame-small default language">
-                        <f:render partial="Navigation/Language" arguments="{_all}" />
-                    </div>
-                </f:if>
-                <f:if condition="{settings.copyright.enable}">
-                    <div class="frame frame-small default copyright">
-                        <f:format.html>{settings.copyright.text}</f:format.html>
-                    </div>
-                </f:if>
-            </div>
-        </section>
-    </footer>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-4">
+					<div class="widget-ft widget-about">
+						<div class="logo logo-ft">
+							<a href="index.html" title=""> 
+								<img src="{f:uri.resource(path:'Nano/images/logos/logo-7315.png', extensionName: 'nano')}" alt="">
+							</a>
+						</div>
+						<div class="info">
+							<p class="questions">Công Ty Cổ Phần Xây Dựng &amp; Thương Mại Vĩnh Thành</p>
+							<p class="phone">Hotline: (028) 62774188 - (028)62767979</p>
+							<p class="address">Số 25 Đường 50D, KDC Tân Tạo. P. Tân Tạo, Q. Bình Tân, Tp. Hồ Chí Minh</p>
+							<p class="address">Mã Số Thuế: 0305841494</p>
+							<p class="address">Tài Khoản: 31210000363724 - Ngân Hàng BIDV Chi nhánh Tây Sài Gòn</p>
+							<p class="address">Email: vinhthanhcorporation@gmail.com</p>
+							<p class="address">Website: acquynano.com</p>
+						</div>
+						<ul class="social-list">
+							<li><a href="#" title=""> <i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+							<li><a href="#" title=""> <i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							<li><a href="#" title=""> <i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+							<li><a href="#" title=""> <i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+							<li><a href="#" title=""> <i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+							<li><a href="#" title=""> <i class="fa fa-google" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-4">
+					<div class="widget-ft widget-menu">
+						<div class="widget-title">
+							<h3>Sản phẩm ắc quy</h3>
+						</div>
+						<ul class="cat-list-ft">
+							<li><a href="javascript:;" title="">Ắc quy ô tô truyền thống</a></li>
+							<li><a href="javascript:;" title="">Ắc quy dân dụng</a></li>
+							<li><a href="javascript:;" title="">Ắc quy công nghiệp</a></li>
+							<li><a href="javascript:;" title="">Ắc quy xe gắn máy</a></li>
+							<li><a href="javascript:;" title="">Ắc quy xe điện</a></li>
+						</ul>
+					</div>
+					<div class="widget-ft widget-menu">
+						<div class="widget-title">
+							<h3>Thương hiệu ắc quy</h3>
+						</div>
+						<ul class="cat-list-ft">
+							<li><a href="javascript:;" title="">Ắc quy Daewoo</a></li>
+							<li><a href="javascript:;" title="">Ắc quy Toplite</a></li>
+							<li><a href="javascript:;" title="">Ắc quy Yuasa</a></li>
+							<li><a href="javascript:;" title="">Ắc quy Powerline</a></li>
+							<li><a href="javascript:;" title="">Ắc quy GS</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-4">
+					<div class="widget-ft widget-menu">
+						<div class="widget-title">
+							<h3>Thông tin công ty</h3>
+						</div>
+						<ul>
+							<li><a href="javascript:;" title="">Giới thiệu</a></li>
+							<li><a href="javascript:;" title="">Thành tựu</a></li>
+							<li><a href="javascript:;" title="">Ban lãnh đạo</a></li>
+							<li><a href="javascript:;" title="">Đơn vị thành viên</a></li>
+							<li><a href="javascript:;" title="">Chất lượng</a></li>
+						</ul>
+					</div>
+					<div class="widget-ft widget-menu">
+						<div class="widget-title">
+							<h3>Hỗ trợ khách hàng</h3>
+						</div>
+						<ul class="cat-list-ft">
+							<li><a href="javascript:;" title="">Chính sách bảo hành</a></li>
+							<li><a href="javascript:;" title="">Thư viện hỗ trợ</a></li>
+							<li><a href="javascript:;" title="">Tư vấn sử dụng</a></li>
+							<li><a href="javascript:;" title="">Ắc quy và đời sống</a></li>
+							<li><a href="javascript:;" title="">Hệ thống phân phối</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="widget widget-apps">
+						<div class="widget-title">
+							<h3>Mobile Apps</h3>
+						</div>
+						<ul class="app-list">
+							<li class="app-store">
+								<a href="javascript:;" title=""> 
+									<span class="img"> 
+										<img src="{f:uri.resource(path:'Nano/images/icons/app-store.png', extensionName: 'nano')}" alt="" />
+									</span> 
+									<span class="text">
+										<h4>App Store</h4>
+										<p>Available now on the</p>
+									</span>
+								</a>
+							</li>
+				
+							<li class="google-play">
+								<a href="javascript:;" title=""> 
+									<span class="img">
+										<img src="{f:uri.resource(path:'Nano/images/icons/google-play.png', extensionName: 'nano')}" alt="" />
+									</span> 
+									<span class="text">
+										<h4>Google Play</h4>
+										<p>Get in on</p>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- /footer -->
+	<section class="footer-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<f:if condition="{settings.copyright.enable}">
+					<div class="copyright">All Rights Reserved &copy; Ắc quy Nano 2018</div>
+					</f:if>
+					<p class="btn-scroll">
+						<a href="javascript:;" title="">
+							<img src="{f:uri.resource(path:'Nano/images/icons/top.png', extensionName: 'nano')}" alt="">
+						</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
 </f:if>
 </html>

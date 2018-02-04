@@ -16,22 +16,22 @@
 				<source>Mã sản phẩm</source>
 			</trans-unit>
 			<trans-unit id="tx_nano_domain_model_battery.terminal_type.label">
-				<source>Loại cọc</source>
-			</trans-unit>
-			<trans-unit id="tx_nano_domain_model_battery.terminal_layout.label">
 				<source>Kiểu cọc</source>
 			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_battery.terminal_layout.label">
+				<source>Vị trí cọc</source>
+			</trans-unit>
 			<trans-unit id="tx_nano_domain_model_battery.voltage.label">
-				<source>Voltage</source>
+				<source>Điện thế (V)</source>
 			</trans-unit>
 			<trans-unit id="tx_nano_domain_model_battery.technology.label">
 				<source>Công nghệ</source>
 			</trans-unit>
 			<trans-unit id="tx_nano_domain_model_battery.capacity_20.label">
-				<source>Capacity 20</source>
+				<source>Dung lượng</source>
 			</trans-unit>
 			<trans-unit id="tx_nano_domain_model_battery.capacity_100.label">
-				<source>Capacity 100</source>
+				<source>Trọng lượng</source>
 			</trans-unit>
 			<trans-unit id="tx_nano_domain_model_battery.cca_en.label">
 				<source>CCA EN</source>

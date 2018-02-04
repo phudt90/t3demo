@@ -1,5 +1,4 @@
 config {
-  admPanel = {$site.admPanel}
   baseURL >
 
   // To be able to support both http and https
@@ -15,6 +14,7 @@ config {
   compressCss = {$site.compressCss}
 
   debug = {$site.debug}
+  admPanel = {$site.admPanel}
   disableCharsetHeader = 0
   disablePrefixComment = 1
   doctype = html5
