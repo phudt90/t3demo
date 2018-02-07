@@ -9,6 +9,12 @@
 			<trans-unit id="tx_nano_domain_model_brand.label">
 				<source>Thương hiệu ắc quy</source>
 			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_vbrand.label">
+				<source>Thương hiệu xe</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_vmodel.label">
+				<source>Dòng xe</source>
+			</trans-unit>
 			<trans-unit id="tx_nano_domain_model_battery.label">
 				<source>Ắc quy</source>
 			</trans-unit>
@@ -50,6 +56,9 @@
 			</trans-unit>
 			<trans-unit id="tx_nano_domain_model_battery.guarantee.label">
 				<source>Bảo hành</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_vbrand.vmodels.label">
+				<source>Các dòng xe</source>
 			</trans-unit>
 		</body>
 	</file>

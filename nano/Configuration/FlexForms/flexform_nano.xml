@@ -38,7 +38,7 @@
 					<!-- Limit Start -->
 					<settings.limit>
 						<TCEforms>
-							<label>Số lượng hiển thị</label>
+							<label>Số lượng hiển thị mỗi trang</label>
 							<config>
 								<type>input</type>
 								<size>5</size>

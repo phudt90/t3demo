@@ -2,13 +2,12 @@
 
 namespace ELCA\Nano\Controller;
 
-use ELCA\Nano\Domain\Model\Application as ApplicationModel;
 use ELCA\Nano\Domain\Model\Battery as BatteryModel;
 
 /**
- * Battery controller
+ * Brand controller
  */
-class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class BrandController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
   /**
    *
    * @var \ELCA\Nano\Domain\Repository\BatteryRepository

@@ -3,7 +3,7 @@ defined('TYPO3_MODE') or die();
 
 return [
   'ctrl' => [
-    'title' => 'Loại ắc quy',
+    'title' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_vbrand.label',
     'label' => 'title',
     'label_alt' => 'bodytext',
     'tstamp' => 'tstamp',
@@ -14,7 +14,7 @@ return [
     'versioningWS' => true,
     'origUid' => 't3_origuid',
     'hideAtCopy' => true,
-    'prependAtCopy' => 'LLL:EXT:nano/Resources/Private/Language/locallang_general.xlf:LGL.prependAtCopy',
+    'prependAtCopy' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.prependAtCopy',
     'transOrigPointerField' => 'l18n_parent',
     'transOrigDiffSourceField' => 'l18n_diffsource',
     'languageField' => 'sys_language_uid',
@@ -87,7 +87,7 @@ return [
     'starttime' => [
       'exclude' => true,
       'l10n_mode' => 'mergeIfNotBlank',
-      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel',
+      'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel',
       'config' => [
         'type' => 'input',
         'size' => 16,
@@ -98,7 +98,7 @@ return [
     'endtime' => [
       'exclude' => true,
       'l10n_mode' => 'mergeIfNotBlank',
-      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
+      'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
       'config' => [
         'type' => 'input',
         'size' => 16,
@@ -106,7 +106,6 @@ return [
         'default' => 0
       ]
     ],
-    
     // domain model fields
     'title' => [
       'exclude' => false,
@@ -142,6 +141,23 @@ return [
         ]
       ]
     ],
+    'vmodels' => [
+      'exclude' => 1,
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_vbrand.vmodels.label',
+      'config' => [
+        'type' => 'inline',
+        'foreign_table' => 'tx_nano_domain_model_vmodel',
+        'foreign_field' => 'vbrand',
+        'foreign_sortby' => 'sorting',
+        'minitems' => 1,
+        'maxitems' => 99,
+        'appearance' => [
+          'collapseAll' => 1,
+          'expandSingle' => 1,
+          'useSortable' => 1,
+        ]
+      ]
+    ],
     'seo_title' => [
       'exclude' => true,
       'l10n_mode' => 'mergeIfNotBlank',
@@ -170,7 +186,7 @@ return [
           'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
         ],
       ],
-      'showitem' => 'title,bodytext'
+      'showitem' => 'title,bodytext,vmodels'
     ]
     
   ],

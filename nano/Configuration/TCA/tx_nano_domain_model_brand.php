@@ -29,7 +29,7 @@ return [
     'sortby' => 'sorting'
   ],
   'interface' => [
-    'showRecordFieldList' => 'title,teaser,bodytext,created'
+    'showRecordFieldList' => 'title,bodytext,created'
   ],
   'columns' => [
     'l18n_diffsource' => [
@@ -106,15 +106,7 @@ return [
         'default' => 0
       ]
     ],
-    'rowDescription' => [
-      'exclude' => true,
-      'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.description',
-      'config' => [
-        'type' => 'text',
-        'rows' => 5,
-        'cols' => 30
-      ]
-    ],
+    
     // domain model fields
     'title' => [
       'exclude' => false,
