@@ -31,8 +31,7 @@ page.includeJSFooterlibs {
   zoom = EXT:nano/Resources/Public/Nano/javascript/jquery.zoom.min.js
   jqueryUI = EXT:nano/Resources/Public/Nano/javascript/jquery-ui.js
   mCustomScrollbar = EXT:nano/Resources/Public/Nano/javascript/jquery.mCustomScrollbar.js
-  waves = EXT:nano/Resources/Public/Nano/javascript/waves.min.js
-  
+  waves = EXT:nano/Resources/Public/Nano/javascript/waves.min.js 
   flexslider = EXT:nano/Resources/Public/Nano/javascript/jquery.flexslider-min.js
 }
 

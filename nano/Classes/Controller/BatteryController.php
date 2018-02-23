@@ -47,6 +47,7 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
   }
   
   /**
+   * Battery Details
    * @param BatteryModel
    */
   public function detailsAction(BatteryModel $battery) {

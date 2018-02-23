@@ -6,8 +6,8 @@ defined('TYPO3_MODE') or die();
  * Plugins
  * *************
  */
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'Battery', 'Ắc quy xe');
-
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'BatteryList', 'Danh sách ắc quy');
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'BatteryDetails', 'Chi tiết ắc quy');
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'BatteryByApplication', 'Ắc quy theo loại xe');
 
 $pluginSignature = 'nano_batterybyapplication';

@@ -1,0 +1,14 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="header-detail">
+	<h4 class="name">{battery.title}</h4>
+	<f:if condition="{battery.brand}">
+	<div class="category">{battery.brand.title}</div>
+	</f:if>
+	<f:if condition="{battery.code}">
+	<div class="product-id">
+		<f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.code.label" />: 
+		<span class="id">{battery.code}</span>
+	</div>
+	</f:if>
+</div>
+</html>

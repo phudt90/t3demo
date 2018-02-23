@@ -1,0 +1,41 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{batteries -> f:count()} > 0">
+<div class="row">
+	<f:for each="{batteries}" as="battery">
+	<div class="col-lg-3 col-md-4 col-sm-6">
+		<div class="product-box style1">
+			<div class="imagebox style1">
+				<div class="box-image">
+					<f:link.action pageUid="shop" action="details" arguments="{battery:battery}">
+						<f:if condition="{battery.firstFalMedia}">
+							<f:image image="{battery.firstFalMedia}" />
+						</f:if>
+					</f:link.action>
+				</div>
+				<div class="box-content">
+					<div class="cat-name">
+						<f:link.action pageUid="{settings.detailsPid}" action="details" arguments="{battery:battery}">{battery.brand.title}</f:link.action>
+					</div>
+					<div class="product-name">
+						<f:link.action pageUid="{settings.detailsPid}" action="details" arguments="{battery:battery}">{battery.title}</f:link.action>
+						<div class="product-meta">
+							<span>Code: {battery.code}</span>
+							<f:if condition="{battery.voltage}>0">
+							<br/>
+							<span>Voltage: {battery.voltage}</span>
+							</f:if>
+						</div>
+					</div>
+				</div>
+				<div class="box-bottom">
+					<div class="btn-add-cart">
+						<f:link.action pageUid="{settings.detailsPid}" action="details" arguments="{battery:battery}">Chi tiết</f:link.action>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</f:for>
+</div>
+</f:if>
+</html>

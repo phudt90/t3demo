@@ -1,107 +1,17 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-	data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 <f:section name="Main">
 	<div class="section section-default">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-4">
-					<f:cObject typoscriptObjectPath="lib.dynamicContent"
-						data="{pageUid: '{data.uid}', colPos: '1'}" />
-					<div class="sidebar ">
-						<div class="widget widget-brands">
-							<div class="widget-title">
-								<h3>
-									<span>Kiểu cọc</span>
-								</h3>
-							</div>
-							<div class="widget-content">
-								<ul class="box-checkbox scroll">
-									<li class="check-box">
-										<input type="checkbox" id="checkbox1" name="checkbox1"> <label
-										for="checkbox1">Kiểu cọc 1 <span>(4)</span></label></li>
-									<li class="check-box"><input type="checkbox"
-										id="checkbox2" name="checkbox2"> <label
-										for="checkbox2">Kiểu cọc 2 <span>(2)</span></label></li>
-									<li class="check-box"><input type="checkbox"
-										id="checkbox3" name="checkbox3"> <label
-										for="checkbox3">Kiểu cọc 3 <span>(2)</span></label></li>
-									<li class="check-box"><input type="checkbox"
-										id="checkbox4" name="checkbox4"> <label
-										for="checkbox4">Kiểu cọc 4 <span>(2)</span></label></li>
-									<li class="check-box"><input type="checkbox"
-										id="checkbox5" name="checkbox5"> <label
-										for="checkbox5">Kiểu cọc 5 <span>(1)</span></label></li>
-								</ul>
-							</div>
-						</div>
-						
-						<div class="widget widget-color">
-							<div class="widget-title">
-								<h3>
-									Vị trí cọc<span></span>
-								</h3>
-							</div>
-							<div class="widget-content">
-								<ul class="box-checkbox scroll">
-									<li class="check-box"><input type="checkbox" id="check6"
-										name="check1"> <label for="check6">Vị trí cọc 1 <span>(4)</span></label>
-									</li>
-									<li class="check-box"><input type="checkbox" id="check7"
-										name="check2"> <label for="check7">Vị trí cọc 2 <span>(2)</span></label>
-									</li>
-									<li class="check-box"><input type="checkbox" id="check8"
-										name="check3"> <label for="check8">Vị trí cọc 3 <span>(2)</span></label>
-									</li>
-									<li class="check-box"><input type="checkbox" id="check9"
-										name="check4"> <label for="check9">Vị trí cọc 4 <span>(2)</span></label>
-									</li>
-								</ul>
-							</div>
-						</div>
-						
-						<div class="widget widget-color">
-							<div class="widget-title">
-								<h3>
-									Dung lượng<span></span>
-								</h3>
-							</div>
-							<div class="widget-content">
-								<ul class="box-checkbox scroll">
-									<li class="check-box"><input type="checkbox" id="check10"
-										name="check1"> <label for="check10">20Ah <span>(4)</span></label>
-									</li>
-									<li class="check-box"><input type="checkbox" id="check11"
-										name="check2"> <label for="check11">30Ah <span>(2)</span></label>
-									</li>
-									<li class="check-box"><input type="checkbox" id="check12"
-										name="check3"> <label for="check12">40Ah <span>(2)</span></label>
-									</li>
-									<li class="check-box"><input type="checkbox" id="check13"
-										name="check4"> <label for="check13">50Ah <span>(2)</span></label>
-									</li>
-								</ul>
-							</div>
-						</div>
-						
-						<div class="widget widget-banner">
-							<div class="banner-box">
-								<div class="inner-box">
-									<a href="#" title=""> 
-										<img src="{f:uri.resource(path:'Nano/images/banner_boxes/06.png', extensionName:'nano')}"alt="">
-									</a>
-								</div>
-							</div>
-						</div>
-						<!-- /.widget widget-banner -->
-					</div>
+					<f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '1'}" />
 				</div>
-				<main class="col-lg-9 col-md-8" role="main"> <f:cObject
-					typoscriptObjectPath="lib.dynamicContent"
-					data="{pageUid: '{data.uid}', colPos: '0'}" /> </main>
+				<main class="col-lg-9 col-md-8" role="main"> 
+					<f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '0'}" />
+				</main>
 			</div>
 		</div>
 	</div>
-
 </f:section>
 </html>
