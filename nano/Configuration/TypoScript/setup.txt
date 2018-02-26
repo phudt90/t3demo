@@ -1,4 +1,5 @@
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Config/Setup/Config.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Config/Setup/Settings.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Extension/FrontendPlugins.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Layout/Assets.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Seo/Meta.ts">

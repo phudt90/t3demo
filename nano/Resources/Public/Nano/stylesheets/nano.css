@@ -1,3 +1,45 @@
-.main-section{
-	min-height:500px;
+.main-section {
+	min-height: 500px;
 }
+
+.quick-search {
+	background: #fff;
+  border-radius: 25px;
+  overflow: hidden;
+  position:relative;
+  padding-left: 25px;
+  padding-right: 85px;
+}
+.quick-search .form-inline{
+	height:45px;
+}
+.quick-search .form-group h3 {
+	font-size: 14px;
+	font-weight: 600;
+	text-transform: uppercase;
+	padding-right: 10px;
+}
+.quick-search .form-group .form-control {
+	background-color: #fff;
+	border-color: #fff;
+	font-size: 14px;
+	border-radius: 0;
+	padding: 5px 5px;
+}
+.quick-search .form-group-spacer {
+	height: 20px;
+	width: 1px;
+	background: #e5e5e5;
+	margin: 0 10px;
+}
+.quick-search .btn-search {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.quick-search .btn-search button {
+	background: #484848;
+	padding: 0px 27px 0 32px;
+	height: 45px;
+	line-height: 43px;
+}    

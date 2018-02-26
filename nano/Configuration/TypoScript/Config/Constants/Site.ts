@@ -7,6 +7,10 @@ site {
 	concatenateCss = 1
 	compressJs = 1
 	concatenateJs = 1
+	
+	info {
+		phone = 0903 377 985
+	}
 }
 
 ###################################################
