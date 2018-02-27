@@ -2,34 +2,34 @@
 <div class="header-bottom">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3 col-2">
+			<div class="col-lg-3 col-md-2 col-sm-2 col-2">
 				<div id="mega-menu" class="">
 					<div class="btn-mega"><span></span>Danh mục sản phẩm</div>
 					<ul class="menu">
 						<li>
-							<a href="javascript:;" title="" class="dropdown">
+							<f:link.page pageUid="9" additionalParams="{tx_nano_batterylist: {application:2}}" class="dropdown">
 								<span class="menu-img">
 									<img src="{f:uri.resource(path:'Nano/images/icons/menu/09.png', extensionName: 'nano')}" alt="">
 								</span>
 								<span class="menu-title">Ắc quy xe ô tô</span>
-							</a>
+							</f:link.page>
 							<div class="drop-menu">
 								<div class="one-third">
 									<div class="cat-title">Theo dòng xe</div>
 									<ul>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Abarth</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Aixam</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Alfa Romeo</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Alpina Car</f:link.action></li>
+										<li><f:link.action pageUid="9" controller="Battery" action="list">Abarth</f:link.action></li>
+										<li><f:link.action pageUid="9" controller="Battery" action="list">Aixam</f:link.action></li>
+										<li><f:link.action pageUid="9" controller="Battery" action="list">Alfa Romeo</f:link.action></li>
+										<li><f:link.action pageUid="9" controller="Battery" action="list">Alpina Car</f:link.action></li>
 										<li><f:link.action pageUid="3" controller="Battery" action="list">Alpine Car</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Asia Motors</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Aston Martin</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Audi</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Austin Car</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Austin-Healey</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Bentley</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">BMW</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Bristol</f:link.action></li>
+										<li><f:link.action pageUid="9" controller="Battery" action="list">Asia Motors</f:link.action></li>
+										<li><f:link.action pageUid="9" controller="Battery" action="list">Aston Martin</f:link.action></li>
+										<li><f:link.action pageUid="9" controller="Battery" action="list">Audi</f:link.action></li>
+										<li><f:link.action pageUid="9" controller="Battery" action="list">Austin Car</f:link.action></li>
+										<li><f:link.action pageUid="9" controller="Battery" action="list">Austin-Healey</f:link.action></li>
+										<li><f:link.action pageUid="9" controller="Battery" action="list">Bentley</f:link.action></li>
+										<li><f:link.action pageUid="9" controller="Battery" action="list">BMW</f:link.action></li>
+										<li><f:link.action pageUid="9" controller="Battery" action="list">Bristol</f:link.action></li>
 									</ul>
 									<div class="show">
 										<f:link.action pageUid="3" controller="Battery" action="list">Xem tất cả</f:link.action>
@@ -166,27 +166,25 @@
 						</li>
 					</ul>
 				</div>
-			</div> <!-- /.col-md-3 -->
-			<div class="col-md-9 col-10">
-				<div class="top-search style1">
+			</div>
+			<div class="col-lg-7 col-md-10 col-sm-10 col-10">
+				<div class="nano-top-search">
 					<form action="#" method="get" class="form-search" accept-charset="utf-8">
 						<div class="quick-search">
-							<div class="form-inline">
-								<div class="form-group">
-									<h3>Tìm ắc quy</h3>
-								</div>
-								<div class="form-group">
+							<div class="quick-search-inner">
+								<h3 class="quick-search-heading">Tìm ắc quy</h3>
+								<div class="quick-search-field">
 									<select name="vbrand" class="form-control fc-vbrand">
-										<option value="">-- Chọn thương hiệu xe --</option>
+										<option value="">-- Thương hiệu xe --</option>
 										<option value="">TOYOTA</option>
 										<option value="">HONDA</option>
 										<option value="">YAMAHA</option>
 									</select>
 								</div>
-								<div class="form-group-spacer"></div>
-								<div class="form-group">
+								<div class="quick-search-field-spacer"></div>
+								<div class="quick-search-field">
 									<select name="vmodel" class="form-control fc-vmodel">
-										<option value="">-- Chọn dòng xe --</option>
+										<option value="">-- Dòng xe --</option>
 										<option value="">TOYOTA</option>
 										<option value="">HONDA</option>
 										<option value="">YAMAHA</option>
@@ -199,11 +197,7 @@
 						</div>
 					</form>
 				</div>
-				<!-- /.top-search -->
-				<span class="show-search">
-					<button></button>
-				</span>
-			</div> <!-- /.col-md-9 -->
+			</div>
 		</div>
 	</div>
 </div>

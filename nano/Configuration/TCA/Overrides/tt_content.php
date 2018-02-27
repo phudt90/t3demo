@@ -7,8 +7,8 @@ defined('TYPO3_MODE') or die();
  * *************
  */
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'BatteryList', 'Danh sách ắc quy');
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'BatteryDetails', 'Chi tiết ắc quy');
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'BatteryByApplication', 'Ắc quy theo loại xe');
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'SearchBattery', 'Tìm ắc quy');
 
 $pluginSignature = 'nano_batterybyapplication';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';

@@ -7,16 +7,16 @@ defined('TYPO3_MODE') or die();
   'Battery' => 'list,details'
 ]);
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'BatteryDetails', [
-  'Battery' => 'details',
-], [
-  'Battery' => 'details'
-]);
-
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'BatteryByApplication', [
   'Battery' => 'batteryByApplication,details',
 ], [
   'Battery' => 'batteryByApplication,details'
+]);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'SearchBattery', [
+  'Battery' => 'search,details',
+], [
+  'Battery' => 'search,details'
 ]);
 
 if(\TYPO3\CMS\Core\Utility\GeneralUtility::getApplicationContext()->isDevelopment()) {

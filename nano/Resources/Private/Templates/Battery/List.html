@@ -1,43 +1,7 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <div class="main-shop">
 	<div class="wrap-imagebox">
-		<div class="flat-row-title">
-			<h3>Ắc quy xe máy</h3>
-			<span>Đang hiển thị từ 1 đến 15 của 20 kết quả</span>
-			<div class="clearfix"></div>
-		</div>
-		<f:if condition="{batteries -> f:count()} > 0">
-		<div class="tab-product">
-			<div class="row sort-box">
-				<f:for each="{batteries}" as="battery">
-					<div class="col-lg-4 col-sm-6">
-						<div class="product-box">
-							<div class="imagebox">
-								<div class="box-image">
-									<f:if condition="{battery.firstFalMedia}">
-										<f:image image="{battery.firstFalMedia}" />
-									</f:if>
-								</div>
-								<div class="box-content">
-									<div class="cat-name">
-										<f:link.action action="details" arguments="{battery:battery}">{battery.brand.title}</f:link.action>
-									</div>
-									<div class="product-name">
-										<f:link.action action="details" arguments="{battery:battery}">{battery.title}</f:link.action>
-									</div>
-								</div>
-								<div class="box-bottom">
-									<div class="btn-add-cart">
-										<f:link.action action="details" arguments="{battery:battery}">Chi tiết</f:link.action>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</f:for>
-			</div>
-		</div>
-		</f:if>
+		<f:render partial="BatteryList/Grid4Columns" arguments="{batteries:batteries}" />
 	</div>
 </div>
 </html>
