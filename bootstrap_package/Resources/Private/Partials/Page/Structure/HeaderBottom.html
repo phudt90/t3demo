@@ -3,169 +3,37 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3 col-md-2 col-sm-2 col-2">
-				<div id="mega-menu" class="">
-					<div class="btn-mega"><span></span>Danh mục sản phẩm</div>
-					<ul class="menu">
-						<li>
-							<f:link.page pageUid="9" additionalParams="{tx_nano_batterylist: {application:2}}" class="dropdown">
-								<span class="menu-img">
-									<img src="{f:uri.resource(path:'Nano/images/icons/menu/09.png', extensionName: 'nano')}" alt="">
-								</span>
-								<span class="menu-title">Ắc quy xe ô tô</span>
-							</f:link.page>
-							<div class="drop-menu">
-								<div class="one-third">
-									<div class="cat-title">Theo dòng xe</div>
-									<ul>
-										<li><f:link.action pageUid="9" controller="Battery" action="list">Abarth</f:link.action></li>
-										<li><f:link.action pageUid="9" controller="Battery" action="list">Aixam</f:link.action></li>
-										<li><f:link.action pageUid="9" controller="Battery" action="list">Alfa Romeo</f:link.action></li>
-										<li><f:link.action pageUid="9" controller="Battery" action="list">Alpina Car</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Alpine Car</f:link.action></li>
-										<li><f:link.action pageUid="9" controller="Battery" action="list">Asia Motors</f:link.action></li>
-										<li><f:link.action pageUid="9" controller="Battery" action="list">Aston Martin</f:link.action></li>
-										<li><f:link.action pageUid="9" controller="Battery" action="list">Audi</f:link.action></li>
-										<li><f:link.action pageUid="9" controller="Battery" action="list">Austin Car</f:link.action></li>
-										<li><f:link.action pageUid="9" controller="Battery" action="list">Austin-Healey</f:link.action></li>
-										<li><f:link.action pageUid="9" controller="Battery" action="list">Bentley</f:link.action></li>
-										<li><f:link.action pageUid="9" controller="Battery" action="list">BMW</f:link.action></li>
-										<li><f:link.action pageUid="9" controller="Battery" action="list">Bristol</f:link.action></li>
-									</ul>
-									<div class="show">
-										<f:link.action pageUid="3" controller="Battery" action="list">Xem tất cả</f:link.action>
-									</div>
+				<f:if condition="{megamenu}">
+					<div id="mega-menu" class="">
+						<div class="btn-mega"><span></span>Danh mục sản phẩm</div>
+						<ul class="menu">
+							<f:for each="{megamenu}" as="megamenuItem" key="itemKey">
+							<li>
+								<a class="dropdown" href="{megamenuItem.link}" title="{megamenuItem.title}">
+									<span class="menu-img">
+										<img src="{f:uri.resource(path:'Nano/images/icons/menu/09.png', extensionName: 'nano')}" alt="">
+									</span>
+									<span class="menu-title">{megamenuItem.title}</span>
+								</a>
+								<div class="drop-menu">
+									<f:if condition="{megamenuItem.brands}">
+										<div class="one-third">
+											<div class="cat-title">Theo thương hiệu ắc quy</div>
+											<ul>
+												<f:for each="{megamenuItem.brands}" as="brandItem">
+												<li>
+													<a href="{brandItem.link}" title="{brandItem.title}">{brandItem.title}</a>
+												</li>
+												</f:for>
+											</ul>
+										</div>
+									</f:if>
 								</div>
-								<div class="one-third">
-									<div class="cat-title">Theo thương hiệu ắc quy</div>
-									<ul>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Enduroline</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Duracell</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Varta</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Powerline</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Banner</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Bosch</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Exide</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Numax</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">BulletBatt</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Xtreme</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Bristol</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Lucas</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Westco</f:link.action></li>
-									</ul>
-									<div class="show">
-										<f:link.action pageUid="3" controller="Battery" action="list">Xem tất cả</f:link.action>
-									</div>
-								</div>
-								<div class="one-third">
-									<div class="cat-title">Theo part number ắc quy</div>
-									<ul>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">004L</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">004R</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">005L</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">005R</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">007</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">009L</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">009R</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">010</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">012</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">015</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">017</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">018</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">019</f:link.action></li>
-									</ul>
-									<div class="show">
-										<f:link.action pageUid="3" controller="Battery" action="list">Xem tất cả</f:link.action>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<a href="javascript:;" title="" class="dropdown">
-								<span class="menu-img">
-									<img src="{f:uri.resource(path:'Nano/images/icons/menu/09.png', extensionName: 'nano')}" alt="">
-								</span>
-								<span class="menu-title">
-									Ắc quy xe phân khối lớn
-								</span>
-							</a>
-							<div class="drop-menu">
-								<div class="one-third">
-									<div class="cat-title">Theo dòng xe</div>
-									<ul>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Abarth</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Aixam</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Alfa Romeo</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Alpina Car</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Alpine Car</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Asia Motors</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Aston Martin</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Audi</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Austin Car</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Austin-Healey</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Bentley</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">BMW</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Bristol</f:link.action></li>
-									</ul>
-									<div class="show">
-										<f:link.action pageUid="3" controller="Battery" action="list">Xem tất cả</f:link.action>
-									</div>
-								</div>
-								<div class="one-third">
-									<div class="cat-title">Theo thương hiệu ắc quy</div>
-									<ul>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Enduroline</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Duracell</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Varta</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Powerline</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Banner</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Bosch</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Exide</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Numax</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">BulletBatt</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Xtreme</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Bristol</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Lucas</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">Westco</f:link.action></li>
-									</ul>
-									<div class="show">
-										<f:link.action pageUid="3" controller="Battery" action="list">Xem tất cả</f:link.action>
-									</div>
-								</div>
-								<div class="one-third">
-									<div class="cat-title">Theo part number ắc quy</div>
-									<ul>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">004L</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">004R</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">005L</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">005R</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">007</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">009L</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">009R</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">010</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">012</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">015</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">017</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">018</f:link.action></li>
-										<li><f:link.action pageUid="3" controller="Battery" action="list">019</f:link.action></li>
-									</ul>
-									<div class="show">
-										<f:link.action pageUid="3" controller="Battery" action="list">Xem tất cả</f:link.action>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<a href="javascript:;" title="" class="">
-								<span class="menu-img">
-									<img src="{f:uri.resource(path:'Nano/images/icons/menu/09.png', extensionName: 'nano')}" alt="">
-								</span>
-								<span class="menu-title">
-									Phụ kiện ắc quy
-								</span>
-							</a>
-						</li>
-					</ul>
-				</div>
+							</li>
+							</f:for>
+						</ul>
+					</div>
+				</f:if>
 			</div>
 			<div class="col-lg-7 col-md-10 col-sm-10 col-10">
 				<div class="nano-top-search">

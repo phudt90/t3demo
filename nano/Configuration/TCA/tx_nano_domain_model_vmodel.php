@@ -40,7 +40,7 @@ return [
     ],
     'hidden' => [
       'exclude' => true,
-      'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
       'config' => [
         'type' => 'check',
         'default' => 0
@@ -182,9 +182,13 @@ return [
           'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
         ],
       ],
-      'showitem' => 'title,vbrand,bodytext'
+      'showitem' => '--palette--;;paletteGeneral,vbrand'
     ]
     
   ],
-  'palettes' => []
+  'palettes' => [
+    'paletteGeneral' => [
+      'showitem' => 'title,hidden,--linebreak--,bodytext',
+    ],
+  ]
 ];
