@@ -2,22 +2,36 @@
 
 namespace ELCA\Nano\Domain\Repository;
 
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use ELCA\Nano\Domain\Model\DemandInterface;
+
 /**
  * Battery repository
  */
-class BatteryRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+class BatteryRepository extends \ELCA\Nano\Domain\Repository\AbstractDemandedRepository
 {
-  public function findByApplicaationIds(array $appIds, $limit) {
-    $query = $this->createQuery();
-    $query->matching($query->logicalAnd($query->in('applications.uid', $appIds)));
-    $query->setLimit($limit);
-    return $query->execute();
+  protected function createConstraintsFromDemand(QueryInterface $query, DemandInterface $demand) {
+    /** @var \ELCA\Nano\Domain\Model\BatteryDemand $demand */
+    $constraints = [];
+    
+    if($application = $demand->getApplication()) {
+      $constraints['application'] = $query->contains('applications', $application);
+    }
+    
+    // Clean not used constraints
+    foreach ($constraints as $key => $value) {
+      if (is_null($value)) {
+        unset($constraints[$key]);
+      }
+    }
+    
+    return $constraints;
   }
-  
-  public static function debugQuery($query) {
-    $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
-    $queryParser = $objectManager->get(\TYPO3\CMS\Extbase\Persistence\Generic\Storage\Typo3DbQueryParser::class);
-    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($queryParser->convertQueryToDoctrineQueryBuilder($query)->getSQL());
-    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($queryParser->convertQueryToDoctrineQueryBuilder($query)->getParameters());
+
+  protected function createOrderingsFromDemand(DemandInterface $demand) {
+    $orderings = [];
+    
+    return $orderings;
   }
 }
