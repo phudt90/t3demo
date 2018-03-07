@@ -65,19 +65,7 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     
     $this->view->assign('batteries', $records);
   }
-  
-  /**
-   * Output a list view of batteries by application
-   * @param ApplicationModel
-   *
-   */
-  public function batteryByApplicationAction() {    
-    $appIds = explode(',', $this->settings['applications']);
-    $limit = isset($this->settings['limit']) ? (int)$this->settings['limit'] : 6;
-    $batteries = $this->batteryRepository->findByApplicaationIds($appIds, $limit);
-    $this->view->assign('batteries', $batteries);
-  }
-  
+
   /**
    * Output a list view of batteries
    *
@@ -89,6 +77,16 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     $records = $this->batteryRepository->findDemanded($demand);
 
     $this->view->assign('batteries', $records);
+  }
+  
+  /**
+   * Output a list view of batteries by application
+   * @param ApplicationModel
+   *
+   */
+  public function batteryByApplicationAction() {
+    $batteries = $this->batteryRepository->findAll();
+    $this->view->assign('batteries', $batteries);
   }
   
   /**

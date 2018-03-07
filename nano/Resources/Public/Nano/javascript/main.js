@@ -1259,6 +1259,10 @@
                 ); 
             });  
         }; //remove Preloader
+        
+    var searchByTerms = function() {
+    	
+    }
 
     // Dom Ready
     $(document).ready(function() {

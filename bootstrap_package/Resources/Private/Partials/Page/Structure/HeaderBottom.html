@@ -36,35 +36,37 @@
 				</f:if>
 			</div>
 			<div class="col-lg-7 col-md-10 col-sm-10 col-10">
-				<div class="nano-top-search">
-					<form action="#" method="get" class="form-search" accept-charset="utf-8">
-						<div class="quick-search">
-							<div class="quick-search-inner">
-								<h3 class="quick-search-heading">Tìm ắc quy</h3>
-								<div class="quick-search-field">
-									<select name="vbrand" class="form-control fc-vbrand">
-										<option value="">-- Thương hiệu xe --</option>
-										<option value="">TOYOTA</option>
-										<option value="">HONDA</option>
-										<option value="">YAMAHA</option>
-									</select>
+				<f:link.action pageType="231990" extensionName="Nano" pluginName="WidgetSearchByTerms" controller="SearchByTerms" action="list">aaa</f:link.action>
+				<f:if condition="{terms}">
+					<div id="NanoTopSearch" class="nano-top-search">
+						<form action="#" method="get" class="form-search" accept-charset="utf-8">
+							<div class="quick-search">
+								<div class="quick-search-inner">
+									<h3 class="quick-search-heading">Tìm ắc quy</h3>
+									<div class="quick-search-field">
+										<f:if condition="{terms.vbrands}">
+											<select name="vbrand" class="form-control fc-vbrand" required="true">
+												<option value="">-- Thương hiệu xe --</option>
+												<f:for each="{terms.vbrands}" as="vbrand" key="uid">
+													<option value="{uid}">{vbrand}</option>
+												</f:for>
+											</select>
+										</f:if>
+									</div>
+									
+									<div class="quick-search-field">
+										<select name="vmodel" class="form-control fc-vmodel">
+											<option value="">-- Dòng xe --</option>
+										</select>
+									</div>
 								</div>
-								<div class="quick-search-field-spacer"></div>
-								<div class="quick-search-field">
-									<select name="vmodel" class="form-control fc-vmodel">
-										<option value="">-- Dòng xe --</option>
-										<option value="">TOYOTA</option>
-										<option value="">HONDA</option>
-										<option value="">YAMAHA</option>
-									</select>
-								</div>
+								<span class="btn-search">
+									<button type="submit" class="waves-effect"><img src="{f:uri.resource(path:'Nano/images/icons/search-2.png', extensionName: 'nano')}" alt=""></button>
+								</span>
 							</div>
-							<span class="btn-search">
-								<button type="submit" class="waves-effect"><img src="{f:uri.resource(path:'Nano/images/icons/search-2.png', extensionName: 'nano')}" alt=""></button>
-							</span>
-						</div>
-					</form>
-				</div>
+						</form>
+					</div>
+				</f:if>
 			</div>
 		</div>
 	</div>
