@@ -3,7 +3,6 @@
 namespace ELCA\Nano\Domain\Repository;
 
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use ELCA\Nano\Domain\Model\DemandInterface;
 
 /**
@@ -17,6 +16,10 @@ class BatteryRepository extends \ELCA\Nano\Domain\Repository\AbstractDemandedRep
     
     if($application = $demand->getApplication()) {
       $constraints['application'] = $query->contains('applications', $application);
+    }
+    
+    if($vbrand = $demand->getVbrand()) {
+      
     }
     
     // Clean not used constraints

@@ -1,1 +1,32 @@
-i am index
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:if condition="{vbrands}">
+	<div id="NanoTopSearch" class="nano-top-search">
+		<form action="{f:uri.page(pageUid:12)}" method="get" class="form-search" accept-charset="utf-8">
+			<input type="hidden" name="id" value="{settings.searchPid}">
+			<div class="quick-search">
+				<div class="quick-search-inner">
+					<h3 class="quick-search-heading">Tìm ắc quy</h3>
+					<div class="quick-search-field" id="SearchFieldVehicalBrandWrapper">
+						<select name="tx_nano_searchbattery[vbrand]" class="form-control fc-vbrand" required>
+							<option value="">-- Thương hiệu xe --</option>
+							<f:for each="{vbrands}" as="vbrand">
+								<option value="{vbrand.uid}">{vbrand.title}</option>
+							</f:for>
+						</select>
+					</div>
+					
+					<div class="quick-search-field" id="SearchFieldVehicalModelWrapper">
+						<select name="tx_nano_searchbattery[vmodel]" class="form-control fc-vmodel">
+							<option value="">-- Dòng xe --</option>
+						</select>
+					</div>
+				</div>
+				<span class="btn-search">
+					<button type="submit" class="waves-effect"><img src="{f:uri.resource(path:'Nano/images/icons/search-2.png', extensionName: 'nano')}" alt=""></button>
+				</span>
+			</div>
+		</form>
+	</div>
+</f:if>
+</html>

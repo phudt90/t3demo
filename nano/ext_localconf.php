@@ -20,9 +20,9 @@ defined('TYPO3_MODE') or die();
 ]);
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'WidgetSearchByTerms', [
-  'SearchByTerms' => 'widget,list',
+  'SearchByTerms' => 'index,list',
 ], [
-  'SearchByTerms' => 'widget,list'
+  'SearchByTerms' => 'index,list'
 ]);
 
 if(\TYPO3\CMS\Core\Utility\GeneralUtility::getApplicationContext()->isDevelopment()) {

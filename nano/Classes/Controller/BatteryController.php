@@ -38,12 +38,6 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     /* @var $demand \ELCA\Nano\Domain\Model\BatteryDemand */
     $demand = $this->objectManager->get(\ELCA\Nano\Domain\Model\BatteryDemand::class, $settings);
     
-    if($arguments->hasArgument('application')) {
-      if($application = $arguments->getArgument('application')->getValue()) {
-        $demand->setApplication($application);
-      }
-    }
-    
     if ($settings['orderBy']) {
       $demand->setOrder($settings['orderBy'] . ' ' . $settings['orderDirection']);
     }
@@ -61,6 +55,10 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    */
   public function listAction(ApplicationModel $application = null, BrandModel $brand = null) {
     $demand = $this->createDemandObjectFromSettings($this->settings, $this->arguments);
+    if($application) {
+      $demand->setApplication($application);
+    }
+    
     $records = $this->batteryRepository->findDemanded($demand);
     
     $this->view->assign('batteries', $records);
@@ -74,6 +72,13 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    */
   public function searchAction(Vbrand $vbrand = null, Vmodel $vmodel = null) {
     $demand = $this->createDemandObjectFromSettings($this->settings, $this->arguments);
+    if($vbrand) {
+      $demand->setVbrand($vbrand);
+    }
+    if($vmodel) {
+      $demand->setVmodel($vmodel);
+    }
+    
     $records = $this->batteryRepository->findDemanded($demand);
 
     $this->view->assign('batteries', $records);

@@ -113,8 +113,7 @@
 	min-height:300px;
 }
 .product-box.style-nano .imagebox .box-image{
-	line-height: 180px;
-	height: 180px;
+	
 }
 .product-box.style-nano .imagebox .box-content .cat-name a:after{
 	right:0;

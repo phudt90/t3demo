@@ -5,60 +5,18 @@ namespace ELCA\Nano\Domain\Model;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
- * Battery Demand
+ * Vmodel Demand
  */
-class BatteryDemand extends AbstractEntity implements \ELCA\Nano\Domain\Model\DemandInterface {
-  
-  /** @var \ELCA\Nano\Domain\Model\Application */
-  protected $application;
-  
-  /** @var \ELCA\Nano\Domain\Model\Brand */
-  protected $brand;
+class VmodelDemand extends AbstractEntity implements \ELCA\Nano\Domain\Model\DemandInterface {
   
   /** @var \ELCA\Nano\Domain\Model\Vbrand */
   protected $vbrand;
-  
-  /** @var \ELCA\Nano\Domain\Model\Vmodel */
-  protected $vmodel;
   
   /** @var int */
   protected $limit;
   
   /** @var int */
   protected $offset;
-
-  /**
-   *
-   * @param \ELCA\Nano\Domain\Model\Application $application
-   */
-  public function setApplication(\ELCA\Nano\Domain\Model\Application $application) {
-    $this->application = $application;
-    return $this;
-  }
-
-  /**
-   *
-   * @return \ELCA\Nano\Domain\Model\Application
-   */
-  public function getApplication() {
-    return $this->application;
-  }
-
-  /**
-   *
-   * @return \ELCA\Nano\Domain\Model\Brand
-   */
-  public function getBrand() {
-    return $this->brand;
-  }
-
-  /**
-   *
-   * @param \ELCA\Nano\Domain\Model\Brand $brand
-   */
-  public function setBrand($brand) {
-    $this->brand = $brand;
-  }
 
   /**
    *
@@ -76,23 +34,7 @@ class BatteryDemand extends AbstractEntity implements \ELCA\Nano\Domain\Model\De
     $this->vbrand = $vbrand;
   }
 
-  /**
-   *
-   * @return \ELCA\Nano\Domain\Model\Vmodel
-   */
-  public function getVmodel() {
-    return $this->vmodel;
-  }
-
-  /**
-   *
-   * @param \ELCA\Nano\Domain\Model\Vmodel $vmodel
-   */
-  public function setVmodel($vmodel) {
-    $this->vmodel = $vmodel;
-  }
-
-  /**
+/**
    * Set order
    *
    * @param string $order

@@ -31,3 +31,12 @@ page.10.dataProcessing {
 		searchPid = {$plugin.searchPid}
 	}
 }
+
+lib.widgetSearchByTerms = CONTENT
+lib.widgetSearchByTerms {
+  table = tt_content
+  select {
+    pidInList = {$widget.searchByTerms.storagePid}
+    where = uid={$widget.searchByTerms.contentUid}
+  }
+}

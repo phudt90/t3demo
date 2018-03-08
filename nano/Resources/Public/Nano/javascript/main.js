@@ -1260,12 +1260,31 @@
             });  
         }; //remove Preloader
         
-    var searchByTerms = function() {
-    	
+    var widgetSearchByTerms = function() {
+    	$('#SearchFieldVehicalBrandWrapper select').on('change', function() {
+    		let type = 'type=231990',
+    			controller = 'tx_nano_widgetsearchbyterms[controller]=SearchByTerms',
+    			action = 'tx_nano_widgetsearchbyterms[action]=list',
+    			vbrand = 'tx_nano_widgetsearchbyterms[vbrand]=' + $(this).val();
+    		
+    		$.ajax({
+    			url: 'index.php?' + type + '&' + controller + '&' + action + '&' + vbrand,
+    			cache: false,
+	            success: function (result) {
+	            	$('#SearchFieldVehicalModelWrapper').html(result);
+	            },
+	            error: function (jqXHR, textStatus, errorThrow) {
+	            	console.log(jqXHR, textStatus, errorThrow);
+	            }
+    		});
+    	});
     }
 
     // Dom Ready
     $(document).ready(function() {
+    	// Nano functions
+    	widgetSearchByTerms();
+    	// Theme functions
         responsiveMenu();
         responsiveMenuMega_S2();
         responsiveMenuMega();

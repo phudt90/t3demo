@@ -20,6 +20,31 @@ plugin.tx_nano_batterylist {
 	}
 }
 
+plugin.tx_nano_searchbattery {
+  view {
+    templateRootPaths {
+      10 = EXT:nano/Resources/Private/Templates/Page/
+      20 = EXT:bootstrap_package/Resources/Private/Templates/Page
+    }
+    partialRootPaths {
+      10 = EXT:nano/Resources/Private/Partials/Page/
+      20 = EXT:bootstrap_package/Resources/Private/Partials/Page
+    }
+    layoutRootPaths {
+      10 = EXT:nano/Resources/Private/Layouts/Page/
+      20 = EXT:bootstrap_package/Resources/Private/Layouts/Page/
+    }
+  }
+  
+  features {
+  	requireCHashArgumentForActionArguments = 0
+  }
+  
+  settings {
+		detailsPid = {$plugin.detailsPid}
+	}
+}
+
 plugin.tx_nano_batterybyapplication {
 	view {
     templateRootPaths {
@@ -56,9 +81,17 @@ plugin.tx_nano_widgetsearchbyterms {
       20 = EXT:bootstrap_package/Resources/Private/Layouts/Page/
     }
   }
+  
+  features {
+  	requireCHashArgumentForActionArguments = 0
+  }
 	
 	persistence {
-		storagePid = {$plugin.storagePid}
+		storagePid = {$widget.searchByTerms.storagePid}
+	}
+	
+	settings {
+		searchPid = {$widget.searchByTerms.searchPid}
 	}
 }
 
