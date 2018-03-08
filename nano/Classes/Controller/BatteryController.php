@@ -17,6 +17,13 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    * @var \ELCA\Nano\Domain\Repository\BatteryRepository
    */
   protected $batteryRepository;
+  
+  /**
+   *
+   * @var \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
+   * @inject
+   */
+  protected $categoryRepository;
 
   /**
    * Inject a battery repository to enable DI
@@ -72,11 +79,13 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    */
   public function searchAction(Vbrand $vbrand = null, Vmodel $vmodel = null) {
     $demand = $this->createDemandObjectFromSettings($this->settings, $this->arguments);
+    
     if($vbrand) {
       $demand->setVbrand($vbrand);
-    }
-    if($vmodel) {
-      $demand->setVmodel($vmodel);
+      
+      if($vmodel && ($vmodel->getVbrand()->getUid() === $vbrand->getUid())) {
+        $demand->setVmodel($vmodel);
+      }
     }
     
     $records = $this->batteryRepository->findDemanded($demand);
@@ -99,6 +108,7 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    * @param BatteryModel
    */
   public function detailsAction(BatteryModel $battery) {
+    //d($battery->getCategories());
     $this->view->assign('battery', $battery);
   }
 }

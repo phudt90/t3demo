@@ -1,6 +1,9 @@
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Config/Setup/Config.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Config/Setup/Settings.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Extension/FrontendPlugins.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Extension/DomainModels.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Extension/SearchByTerms.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Extension/Processor.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Layout/Assets.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Seo/Meta.ts">
 
@@ -17,26 +20,3 @@
 		templateName = Default
 	}
 [end]
-
-page.10.dataProcessing {
-	60  = ELCA\Nano\DataProcessing\MegaMenuProcessor
-	60 {
-		storagePid = {$plugin.storagePid}
-		listPid = {$plugin.listPid}
-	}
-	
-	70  = ELCA\Nano\DataProcessing\VehicalTermsProcessor
-	70 {
-		storagePid = {$plugin.storagePid}
-		searchPid = {$plugin.searchPid}
-	}
-}
-
-lib.widgetSearchByTerms = CONTENT
-lib.widgetSearchByTerms {
-  table = tt_content
-  select {
-    pidInList = {$widget.searchByTerms.storagePid}
-    where = uid={$widget.searchByTerms.contentUid}
-  }
-}

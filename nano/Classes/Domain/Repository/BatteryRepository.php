@@ -4,6 +4,8 @@ namespace ELCA\Nano\Domain\Repository;
 
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use ELCA\Nano\Domain\Model\DemandInterface;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Database\ConnectionPool;
 
 /**
  * Battery repository
@@ -18,9 +20,23 @@ class BatteryRepository extends \ELCA\Nano\Domain\Repository\AbstractDemandedRep
       $constraints['application'] = $query->contains('applications', $application);
     }
     
-    if($vbrand = $demand->getVbrand()) {
-      
-    }
+    $constraints['category'] = $query->contains('categories', 1);
+    
+    /** @var \TYPO3\CMS\Core\Database\Query\QueryBuilder $queryBuilder */
+    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
+      ->getQueryBuilderForTable('sys_category_record_mm');
+    $queryBuilder->getRestrictions()->removeAll();
+    $queryBuilder->select('uid_local')
+      ->from('sys_category_record_mm')
+      ->where(
+          $queryBuilder->expr()->andX(
+            $queryBuilder->expr()->in('tablenames', "'tx_nano_domain_model_vbrand', 'tx_nano_domain_model_vmodel'"),
+            $queryBuilder->expr()->in('uid_foreign', ['1', '2'])
+          )
+        )
+    ;
+    $records = $queryBuilder->execute()->fetchAll();
+    d($records);
     
     // Clean not used constraints
     foreach ($constraints as $key => $value) {

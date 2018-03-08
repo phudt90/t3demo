@@ -92,6 +92,14 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   protected $brand;
   
   /**
+   * categories
+   *
+   * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\ELCA\Nano\Domain\Model\Category>
+   * @lazy
+   */
+  protected $categories;
+
+  /**
    *
    * @var string 
    */
@@ -222,6 +230,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
    */
   public function __construct() {
     $this->applications = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+    $this->categories = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     $this->falMedia = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
   }
 
@@ -331,6 +340,25 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
    */
   public function getCode() {
     return $this->code;
+  }
+  
+  /**
+   * Get categories
+   *
+   * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\ELCA\Nano\Domain\Model\Category>
+   */
+  public function getCategories() {
+    return $this->categories;
+  }
+  
+  /**
+   * Set categories
+   *
+   * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $categories
+   * @return void
+   */
+  public function setCategories($categories) {
+    $this->categories = $categories;
   }
 
   /**

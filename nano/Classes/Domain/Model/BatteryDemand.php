@@ -21,6 +21,9 @@ class BatteryDemand extends AbstractEntity implements \ELCA\Nano\Domain\Model\De
   /** @var \ELCA\Nano\Domain\Model\Vmodel */
   protected $vmodel;
   
+  /** @var \ELCA\Nano\Domain\Model\Category */
+  protected $category;
+  
   /** @var int */
   protected $limit;
   
@@ -93,6 +96,22 @@ class BatteryDemand extends AbstractEntity implements \ELCA\Nano\Domain\Model\De
   }
 
   /**
+   *
+   * @return \ELCA\Nano\Domain\Model\Category
+   */
+  public function getCategory() {
+    return $this->category;
+  }
+
+  /**
+   *
+   * @param \ELCA\Nano\Domain\Model\Category $category
+   */
+  public function setCategory($category) {
+    $this->category = $category;
+  }
+
+/**
    * Set order
    *
    * @param string $order

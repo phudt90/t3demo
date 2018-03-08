@@ -4,7 +4,7 @@ defined('TYPO3_MODE') || die();
 // Add an extra categories selection field to the tx_nano_domain_model_battery table
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable('nano', 'tx_nano_domain_model_battery', 
   // Do not use the default field name ("categories") for pages, tt_content, sys_file_metadata, which is already used
-  'tx_nano_battery_categories', [
+  'categories', [
     // Set a custom label
     'label' => 'Danh mục ắc quy',
     // This field should not be an exclude-field
