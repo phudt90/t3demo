@@ -10,6 +10,15 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
  */
 class VmodelRepository extends \ELCA\Nano\Domain\Repository\AbstractDemandedRepository
 {  
+  public function findByVehicalBrand(\ELCA\Nano\Domain\Model\Vbrand $vbrand) {
+    $query = $this->createQuery();
+    
+    $query->getQuerySettings()->setRespectStoragePage(false);
+    
+    $query->equals('vbrand', $vbrand);
+    
+    return $query->execute();
+  }
   
   protected function createConstraintsFromDemand(QueryInterface $query, DemandInterface $demand) {
     /** @var \ELCA\Nano\Domain\Model\VmodelDemand $demand */

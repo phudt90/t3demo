@@ -14,25 +14,38 @@ use ELCA\Nano\Domain\Model\Battery as BatteryModel;
 class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
   /**
    *
+   * @var \ELCA\Nano\Domain\Repository\ApplicationRepository
+   * @inject
+   */
+  protected $applicationRepository;
+  
+  /**
+   *
    * @var \ELCA\Nano\Domain\Repository\BatteryRepository
+   * @inject
    */
   protected $batteryRepository;
-  
+
   /**
    *
    * @var \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
    * @inject
    */
   protected $categoryRepository;
-
+  
   /**
-   * Inject a battery repository to enable DI
    *
-   * @param \ELCA\Nano\Domain\Repository\BatteryRepository $batteryRepository
+   * @var \ELCA\Nano\Domain\Repository\VbrandRepository
+   * @inject
    */
-  public function injectBatteryRepository(\ELCA\Nano\Domain\Repository\BatteryRepository $batteryRepository) {
-    $this->batteryRepository = $batteryRepository;
-  }
+  protected $vbrandRepository;
+  
+  /**
+   *
+   * @var \ELCA\Nano\Domain\Repository\VmodelRepository
+   * @inject
+   */
+  protected $vmodelRepository;
   
   /**
    * Create the demand object which define which records will get shown
@@ -66,6 +79,10 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
       $demand->setApplication($application);
     }
     
+    if($brand) {
+      $demand->setBrand($brand);
+    }
+    
     $records = $this->batteryRepository->findDemanded($demand);
     
     $this->view->assign('batteries', $records);
@@ -82,15 +99,13 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     
     if($vbrand) {
       $demand->setVbrand($vbrand);
-      
       if($vmodel && ($vmodel->getVbrand()->getUid() === $vbrand->getUid())) {
         $demand->setVmodel($vmodel);
       }
     }
     
-    $records = $this->batteryRepository->findDemanded($demand);
-
-    $this->view->assign('batteries', $records);
+    $batteries = $this->batteryRepository->findDemanded($demand);
+    $this->view->assign('batteries', $batteries);
   }
   
   /**
@@ -99,7 +114,12 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    *
    */
   public function batteryByApplicationAction() {
-    $batteries = $this->batteryRepository->findAll();
+    $demand = $this->createDemandObjectFromSettings($this->settings, $this->arguments);
+    if($application = $this->applicationRepository->findByUid($this->setting['application'])) {
+      $demand->setApplication($application);
+    }
+    
+    $batteries = $this->batteryRepository->findDemanded($demand);
     $this->view->assign('batteries', $batteries);
   }
   
@@ -108,7 +128,7 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    * @param BatteryModel
    */
   public function detailsAction(BatteryModel $battery) {
-    //d($battery->getCategories());
+    //$this->categoryRepository->add($category);
     $this->view->assign('battery', $battery);
   }
 }
