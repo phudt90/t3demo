@@ -22,8 +22,12 @@ page.includeCSS {
 ###################################################
 
 page.includeJSFooterlibs {
+	# core plugins
 	jquery = EXT:nano/Resources/Public/Nano/javascript/jquery.min.js
   jquery.forceOnTop = 1
+  bootstrap = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/bootstrap.min.js
+  
+  # additional plugins
   tether = EXT:nano/Resources/Public/Nano/javascript/tether.min.js
   waypoints = EXT:nano/Resources/Public/Nano/javascript/waypoints.min.js
   circlechart = EXT:nano/Resources/Public/Nano/javascript/jquery.circlechart.js

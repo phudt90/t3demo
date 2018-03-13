@@ -114,12 +114,13 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    *
    */
   public function batteryByApplicationAction() {
+    $batteries = [];
     $demand = $this->createDemandObjectFromSettings($this->settings, $this->arguments);
-    if($application = $this->applicationRepository->findByUid($this->setting['application'])) {
+    if($application = $this->applicationRepository->findByUid($this->settings['applications'])) {
       $demand->setApplication($application);
+      $batteries = $this->batteryRepository->findDemanded($demand);
     }
     
-    $batteries = $this->batteryRepository->findDemanded($demand);
     $this->view->assign('batteries', $batteries);
   }
   
@@ -128,7 +129,6 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    * @param BatteryModel
    */
   public function detailsAction(BatteryModel $battery) {
-    //$this->categoryRepository->add($category);
     $this->view->assign('battery', $battery);
   }
 }
