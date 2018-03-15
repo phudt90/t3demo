@@ -3,37 +3,120 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3 col-md-2 col-sm-2 col-2">
-				<f:if condition="{megamenu}">
-					<div id="mega-menu" class="">
-						<div class="btn-mega"><span></span>Danh mục sản phẩm</div>
-						<ul class="menu">
-							<f:for each="{megamenu}" as="megamenuItem" key="itemKey">
-							<li>
-								<a class="dropdown" href="{megamenuItem.link}" title="{megamenuItem.title}">
-									<span class="menu-img">
-										<img src="{f:uri.resource(path:'Nano/images/icons/menu/09.png', extensionName: 'nano')}" alt="">
-									</span>
-									<span class="menu-title">{megamenuItem.title}</span>
-								</a>
-								<div class="drop-menu">
-									<f:if condition="{megamenuItem.brands}">
-										<div class="one-third">
-											<div class="cat-title">Theo thương hiệu ắc quy</div>
-											<ul>
-												<f:for each="{megamenuItem.brands}" as="brandItem">
-												<li>
-													<a href="{brandItem.link}" title="{brandItem.title}">{brandItem.title}</a>
-												</li>
-												</f:for>
-											</ul>
-										</div>
-									</f:if>
+				<div id="mega-menu" class="">
+					<div class="btn-mega"><span></span>Danh mục sản phẩm</div>
+					<ul class="menu" style="height:270px;">
+						<li>
+							<f:link.action pageUid="3" extensionName="Nano" pluginName="BatteryList" controller="Battery" action="list" 
+								arguments="{application:1}" class="dropdown" title="Ắc quy ô tô">
+								<span class="menu-img">
+									<img src="{f:uri.resource(path:'Nano/images/icons/menu/09.png', extensionName: 'nano')}" alt="">
+								</span>
+								<span class="menu-title">Ắc quy ô tô</span>
+							</f:link.action>
+							<div class="drop-menu">
+								<div class="one-third">
+									<div class="cat-title">Theo thương hiệu ắc quy</div>
+									<ul>
+										<li><f:link.action pageUid="3" extensionName="Nano" pluginName="BatteryList" controller="Battery" action="list" 
+											arguments="{application:1, brand:2}" class="dropdown" title="Ắc quy DAEWOO">
+											DAEWOO
+										</f:link.action></li>
+										<li><f:link.action pageUid="3" extensionName="Nano" pluginName="BatteryList" controller="Battery" action="list" 
+											arguments="{application:1, brand:1}" class="dropdown" title="Ắc quy TOPLITE">
+											TOPLITE
+										</f:link.action></li>
+										<li><f:link.action pageUid="3" extensionName="Nano" pluginName="BatteryList" controller="Battery" action="list" 
+											arguments="{application:1, brand:5}" class="dropdown" title="Ắc quy AMARON">
+											AMARON
+										</f:link.action></li>
+										<li><f:link.action pageUid="3" extensionName="Nano" pluginName="BatteryList" controller="Battery" action="list" 
+											arguments="{application:1, brand:3}" class="dropdown" title="Ắc quy GS">
+											GS
+										</f:link.action></li>
+										<li><f:link.action pageUid="3" extensionName="Nano" pluginName="BatteryList" controller="Battery" action="list" 
+											arguments="{application:1, brand:9}" class="dropdown" title="Ắc quy PINACO">
+											PINACO
+										</f:link.action></li>
+									</ul>
 								</div>
-							</li>
-							</f:for>
-						</ul>
-					</div>
-				</f:if>
+							</div>
+						</li>
+						<li>
+							<f:link.action pageUid="3" extensionName="Nano" pluginName="BatteryList" controller="Battery" action="list" 
+								arguments="{application:2}" class="dropdown" title="Ắc quy xe phân khối lớn">
+								<span class="menu-img">
+									<img src="{f:uri.resource(path:'Nano/images/icons/menu/09.png', extensionName: 'nano')}" alt="">
+								</span>
+								<span class="menu-title">Ắc quy xe phân khối lớn</span>
+							</f:link.action>
+							<div class="drop-menu">
+								<div class="one-third">
+									<div class="cat-title">Theo thương hiệu ắc quy</div>
+									<ul>
+										<li><f:link.action pageUid="3" extensionName="Nano" pluginName="BatteryList" controller="Battery" action="list" 
+											arguments="{application:2, brand:1}" class="dropdown" title="Ắc quy TOPLITE">
+											TOPLITE
+										</f:link.action></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li>
+							<f:link.action pageUid="3" extensionName="Nano" pluginName="BatteryList" controller="Battery" action="list" 
+								arguments="{application:3}" class="dropdown" title="Ắc quy xe máy">
+								<span class="menu-img">
+									<img src="{f:uri.resource(path:'Nano/images/icons/menu/09.png', extensionName: 'nano')}" alt="">
+								</span>
+								<span class="menu-title">Ắc quy xe máy</span>
+							</f:link.action>
+							<div class="drop-menu">
+								<div class="one-third">
+									<div class="cat-title">Theo thương hiệu ắc quy</div>
+									<ul>
+										<li><f:link.action pageUid="3" extensionName="Nano" pluginName="BatteryList" controller="Battery" action="list" 
+											arguments="{application:3, brand:1}" class="dropdown" title="Ắc quy TOPLITE">
+											TOPLITE
+										</f:link.action></li>
+										<li><f:link.action pageUid="3" extensionName="Nano" pluginName="BatteryList" controller="Battery" action="list" 
+											arguments="{application:3, brand:3}" class="dropdown" title="Ắc quy GS">
+											GS
+										</f:link.action></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li>
+							<f:link.action pageUid="3" extensionName="Nano" pluginName="BatteryList" controller="Battery" action="list" 
+								arguments="{application:4}" class="dropdown" title="Ắc quy năng lượng">
+								<span class="menu-img">
+									<img src="{f:uri.resource(path:'Nano/images/icons/menu/09.png', extensionName: 'nano')}" alt="">
+								</span>
+								<span class="menu-title">Ắc quy năng lượng</span>
+							</f:link.action>
+							<div class="drop-menu">
+								<div class="one-third">
+									<div class="cat-title">Theo thương hiệu ắc quy</div>
+									<ul>
+										<li><f:link.action pageUid="3" extensionName="Nano" pluginName="BatteryList" controller="Battery" action="list" 
+											arguments="{application:4, brand:5}" class="dropdown" title="Ắc quy AMARON">
+											AMARON
+										</f:link.action></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li>
+							<f:link.action pageUid="3" extensionName="Nano" pluginName="BatteryList" controller="Battery" action="list" 
+								arguments="{application:6}" title="Phụ kiện ắc quy">
+								<span class="menu-img">
+									<img src="{f:uri.resource(path:'Nano/images/icons/menu/09.png', extensionName: 'nano')}" alt="">
+								</span>
+								<span class="menu-title">Phụ kiện ắc quy</span>
+							</f:link.action>
+						</li>
+					</ul>
+				</div>
 			</div>
 			<div class="col-lg-7 col-md-10 col-sm-10 col-10">
 				<f:cObject typoscriptObjectPath="lib.widgetSearchByTerms" />

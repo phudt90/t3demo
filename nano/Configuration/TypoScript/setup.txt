@@ -3,7 +3,7 @@
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Extension/FrontendPlugins.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Extension/DomainModels.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Extension/SearchByTerms.ts">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Extension/Processor.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Extension/Processor.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Layout/Assets.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Seo/Meta.ts">
 

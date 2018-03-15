@@ -7,8 +7,10 @@
 			<div class="imagebox">
 				<div class="box-image">
 					<f:link.action action="details" arguments="{battery:battery}">
-						<f:if condition="{battery.firstFalMedia}">
-							<f:image image="{battery.firstFalMedia}" />
+						<f:if condition="{battery.mediaPreviews}">
+							<f:alias map="{mediaElement: '{battery.mediaPreviews.0}'}">
+								<f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="350"/>
+							</f:alias>
 						</f:if>
 					</f:link.action>
 				</div>
