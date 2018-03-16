@@ -473,7 +473,9 @@
         }; // Overlay
    
     var widgetSearchByTerms = function() {
-    	$('#SearchFieldVehicalBrandWrapper select').on('change', function() {
+    	$('#SearchFieldVehicalBrand').select2();
+    	$('#SearchFieldVehicalModel').select2();
+    	/*$('#SearchFieldVehicalBrandWrapper select').on('change', function() {
     		let type = 'type=231990',
     			controller = 'tx_nano_widgetsearchbyterms[controller]=SearchByTerms',
     			action = 'tx_nano_widgetsearchbyterms[action]=list',
@@ -489,33 +491,34 @@
 	            	console.log(jqXHR, textStatus, errorThrow);
 	            }
     		});
-    	});
+    	});*/
     }
 
-    // Dom Ready
-    $(document).ready(function() {
-    	// Nano functions
-    	widgetSearchByTerms();
-    	// Theme functions
-        responsiveMenu();
-        responsiveMenuMega_S2();
-        responsiveMenuMega();
-        searchButton();
-        searchFilterbox();
-        tabImagebox();
-        tabImagebox_s2();
-        tabProductDetail();
-        tabElement();
-        tabSortproduct();
-        overlay(); 
-        toggleWidget();
-        toggleCatlist();
-        toggleDropdown();
-        toggleLocation();
-        showSuggestions();
-        showAllcat();
-        accordionToggle();
-        goTop();
-    });
+	    // Dom Ready
+	$(document).ready(function() {
+		// Nano functions
+		widgetSearchByTerms();
+		
+		// Theme functions
+		responsiveMenu();
+		responsiveMenuMega_S2();
+		responsiveMenuMega();
+		searchButton();
+		searchFilterbox();
+		tabImagebox();
+		tabImagebox_s2();
+		tabProductDetail();
+		tabElement();
+		tabSortproduct();
+		overlay();
+		toggleWidget();
+		toggleCatlist();
+		toggleDropdown();
+		toggleLocation();
+		showSuggestions();
+		showAllcat();
+		accordionToggle();
+		goTop();
+	});
 
 })(jQuery);

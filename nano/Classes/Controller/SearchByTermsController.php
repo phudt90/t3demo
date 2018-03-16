@@ -40,7 +40,10 @@ class SearchByTermsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
   
   public function indexAction() {
     $vbrands = $this->vbrandRepository->findAll();
+    $vmodels = $this->vmodelRepository->findAll();
+    
     $this->view->assign('vbrands', $vbrands);
+    $this->view->assign('vmodels', $vmodels);
   }
   
   /**

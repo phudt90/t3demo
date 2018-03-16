@@ -1,32 +1,50 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" 
+	 xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+	 data-namespace-typo3-fluid="true">
+	 
+<v:asset.style path="EXT:nano/Resources/Public/Nano/libraries/select2/css/select2.min.css" name="select2" dependencies="main" />
+<v:asset.script path="EXT:nano/Resources/Public/Nano/libraries/select2/js/select2.min.js" dependencies="jquery" />
 
-<f:if condition="{vbrands}">
-	<div id="NanoTopSearch" class="nano-top-search">
-		<form action="{f:uri.page(pageUid:12)}" method="get" class="form-search" accept-charset="utf-8">
-			<input type="hidden" name="id" value="{settings.searchPid}">
-			<div class="quick-search">
-				<div class="quick-search-inner">
-					<h3 class="quick-search-heading">Tìm ắc quy</h3>
-					<div class="quick-search-field" id="SearchFieldVehicalBrandWrapper">
-						<select name="tx_nano_searchbattery[vbrand]" class="form-control fc-vbrand" required>
-							<option value="">-- Thương hiệu xe --</option>
+<div id="NanoTopSearch" class="nano-top-search">
+	<form action="{f:uri.page(pageUid:12)}" method="get" class="form-search" accept-charset="utf-8">
+		<input type="hidden" name="id" value="{settings.searchPid}">
+		<div class="quick-search">
+			<div class="quick-search-inner">
+				<h3 class="quick-search-heading">Tìm ắc quy</h3>
+				<f:if condition="{vbrands}">
+					<div class="quick-search-field">
+						<select id="SearchFieldVehicalBrand" 
+							name="tx_nano_searchbattery[vbrand]" 
+							class="form-control fc-vbrand" 
+							required="required"
+							data-placeholder="-- Thương hiệu xe --"
+							data-allow-clear="true">
+							<option></option>
 							<f:for each="{vbrands}" as="vbrand">
 								<option value="{vbrand.uid}">{vbrand.title}</option>
 							</f:for>
 						</select>
 					</div>
-					
-					<div class="quick-search-field" id="SearchFieldVehicalModelWrapper">
-						<select name="tx_nano_searchbattery[vmodel]" class="form-control fc-vmodel">
-							<option value="">-- Dòng xe --</option>
+				</f:if>
+				<f:if condition="{vmodels}">
+					<div class="quick-search-field" id="Wrapper">
+						<select id="SearchFieldVehicalModel" 
+							name="tx_nano_searchbattery[vmodel]" 
+							class="form-control fc-vmodel"
+							data-placeholder="-- Dòng xe --"
+							data-allow-clear="true">
+							<option></option>
+							<f:for each="{vmodels}" as="vmodel">
+								<option value="{vmodel.uid}" data-parent="{vmodel.vbrand.uid}">{vmodel.title}</option>
+							</f:for>
 						</select>
 					</div>
-				</div>
-				<span class="btn-search">
-					<button type="submit" class="waves-effect"><img src="{f:uri.resource(path:'Nano/images/icons/search-2.png', extensionName: 'nano')}" alt=""></button>
-				</span>
+				</f:if>
 			</div>
-		</form>
-	</div>
-</f:if>
+			<span class="btn-search">
+				<button type="submit" class="waves-effect"><img src="{f:uri.resource(path:'Nano/images/icons/search-2.png', extensionName: 'nano')}" alt=""></button>
+			</span>
+		</div>
+	</form>
+</div>
 </html>
