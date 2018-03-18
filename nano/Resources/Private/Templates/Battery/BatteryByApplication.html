@@ -9,7 +9,7 @@
 				<div class="product-box style-nano">
 					<div class="imagebox">
 						<div class="box-image">
-							<f:link.action pageUid="3" pluginName="BatteryList" action="details" arguments="{battery:battery}">
+							<f:link.action pageUid="3" extensionName="Nano" pluginName="BatteryList" controller="Battery" action="details" arguments="{battery:battery}">
 								<f:if condition="{battery.mediaPreviews}">
 									<f:alias map="{mediaElement: '{battery.mediaPreviews.0}'}">
 										<f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="350"/>
@@ -19,10 +19,10 @@
 						</div>
 						<div class="box-content">
 							<div class="cat-name">
-								<f:link.action pageUid="3" pluginName="BatteryList" action="details" arguments="{battery:battery}">{battery.brand.title}</f:link.action>
+								<f:link.action pageUid="3" extensionName="Nano" pluginName="BatteryList" controller="Battery" action="details" arguments="{battery:battery}">{battery.brand.title}</f:link.action>
 							</div>
 							<div class="product-name">
-								<f:link.action pageUid="3" pluginName="BatteryList" action="details" arguments="{battery:battery}">{battery.title}</f:link.action>
+								<f:link.action pageUid="3" extensionName="Nano" pluginName="BatteryList" controller="Battery" action="details" arguments="{battery:battery}">{battery.title}</f:link.action>
 							</div>
 						</div>
 					</div>

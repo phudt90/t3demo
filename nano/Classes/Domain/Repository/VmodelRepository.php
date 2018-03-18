@@ -10,6 +10,10 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
  */
 class VmodelRepository extends \ELCA\Nano\Domain\Repository\AbstractDemandedRepository
 {  
+  protected $defaultOrderings = [
+    'title' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+  ];
+  
   public function findByVehicalBrand(\ELCA\Nano\Domain\Model\Vbrand $vbrand) {
     $query = $this->createQuery();
     

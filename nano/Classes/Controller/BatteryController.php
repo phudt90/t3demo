@@ -25,13 +25,6 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    * @inject
    */
   protected $batteryRepository;
-
-  /**
-   *
-   * @var \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
-   * @inject
-   */
-  protected $categoryRepository;
   
   /**
    *
@@ -51,10 +44,9 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    * Create the demand object which define which records will get shown
    *
    * @param array $settings
-   * @param \TYPO3\CMS\Extbase\Mvc\Controller\Arguments $arguments
    * @return \ELCA\Nano\Domain\Model\BatteryDemand
    */
-  protected function createDemandObjectFromSettings($settings, \TYPO3\CMS\Extbase\Mvc\Controller\Arguments $arguments) {
+  protected function createDemandObjectFromSettings($settings) {
     /* @var $demand \ELCA\Nano\Domain\Model\BatteryDemand */
     $demand = $this->objectManager->get(\ELCA\Nano\Domain\Model\BatteryDemand::class, $settings);
     
@@ -74,17 +66,25 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    * @param BrandModel $brand 
    */
   public function listAction(ApplicationModel $application = null, BrandModel $brand = null) {
-    $demand = $this->createDemandObjectFromSettings($this->settings, $this->arguments);
+    $demand = $this->createDemandObjectFromSettings($this->settings);
+    
+    $title = 'Sản phẩm';
     if($application) {
+      $title = "{$application->getTitle()}";
       $demand->setApplication($application);
     }
     
     if($brand) {
+      $title .= " {$brand->getTitle()}";
       $demand->setBrand($brand);
     }
     
     $records = $this->batteryRepository->findDemanded($demand);
     
+    if($title) {
+      $this->getPageRenderer()->setTitle($title);
+    }
+    $this->view->assign('heading', $title);
     $this->view->assign('batteries', $records);
   }
 
@@ -95,16 +95,24 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    * @param Vmodel $vmodel
    */
   public function searchAction(Vbrand $vbrand = null, Vmodel $vmodel = null) {
-    $demand = $this->createDemandObjectFromSettings($this->settings, $this->arguments);
+    $demand = $this->createDemandObjectFromSettings($this->settings);
     
+    $title = 'Tìm ắc quy';
     if($vbrand) {
+      $title .= " xe {$vbrand->getTitle()}";
       $demand->setVbrand($vbrand);
       if($vmodel && ($vmodel->getVbrand()->getUid() === $vbrand->getUid())) {
+        $title .= " {$vmodel->getTitle()}";
         $demand->setVmodel($vmodel);
       }
     }
     
     $batteries = $this->batteryRepository->findDemanded($demand);
+    
+    if($title) {
+      $this->getPageRenderer()->setTitle($title);
+    }
+    $this->view->assign('heading', $title);
     $this->view->assign('batteries', $batteries);
   }
   
@@ -115,7 +123,7 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    */
   public function batteryByApplicationAction() {
     $batteries = [];
-    $demand = $this->createDemandObjectFromSettings($this->settings, $this->arguments);
+    $demand = $this->createDemandObjectFromSettings($this->settings);
     if($application = $this->applicationRepository->findByUid($this->settings['applications'])) {
       $demand->setApplication($application);
       $batteries = $this->batteryRepository->findDemanded($demand);
@@ -130,5 +138,13 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    */
   public function detailsAction(BatteryModel $battery) {
     $this->view->assign('battery', $battery);
+  }
+  
+  /**
+   * Get Page renderer
+   * @return \TYPO3\CMS\Core\Page\PageRenderer
+   */
+  protected function getPageRenderer() {
+    return $this->objectManager->get(\TYPO3\CMS\Core\Page\PageRenderer::class);
   }
 }

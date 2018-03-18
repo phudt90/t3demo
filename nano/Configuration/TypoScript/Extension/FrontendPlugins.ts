@@ -13,6 +13,12 @@ plugin.tx_nano_batterylist {
       10 = EXT:nano/Resources/Private/Layouts/Page/
       20 = EXT:bootstrap_package/Resources/Private/Layouts/Page/
     }
+    
+    widget {
+    	TYPO3\CMS\Fluid\ViewHelpers\Widget\PaginateViewHelper {
+    		templateRootPaths = EXT:nano/Resources/Private/Templates/
+    	}
+    }
   }
   
   settings {
@@ -33,6 +39,12 @@ plugin.tx_nano_searchbattery {
     layoutRootPaths {
       10 = EXT:nano/Resources/Private/Layouts/Page/
       20 = EXT:bootstrap_package/Resources/Private/Layouts/Page/
+    }
+    
+    widget {
+    	TYPO3\CMS\Fluid\ViewHelpers\Widget\PaginateViewHelper {
+    		templateRootPaths = EXT:nano/Resources/Private/Templates/
+    	}
     }
   }
   

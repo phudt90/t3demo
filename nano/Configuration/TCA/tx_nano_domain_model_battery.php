@@ -236,10 +236,11 @@ return [
         'type' => 'select',
         'renderType' => 'selectSingle',
         'items' => [
-          ['Standard UK Post', 1],
-          ['Narrow JAP Post', 2],
-          ['Square bolt throught Post', 3],
-          ['Side Terminal', 4],
+          ['', 0],
+          ['Cọc nhỏ', 1],
+          ['Cọc tiêu chuẩn', 2],
+          ['Cọc Bulon', 3],
+          ['Cọc xe máy', 4],
         ],
         'minitems' => '1',
         'maxitems' => '1',
@@ -252,12 +253,11 @@ return [
         'type' => 'select',
         'renderType' => 'selectSingle',
         'items' => [
-          ['1', 1],
-          ['2', 2],
-          ['3', 3],
-          ['4', 4],
-          ['5', 5],
-          ['6', 6],
+          ['', 0],
+          ['Thuận', 1],
+          ['Nghịch', 2],
+          ['Chính giữa', 3],
+          ['Ngang', 4],
         ],
         'minitems' => '1',
         'maxitems' => '1',
@@ -276,9 +276,15 @@ return [
       'exclude' => 0,
       'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.technology.label',
       'config' => [
-        'type' => 'input',
-        'size' => 30,
-        'eval' => 'trim'
+        'type' => 'select',
+        'renderType' => 'selectSingle',
+        'items' => [
+          ['', 0],
+          ['Miễn bảo dưỡng', 1],
+          ['AGM', 2],
+          ['Xả sâu', 3],
+          ['Truyền thống', 4],
+        ],
       ]
     ],
     'capacity_20' => [
@@ -434,7 +440,7 @@ return [
       'showitem' => 'code,hidden,--linebreak--,applications,--linebreak--,brand',
     ],
     'paletteSpecs' => [
-      'showitem' => 'terminal_type,terminal_layout,voltage,technology,capacity_20,capacity_100,cca_en,cca_sae,length,width,height,guarantee'
+      'showitem' => 'terminal_type,terminal_layout,voltage,technology,capacity_20,cca_en,cca_sae,length,width,height,guarantee'
     ],
     'paletteMedia' => [
       'showitem' => 'fal_media'

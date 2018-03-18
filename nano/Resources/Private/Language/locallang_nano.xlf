@@ -34,28 +34,28 @@
 				<source>Công nghệ</source>
 			</trans-unit>
 			<trans-unit id="tx_nano_domain_model_battery.capacity_20.label">
-				<source>Dung lượng</source>
+				<source>Dung lượng (AH)</source>
 			</trans-unit>
 			<trans-unit id="tx_nano_domain_model_battery.capacity_100.label">
-				<source>Trọng lượng</source>
+				<source>Capacity</source>
 			</trans-unit>
 			<trans-unit id="tx_nano_domain_model_battery.cca_en.label">
-				<source>CCA EN</source>
+				<source>CCA</source>
 			</trans-unit>
 			<trans-unit id="tx_nano_domain_model_battery.cca_sae.label">
-				<source>CCA SAE</source>
+				<source>RC</source>
 			</trans-unit>
 			<trans-unit id="tx_nano_domain_model_battery.length.label">
-				<source>Dài</source>
+				<source>Dài (mm)</source>
 			</trans-unit>
 			<trans-unit id="tx_nano_domain_model_battery.width.label">
-				<source>Rộng</source>
+				<source>Rộng (mm)</source>
 			</trans-unit>
 			<trans-unit id="tx_nano_domain_model_battery.height.label">
-				<source>Cao</source>
+				<source>Cao (mm)</source>
 			</trans-unit>
 			<trans-unit id="tx_nano_domain_model_battery.guarantee.label">
-				<source>Bảo hành</source>
+				<source>Bảo hành (tháng)</source>
 			</trans-unit>
 			<trans-unit id="tx_nano_domain_model_vbrand.vmodels.label">
 				<source>Các dòng xe</source>

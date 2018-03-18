@@ -10,6 +10,9 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
  */
 class VbrandRepository extends \ELCA\Nano\Domain\Repository\AbstractDemandedRepository
 {
+  protected $defaultOrderings = [
+    'title' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+  ];
 
   protected function createConstraintsFromDemand(QueryInterface $query, DemandInterface $demand) {
     $constraints = [];

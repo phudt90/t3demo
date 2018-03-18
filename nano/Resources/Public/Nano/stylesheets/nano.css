@@ -82,7 +82,102 @@
 	height: 45px;
 	line-height: 43px;
 	border-radius: 25px;
-}    
+}
+.select2-container--default .select2-search--dropdown .select2-search__field {
+	height:34px;
+	border-radius:3px;	
+}
+
+.main-shop .flat-row-title .heading-nano {
+	color: #2d2d2d;
+  padding: 15px 0;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+ul.flat-pagination li{
+	vertical-align:middle;
+}
+ul.flat-pagination li a.paginate-btn{
+	
+}
+ul.flat-pagination li a.paginate-btn i{
+	display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: cover;
+  width: 16px;
+	height: 9px;
+}
+ul.flat-pagination li a.paginate-btn i.paginate-next{
+	background-image: url('../images/icons/right-1.png');
+}
+ul.flat-pagination li a.paginate-btn i.paginate-prev{
+	background-image: url('../images/icons/left-1.png');
+}
+
+
+.product-detail .header-detail h4.name{
+	font-size:18px;
+	font-weight:600;
+	line-height:1.4;
+}
+.product-detail .nano-terminal-type{
+	display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: contain;
+}
+.product-detail .nano-terminal-type.nano-terminal-type--1{
+	background-image: url(../images/terminals/terminal_type_1.jpg);
+  width: 80px;
+  height: 42px;
+}
+.product-detail .nano-terminal-type.nano-terminal-type--2{
+	background-image: url(../images/terminals/terminal_type_2.jpg);
+  width: 80px;
+  height: 42px;
+}
+.product-detail .nano-terminal-type.nano-terminal-type--3{
+	background-image: url(../images/terminals/terminal_type_3.jpg);
+  width: 50px;
+  height: 50px;
+}
+.product-detail .nano-terminal-type.nano-terminal-type--4{
+	background-image: url(../images/terminals/terminal_type_4.jpg);
+  width: 50px;
+  height: 50px;
+}
+
+.product-detail .nano-terminal-layout{
+	display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: contain;
+}
+.product-detail .nano-terminal-layout.nano-terminal-layout--1{
+	background-image: url(../images/terminals/terminal_layout_1.jpg);
+  width: 51px;
+  height: 50px;
+}
+.product-detail .nano-terminal-layout.nano-terminal-layout--2{
+	background-image: url(../images/terminals/terminal_layout_2.jpg);
+  width: 51px;
+  height: 50px;
+}
+.product-detail .nano-terminal-layout.nano-terminal-layout--3{
+	background-image: url(../images/terminals/terminal_layout_3.jpg);
+  width: 75px;
+  height: 50px;
+}
+.product-detail .nano-terminal-layout.nano-terminal-layout--4{
+	background-image: url(../images/terminals/terminal_layout_4.jpg);
+  width: 63px;
+  height: 50px;
+}
 
 @media only screen and (max-width: 767px) {
 	.nano-top-search {

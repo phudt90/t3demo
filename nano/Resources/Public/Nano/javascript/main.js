@@ -473,25 +473,40 @@
         }; // Overlay
    
     var widgetSearchByTerms = function() {
-    	$('#SearchFieldVehicalBrand').select2();
-    	$('#SearchFieldVehicalModel').select2();
-    	/*$('#SearchFieldVehicalBrandWrapper select').on('change', function() {
-    		let type = 'type=231990',
-    			controller = 'tx_nano_widgetsearchbyterms[controller]=SearchByTerms',
-    			action = 'tx_nano_widgetsearchbyterms[action]=list',
-    			vbrand = 'tx_nano_widgetsearchbyterms[vbrand]=' + $(this).val();
-    		
-    		$.ajax({
-    			url: 'index.php?' + type + '&' + controller + '&' + action + '&' + vbrand,
-    			cache: false,
-	            success: function (result) {
-	            	$('#SearchFieldVehicalModelWrapper').html(result);
-	            },
-	            error: function (jqXHR, textStatus, errorThrow) {
-	            	console.log(jqXHR, textStatus, errorThrow);
-	            }
+    	var vmodelOptions = $('#SearchFieldVehicalModel').data('options');
+    	var vbrand = $('#SearchFieldVehicalBrand').select2({
+    		language: 'vi'
+    	});
+    	var vmodel = $('#SearchFieldVehicalModel').select2({
+    		language: 'vi'
+    	});
+    	
+    	vbrand.on('select2:select', function(e) {
+    		var parent = e.params.data.id;
+    		var results = _.filter(vmodelOptions, function(obj) {
+    			return obj.parent == parent;
     		});
-    	});*/
+    		vmodel.empty().trigger("change");
+    		setTimeout(function() {
+    			vmodel.select2({data: results, language: 'vi'});
+    			vmodel.val(null).trigger('change');
+    		}, 100);
+    	});
+    	
+    	$('#NanoTopSearch form').on('submit', function(e) {
+    		e.preventDefault();
+    		var vbrandValue = vbrand.val();
+    		var vmodelValue = vmodel.val();
+    		var href = '';
+    		if(vmodelValue) {
+    			href = $(this).find('input[name="vmodels\['+vmodelValue+'\]"]').attr('value');
+    		} else if(vbrandValue) {
+    			href = $(this).find('input[name="vbrands\['+vbrandValue+'\]"]').attr('value');
+    		}
+    		if(href != '') {
+    			window.location.href = href;
+    		}
+    	});
     }
 
 	    // Dom Ready

@@ -3,6 +3,7 @@
 namespace ELCA\Nano\Controller;
 
 use ELCA\Nano\Domain\Model\Vbrand;
+use function GuzzleHttp\json_encode;
 
 /**
  * SearchByTerms controller
@@ -41,9 +42,19 @@ class SearchByTermsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
   public function indexAction() {
     $vbrands = $this->vbrandRepository->findAll();
     $vmodels = $this->vmodelRepository->findAll();
+    $values = [];
+    /* @var \ELCA\Nano\Domain\Model\Vmodel $vmodel */
+    foreach($vmodels as $vmodel) {
+      array_push($values, [
+        'id' => $vmodel->getUid(),
+        'text' => $vmodel->getTitle(),
+        'parent' => $vmodel->getVbrand()->getUid()
+      ]);
+    }
     
     $this->view->assign('vbrands', $vbrands);
     $this->view->assign('vmodels', $vmodels);
+    $this->view->assign('vmodel_options', json_encode($values));
   }
   
   /**

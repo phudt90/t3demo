@@ -6,13 +6,13 @@
 			<f:if condition="{battery.terminalType}">
 				<tr>
 					<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.terminal_type.label" /></td>
-					<td>{battery.terminalType}</td>
+					<td><span class="nano-terminal-type nano-terminal-type--{battery.terminalType}"></span></td>
 				</tr>
 			</f:if>
 			<f:if condition="{battery.terminalLayout}">
 				<tr>
 					<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.terminal_layout.label" /></td>
-					<td>{battery.terminalLayout}</td>
+					<td><span class="nano-terminal-layout nano-terminal-layout--{battery.terminalLayout}"></span></td>
 				</tr>
 			</f:if>
 			<f:if condition="{battery.voltage}">
@@ -24,19 +24,21 @@
 			<f:if condition="{battery.technology}">
 				<tr>
 					<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.technology.label" /></td>
-					<td>{battery.technology}</td>
+					<td>
+						<f:switch expression="{battery.technology}">
+							<f:case value="1">Miễn bảo dưỡng</f:case>
+							<f:case value="2">AGM</f:case>
+							<f:case value="3">Xả sâu</f:case>
+							<f:case value="4">Truyền thống</f:case>
+							<f:defaultCase>{battery.technology}</f:defaultCase>
+						</f:switch>
+					</td>
 				</tr>
 			</f:if>
 			<f:if condition="{battery.capacity20}">
 				<tr>
 					<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.capacity_20.label" /></td>
 					<td>{battery.capacity20}</td>
-				</tr>
-			</f:if>
-			<f:if condition="{battery.capacity100}">
-				<tr>
-					<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.capacity_100.label" /></td>
-					<td>{battery.capacity100}</td>
 				</tr>
 			</f:if>
 			<f:if condition="{battery.ccaEn}">

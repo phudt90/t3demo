@@ -3,8 +3,8 @@
 	<file t3:id="1415814790" source-language="en" datatype="plaintext" original="messages" date="2011-10-17T20:22:32Z" product-name="nano">
 		<header/>
 		<body>
-			<trans-unit id="">
-				<source></source>
+			<trans-unit id="nano.messages.listIsEmpty">
+				<source>Không tìm thấy sản phẩm phù hợp.</source>
 			</trans-unit>
 		</body>
 	</file>
