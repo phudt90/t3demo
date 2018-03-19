@@ -80,10 +80,8 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     }
     
     $records = $this->batteryRepository->findDemanded($demand);
-    
-    if($title) {
-      $this->getPageRenderer()->setTitle($title);
-    }
+
+    $this->setPageTitle($title);
     $this->view->assign('heading', $title);
     $this->view->assign('batteries', $records);
   }
@@ -109,9 +107,7 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     
     $batteries = $this->batteryRepository->findDemanded($demand);
     
-    if($title) {
-      $this->getPageRenderer()->setTitle($title);
-    }
+    $this->setPageTitle($title);
     $this->view->assign('heading', $title);
     $this->view->assign('batteries', $batteries);
   }
@@ -137,7 +133,21 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    * @param BatteryModel
    */
   public function detailsAction(BatteryModel $battery) {
+    $this->setPageTitle($battery->getTitle());
     $this->view->assign('battery', $battery);
+  }
+  
+  /**
+   * Set current page title
+   * @param string $title
+   */
+  protected function setPageTitle($title) {
+    $altTitle = 'Ắc quy ô tô - Ắc quy xe phân khối lớn - Ắc quy xe máy - Phụ kiện ắc quy';
+    if($title) {
+      $this->getPageRenderer()->setTitle(sprintf('%s - %s', $title, $altTitle));
+    } else {
+      $this->getPageRenderer()->setTitle($altTitle);
+    }
   }
   
   /**

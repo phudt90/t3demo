@@ -118,7 +118,7 @@ ul.flat-pagination li a.paginate-btn i.paginate-prev{
 }
 
 
-.product-detail .header-detail h4.name{
+.product-detail .header-detail .product-name{
 	font-size:18px;
 	font-weight:600;
 	line-height:1.4;
