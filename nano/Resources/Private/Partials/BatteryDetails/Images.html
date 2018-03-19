@@ -5,7 +5,7 @@
 			<f:for each="{battery.mediaPreviews}" as="item">
 				<li data-thumb="{item.originalResource.publicUrl}">
 					<a href="javascript:;" id="zoom{item.uid}" class="zoom">
-						<f:image image="{item}" width="400" height="300" />
+						<f:image image="{item}" maxWidth="400" />
 					</a>
 				</li>
 			</f:for>

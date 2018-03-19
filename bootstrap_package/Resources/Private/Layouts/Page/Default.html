@@ -3,55 +3,15 @@
 	<div class="boxed style1">
 		<div class="overlay"></div>
 		
-		<div id="top"></div>
-		
 		<f:render partial="Structure/Header" arguments="{_all}" />
 
 		<div class="body-bg{f:if(condition:settings.navigation.type, then:' body-bg-{settings.navigation.type}')}">
 
 			<f:render partial="Navigation/Breadcrumb" arguments="{_all}" />
 
-			<section class="flat-row flat-banner-box" style="display:none;">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-4">
-							<div class="banner-box-2">
-								<img src="{f:uri.resource(path:'Nano/images/banner_boxes/bike-batteries.jpg', extensionName: 'nano')}" alt="">
-								<a class="inner-box" href="javascript:;" title="">
-									<span class="inner-box-wrap">
-										<h3>Ắc quy xe máy</h3>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="banner-box-2">
-								<img src="{f:uri.resource(path:'Nano/images/banner_boxes/car-batteries.jpg', extensionName: 'nano')}" alt="">
-								<a class="inner-box" href="javascript:;" title="">
-									<span class="inner-box-wrap">
-										<h3>Ắc quy xe phân khối lớn</h3>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="banner-box-2">
-								<img src="{f:uri.resource(path:'Nano/images/banner_boxes/forklift-flt-batteries.jpg', extensionName: 'nano')}" alt="">
-								<a class="inner-box" href="javascript:;" title="">
-									<span class="inner-box-wrap">
-										<h3>Ắc quy xe ô tô</h3>
-									</span>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
 			<div id="content" class="main-section">
 				<f:render section="Main" />
 			</div>
-
 		</div>
 		
 		<f:render partial="Structure/Footer" arguments="{_all}" />

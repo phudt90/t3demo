@@ -4,6 +4,13 @@
 #logo .navbar-brand-image img{
 	max-width:200px;
 }
+.nav-wrap{
+	display:none;
+}
+.nav-wrap.loaded{
+	display:block;
+}
+
 .main-section {
 	min-height: 500px;
 }
@@ -224,6 +231,13 @@ ul.flat-pagination li a.paginate-btn i.paginate-prev{
 .product-box.style-nano .imagebox .box-content{}
 .product-box.style-nano .imagebox .product-name{}
 .product-box.style-nano .imagebox .box-bottom{}
+
+.flat-product-detail .flex-control-thumbs{
+	margin-top: 30px;
+}
+.flat-product-detail .flex-control-thumbs li{
+	margin-right:15px;
+}
 
 .carousel {
   position: relative;
