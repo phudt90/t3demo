@@ -1,6 +1,7 @@
 plugin {
 	storagePid = 2
-	listPid = 3
+	listPid = 14
+	detailsPid = 3
 	searchPid = 4
 }
 

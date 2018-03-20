@@ -1,20 +1,24 @@
 <?php
 defined('TYPO3_MODE') or die();
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'BatteryList', [
-  'Battery' => 'list,details',
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'PageBatteryList', [
+  'Battery' => 'list',
 ], []);
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'BatteryByApplication', [
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'PageBatteryDetails', [
+  'Battery' => 'details',
+], []);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'PageBatterySearchByVehical', [
+  'Battery' => 'search',
+], []);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'WidgetBatteryByApplication', [
   'Battery' => 'batteryByApplication',
 ], []);
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'SearchBattery', [
-  'Battery' => 'search,details',
-], []);
-
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'WidgetSearchByTerms', [
-  'SearchByTerms' => 'index,list',
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'WidgetSearchByVehicalTerms', [
+  'SearchByTerms' => 'index',
 ], []);
 
 if(\TYPO3\CMS\Core\Utility\GeneralUtility::getApplicationContext()->isDevelopment()) {

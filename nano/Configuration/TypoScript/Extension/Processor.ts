@@ -5,9 +5,9 @@ page.10.dataProcessing {
 		listPid = {$plugin.listPid}
 	}
 	
-	70  = ELCA\Nano\DataProcessing\VehicalTermsProcessor
-	70 {
-		storagePid = {$plugin.storagePid}
-		searchPid = {$plugin.searchPid}
-	}
+	#70  = ELCA\Nano\DataProcessing\VehicalTermsProcessor
+	#70 {
+	#	storagePid = {$plugin.storagePid}
+	#	searchPid = {$plugin.searchPid}
+	#}
 }

@@ -1,5 +1,5 @@
 
-plugin.tx_nano_batterylist {
+plugin.tx_nano_pagebatterylist {
   view {
     templateRootPaths {
       10 = EXT:nano/Resources/Private/Templates/Page/
@@ -26,7 +26,7 @@ plugin.tx_nano_batterylist {
 	}
 }
 
-plugin.tx_nano_searchbattery {
+plugin.tx_nano_pagebatterydetails {
   view {
     templateRootPaths {
       10 = EXT:nano/Resources/Private/Templates/Page/
@@ -57,7 +57,38 @@ plugin.tx_nano_searchbattery {
 	}
 }
 
-plugin.tx_nano_batterybyapplication {
+plugin.tx_nano_pagebatterysearchbyvehical {
+  view {
+    templateRootPaths {
+      10 = EXT:nano/Resources/Private/Templates/Page/
+      20 = EXT:bootstrap_package/Resources/Private/Templates/Page
+    }
+    partialRootPaths {
+      10 = EXT:nano/Resources/Private/Partials/Page/
+      20 = EXT:bootstrap_package/Resources/Private/Partials/Page
+    }
+    layoutRootPaths {
+      10 = EXT:nano/Resources/Private/Layouts/Page/
+      20 = EXT:bootstrap_package/Resources/Private/Layouts/Page/
+    }
+    
+    features {
+	  	requireCHashArgumentForActionArguments = 0
+	  }
+    
+    widget {
+    	TYPO3\CMS\Fluid\ViewHelpers\Widget\PaginateViewHelper {
+    		templateRootPaths = EXT:nano/Resources/Private/Templates/
+    	}
+    }
+  }
+  
+  settings {
+		detailsPid = {$plugin.detailsPid}
+	}
+}
+
+plugin.tx_nano_widgetbatterybyapplication {
 	view {
     templateRootPaths {
       10 = EXT:nano/Resources/Private/Templates/Page/
@@ -78,7 +109,7 @@ plugin.tx_nano_batterybyapplication {
 	}
 }
 
-plugin.tx_nano_widgetsearchbyterms {
+plugin.tx_nano_widgetsearchbyvehicalterms {
 	view {
     templateRootPaths {
       10 = EXT:nano/Resources/Private/Templates/Page/

@@ -9,10 +9,10 @@
 <div id="NanoTopSearch" class="nano-top-search">
 	<form action="#" method="get" class="form-search" accept-charset="utf-8">
 		<f:for each="{vbrands}" as="vbrand">
-			<input type="hidden" name="vbrands[{vbrand.uid}]" value="{f:uri.action(pageUid:settings.searchPid, extensionName:'Nano', pluginName:'SearchBattery', controller:'Battery', action: 'search', arguments:'{vbrand:vmodel.vbrand.uid}')}" />
+			<input type="hidden" name="vbrands[{vbrand.uid}]" value="{f:uri.action(pageUid:settings.searchPid, extensionName:'Nano', pluginName:'PageBatterySearch', controller:'Battery', action: 'search', arguments:'{vbrand:vmodel.vbrand.uid}')}" />
 		</f:for>
 		<f:for each="{vmodels}" as="vmodel">
-			<input type="hidden" name="vmodels[{vmodel.uid}]" data-vbrand="{vmodel.vbrand.uid}" value="{f:uri.action(pageUid:settings.searchPid, extensionName:'Nano', pluginName:'SearchBattery', controller:'Battery', action: 'search', arguments:'{vbrand:vmodel.vbrand.uid, vmodel:vmodel.uid}')}" />
+			<input type="hidden" name="vmodels[{vmodel.uid}]" data-vbrand="{vmodel.vbrand.uid}" value="{f:uri.action(pageUid:settings.searchPid, extensionName:'Nano', pluginName:'PageBatterySearch', controller:'Battery', action: 'search', arguments:'{vbrand:vmodel.vbrand.uid, vmodel:vmodel.uid}')}" />
 		</f:for>
 		<div class="quick-search">
 			<div class="quick-search-inner">

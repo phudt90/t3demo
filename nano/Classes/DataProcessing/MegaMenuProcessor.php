@@ -63,7 +63,7 @@ class MegaMenuProcessor implements DataProcessorInterface {
         'link' => $cObj->typoLink_URL([
           'parameter' => $this->listPid,
           'title' => $appTitle,
-          'additionalParams' => '&tx_nano_batterylist[application]='.$appUid,
+          'additionalParams' => '&tx_nano_pagebatterylist[application]='.$appUid,
           'useCacheHash' => true,
           'forceAbsoluteUrl' => true,
         ])
@@ -76,7 +76,7 @@ class MegaMenuProcessor implements DataProcessorInterface {
             'link' => $cObj->typoLink_URL([
               'parameter' => $this->listPid,
               'title' => $brandTitle,
-              'additionalParams' => '&tx_nano_batterylist[application]='.$appUid.'&tx_nano_batterylist[brand]='.$brandUid,
+              'additionalParams' => '&tx_nano_pagebatterylist[application]='.$appUid.'&tx_nano_pagebatterylist[brand]='.$brandUid,
               'useCacheHash' => true,
               'forceAbsoluteUrl' => true,
             ])

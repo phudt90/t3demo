@@ -113,6 +113,15 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
   }
   
   /**
+   * Battery Details
+   * @param BatteryModel
+   */
+  public function detailsAction(BatteryModel $battery) {
+    $this->setPageTitle($battery->getTitle());
+    $this->view->assign('battery', $battery);
+  }
+  
+  /**
    * Output a list view of batteries by application
    * @param ApplicationModel
    *
@@ -127,16 +136,7 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     
     $this->view->assign('batteries', $batteries);
   }
-  
-  /**
-   * Battery Details
-   * @param BatteryModel
-   */
-  public function detailsAction(BatteryModel $battery) {
-    $this->setPageTitle($battery->getTitle());
-    $this->view->assign('battery', $battery);
-  }
-  
+
   /**
    * Set current page title
    * @param string $title
