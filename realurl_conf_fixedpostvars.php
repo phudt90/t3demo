@@ -1,7 +1,7 @@
 <?php
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl']['_DEFAULT']['fixedPostVars'] = [
   // Battery Details
-  'batteryDetailsConfiguration' => [
+  'PageBatteryDetailsConfiguration' => [
     [
       'GETvar' => 'tx_nano_pagebatterydetails[controller]',
       'valueMap' => [
@@ -35,7 +35,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl']['_DEFAULT']['fixedPostVars'] =
       ]
     ],
   ],
-  'batteryListConfiguration' => [
+  'PageBatteryListConfiguration' => [
     [
       'GETvar' => 'tx_nano_pagebatterylist[controller]',
       'valueMap' => [
@@ -87,23 +87,23 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl']['_DEFAULT']['fixedPostVars'] =
       ],
     ],
   ],
-  'batterySearchConfiguration' => [
+  'PageBatterySearchByVehicalConfiguration' => [
     [
-      'GETvar' => 'tx_nano_pagebatterysearch[controller]',
+      'GETvar' => 'tx_nano_pagebatterysearchbyvehical[controller]',
       'valueMap' => [
         'Battery' => ''
       ],
       'noMatch' => 'bypass'
     ],
     [
-      'GETvar' => 'tx_nano_pagebatterysearch[action]',
+      'GETvar' => 'tx_nano_pagebatterysearchbyvehical[action]',
       'valueMap' => [
         'search' => '',
       ],
       'noMatch' => 'bypass'
     ],
     [
-      'GETvar' => 'tx_nano_pagebatterysearch[vbrand]',
+      'GETvar' => 'tx_nano_pagebatterysearchbyvehical[vbrand]',
       'lookUpTable' => [
         'table' => 'tx_nano_domain_model_vbrand',
         'id_field' => 'uid',
@@ -121,7 +121,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl']['_DEFAULT']['fixedPostVars'] =
       ],
     ],
     [
-      'GETvar' => 'tx_nano_pagebatterysearch[vmodel]',
+      'GETvar' => 'tx_nano_pagebatterysearchbyvehical[vmodel]',
       'lookUpTable' => [
         'table' => 'tx_nano_domain_model_vmodel',
         'id_field' => 'uid',
@@ -140,7 +140,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl']['_DEFAULT']['fixedPostVars'] =
     ],
   ],
   
-  '3' => 'batteryDetailsConfiguration',
-  '14' => 'batteryListConfiguration',
-  '4' => 'batterySearchConfiguration',
+  '3' => 'PageBatteryDetailsConfiguration',
+  '14' => 'PageBatteryListConfiguration',
+  '4' => 'PageBatterySearchByVehicalConfiguration',
 ];
