@@ -381,7 +381,7 @@
 				<source>News Pid listing</source>
 			</trans-unit>
 			<trans-unit id="administration.title" xml:space="preserve">
-				<source>News administration</source>
+				<source>News</source>
 			</trans-unit>
 			<trans-unit id="administration.nopageselected" xml:space="preserve">
 				<source>Please click the page title in the page tree to the left to show the records on that page.</source>

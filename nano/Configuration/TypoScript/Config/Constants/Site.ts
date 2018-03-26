@@ -41,31 +41,3 @@ site {
 		concatenateJs = 0
   }
 [end]
-
-###################################################
-# Do not compress CSS and JS if not connected on the BE
-###################################################
-
-[globalVar = TSFE : beUserLogin > 0]
-  site {
-    compressCss = 0
-    concatenateCss = 0
-    compressJs = 0
-    concatenateJs = 0
-  }
-[end]
-
-###################################################
-# Do not compress CSS and JS if the domain ends up with .prox
-# Goal: be able to call the website in reponsive mode on Chrome
-# and benefit of LiveReload
-###################################################
-
-[globalString = IENV:HTTP_HOST = *local.infosan*.proxy]
-  site {
-    compressCss = 0
-    concatenateCss = 0
-    compressJs = 0
-    concatenateJs = 0
-  }
-[end]

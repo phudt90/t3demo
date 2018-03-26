@@ -127,13 +127,19 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    *
    */
   public function batteryByApplicationAction() {
+    $application = null;
+    $heading = null;
     $batteries = [];
     $demand = $this->createDemandObjectFromSettings($this->settings);
+    /* @var \ELCA\Nano\Domain\Model\Application $application */
     if($application = $this->applicationRepository->findByUid($this->settings['applications'])) {
+      $heading = sprintf($application->getTitle());
       $demand->setApplication($application);
       $batteries = $this->batteryRepository->findDemanded($demand);
     }
     
+    $this->view->assign('application', $application);
+    $this->view->assign('heading', $heading);
     $this->view->assign('batteries', $batteries);
   }
 

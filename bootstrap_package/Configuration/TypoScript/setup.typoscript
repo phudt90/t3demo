@@ -473,12 +473,6 @@ config {
     language = en
     locale_all = en_US.UTF-8
     htmlTag_setParams = lang="en" dir="ltr" class="no-js"
-
-    // Compression and Concatenation of CSS and JS Files
-    compressJs = {$config.compressJs}
-    compressCss = {$config.compressCss}
-    concatenateJs = {$config.concatenateJs}
-    concatenateCss = {$config.concatenateCss}
 }
 
 #############################

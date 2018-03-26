@@ -7,12 +7,10 @@
 
 @import url("font-awesome.css");
 @import url("flexslider.css");
-@import url("owl.carousel.css");
 @import url("shortcodes.css");
 @import url("jquery-ui.css");
-@import url("waves.min.css");
-@import url("mCustomScrollbar.css");
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i");
+@import url("//fonts.googleapis.com/css?family=Roboto:300,400,500,600&amp;subset=latin,vietnamese");
+
 
 /**
   *	Reset
@@ -68,6 +66,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 ol, ul {
 	list-style:none;
+	list-style-position: inside;
+	padding:0;
 }
 
 blockquote, q {
@@ -170,26 +170,48 @@ input::-moz-focus-inner {
 	-moz-box-sizing:border-box;
 	box-sizing:border-box;
 }
-
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+	font-family: Roboto,Helvetica,Arial,sans-serif
+}
 body {
-	font-family:'Open Sans', sans-serif;
-	font-size:13px;
+	font-size:14px;
 	line-height:24px;
 	font-weight:400;
-	background-color:#fff;
-	color:#656565;
+	background-color:#ffffff;
+	color:#333333;
 	overflow:hidden;
 	position:relative;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+	font-weight:400;
+	line-height: 1.21;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+h1,.h1 {
+	font-size:32px;
+}
+h2,.h2 {
+	font-size:24px;
+}
+h3,.h3 {
+	font-size:20px;
+	font-weight:500;
+	color:#2d2d2d;
+}
+h4,.h4 {
+	font-size:18px;
+}
+h5, .h5 {
+	font-size:16px;
+}
+h6, .h6 {
+	font-size:14px;
 }
 
 a {
 	text-decoration:none;
 	color:#333333;
-	-webkit-transition:all 0.3s ease-in-out;
-	-moz-transition:all 0.3s ease-in-out;
-	-ms-transition:all 0.3s ease-in-out;
-	-o-transition:all 0.3s ease-in-out;
-	transition:all 0.3s ease-in-out;
 }
 
 a:hover,
@@ -197,15 +219,6 @@ a:focus {
 	color:#f92400;
 	text-decoration:none;
 	outline:0;
-	-webkit-transition:all 0.3s ease-in-out;
-	-moz-transition:all 0.3s ease-in-out;
-	-ms-transition:all 0.3s ease-in-out;
-	-o-transition:all 0.3s ease-in-out;
-	transition:all 0.3s ease-in-out;
-}
-
-ul, ol {
-	padding:0;
 }
 
 img {
@@ -213,8 +226,11 @@ img {
 	height:auto;
 }
 
-b, strong {
-	font-weight:900;
+b, strong, .strong {
+	font-weight:500;
+}
+p{
+	margin-bottom:15px;
 }
 
 uttonb,
@@ -239,8 +255,7 @@ input[type="submit"] {
 	color:#ffffff;
 	background:#e5e5e5;
 	border-radius:30px;
-	font-weight:600;
-	font-family:"Open Sans", sans-serif;
+	font-weight:500;
 	position:relative;
 	-webkit-transition:all 0.3s ease-in-out;
 	-moz-transition:all 0.3s ease-in-out;
@@ -263,7 +278,7 @@ button.search-submit-form {
 	border-color:transparent;
 	border-left:1px solid #d0d0d0;
 	text-transform:uppercase;
-	font-weight:700;
+	font-weight:500;
 	border-radius:0;
 	-webkit-transition:all 0.3s ease-in-out;
 	-moz-transition:all 0.3s ease-in-out;
@@ -290,7 +305,6 @@ input[type="color"],
 input[type="email"] {
 	position:relative;
 	display:block;
-	font-family:'Open Sans';
 	width:100%;
 	line-height:24px;
 	padding:8px 15px 8px 30px;
@@ -416,29 +430,6 @@ select::-ms-expand {
 	opacity:0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-family:'Open Sans', sans-serif;
-	font-weight:400;
-}
-
-h1 {
-	font-size:32px;
-}
-
-h2 {
-	font-size:24px;
-}
-
-h3 {
-	font-size:20px;
-	font-weight:500;
-	color:#2d2d2d;
-}
-
-h4 {
-	font-size:18px;
-}
-
 .container {
 	width:1170px;
 }
@@ -459,7 +450,6 @@ h4 {
 	color:#f92400;
 	font-weight:500;
 	font-size:22px;
-	font-family:'Open Sans';
 }
 
 .regular {
@@ -568,7 +558,7 @@ ul.flat-support li a {
 	border-right:1px solid #e5e5e5;
 	padding-right:10px;
 	padding-left:7px;
-	font-size:12px;
+	font-size:13px;
 	font-weight:400;
 }
 
@@ -965,7 +955,7 @@ ul.flat-unstyled li > ul > li > a {
 .search-suggestions .box-cat .title {
 	color:#f92400;
 	font-size:14px;
-	font-weight:600;
+	font-weight:500;
 	margin-bottom:15px;
 }
 
@@ -994,7 +984,6 @@ ul.flat-unstyled li > ul > li > a {
 	color:#484848;
 	font-size:16px;
 	font-weight:500;
-	font-family:'Open Sans';
 	margin-right:15px;
 }
 
@@ -1059,7 +1048,7 @@ ul.flat-unstyled li > ul > li > a {
 }
 
 .box-cart .inner-box > a > .price {
-	font-weight:600;
+	font-weight:500;
 	font-size:16px;
 	margin-left:8px;
 }
@@ -1193,7 +1182,7 @@ ul.flat-unstyled li > ul > li > a {
 	border:2px solid #f92400;
 	border-radius:30px;
 	font-size:14px;
-	font-weight:600;
+	font-weight:500;
 	float:left;
 	position:relative;
 	overflow:hidden;
@@ -1239,7 +1228,7 @@ ul.flat-unstyled li > ul > li > a {
 	color:#fff;
 	border-radius:30px;
 	font-size:14px;
-	font-weight:600;
+	font-weight:500;
 	background-color:#484848;
 	float:right;
 	position:relative;
@@ -1283,7 +1272,7 @@ ul.flat-unstyled li > ul > li > a {
 }
 
 #mega-menu > .btn-mega {
-	font-weight:600;
+	font-weight:500;
 	font-size:16px;
 	color:#fefefe;
 	height:65px;
@@ -1579,6 +1568,7 @@ ul.flat-unstyled li > ul > li > a {
 	color:#484848;
 	border:none;
 	padding:0;
+	font-size:15px;
 	font-weight:500;
 	margin-right:33px;
 }
@@ -1645,7 +1635,7 @@ ul.flat-unstyled li > ul > li > a {
 	line-height:55px;
 	color:#ffffff;
 	font-size:14px;
-	font-weight:600;
+	font-weight:500;
 	position:relative;
 }
 
@@ -1733,7 +1723,7 @@ ul.menu li.column-1 .submenu > li > a i {
 
 .submenu .show a {
 	color:#f92400;
-	font-weight:700;
+	font-weight:500;
 	position:relative;
 }
 
@@ -2172,7 +2162,6 @@ ul.menu li.column-1 .submenu > li > a i {
 
 .sidebar .widget .widget-title h3 {
 	font-size:20px;
-	font-family:'Open Sans';
 	font-weight:500;
 	color:#2d2d2d;
 	padding-bottom:15px;
@@ -2301,7 +2290,6 @@ ul.product-list li .info-product .queue i {
 }
 
 ul.product-list li .info-product .price .sale {
-	font-family:'Open Sans';
 	font-size:18px;
 	color:#484848;
 	font-weight:500;
@@ -2682,7 +2670,6 @@ footer.style4 .widget-newsletter {
 	color:#484848;
 	float:left;
 	line-height:34px;
-	margin-left:-1px;
 }
 
 .footer-bottom .btn-scroll {
@@ -2748,7 +2735,7 @@ footer.style4 .widget-newsletter {
 
 .widget-about .widget-content .info p.phone {
 	font-size:18px;
-	font-weight:700;
+	font-weight:500;
 	color:#484848;
 	margin-right:-30px;
 	margin-bottom:9px;
@@ -2942,7 +2929,6 @@ ul.app-list.style1 .google-play {
 
 .tabs ul.menu-tab li {
 	display:inline-block;
-	font-family:'Open Sans';
 	font-size:20px;
 	font-weight:300;
 	color:#919191;
@@ -2999,7 +2985,6 @@ article.main-post.single .content-post .entry-post blockquote {
 }
 
 article.main-post.single .content-post .entry-post blockquote span {
-	font-family:'Open Sans';
 	font-size:80px;
 	color:#f92400;
 	font-weight:bold;
@@ -3201,8 +3186,7 @@ ol.comment-list li.comment .comment-text .comment-content p {
 
 .comment-respond .form-comment form .btn-submit button {
 	background-color:#f92400;
-	font-family:'Open Sans';
-	font-weight:600;
+	font-weight:500;
 	color:#fff;
 	font-size:16px;
 	height:55px;

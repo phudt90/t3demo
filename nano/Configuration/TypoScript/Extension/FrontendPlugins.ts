@@ -105,6 +105,7 @@ plugin.tx_nano_widgetbatterybyapplication {
   }
   
 	settings {
+		listPid = {$plugin.listPid}
 		detailsPid = {$plugin.detailsPid}
 	}
 }

@@ -2,11 +2,11 @@
 #### TCEFORM ####
 #################
 TCEFORM {
-    pages {
-        layout {
-            removeItems = 1,2,3
-        }
+  pages {
+    layout {
+    	#removeItems = 1,2,3
     }
+  }
     tt_content {
         header_layout {
             altLabels {

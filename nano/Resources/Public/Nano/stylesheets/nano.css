@@ -1,3 +1,17 @@
+.main-section {
+	min-height: 500px;
+}
+.layout-1 .main-section{
+	padding-top:40px;
+	padding-bottom:40px;
+	font-size:16px;
+}
+
+.list-paragraph{}
+.list-paragraph li{
+	margin-bottom: 10px;
+}
+
 #logo .navbar-brand-image{
 	padding-top:20px;
 }
@@ -9,10 +23,6 @@
 }
 .nav-wrap.loaded{
 	display:block;
-}
-
-.main-section {
-	min-height: 500px;
 }
 
 .nano-top-search{
@@ -48,9 +58,10 @@
 }
 .quick-search .quick-search-heading {
 	font-size: 14px;
-	font-weight: 600;
+	font-weight: 500;
 	text-transform: uppercase;
 	width: 16.66667%;
+	margin:0;
 }
 .quick-search .quick-search-field {
 	-webkit-box-flex: 0;
@@ -97,9 +108,11 @@
 
 .main-shop .flat-row-title .heading-nano {
 	color: #2d2d2d;
-  padding: 15px 0;
-  font-size: 20px;
+  padding: 0;
+  font-size: 22px;
   font-weight: 500;
+  text-transform:uppercase;
+  margin: 0 0 10px;
 }
 
 ul.flat-pagination li{
