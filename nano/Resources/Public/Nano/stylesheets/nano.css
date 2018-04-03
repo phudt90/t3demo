@@ -476,3 +476,31 @@ ul.flat-pagination li a.paginate-btn i.paginate-prev{
     bottom: 20px;
   }
 }
+
+.nn-content{
+	color: #000;
+	font-size:16px;
+	font-weight:300;
+}
+.nn-content .nn-heading{
+	font-size: 24px;
+  color: #444;
+  line-height: 36px;
+  font-weight: 500;
+  position: relative;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+ul.list-checked{
+	margin:0;
+	padding:0;
+}
+ul.list-checked li{
+	background: transparent url(../images/icons/i_hotlinevf.png) no-repeat left top 6px;
+  color: #000;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 22px;
+  padding: 4px 0 4px 25px;
+}

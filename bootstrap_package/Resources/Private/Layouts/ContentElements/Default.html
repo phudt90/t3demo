@@ -19,19 +19,23 @@
 					<div id="c{data.uid}" class="frame {frameClass} {typeClass} {layoutClass} {backgroundClass} {backgroundImageClass} {spaceBeforeClass} {spaceAfterClass}">
 						<div class="frame-container">
 							<div class="frame-inner">
-									<f:render section="Before" optional="true">
-										<f:render partial="DropIn/Before/All" arguments="{_all}" />
-									</f:render>
-									<f:render section="Header" optional="true">
-										<f:render partial="Header/All" arguments="{_all}" />
-									</f:render>
-									<f:render section="Main" optional="true" />
-									<f:render section="Footer" optional="true">
-										<f:render partial="Footer/All" arguments="{_all}" />
-									</f:render>
-									<f:render section="After" optional="true">
-										<f:render partial="DropIn/After/All" arguments="{_all}" />
-									</f:render>
+								<div class="row">
+									<div class="col-md-10 offset-md-1">
+										<f:render section="Before" optional="true">
+											<f:render partial="DropIn/Before/All" arguments="{_all}" />
+										</f:render>
+										<f:render section="Header" optional="true">
+											<f:render partial="Header/All" arguments="{_all}" />
+										</f:render>
+										<f:render section="Main" optional="true" />
+										<f:render section="Footer" optional="true">
+											<f:render partial="Footer/All" arguments="{_all}" />
+										</f:render>
+										<f:render section="After" optional="true">
+											<f:render partial="DropIn/After/All" arguments="{_all}" />
+										</f:render>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

@@ -20,7 +20,7 @@ TCEFORM {
         layout {
             removeItems = 2,3
             altLabels {
-      				1 = List
+      				1 = 10/12 columns center
     				}
             disableNoMatchingValueElement = 1
             types {
