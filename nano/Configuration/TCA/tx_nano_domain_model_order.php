@@ -3,9 +3,8 @@ defined('TYPO3_MODE') or die();
 
 return [
   'ctrl' => [
-    'title' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_vbrand.label',
+    'title' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order.label',
     'label' => 'title',
-    'label_alt' => 'bodytext',
     'tstamp' => 'tstamp',
     'crdate' => 'crdate',
     'cruser_id' => 'cruser_id',
@@ -24,12 +23,12 @@ return [
       'starttime' => 'starttime',
       'endtime' => 'endtime'
     ],
-    'searchFields' => 'title,bodytext',
+    'searchFields' => 'title',
     'default_sortby' => 'ORDER BY crdate DESC',
     'sortby' => 'sorting'
   ],
   'interface' => [
-    'showRecordFieldList' => 'title,bodytext'
+    'showRecordFieldList' => 'title,fullname,email,phone,address,province,district,status,comment'
   ],
   'columns' => [
     'l18n_diffsource' => [
@@ -118,10 +117,92 @@ return [
         'eval' => 'required'
       ]
     ],
-    'bodytext' => [
+    'fullname' => [
+      'exclude' => false,
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order.fullname',
+      'config' => [
+        'type' => 'input',
+        'size' => 30,
+        'max' => 255,
+        'eval' => 'required'
+      ]
+    ],
+    'email' => [
+      'exclude' => false,
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order.email',
+      'config' => [
+        'type' => 'input',
+        'size' => 30,
+        'max' => 255,
+        'eval' => 'required'
+      ]
+    ],
+    'phone' => [
+      'exclude' => false,
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order.phone',
+      'config' => [
+        'type' => 'input',
+        'size' => 30,
+        'max' => 64,
+        'eval' => 'required'
+      ]
+    ],
+    'address' => [
+      'exclude' => false,
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order.address',
+      'config' => [
+        'type' => 'input',
+        'size' => 60,
+        'max' => 255,
+        'eval' => 'required'
+      ]
+    ],
+    'province' => [
+      'exclude' => false,
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order.province',
+      'config' => [
+        'type' => 'select',
+        'renderType' => 'selectSingle',
+        'foreign_table' => 'tx_nano_domain_model_province',
+        'foreign_table_where' => 'ORDER BY tx_nano_domain_model_province.sorting',
+        'size' => 6,
+        'minitems' => '1',
+        'maxitems' => '1',
+      ]
+    ],
+    'district' => [
+      'exclude' => false,
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order.district',
+      'config' => [
+        'type' => 'select',
+        'renderType' => 'selectSingle',
+        'foreign_table' => 'tx_nano_domain_model_district',
+        'foreign_table_where' => 'ORDER BY tx_nano_domain_model_district.sorting',
+        'size' => 6,
+        'minitems' => '1',
+        'maxitems' => '1',
+      ]
+    ],
+    'status' => [
+      'exclude' => false,
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order.status',
+      'config' => [
+        'type' => 'select',
+        'renderType' => 'selectSingle',
+        'items' => [
+          ['Chờ duyệt', 1],
+          ['Đã duyệt', 2],
+          ['Đang thực hiện', 3],
+          ['Đang giao', 4],
+          ['Đã giao', 5],
+          ['Đã xong', 6],
+        ],
+      ]
+    ],
+    'comment' => [
       'exclude' => false,
       'l10n_mode' => 'noCopy',
-      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order.comment',
       'config' => [
         'type' => 'text',
         'cols' => 30,
@@ -141,16 +222,16 @@ return [
         ]
       ]
     ],
-    'vmodels' => [
+    'products' => [
       'exclude' => 1,
-      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_vbrand.vmodels.label',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order.products',
       'config' => [
         'type' => 'inline',
-        'foreign_table' => 'tx_nano_domain_model_vmodel',
-        'foreign_field' => 'vbrand',
+        'foreign_table' => 'tx_nano_domain_model_order_product',
+        'foreign_field' => 'order',
         'foreign_sortby' => 'sorting',
         'minitems' => 1,
-        'maxitems' => 99,
+        'maxitems' => 1000,
         'appearance' => [
           'collapseAll' => 1,
           'expandSingle' => 1,
@@ -158,41 +239,19 @@ return [
         ]
       ]
     ],
-    'seo_title' => [
-      'exclude' => true,
-      'l10n_mode' => 'mergeIfNotBlank',
-      'label' => 'SEO title',
-      'config' => [
-        'type' => 'input',
-        'size' => 50,
-        'max' => 255
-      ]
-    ],
-    'seo_description' => [
-      'exclude' => true,
-      'l10n_mode' => 'mergeIfNotBlank',
-      'label' => 'SEO description',
-      'config' => [
-        'type' => 'text',
-        'cols' => 30,
-        'rows' => 5
-      ]
-    ],
   ],
   'types' => [
     '0' => [
-      'columnsOverrides' => [
-        'bodytext' => [
-          'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
-        ],
-      ],
-      'showitem' => '--palette--;;paletteGeneral,vmodels'
+      'showitem' => '--palette--;;paletteGeneral,--linebreak--,;;paletteContact,status,--linebreak--,comment,--linebreak--,products'
     ]
     
   ],
   'palettes' => [
     'paletteGeneral' => [
-      'showitem' => 'title,hidden,--linebreak--,bodytext',
+      'showitem' => 'title,hidden',
+    ],
+    'paletteContact' => [
+      'showitem' => 'fullname,email,phone,--linebreak--,address,--linebreak--,province,district'
     ],
   ]
 ];

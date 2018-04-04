@@ -3,9 +3,8 @@ defined('TYPO3_MODE') or die();
 
 return [
   'ctrl' => [
-    'title' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_vbrand.label',
+    'title' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_district.label',
     'label' => 'title',
-    'label_alt' => 'bodytext',
     'tstamp' => 'tstamp',
     'crdate' => 'crdate',
     'cruser_id' => 'cruser_id',
@@ -24,12 +23,12 @@ return [
       'starttime' => 'starttime',
       'endtime' => 'endtime'
     ],
-    'searchFields' => 'title,bodytext',
+    'searchFields' => 'title',
     'default_sortby' => 'ORDER BY crdate DESC',
     'sortby' => 'sorting'
   ],
   'interface' => [
-    'showRecordFieldList' => 'title,bodytext'
+    'showRecordFieldList' => 'title,province,code,type'
   ],
   'columns' => [
     'l18n_diffsource' => [
@@ -110,7 +109,7 @@ return [
     'title' => [
       'exclude' => false,
       'l10n_mode' => 'prefixLangTitle',
-      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_ttc.xlf:header_formlabel',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_district.title',
       'config' => [
         'type' => 'input',
         'size' => 60,
@@ -118,81 +117,38 @@ return [
         'eval' => 'required'
       ]
     ],
-    'bodytext' => [
+    'code' => [
       'exclude' => false,
-      'l10n_mode' => 'noCopy',
-      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel',
-      'config' => [
-        'type' => 'text',
-        'cols' => 30,
-        'rows' => 5,
-        'softref' => 'rtehtmlarea_images,typolink_tag,images,email[subst],url',
-        'wizards' => [
-          'RTE' => [
-            'notNewRecords' => 1,
-            'RTEonly' => 1,
-            'type' => 'script',
-            'title' => 'Full screen Rich Text Editing',
-            'icon' => 'actions-wizard-rte',
-            'module' => [
-              'name' => 'wizard_rte'
-            ]
-          ]
-        ]
-      ]
-    ],
-    'vmodels' => [
-      'exclude' => 1,
-      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_vbrand.vmodels.label',
-      'config' => [
-        'type' => 'inline',
-        'foreign_table' => 'tx_nano_domain_model_vmodel',
-        'foreign_field' => 'vbrand',
-        'foreign_sortby' => 'sorting',
-        'minitems' => 1,
-        'maxitems' => 99,
-        'appearance' => [
-          'collapseAll' => 1,
-          'expandSingle' => 1,
-          'useSortable' => 1,
-        ]
-      ]
-    ],
-    'seo_title' => [
-      'exclude' => true,
-      'l10n_mode' => 'mergeIfNotBlank',
-      'label' => 'SEO title',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_district.code',
       'config' => [
         'type' => 'input',
-        'size' => 50,
-        'max' => 255
+        'size' => 60,
+        'max' => 32,
+        'eval' => 'required'
       ]
     ],
-    'seo_description' => [
-      'exclude' => true,
-      'l10n_mode' => 'mergeIfNotBlank',
-      'label' => 'SEO description',
+    'type' => [
+      'exclude' => false,
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_district.type',
       'config' => [
-        'type' => 'text',
-        'cols' => 30,
-        'rows' => 5
+        'type' => 'select',
+        'renderType' => 'selectSingle',
+        'items' => [
+          ['Quận', 1],
+          ['Huyện', 2],
+        ],
       ]
     ],
   ],
   'types' => [
     '0' => [
-      'columnsOverrides' => [
-        'bodytext' => [
-          'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
-        ],
-      ],
-      'showitem' => '--palette--;;paletteGeneral,vmodels'
+      'showitem' => '--palette--;;paletteGeneral'
     ]
     
   ],
   'palettes' => [
     'paletteGeneral' => [
-      'showitem' => 'title,hidden,--linebreak--,bodytext',
+      'showitem' => 'title,hidden,--linebreak--,province,code,type',
     ],
   ]
 ];

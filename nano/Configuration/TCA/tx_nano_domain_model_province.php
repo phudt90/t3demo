@@ -3,9 +3,8 @@ defined('TYPO3_MODE') or die();
 
 return [
   'ctrl' => [
-    'title' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_vbrand.label',
+    'title' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_province.label',
     'label' => 'title',
-    'label_alt' => 'bodytext',
     'tstamp' => 'tstamp',
     'crdate' => 'crdate',
     'cruser_id' => 'cruser_id',
@@ -24,12 +23,12 @@ return [
       'starttime' => 'starttime',
       'endtime' => 'endtime'
     ],
-    'searchFields' => 'title,bodytext',
+    'searchFields' => 'title',
     'default_sortby' => 'ORDER BY crdate DESC',
     'sortby' => 'sorting'
   ],
   'interface' => [
-    'showRecordFieldList' => 'title,bodytext'
+    'showRecordFieldList' => 'title,code,type'
   ],
   'columns' => [
     'l18n_diffsource' => [
@@ -110,7 +109,7 @@ return [
     'title' => [
       'exclude' => false,
       'l10n_mode' => 'prefixLangTitle',
-      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_ttc.xlf:header_formlabel',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_province.title',
       'config' => [
         'type' => 'input',
         'size' => 60,
@@ -118,36 +117,35 @@ return [
         'eval' => 'required'
       ]
     ],
-    'bodytext' => [
+    'code' => [
       'exclude' => false,
-      'l10n_mode' => 'noCopy',
-      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_province.code',
       'config' => [
-        'type' => 'text',
-        'cols' => 30,
-        'rows' => 5,
-        'softref' => 'rtehtmlarea_images,typolink_tag,images,email[subst],url',
-        'wizards' => [
-          'RTE' => [
-            'notNewRecords' => 1,
-            'RTEonly' => 1,
-            'type' => 'script',
-            'title' => 'Full screen Rich Text Editing',
-            'icon' => 'actions-wizard-rte',
-            'module' => [
-              'name' => 'wizard_rte'
-            ]
-          ]
-        ]
+        'type' => 'input',
+        'size' => 60,
+        'max' => 32,
+        'eval' => 'required'
       ]
     ],
-    'vmodels' => [
+    'type' => [
+      'exclude' => false,
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_province.type',
+      'config' => [
+        'type' => 'select',
+        'renderType' => 'selectSingle',
+        'items' => [
+          ['Tỉnh', 1],
+          ['Thành phố', 2],
+        ],
+      ]
+    ],
+    'districts' => [
       'exclude' => 1,
-      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_vbrand.vmodels.label',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_province.districts',
       'config' => [
         'type' => 'inline',
-        'foreign_table' => 'tx_nano_domain_model_vmodel',
-        'foreign_field' => 'vbrand',
+        'foreign_table' => 'tx_nano_domain_model_district',
+        'foreign_field' => 'province',
         'foreign_sortby' => 'sorting',
         'minitems' => 1,
         'maxitems' => 99,
@@ -158,41 +156,16 @@ return [
         ]
       ]
     ],
-    'seo_title' => [
-      'exclude' => true,
-      'l10n_mode' => 'mergeIfNotBlank',
-      'label' => 'SEO title',
-      'config' => [
-        'type' => 'input',
-        'size' => 50,
-        'max' => 255
-      ]
-    ],
-    'seo_description' => [
-      'exclude' => true,
-      'l10n_mode' => 'mergeIfNotBlank',
-      'label' => 'SEO description',
-      'config' => [
-        'type' => 'text',
-        'cols' => 30,
-        'rows' => 5
-      ]
-    ],
   ],
   'types' => [
     '0' => [
-      'columnsOverrides' => [
-        'bodytext' => [
-          'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
-        ],
-      ],
-      'showitem' => '--palette--;;paletteGeneral,vmodels'
+      'showitem' => '--palette--;;paletteGeneral'
     ]
     
   ],
   'palettes' => [
     'paletteGeneral' => [
-      'showitem' => 'title,hidden,--linebreak--,bodytext',
+      'showitem' => 'title,hidden,--linebreak--,code,type,--linebreak--,districts',
     ],
   ]
 ];

@@ -25,11 +25,11 @@ return [
       'endtime' => 'endtime'
     ],
     'searchFields' => 'title,bodytext',
-    'default_sortby' => 'ORDER BY created DESC',
+    'default_sortby' => 'ORDER BY crdate DESC',
     'sortby' => 'sorting'
   ],
   'interface' => [
-    'showRecordFieldList' => 'title,vbrand,bodytext,created'
+    'showRecordFieldList' => 'title,vbrand,bodytext'
   ],
   'columns' => [
     'l18n_diffsource' => [

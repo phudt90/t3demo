@@ -3,9 +3,8 @@ defined('TYPO3_MODE') or die();
 
 return [
   'ctrl' => [
-    'title' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_vbrand.label',
+    'title' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order_product.label',
     'label' => 'title',
-    'label_alt' => 'bodytext',
     'tstamp' => 'tstamp',
     'crdate' => 'crdate',
     'cruser_id' => 'cruser_id',
@@ -24,12 +23,12 @@ return [
       'starttime' => 'starttime',
       'endtime' => 'endtime'
     ],
-    'searchFields' => 'title,bodytext',
+    'searchFields' => 'title',
     'default_sortby' => 'ORDER BY crdate DESC',
     'sortby' => 'sorting'
   ],
   'interface' => [
-    'showRecordFieldList' => 'title,bodytext'
+    'showRecordFieldList' => 'title,order,product,model,quantity'
   ],
   'columns' => [
     'l18n_diffsource' => [
@@ -109,8 +108,7 @@ return [
     // domain model fields
     'title' => [
       'exclude' => false,
-      'l10n_mode' => 'prefixLangTitle',
-      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_ttc.xlf:header_formlabel',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order_product.title',
       'config' => [
         'type' => 'input',
         'size' => 60,
@@ -118,81 +116,62 @@ return [
         'eval' => 'required'
       ]
     ],
-    'bodytext' => [
+    'order' => [
       'exclude' => false,
-      'l10n_mode' => 'noCopy',
-      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel',
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order_product.order',
       'config' => [
-        'type' => 'text',
-        'cols' => 30,
-        'rows' => 5,
-        'softref' => 'rtehtmlarea_images,typolink_tag,images,email[subst],url',
-        'wizards' => [
-          'RTE' => [
-            'notNewRecords' => 1,
-            'RTEonly' => 1,
-            'type' => 'script',
-            'title' => 'Full screen Rich Text Editing',
-            'icon' => 'actions-wizard-rte',
-            'module' => [
-              'name' => 'wizard_rte'
-            ]
-          ]
-        ]
+        'type' => 'select',
+        'renderType' => 'selectSingle',
+        'foreign_table' => 'tx_nano_domain_model_order',
+        'foreign_table_where' => 'ORDER BY tx_nano_domain_model_order.sorting',
+        'size' => '6',
+        'minitems' => '1',
+        'maxitems' => '1',
       ]
     ],
-    'vmodels' => [
-      'exclude' => 1,
-      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_vbrand.vmodels.label',
+    'battery' => [
+      'exclude' => false,
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order_product.battery',
       'config' => [
-        'type' => 'inline',
-        'foreign_table' => 'tx_nano_domain_model_vmodel',
-        'foreign_field' => 'vbrand',
-        'foreign_sortby' => 'sorting',
-        'minitems' => 1,
-        'maxitems' => 99,
-        'appearance' => [
-          'collapseAll' => 1,
-          'expandSingle' => 1,
-          'useSortable' => 1,
-        ]
+        'type' => 'select',
+        'renderType' => 'selectSingle',
+        'foreign_table' => 'tx_nano_domain_model_battery',
+        'foreign_table_where' => 'ORDER BY tx_nano_domain_model_battery.sorting',
+        'size' => '6',
+        'minitems' => '1',
+        'maxitems' => '1',
       ]
     ],
-    'seo_title' => [
-      'exclude' => true,
-      'l10n_mode' => 'mergeIfNotBlank',
-      'label' => 'SEO title',
+    'model' => [
+      'exclude' => false,
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order_product.model',
       'config' => [
         'type' => 'input',
-        'size' => 50,
-        'max' => 255
+        'size' => 60,
+        'max' => 255,
+        'eval' => 'required'
       ]
     ],
-    'seo_description' => [
-      'exclude' => true,
-      'l10n_mode' => 'mergeIfNotBlank',
-      'label' => 'SEO description',
+    'quantity' => [
+      'exclude' => false,
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order_product.quantity',
       'config' => [
-        'type' => 'text',
-        'cols' => 30,
-        'rows' => 5
+        'type' => 'input',
+        'size' => 30,
+        'max' => 255,
+        'eval' => 'required,trim,int'
       ]
     ],
   ],
   'types' => [
     '0' => [
-      'columnsOverrides' => [
-        'bodytext' => [
-          'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
-        ],
-      ],
-      'showitem' => '--palette--;;paletteGeneral,vmodels'
+      'showitem' => '--palette--;;paletteGeneral'
     ]
     
   ],
   'palettes' => [
     'paletteGeneral' => [
-      'showitem' => 'title,hidden,--linebreak--,bodytext',
+      'showitem' => 'title,hidden,--linebreak--,model,quantity,--linebreak--,order,battery',
     ],
   ]
 ];

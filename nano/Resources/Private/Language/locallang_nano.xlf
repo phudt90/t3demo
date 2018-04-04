@@ -60,6 +60,88 @@
 			<trans-unit id="tx_nano_domain_model_vbrand.vmodels.label">
 				<source>Các dòng xe</source>
 			</trans-unit>
+			
+			<trans-unit id="tx_nano_domain_model_province.label">
+				<source>Tỉnh/Thành phố</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_province.title">
+				<source>Tên Tỉnh/Thành phố</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_province.code">
+				<source>Mã</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_province.type">
+				<source>Loại</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_province.districts">
+				<source>Các Quận/Huyện</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_nano_domain_model_district.label">
+				<source>Quận/Huyện</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_district.title">
+				<source>Tên Quận/Huyện</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_district.province">
+				<source>Tỉnh/Thành phố</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_district.code">
+				<source>Mã</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_district.type">
+				<source>Loại</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_nano_domain_model_order.label">
+				<source>Đơn đặt hàng</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_order.fullname">
+				<source>Họ tên</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_order.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_order.phone">
+				<source>Số điện thoại</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_order.address">
+				<source>Địa chỉ</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_order.province">
+				<source>Tỉnh/Thành phố</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_order.district">
+				<source>Quận/Huyện</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_order.status">
+				<source>Trạng thái</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_order.comment">
+				<source>Ghi chú đơn hàng</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_order.products">
+				<source>Các sản phẩm</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_nano_domain_model_order_product.label">
+				<source>Sản phẩm đặt hàng</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_order_product.title">
+				<source>Tên sản phẩm</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_order_product.order">
+				<source>Đơn đặt hàng</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_order_product.battery">
+				<source>Ắc quy</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_order_product.model">
+				<source>Model</source>
+			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_order_product.quantity">
+				<source>Số lượng</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
