@@ -12,7 +12,7 @@ page.includeCSS {
 }
 
 ###################################################
-# Javascript: header
+# Javascript
 ###################################################
 
 #page.includeJSlibs {}
