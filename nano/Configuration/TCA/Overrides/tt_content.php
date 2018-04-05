@@ -9,7 +9,7 @@ defined('TYPO3_MODE') or die();
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'PageBatteryList', 'Page: Danh mục ắc quy');
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'PageBatteryDetails', 'Page: Chi tiết ắc quy');
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'PageBatterySearchByVehical', 'Page: Tìm ắc quy theo xe');
-//\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'PageCart', 'Page: Shopping cart');
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'PageShoppingCart', 'Page: Shopping cart');
 //\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'PageCheckout', 'Page: Checkout');
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'WidgetBatteryByApplication', 'Widget: Ắc quy theo loại xe');

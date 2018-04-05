@@ -2,7 +2,8 @@
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Config/Setup/Settings.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Extension/FrontendPlugins.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Extension/DomainModels.ts">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Extension/SearchByTerms.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/ContentObject/SearchByTerms.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/ContentObject/CartProduct.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Layout/Assets.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Seo/Meta.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/Seo/GoogleAnalytics.ts">

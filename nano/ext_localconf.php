@@ -13,6 +13,12 @@ defined('TYPO3_MODE') or die();
   'Battery' => 'search',
 ], []);
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'PageShoppingCart', [
+  'Cart' => 'index,addProduct,addToCart',
+], [
+  'Cart' => 'index,addProduct,addToCart'
+]);
+
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'WidgetBatteryByApplication', [
   'Battery' => 'batteryByApplication',
 ], []);

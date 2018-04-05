@@ -1,18 +1,9 @@
 
 plugin.tx_nano_pagebatterylist {
   view {
-    templateRootPaths {
-      10 = EXT:nano/Resources/Private/Templates/Page/
-      20 = EXT:bootstrap_package/Resources/Private/Templates/Page
-    }
-    partialRootPaths {
-      10 = EXT:nano/Resources/Private/Partials/Page/
-      20 = EXT:bootstrap_package/Resources/Private/Partials/Page
-    }
-    layoutRootPaths {
-      10 = EXT:nano/Resources/Private/Layouts/Page/
-      20 = EXT:bootstrap_package/Resources/Private/Layouts/Page/
-    }
+    templateRootPaths.0 = EXT:nano/Resources/Private/Templates/Page/
+    partialRootPaths.0 = EXT:nano/Resources/Private/Partials/Page/
+    layoutRootPaths.0 = EXT:nano/Resources/Private/Layouts/Page/
     
     widget {
     	TYPO3\CMS\Fluid\ViewHelpers\Widget\PaginateViewHelper {
@@ -28,18 +19,9 @@ plugin.tx_nano_pagebatterylist {
 
 plugin.tx_nano_pagebatterydetails {
   view {
-    templateRootPaths {
-      10 = EXT:nano/Resources/Private/Templates/Page/
-      20 = EXT:bootstrap_package/Resources/Private/Templates/Page
-    }
-    partialRootPaths {
-      10 = EXT:nano/Resources/Private/Partials/Page/
-      20 = EXT:bootstrap_package/Resources/Private/Partials/Page
-    }
-    layoutRootPaths {
-      10 = EXT:nano/Resources/Private/Layouts/Page/
-      20 = EXT:bootstrap_package/Resources/Private/Layouts/Page/
-    }
+    templateRootPaths.0 = EXT:nano/Resources/Private/Templates/Page/
+    partialRootPaths.0 = EXT:nano/Resources/Private/Partials/Page/
+    layoutRootPaths.0 = EXT:nano/Resources/Private/Layouts/Page/
     
     widget {
     	TYPO3\CMS\Fluid\ViewHelpers\Widget\PaginateViewHelper {
@@ -59,18 +41,9 @@ plugin.tx_nano_pagebatterydetails {
 
 plugin.tx_nano_pagebatterysearchbyvehical {
   view {
-    templateRootPaths {
-      10 = EXT:nano/Resources/Private/Templates/Page/
-      20 = EXT:bootstrap_package/Resources/Private/Templates/Page
-    }
-    partialRootPaths {
-      10 = EXT:nano/Resources/Private/Partials/Page/
-      20 = EXT:bootstrap_package/Resources/Private/Partials/Page
-    }
-    layoutRootPaths {
-      10 = EXT:nano/Resources/Private/Layouts/Page/
-      20 = EXT:bootstrap_package/Resources/Private/Layouts/Page/
-    }
+    templateRootPaths.0 = EXT:nano/Resources/Private/Templates/Page/
+    partialRootPaths.0 = EXT:nano/Resources/Private/Partials/Page/
+    layoutRootPaths.0 = EXT:nano/Resources/Private/Layouts/Page/
     
     features {
 	  	requireCHashArgumentForActionArguments = 0
@@ -88,20 +61,35 @@ plugin.tx_nano_pagebatterysearchbyvehical {
 	}
 }
 
+plugin.tx_nano_pageshoppingcart {
+  view {
+    templateRootPaths.0 = EXT:nano/Resources/Private/Templates/Page/
+    partialRootPaths.0 = EXT:nano/Resources/Private/Partials/Page/
+    layoutRootPaths.0 = EXT:nano/Resources/Private/Layouts/Page/
+  }
+  
+  mvc {
+  	callDefaultActionIfActionCantBeResolved = 1
+	}
+	
+  features {
+  	skipDefaultArguments = 1
+  }
+  
+  persistence {
+  	storagePid = {$plugin.storagePid}
+  }
+  
+  settings {
+  
+  }
+}
+
 plugin.tx_nano_widgetbatterybyapplication {
 	view {
-    templateRootPaths {
-      10 = EXT:nano/Resources/Private/Templates/Page/
-      20 = EXT:bootstrap_package/Resources/Private/Templates/Page
-    }
-    partialRootPaths {
-      10 = EXT:nano/Resources/Private/Partials/Page/
-      20 = EXT:bootstrap_package/Resources/Private/Partials/Page
-    }
-    layoutRootPaths {
-      10 = EXT:nano/Resources/Private/Layouts/Page/
-      20 = EXT:bootstrap_package/Resources/Private/Layouts/Page/
-    }
+    templateRootPaths.0 = EXT:nano/Resources/Private/Templates/Page/
+    partialRootPaths.0 = EXT:nano/Resources/Private/Partials/Page/
+    layoutRootPaths.0 = EXT:nano/Resources/Private/Layouts/Page/
   }
   
 	settings {
@@ -112,18 +100,9 @@ plugin.tx_nano_widgetbatterybyapplication {
 
 plugin.tx_nano_widgetsearchbyvehicalterms {
 	view {
-    templateRootPaths {
-      10 = EXT:nano/Resources/Private/Templates/Page/
-      20 = EXT:bootstrap_package/Resources/Private/Templates/Page
-    }
-    partialRootPaths {
-      10 = EXT:nano/Resources/Private/Partials/Page/
-      20 = EXT:bootstrap_package/Resources/Private/Partials/Page
-    }
-    layoutRootPaths {
-      10 = EXT:nano/Resources/Private/Layouts/Page/
-      20 = EXT:bootstrap_package/Resources/Private/Layouts/Page/
-    }
+    templateRootPaths.0 = EXT:nano/Resources/Private/Templates/Page/
+    partialRootPaths.0 = EXT:nano/Resources/Private/Partials/Page/
+    layoutRootPaths.0 = EXT:nano/Resources/Private/Layouts/Page/
   }
   
   features {
@@ -157,7 +136,7 @@ widget_searchbyterms_ajax_vehicalmodel_page {
 		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
 		vendorName = ELCA
     extensionName = Nano
-    pluginName = WidgetSearchByTerms
+    pluginName = WidgetSearchByVehicalTerms
 		resolveMainShortcut = 1
 	}
 }

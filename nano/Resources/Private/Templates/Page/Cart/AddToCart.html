@@ -1,0 +1,11 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="btn-add-cart">
+	<f:form pageUid="17" method="POST" pageType="231991"
+  	extensionName="Nano" pluginName="PageShoppingCart" controller="Cart" action="addProduct">
+  	<input type="hidden" value="17" name="tx_nano_pageshoppingcart[pid]">
+  	<input class="form-control" type="hidden" value="{product.uid}" name="tx_nano_pageshoppingcart[productId]">
+    <input class="form-control" type="hidden" value="1" name="tx_nano_pageshoppingcart[quantity]">
+  	<input type="submit" value="Thêm vào giỏ">
+  </f:form>
+</div>
+</html>
