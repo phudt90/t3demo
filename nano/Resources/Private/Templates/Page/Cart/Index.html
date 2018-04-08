@@ -1,1 +1,75 @@
-shopping cart list
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+	data-namespace-typo3-fluid="true">
+<section class="flat-shop-cart">
+	<div class="row">
+		<div class="col-lg-8">
+			<div class="flat-row-title style1">
+				<h3>Giỏ hàng</h3>
+			</div>
+			<div class="table-cart">
+				<f:if condition="{products}">
+					<f:then>
+						<table>
+							<thead>
+								<tr>
+									<th>Sản phẩm</th>
+									<th colspan="2">Số lượng</th>
+								</tr>
+							</thead>
+							<tbody>
+								<f:for each="{products}" as="product">
+									<tr>
+										<td>
+											<div class="img-product">
+												<f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:'{product.uid}'}">
+													<f:if condition="{product.thumb}">
+														<f:alias map="{mediaElement: '{product.thumb}'}">
+															<f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="100"/>
+														</f:alias>
+													</f:if>
+												</f:link.action>
+											</div>
+											<div class="name-product">
+												<f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:'{product.uid}'}">
+													{product.title}
+												</f:link.action>
+											</div>
+										</td>
+										<td>
+											<div class="quanlity">
+												<select name="quantity" class="form-control">
+													<v:iterator.for from="1" to="99" iteration="i">
+    												<option value="{i.index}" {f:if(condition:'{i.index}=={product.quantity}}', then: 'selected="selected"')}>{i.index}</option>
+													</v:iterator.for>
+												</select>
+											</div>
+										</td>
+										<td>
+											<f:link.action pageUid="{settings.cartPid}" action="removeProduct" arguments="{uid:'{product.uid}'}" noCacheHash="1" title="Xóa"> 
+												<img src="{f:uri.resource(path:'Nano/images/icons/delete.png')}" alt="">
+											</f:link.action>
+										</td>
+									</tr>
+								</f:for>
+							</tbody>
+						</table>
+					</f:then>
+					<f:else>
+						<div class="table-cart-empty">Giỏ hàng của bạn đang trống.</div>
+					</f:else>
+				</f:if>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="cart-totals">
+				<h3>Thông tin đặt hàng</h3>
+				
+				<div class="btn-cart-totals">
+					<a href="#" class="checkout" title="">Đặt hàng ngay</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</html>

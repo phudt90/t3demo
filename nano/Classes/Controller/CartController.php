@@ -2,6 +2,8 @@
 
 namespace ELCA\Nano\Controller;
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 /**
  * Cart controller
  */
@@ -51,22 +53,52 @@ class CartController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
    */
   public function indexAction() {
     $this->cart = $this->cartUtility->getCartFromSession($this->settings, $this->pluginSettings);
+    
+    $this->view->assign('products', $this->cart->getProducts());
   }
 
   /**
    * Add product to cart
-   *
+   * @param \ELCA\Nano\Domain\Model\Battery $product
    */
-  public function addProductAction() {
+  public function addProductAction(\ELCA\Nano\Domain\Model\Battery $product) {
     $this->cart = $this->cartUtility->getCartFromSession($this->settings, $this->pluginSettings);
+    
+    $this->cart->addProduct($product);
+    
+    $this->cartUtility->writeCartToSession($this->cart, $this->settings);
+    
+    return $this->redirectToUri($this->getCartIndexUri($this->settings['cartPid']));
   }
   
   /**
-   * Add to cart button
-   * @param \ELCA\Nano\Domain\Model\Battery $product
+   * Remove product from cart
+   * @param string $uid
    */
-  public function addToCartAction(\ELCA\Nano\Domain\Model\Battery $product = null) {
-    d($this->request->getArguments());
-    d($this->pluginSettings);
+  public function removeProductAction($uid) {
+    $this->cart = $this->cartUtility->getCartFromSession($this->settings, $this->pluginSettings);
+    
+    $this->cart->removeProductByUid($uid);
+
+    $this->cartUtility->writeCartToSession($this->cart, $this->settings);
+    
+    return $this->redirectToUri($this->getCartIndexUri($this->settings['cartPid']));
+  }
+
+  /**
+   * Clear Cart
+   */
+  public function clearCartAction() {
+    $this->cart = $this->cartUtility->getNewCart($this->settings, $this->pluginSettings);
+    
+    $this->sessionHandler->writeToSession($this->cart, $this->settings['cartPid']);
+    
+    return $this->redirectToUri($this->getCartIndexUri($this->settings['cartPid']));
+  }
+  
+  protected function getCartIndexUri($cartPid) {
+    return $this->uriBuilder
+      ->setTargetPageUid($cartPid)
+      ->build();
   }
 }

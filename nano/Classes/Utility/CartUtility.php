@@ -33,12 +33,10 @@ class CartUtility {
    * @return \ELCA\Nano\Domain\Model\Cart\Cart
    */
   public function getCartFromSession(array $cartSettings, array $pluginSettings) {
-    $cart = $this->sessionHandler->restoreFromSession($cartSettings['pid']);
-    
+    $cart = $this->sessionHandler->restoreFromSession($cartSettings['cartPid']);
     if (! $cart) {
       $cart = $this->getNewCart($cartSettings, $pluginSettings);
     }
-    
     return $cart;
   }
 
@@ -49,7 +47,7 @@ class CartUtility {
    * @param array $cartSettings
    */
   public function writeCartToSession($cart, $cartSettings) {
-    $this->sessionHandler->writeToSession($cart, $cartSettings['cart']['pid']);
+    $this->sessionHandler->writeToSession($cart, $cartSettings['cartPid']);
   }
 
   /**

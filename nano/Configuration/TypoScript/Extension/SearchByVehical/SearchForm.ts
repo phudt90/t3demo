@@ -1,5 +1,5 @@
-lib.widgetSearchByTerms = CONTENT
-lib.widgetSearchByTerms {
+lib.widgetSearchByVehical = CONTENT
+lib.widgetSearchByVehical {
   table = tt_content
   select {
     pidInList = {$widget.searchByTerms.storagePid}

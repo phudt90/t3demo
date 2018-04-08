@@ -5436,25 +5436,28 @@ input[type="checkbox"]:checked + label:before {
 
 .table-cart thead tr th {
 	padding:8px 0 18px;
-	color:#484848;
-	font-size:14px;
+	color:#000;
+	font-size:16px;
+	font-weight:300;
+	text-transform:uppercase;
 }
 
 .table-cart tr td {
 	padding:40px 0 27px;
 	vertical-align:middle;
+	border-bottom: 1px solid #eee;
 }
 
 .table-cart tr td:nth-child(1) {
-	width:52%;
+	width:80%;
 }
 
 .table-cart tr td:nth-child(2) {
-	width:26%;
+	width:10%;
 }
 
 .table-cart tr td:nth-child(3) {
-	width:13.333%;
+	width:10%;
 }
 
 .table-cart tr td:nth-child(4) {
@@ -5477,7 +5480,7 @@ input[type="checkbox"]:checked + label:before {
 .table-cart tr td .name-product {
 	font-size:15px;
 	color:#484848;
-	padding-top:8px;
+	padding:19px 0;
 	line-height:24px;
 }
 
@@ -5491,6 +5494,9 @@ input[type="checkbox"]:checked + label:before {
 
 .table-cart tr td .quanlity {
 	position:relative;
+}
+.table-cart tr td .quanlity select{
+	width:50px;
 }
 
 .table-cart tr td .quanlity span.btn-down {
@@ -5688,12 +5694,12 @@ input[type="checkbox"]:checked + label:before {
 	text-decoration:underline;
 }
 
-.cart-totals form .btn-cart-totals {
+.cart-totals .btn-cart-totals {
 	margin-top:108px;
 	padding:0 5px;
 }
 
-.cart-totals form .btn-cart-totals a {
+.cart-totals .btn-cart-totals a {
 	display:block;
 	color:#fff;
 	font-size:16px;
@@ -5703,7 +5709,7 @@ input[type="checkbox"]:checked + label:before {
 	border-radius:25px;
 }
 
-.cart-totals form .btn-cart-totals a.update {
+.cart-totals .btn-cart-totals a.update {
 	background-color:#adadad;
 	margin-bottom:28px;
 	position: relative;
@@ -5711,7 +5717,7 @@ input[type="checkbox"]:checked + label:before {
 	z-index: 5;
 }
 
-.cart-totals form .btn-cart-totals a.update:before {
+.cart-totals .btn-cart-totals a.update:before {
 	background-color:#2d2d2d !important;
 	margin-bottom:28px;
 	position: relative;
@@ -5719,7 +5725,7 @@ input[type="checkbox"]:checked + label:before {
 	z-index: 5;
 }
 
-.cart-totals form .btn-cart-totals a.checkout {
+.cart-totals .btn-cart-totals a.checkout {
 	background-color:#f92400;
 	position: relative;
 	overflow: hidden;
