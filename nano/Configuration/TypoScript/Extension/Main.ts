@@ -53,23 +53,3 @@ plugin.tx_nano_widgetbatterybyapplication {
 		detailsPid = {$plugin.detailsPid}
 	}
 }
-
-plugin.tx_nano_widgetsearchbyvehicalterms {
-	view {
-    templateRootPaths.0 = EXT:nano/Resources/Private/Templates/Page/
-    partialRootPaths.0 = EXT:nano/Resources/Private/Partials/Page/
-    layoutRootPaths.0 = EXT:nano/Resources/Private/Layouts/Page/
-  }
-  
-  features {
-  	requireCHashArgumentForActionArguments = 0
-  }
-	
-	persistence {
-		storagePid = {$widget.searchByTerms.storagePid}
-	}
-	
-	settings {
-		searchPid = {$widget.searchByTerms.searchPid}
-	}
-}

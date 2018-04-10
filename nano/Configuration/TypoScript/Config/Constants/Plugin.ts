@@ -5,11 +5,3 @@ plugin {
 	searchPid = 4
 	cartPid = 18
 }
-
-widget {
-	searchByTerms {
-		storagePid = 2
-		searchPid = 4
-		contentUid = 15
-	}
-}
