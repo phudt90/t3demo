@@ -6,9 +6,9 @@ use ELCA\Nano\Domain\Model\DemandInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
 /**
- * Brand repository
+ * Order repository
  */
-class BrandRepository extends \ELCA\Nano\Domain\Repository\AbstractDemandedRepository
+class OrderRepository extends \ELCA\Nano\Domain\Repository\AbstractDemandedRepository
 {
   protected function createConstraintsFromDemand(QueryInterface $query, DemandInterface $demand) {
     

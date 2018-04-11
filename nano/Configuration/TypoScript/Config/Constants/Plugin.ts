@@ -4,4 +4,5 @@ plugin {
 	detailsPid = 3
 	searchPid = 4
 	cartPid = 18
+	checkoutFormUid = 1
 }

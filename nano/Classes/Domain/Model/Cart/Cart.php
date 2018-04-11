@@ -51,6 +51,15 @@ class Cart {
   }
   
   /**
+   * Check if cart is empty
+   * @return bool
+   *
+   */
+  public function isCartEmpty() {
+    return (count($this->getProducts()) > 0) ? false : true;
+  }
+  
+  /**
    * Add product to cart
    * @param mixed $product
    */

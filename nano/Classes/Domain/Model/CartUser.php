@@ -3,7 +3,7 @@
 namespace ELCA\Nano\Domain\Model;
 
 /**
- * Cart Model
+ * CartUser Model
  */
 class CartUser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   /**

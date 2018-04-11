@@ -2,8 +2,6 @@
 
 namespace ELCA\Nano\Utility;
 
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-
 /**
  * Cart Utility
  */
@@ -28,14 +26,13 @@ class CartUtility {
    * Restore cart from session or creates a new one
    *
    * @param array $cartSettings
-   * @param array $pluginSettings
    *
    * @return \ELCA\Nano\Domain\Model\Cart\Cart
    */
-  public function getCartFromSession(array $cartSettings, array $pluginSettings) {
+  public function getCartFromSession(array $cartSettings) {
     $cart = $this->sessionHandler->restoreFromSession($cartSettings['cartPid']);
     if (! $cart) {
-      $cart = $this->getNewCart($cartSettings, $pluginSettings);
+      $cart = $this->getNewCart($cartSettings);
     }
     return $cart;
   }
@@ -54,11 +51,10 @@ class CartUtility {
    * Creates a new cart
    *
    * @param array $cartSettings
-   * @param array $pluginSettings
    * 
    * @return \ELCA\Nano\Domain\Model\Cart\Cart
    */
-  public function getNewCart(array $cartSettings, array $pluginSettings) {
+  public function getNewCart(array $cartSettings) {
     $cart = $this->objectManager->get(\ELCA\Nano\Domain\Model\Cart\Cart::class);
 
     return $cart;

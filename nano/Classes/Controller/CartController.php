@@ -2,8 +2,6 @@
 
 namespace ELCA\Nano\Controller;
 
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-
 /**
  * Cart controller
  */
@@ -52,7 +50,7 @@ class CartController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
    *
    */
   public function indexAction() {
-    $this->cart = $this->cartUtility->getCartFromSession($this->settings, $this->pluginSettings);
+    $this->cart = $this->cartUtility->getCartFromSession($this->settings);
     
     $this->view->assign('products', $this->cart->getProducts());
   }
@@ -62,7 +60,7 @@ class CartController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
    * @param \ELCA\Nano\Domain\Model\Battery $product
    */
   public function addProductAction(\ELCA\Nano\Domain\Model\Battery $product) {
-    $this->cart = $this->cartUtility->getCartFromSession($this->settings, $this->pluginSettings);
+    $this->cart = $this->cartUtility->getCartFromSession($this->settings);
     
     $this->cart->addProduct($product);
     
@@ -76,7 +74,7 @@ class CartController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
    * @param string $uid
    */
   public function removeProductAction($uid) {
-    $this->cart = $this->cartUtility->getCartFromSession($this->settings, $this->pluginSettings);
+    $this->cart = $this->cartUtility->getCartFromSession($this->settings);
     
     $this->cart->removeProductByUid($uid);
 
@@ -89,7 +87,7 @@ class CartController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
    * Clear Cart
    */
   public function clearCartAction() {
-    $this->cart = $this->cartUtility->getNewCart($this->settings, $this->pluginSettings);
+    $this->cart = $this->cartUtility->getNewCart($this->settings);
     
     $this->sessionHandler->writeToSession($this->cart, $this->settings['cartPid']);
     
