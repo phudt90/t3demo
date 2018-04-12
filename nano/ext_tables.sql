@@ -399,7 +399,6 @@ CREATE TABLE tx_nano_domain_model_order_product (
 	
 	title varchar(255) NOT NULL DEFAULT '',
 	order int(11) DEFAULT '0' NOT NULL,
-	battery int(11) DEFAULT '0' NOT NULL,
 	model varchar(255) NOT NULL DEFAULT '',
 	quantity int(11) DEFAULT '0' NOT NULL,
 

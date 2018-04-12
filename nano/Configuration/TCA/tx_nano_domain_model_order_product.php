@@ -129,19 +129,6 @@ return [
         'maxitems' => '1',
       ]
     ],
-    'battery' => [
-      'exclude' => false,
-      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order_product.battery',
-      'config' => [
-        'type' => 'select',
-        'renderType' => 'selectSingle',
-        'foreign_table' => 'tx_nano_domain_model_battery',
-        'foreign_table_where' => 'ORDER BY tx_nano_domain_model_battery.sorting',
-        'size' => '6',
-        'minitems' => '1',
-        'maxitems' => '1',
-      ]
-    ],
     'model' => [
       'exclude' => false,
       'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order_product.model',
@@ -171,7 +158,7 @@ return [
   ],
   'palettes' => [
     'paletteGeneral' => [
-      'showitem' => 'title,hidden,--linebreak--,model,quantity,--linebreak--,order,battery',
+      'showitem' => 'title,hidden,--linebreak--,model,quantity,--linebreak--,order',
     ],
   ]
 ];

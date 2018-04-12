@@ -74,12 +74,6 @@ class OrderProduct extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   
   /**
    *
-   * @var \ELCA\Nano\Domain\Model\Battery
-   */
-  protected $battery;
-  
-  /**
-   *
    * @var string
    */
   protected $model;
@@ -135,22 +129,6 @@ class OrderProduct extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
    */
   public function setOrder($order) {
     $this->order = $order;
-  }
-
-  /**
-   *
-   * @return \ELCA\Nano\Domain\Model\Battery
-   */
-  public function getBattery() {
-    return $this->battery;
-  }
-
-  /**
-   *
-   * @param \ELCA\Nano\Domain\Model\Battery $battery
-   */
-  public function setBattery($battery) {
-    $this->battery = $battery;
   }
 
   /**

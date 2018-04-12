@@ -25,3 +25,11 @@ plugin.tx_nano_pageshoppingcart {
   	detailsPid = {$plugin.detailsPid}
   }
 }
+
+config.tx_extbase.persistence.classes {
+  ELCA\Nano\Domain\Model\OrderProduct {
+    mapping {
+      tableName = tx_nano_domain_model_order_product
+    }
+  }
+}
