@@ -106,6 +106,11 @@ return [
       ]
     ],
     // domain model fields
+    'hash' => [
+      'config' => [
+        'type' => 'passthrough'
+      ]
+    ],
     'title' => [
       'exclude' => false,
       'l10n_mode' => 'prefixLangTitle',
@@ -118,7 +123,7 @@ return [
       ]
     ],
     'fullname' => [
-      'exclude' => false,
+      'exclude' => 1,
       'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order.fullname',
       'config' => [
         'type' => 'input',
@@ -128,7 +133,7 @@ return [
       ]
     ],
     'email' => [
-      'exclude' => false,
+      'exclude' => 1,
       'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order.email',
       'config' => [
         'type' => 'input',
@@ -138,7 +143,7 @@ return [
       ]
     ],
     'phone' => [
-      'exclude' => false,
+      'exclude' => 1,
       'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order.phone',
       'config' => [
         'type' => 'input',
@@ -148,7 +153,7 @@ return [
       ]
     ],
     'address' => [
-      'exclude' => false,
+      'exclude' => 1,
       'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_order.address',
       'config' => [
         'type' => 'input',
@@ -251,7 +256,7 @@ return [
       'showitem' => 'title,hidden',
     ],
     'paletteContact' => [
-      'showitem' => 'fullname,email,phone,--linebreak--,address,--linebreak--,province,district'
+      'showitem' => 'fullname,email,phone,--linebreak--,address,--linebreak--'
     ],
   ]
 ];

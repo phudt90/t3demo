@@ -10,6 +10,16 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
  */
 class OrderRepository extends \ELCA\Nano\Domain\Repository\AbstractDemandedRepository
 {
+  public function findByHash($hash) {
+    $query = $this->createQuery();
+    
+    $query->getQuerySettings()->setRespectStoragePage(false);
+    
+    $query->matching($query->equals('hash', $hash));
+    
+    return $query->execute()->getFirst();
+  }
+  
   protected function createConstraintsFromDemand(QueryInterface $query, DemandInterface $demand) {
     
     $constraints = [];

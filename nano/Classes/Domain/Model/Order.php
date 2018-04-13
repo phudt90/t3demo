@@ -64,6 +64,12 @@ class Order extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
    *
    * @var string
    */
+  protected $hash;
+  
+  /**
+   *
+   * @var string
+   */
   protected $title;
   
   /**
@@ -120,6 +126,34 @@ class Order extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
    * @var int
    */
   protected $sorting;
+  
+  /**
+   * Order constructor
+   */
+  public function __construct() {
+    $this->hash = bin2hex(openssl_random_pseudo_bytes(32));
+  }
+  
+  /**
+   * @return string
+   */
+  public function getHash() {
+    return $this->hash;
+  }
+  
+  /**
+   * @param string $hash
+   */
+  public function setHash($hash) {
+    $this->hash = $hash;
+  }
+  
+  /**
+   * @return string
+   */
+  public function getNumber() {
+    return sprintf('%s%s', date('Y'), str_pad($this->getUid(), 6, 0, STR_PAD_LEFT));
+  }
 
   /**
    * Get title

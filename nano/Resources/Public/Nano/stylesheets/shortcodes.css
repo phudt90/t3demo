@@ -5417,10 +5417,11 @@ input[type="checkbox"]:checked + label:before {
 /* Flat Shop Cart
 -------------------------------------------------------------- */
 .flat-shop-cart {
-	padding-top:30px;
+	
 }
 
 .flat-shop-cart .flat-row-title {
+	margin-top:5px;
 	margin-bottom:15px;
 }
 
@@ -5437,7 +5438,7 @@ input[type="checkbox"]:checked + label:before {
 .table-cart thead tr th {
 	padding:8px 0 18px;
 	color:#000;
-	font-size:16px;
+	font-size:14px;
 	font-weight:300;
 	text-transform:uppercase;
 }
@@ -5597,7 +5598,7 @@ input[type="checkbox"]:checked + label:before {
 
 /* Cart Totals */
 .cart-totals {
-	padding:35px 40px 46px 41px;
+	padding:15px 20px 26px 21px;
 	border-radius:8px;
 	background-color:#f5f5f5;
 }

@@ -2,6 +2,8 @@
 
 namespace ELCA\Nano\Controller;
 
+use TYPO3\CMS\Core\Error\Http\PageNotFoundException;
+
 /**
  * Cart controller
  */
@@ -28,6 +30,14 @@ class CartController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
    * @var array
    */
   protected $pluginSettings;
+  
+  /**
+   * Order Repository
+   *
+   * @var \ELCA\Nano\Domain\Repository\OrderRepository
+   * @inject
+   */
+  protected $orderRepository;
   
   /**
    * Cart product
@@ -82,13 +92,29 @@ class CartController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
     
     return $this->redirectToUri($this->getCartIndexUri($this->settings['cartPid']));
   }
+  
+  /**
+   * Order successfully
+   * @param string $hash 
+   */
+  public function checkoutSuccessAction($hash = '') {
+    /* @var \ELCA\Nano\Domain\Model\Order $order */
+    if(!empty($hash) && ($order = $this->orderRepository->findByHash($hash))) {
+      $this->view->assign('order', $order);
+    } else {
+      $message = 'The requested page does not exist!';
+      throw new PageNotFoundException($message, 1301648781);
+    }
+    
+    //$this->cart = $this->cartUtility->getNewCart($this->settings);
+    //$this->sessionHandler->writeToSession($this->cart, $this->settings['cartPid']);
+  }
 
   /**
    * Clear Cart
    */
   public function clearCartAction() {
-    $this->cart = $this->cartUtility->getNewCart($this->settings);
-    
+    $this->cart = $this->cartUtility->getNewCart($this->settings);    
     $this->sessionHandler->writeToSession($this->cart, $this->settings['cartPid']);
     
     return $this->redirectToUri($this->getCartIndexUri($this->settings['cartPid']));

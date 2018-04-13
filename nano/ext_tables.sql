@@ -350,6 +350,7 @@ CREATE TABLE tx_nano_domain_model_order (
 	l18n_diffsource mediumblob,
 	l10n_source int(11) DEFAULT '0' NOT NULL,
 	
+	hash varchar(255) NOT NULL DEFAULT '',
 	title varchar(255) NOT NULL DEFAULT '',
 	fullname varchar(255) NOT NULL DEFAULT '',
 	email varchar(255) NOT NULL DEFAULT '',
