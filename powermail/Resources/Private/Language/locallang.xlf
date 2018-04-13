@@ -133,7 +133,7 @@
 				<source>Wrong Captcha value, please try again!</source>
 			</trans-unit>
 			<trans-unit id="validationerror_mandatory">
-				<source>This field must be filled!</source>
+				<source>Vui lòng nhập thông tin này!</source>
 			</trans-unit>
 			<trans-unit id="validationerror_mandatory_multi">
 				<source>One of these fields must be filled!</source>
@@ -151,7 +151,7 @@
 				<source>Your input is not allowed!</source>
 			</trans-unit>
 			<trans-unit id="validationerror_validation.1">
-				<source>This is not a valid email address!</source>
+				<source>Địa chỉ Email không hợp lệ!</source>
 			</trans-unit>
 			<trans-unit id="validationerror_validation.2">
 				<source>This is not a valid URL!</source>
