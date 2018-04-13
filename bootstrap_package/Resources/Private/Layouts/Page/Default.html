@@ -6,9 +6,9 @@
 		<f:render partial="Structure/Header" arguments="{_all}" />
 
 		<div class="body-bg{f:if(condition:settings.navigation.type, then:' body-bg-{settings.navigation.type}')}">
-
+      <f:if condition="false">
 			<f:render partial="Navigation/Breadcrumb" arguments="{_all}" />
-
+      </f:if>
 			<div id="content" class="main-section">
 				<f:render section="Main" />
 			</div>
