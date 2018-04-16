@@ -20,9 +20,9 @@ defined('TYPO3_MODE') or die();
 ]);
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'PageCheckout', [
-  'Checkout' => 'index, success',
+  'Checkout' => 'index, create, success',
 ], [
-  'Checkout' => 'index, success',
+  'Checkout' => 'index, create, success',
 ]);
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'WidgetMiniCart', [

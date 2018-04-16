@@ -5605,7 +5605,7 @@ input[type="checkbox"]:checked + label:before {
 
 .cart-totals h3 {
 	font-size:18px;
-	font-weight:bold;
+	font-weight:500;
 	color:#484848;
 	margin-bottom:26px;
 }

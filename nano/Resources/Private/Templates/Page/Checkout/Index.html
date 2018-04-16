@@ -106,10 +106,10 @@
 							</f:if>
 							<f:for each="{form.pages}" as="page">
 								<f:alias map="{fields: '{page.fieldsByFieldMarker}'}">
-									<f:if condition="{fields.marker}">
+									<f:if condition="{fields.guithongtindathang}">
 										<div class="btn-order">
 											<vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
-												<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.marker.type)}" arguments="{field:fields.marker}" />
+												<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.guithongtindathang.type)}" arguments="{field:fields.guithongtindathang}" />
 											</vh:misc.createRowTags>
 										</div>
 									</f:if>

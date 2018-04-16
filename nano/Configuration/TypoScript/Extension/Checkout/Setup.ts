@@ -19,7 +19,7 @@ plugin.tx_nano_pagecheckout {
 	}
 	settings {
 		cartPid = {$plugin.cartPid}
-		checkoutPid = {$plugin.cartPid}
+		checkoutPid = {$plugin.checkoutPid}
 		detailsPid = {$plugin.detailsPid}
 		orderStoragePid = {$plugin.orderStoragePid}
 		checkoutFormUid = {$plugin.checkoutFormUid}

@@ -3,8 +3,8 @@ plugin {
 	listPid = 14
 	detailsPid = 3
 	searchPid = 4
-	cartPid = 18
-	checkoutPid = 23
+	cartPid = 17
+	checkoutPid = 21
 	orderStoragePid = 19
 	checkoutFormUid = 1
 	
