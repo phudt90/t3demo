@@ -5,6 +5,7 @@ namespace ELCA\Nano\Controller;
 use In2code\Powermail\Domain\Model\Answer;
 use In2code\Powermail\Domain\Model\Mail;
 use In2code\Powermail\Domain\Repository\AnswerRepository;
+use In2code\Powermail\Utility\ObjectUtility;
 use In2code\Powermail\Utility\SessionUtility;
 use TYPO3\CMS\Core\Error\Http\PageNotFoundException;
 use TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter;
@@ -131,8 +132,23 @@ class CheckoutController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
    */
   public function initializeCreateAction() {
     //$this->forwardIfFormParamsDoNotMatch();
-    //$this->forwardIfMailParamEmpty();
+    $this->forwardIfMailParamEmpty();
     $this->reformatParamsForAction();
+    d($this->arguments);
+  }
+  
+  /**
+   * Forward to formAction if no mail param given
+   *
+   * @return void
+   */
+  protected function forwardIfMailParamEmpty() {
+    $arguments = $this->request->getArguments();
+    if (empty($arguments['mail'])) {
+      $logger = ObjectUtility::getLogger(__CLASS__);
+      $logger->alert('Redirect (mail empty)', $arguments);
+      $this->forward('index');
+    }
   }
 
   /**
@@ -167,7 +183,7 @@ class CheckoutController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
    * @validate $mail In2code\Powermail\Domain\Validator\CustomValidator
    * @return void
    */
-  public function createAction(Mail $mail, string $hash = null) {
+  public function createAction(Mail $mail, string $hash = null) {d($mail);
     $settings = $this->settings;
     $this->dataProcessorRunner->callDataProcessors(
       $mail,
@@ -175,7 +191,7 @@ class CheckoutController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
       $this->settings,
       $this->contentObject
     );
-   
+    
     $this->mailFactory->prepareMailForPersistence($mail, $settings);
     $this->mailRepository->add($mail);
     $this->persistenceManager->persistAll();
