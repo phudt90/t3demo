@@ -37,6 +37,7 @@ form fieldset legend{
   height:auto;
   margin:0;
 }
+.btn-order input[type=submit],
 .powermail_fieldwrap .powermail_submit{
 	display: block;
   width: 100%;
@@ -50,6 +51,7 @@ form fieldset legend{
   line-height: 40px;
   border-radius: 30px;
 }
+.btn-order input[type=submit]:hover,
 .powermail_fieldwrap .powermail_submit:hover{
 	color: #FFF;
   text-decoration: none;

@@ -107,7 +107,7 @@ class CheckoutFinisher extends AbstractFinisher {
         $order->setComment($answers['ghichudonhang']->getValue());
       }
       $order->setStatus(1);
-      $order->setPid(20);
+      $order->setPid($configuration['orderStoragePid']);
       $this->orderRepository->add($order);
       
       $cartProducts = $this->cart->getProducts();
@@ -117,15 +117,17 @@ class CheckoutFinisher extends AbstractFinisher {
         $orderProduct->setTitle($cartProduct->getTitle());
         $orderProduct->setModel($cartProduct->getCode());
         $orderProduct->setQuantity($cartProduct->getQuantity());
-        $orderProduct->setPid(20);
+        $orderProduct->setPid($configuration['orderStoragePid']);
         $this->orderProductRepository->add($orderProduct);
       }
       $this->persistenceManager->persistAll();
       
       //d($order);die;
-      $uri = $this->uriBuilder->setTargetPageUid(21)->setArguments([
-        'tx_nano_pagecheckoutsuccess[hash]' => $order->getHash()
-      ])->build();
+      $uri = $this->uriBuilder->
+        setTargetPageUid($configuration['checkoutPid'])
+        ->setNoCache(1)
+        ->build()
+      ;
       if (!empty($uri)) {
         HttpUtility::redirect($uri);
       }

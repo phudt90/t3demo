@@ -11,6 +11,7 @@ lib.widgetSearchByVehical.searchForm {
     partialRootPaths.0 = EXT:nano/Resources/Private/Partials/Page/
     layoutRootPaths.0 = EXT:nano/Resources/Private/Layouts/Page/
   }
+  
   persistence {
     storagePid = {$plugin.storagePid}
   }

@@ -1,0 +1,128 @@
+{namespace vh=In2code\Powermail\ViewHelpers}
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+	data-namespace-typo3-fluid="true">
+<div class="flat-checkout">
+	<f:if condition="{form}">
+		<f:then>
+			<f:form
+				action="create"
+				name="field"
+				enctype="multipart/form-data"
+				additionalAttributes="{vh:Validation.EnableParsleyAndAjax(form:form)}"
+				class="powermail_form powermail_form_{form.uid} {form.css} {settings.styles.framework.formClasses} {vh:Misc.MorestepClass(activate:settings.main.moresteps)}">
+
+				<f:form.hidden name="mail[form]" value="{form.uid}" class="powermail_form_uid" />
+
+				<div class="row">
+					<div class="col-md-7">
+						<f:for each="{form.pages}" as="page">
+							<div class="billing-fields">
+								<fieldset class="powermail_fieldset powermail_fieldset_{page.uid} {page.css}">
+									<f:if condition="{page.css} != 'nolabel'">
+										<legend class="powermail_legend">{page.title}</legend>
+									</f:if>
+									<f:alias map="{fields: '{page.fieldsByFieldMarker}'}">
+										<div class="fields-content">
+											<f:if condition="{fields.hoten}">
+												<div class="field-row">
+													<vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
+														<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.hoten.type)}" arguments="{field:fields.hoten}" />
+													</vh:misc.createRowTags>
+												</div>
+											</f:if>
+											<div class="field-row">
+												<f:if condition="{fields.email}">
+													<div class="field-one-half">
+														<vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
+															<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.email.type)}" arguments="{field:fields.email}" />
+														</vh:misc.createRowTags>
+													</div>
+												</f:if>
+												<f:if condition="{fields.email}">
+													<div class="field-one-half">
+														<vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
+															<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.sodienthoai.type)}" arguments="{field:fields.sodienthoai}" />
+														</vh:misc.createRowTags>
+													</div>
+												</f:if>
+												<div class="clearfix"></div>
+											</div>
+											<f:if condition="{fields.diachi}">
+												<div class="field-row">
+													<vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
+														<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.diachi.type)}" arguments="{field:fields.diachi}" />
+													</vh:misc.createRowTags>
+												</div>
+											</f:if>
+											<f:if condition="{fields.ghichudonhang}">
+												<div class="field-row">
+													<vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
+														<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.ghichudonhang.type)}" arguments="{field:fields.ghichudonhang}" />
+													</vh:misc.createRowTags>
+												</div>
+											</f:if>
+										</div>
+									</f:alias>
+								</fieldset>
+							</div>
+						</f:for>
+					</div>
+					<div class="col-md-5">
+						<div class="cart-totals">
+							<h3>Thông tin sản phẩm</h3>
+							<f:if condition="{products}">
+								<table class="product">
+									<thead>
+										<tr>
+											<th>Sản phẩm</th>
+											<th>Số lượng</th>
+										</tr>
+									</thead>
+									<tbody>
+										<f:for each="{products}" as="product">
+											<tr>
+												<td>
+													<div class="thumb">
+														<f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:'{product.uid}'}">
+															<f:if condition="{product.thumb}">
+																<f:alias map="{mediaElement: '{product.thumb}'}">
+																	<f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="50"/>
+																</f:alias>
+															</f:if>
+														</f:link.action>
+													</div>
+													<div class="name">
+														<f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:'{product.uid}'}">
+															{product.title}
+														</f:link.action>
+													</div>
+												</td>
+												<td>{product.quantity}</td>
+											</tr>
+										</f:for>
+									</tbody>
+								</table>
+							</f:if>
+							<f:for each="{form.pages}" as="page">
+								<f:alias map="{fields: '{page.fieldsByFieldMarker}'}">
+									<f:if condition="{fields.marker}">
+										<div class="btn-order">
+											<vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
+												<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.marker.type)}" arguments="{field:fields.marker}" />
+											</vh:misc.createRowTags>
+										</div>
+									</f:if>
+								</f:alias>
+							</f:for>
+						</div>
+					</div>
+				</div>
+			</f:form>
+		</f:then>
+		<f:else>
+			<f:translate key="error_no_form" />
+		</f:else>
+	</f:if>
+</div>
+</html>

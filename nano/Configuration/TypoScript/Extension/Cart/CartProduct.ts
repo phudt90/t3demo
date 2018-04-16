@@ -7,6 +7,6 @@ lib.cartProduct.addToCartButton {
 		ATagBeforeWrap = 1
 		useCacheHash = 0
 		additionalParams.field = uid
-		additionalParams.wrap = &tx_nano_pageshoppingcart[controller]=Cart&tx_nano_pageshoppingcart[action]=addProduct&tx_nano_pageshoppingcart[product]=|
+		additionalParams.wrap = &type=231990&tx_nano_pageshoppingcart[controller]=Cart&tx_nano_pageshoppingcart[action]=addProduct&tx_nano_pageshoppingcart[product]=|
 	}
 }

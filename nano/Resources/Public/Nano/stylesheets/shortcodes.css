@@ -5696,18 +5696,21 @@ input[type="checkbox"]:checked + label:before {
 }
 
 .cart-totals .btn-cart-totals {
-	margin-top:108px;
+	margin-top:50px;
 	padding:0 5px;
 }
 
 .cart-totals .btn-cart-totals a {
 	display:block;
 	color:#fff;
-	font-size:16px;
+	font-size:14px;
+	font-weight:500;
 	height:50px;
 	line-height:50px;
+	text-transform:uppercase;
 	text-align:center;
 	border-radius:25px;
+	margin-bottom:20px;
 }
 
 .cart-totals .btn-cart-totals a.update {
@@ -5720,7 +5723,6 @@ input[type="checkbox"]:checked + label:before {
 
 .cart-totals .btn-cart-totals a.update:before {
 	background-color:#2d2d2d !important;
-	margin-bottom:28px;
 	position: relative;
 	overflow: hidden;
 	z-index: 5;
@@ -5793,7 +5795,6 @@ input[type="checkbox"]:checked + label:before {
 }
 
 .fields-content .field-row label {
-	margin-bottom:12px;
 	margin-left:2px;
 	color:#484848;
 }
@@ -5894,6 +5895,7 @@ input[type="checkbox"] {
 table.product thead tr th {
 	color:#2d2d2d;
 	font-size:15px;
+	font-weight:300;
 }
 
 table.product thead tr th:last-child {
@@ -5906,7 +5908,18 @@ table.product thead tr th:last-child {
 	padding:22px 0 1px;
 	line-height:20px;
 }
-
+.cart-totals table.product tr td .thumb{
+	float: left;
+  max-width: 50px;
+  margin-right: 5px;
+}
+.cart-totals table.product tr td .name{
+	padding-top:5px;
+}
+.cart-totals table.product tr td .name a{
+	font-size: 14px;
+	font-weight: 300;
+}
 .btn-radio.style2 {
 	margin-top:25px;
 	margin-bottom:25px;

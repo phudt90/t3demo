@@ -1,0 +1,48 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	data-namespace-typo3-fluid="true">
+<div class="box-cart">
+	<div class="inner-box">
+		<a href="javascript:;" title="Giỏ hàng">
+			<div class="icon-cart">
+				<img src="{f:uri.resource(path: 'Nano/images/icons/cart.png')}" alt=""> <span>{total}</span>
+			</div>
+		</a>
+		<div class="dropdown-box">
+			<f:if condition="{products}">
+				<f:then>
+				<ul>
+					<f:for each="{products}" as="product">
+					<li>
+						<div class="img-product">
+							<f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:'{product.uid}'}">
+								<f:if condition="{product.thumb}">
+									<f:alias map="{mediaElement: '{product.thumb}'}">
+										<f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="70"/>
+									</f:alias>
+								</f:if>
+							</f:link.action>
+						</div>
+						<div class="info-product">
+							<div class="name">
+								<f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:'{product.uid}'}">
+									{product.title} x {product.quantity}
+								</f:link.action>
+							</div>
+						</div>
+						<div class="clearfix"></div> 
+						<span class="delete" style="display:none;">x</span>
+					</li>
+					</f:for>
+				</ul>
+				<div class="btn-cart">
+					<f:link.page pageUid="{settings.cartPid}" noCacheHash="1" class="view-cart" title="Xem giỏ hàng">Xem giỏ hàng</f:link.page> 
+				</div>
+				</f:then>
+				<f:else>
+					<p class="text-left">Giỏ hàng của bạn đang trống.</p>
+				</f:else>
+			</f:if>
+		</div>
+	</div>
+</div>
+</html>

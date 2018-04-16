@@ -282,12 +282,52 @@
 				window.location.href = href;
 			}
 		});
-	}
+	};
+	
+	var handleAddToCart = function() {
+		$('#minicart').on('hover', function() {
+			$(this).addClass('active');
+			
+			$('#minicart').on('mouseleave', function() {
+				$(this).removeClass('active');
+			});
+		});
+		
+		$('.btn-add-cart a').click(function(e) {
+			e.preventDefault();
+			let _self = $(this);
+			$.ajax({
+				url: _self.attr('href'),
+				dataType: 'html',
+				beforeSend: function() {
+					_self.attr('disabled', true);
+				},	
+				complete: function() {
+					_self.attr('disabled', false);
+				},				
+				success: function(html) {
+					$('#minicart').html(html);
+					setTimeout(function() {
+						$('#minicart').trigger('hover');
+					}, 100);
+					let duration = 300;
+					$('html, body').animate({
+						scrollTop: 0
+					}, duration);
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				}
+			});
+		})
+	};
+	
 
 	// Dom Ready
 	$(document).ready(function() {
 		// Nano functions
 		widgetSearchByTerms();
+		handleAddToCart();
 
 		// Theme functions
 		responsiveMenu();

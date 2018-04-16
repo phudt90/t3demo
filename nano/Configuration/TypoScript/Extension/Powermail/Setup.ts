@@ -18,6 +18,7 @@ plugin.tx_powermail {
         
         config {
           cartPid = {$plugin.cartPid}
+          checkoutPid = {$plugin.checkoutPid} 
           checkoutFormUid = {$plugin.checkoutFormUid}
         }
       }
@@ -29,7 +30,9 @@ plugin.tx_powermail {
         
         config {
           cartPid = {$plugin.cartPid}
+          checkoutPid = {$plugin.checkoutPid} 
           checkoutFormUid = {$plugin.checkoutFormUid}
+          orderStoragePid = {$plugin.orderStoragePid}
         }
       }
     }

@@ -1,7 +1,7 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 	data-namespace-typo3-fluid="true">
 <f:if condition="{batteries -> f:count()} > 0">
-<div class="flat-imagebox style1">
+<div class="flat-imagebox">
 	<div class="row">
 		<div class="col-md-12 col-xs-10">
 			<f:if condition="{heading}">
@@ -24,29 +24,34 @@
 		<div class="tab-item">
 			<div class="row">
 				<f:for each="{batteries}" as="battery">
-				<div class="col-md-3 col-sm-6">
-					<div class="product-box style-nano">
-						<div class="imagebox">
-							<div class="box-image">
-								<f:link.action pageUid="3" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:battery}">
-									<f:if condition="{battery.mediaPreviews}">
-										<f:alias map="{mediaElement: '{battery.mediaPreviews.0}'}">
-											<f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="350"/>
-										</f:alias>
-									</f:if>
-								</f:link.action>
-							</div>
-							<div class="box-content">
-								<div class="cat-name">
-									<f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:battery}">{battery.brand.title}</f:link.action>
+					<div class="col-lg-3 col-md-4 col-sm-6">
+						<div class="product-box style-nano">
+							<div class="imagebox">
+								<div class="box-image">
+									<f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:battery}">
+										<f:if condition="{battery.mediaPreviews}">
+											<f:alias map="{mediaElement: '{battery.mediaPreviews.0}'}">
+												<f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="350"/>
+											</f:alias>
+										</f:if>
+									</f:link.action>
 								</div>
-								<div class="product-name">
-									<f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:battery}">{battery.title}</f:link.action>
+								<div class="box-content">
+									<div class="cat-name">
+										<f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:battery}">{battery.brand.title}</f:link.action>
+									</div>
+									<div class="product-name">
+										<f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:battery}">{battery.title}</f:link.action>
+									</div>
+								</div>
+								<div class="box-bottom">
+									<div class="btn-add-cart">
+										<f:cObject typoscriptObjectPath="lib.cartProduct.addToCartButton" data="{uid:'{battery.uid}'}"/>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
 				</f:for>
 			</div>
 		</div>

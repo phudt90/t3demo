@@ -5,17 +5,17 @@ plugin.tx_nano_pagebatterysearchbyvehical {
     templateRootPaths.0 = EXT:nano/Resources/Private/Templates/Page/
     partialRootPaths.0 = EXT:nano/Resources/Private/Partials/Page/
     layoutRootPaths.0 = EXT:nano/Resources/Private/Layouts/Page/
-    
-    features {
-	  	requireCHashArgumentForActionArguments = 0
-	  }
-    
+
     widget {
     	TYPO3\CMS\Fluid\ViewHelpers\Widget\PaginateViewHelper {
     		templateRootPaths = EXT:nano/Resources/Private/Templates/
     	}
     }
   }
+  
+  features {
+	  	requireCHashArgumentForActionArguments = 0
+	  }
   
   settings {
 		detailsPid = {$plugin.detailsPid}

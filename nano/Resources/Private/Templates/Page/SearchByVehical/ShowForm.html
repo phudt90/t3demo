@@ -6,7 +6,7 @@
 <v:asset.script path="EXT:nano/Resources/Public/Nano/libraries/select2/js/select2.min.js" dependencies="jquery" />
 <v:asset.script path="EXT:nano/Resources/Public/Nano/libraries/select2/js/i18n/vi.js" dependencies="jquery" />
 <v:asset.script path="EXT:nano/Resources/Public/Nano/javascript/lodash.min.js" dependencies="jquery" />
-<div id="NanoTopSearch" class="nano-top-search">
+<div id="NanoTopSearch" class="top-search nano-top-search">
   <form action="#" method="get" class="form-search" accept-charset="utf-8">
     <f:for each="{vbrands}" as="vbrand">
       <input type="hidden" name="vbrands[{vbrand.uid}]" value="{f:uri.action(pageUid:settings.searchPid, extensionName:'Nano', pluginName:'PageBatterySearchByVehical', controller:'Battery', action: 'search', arguments:'{vbrand:vbrand.uid}')}" />
@@ -16,30 +16,38 @@
     </f:for>
     <div class="quick-search">
       <div class="quick-search-inner">
-        <h3 class="quick-search-heading">Tìm ắc quy</h3>
-        <f:if condition="{vbrands}">
-          <div class="quick-search-field">
-            <select id="SearchFieldVehicalBrand" 
-              name="vbrand" 
-              class="form-control fc-vbrand" 
-              data-placeholder="-- Thương hiệu xe --"
-              data-allow-clear="true">
-              <option></option>
-              <f:for each="{vbrands}" as="vbrand">
-                <option value="{vbrand.uid}">{vbrand.title}</option>
-              </f:for>
-            </select>
-          </div>
-        </f:if>
-        <div class="quick-search-field">
-          <select id="SearchFieldVehicalModel" 
-            name="vmodel" 
-            class="form-control fc-vmodel"
-            data-placeholder="-- Dòng xe --"
-            data-allow-clear="true"
-            data-options="{vmodel_options}">
-            <option></option>
-          </select>
+      	<div class="row">
+      		<div class="col-md-2 quick-search-col hidden-xs-down">
+	        	<h3 class="quick-search-heading">Tìm ắc quy</h3>
+	        </div>
+	        <div class="col-md-5 col-6 quick-search-col">
+		        <div class="quick-search-field">
+		        	<f:if condition="{vbrands}">
+		            <select id="SearchFieldVehicalBrand" 
+		              name="vbrand" 
+		              class="form-control fc-vbrand" 
+		              data-placeholder="-- Thương hiệu xe --"
+		              data-allow-clear="true">
+		              <option></option>
+		              <f:for each="{vbrands}" as="vbrand">
+		                <option value="{vbrand.uid}">{vbrand.title}</option>
+		              </f:for>
+		            </select>
+		        	</f:if>
+		        </div>
+	        </div>
+	        <div class="col-md-5 col-6 quick-search-col">
+		        <div class="quick-search-field">
+		          <select id="SearchFieldVehicalModel" 
+		            name="vmodel" 
+		            class="form-control fc-vmodel"
+		            data-placeholder="-- Dòng xe --"
+		            data-allow-clear="true"
+		            data-options="{vmodel_options}">
+		            <option></option>
+		          </select>
+		        </div>
+	        </div>
         </div>
       </div>
       <span class="btn-search">

@@ -696,10 +696,10 @@ ul.flat-unstyled li > ul > li > a {
 }
 #logo .navbar-brand-image{
 	padding-top: 10px;
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 }
 #logo .navbar-brand-image img{
-	max-width: 120px;
+	
 }
 
 .header-middle .grid-left #logo {
@@ -1095,12 +1095,13 @@ ul.flat-unstyled li > ul > li > a {
 	content:'';
 	position:absolute;
 	top:-7px;
-	right:70px;
+	right:17px;
 	border-left:7px solid transparent;
 	border-right:7px solid transparent;
 	border-bottom:7px solid #e5e5e5;
 }
 
+#minicart.active .inner-box > .dropdown-box,
 .box-cart > .inner-box:hover > .dropdown-box {
 	top:55px;
 	opacity:1;
@@ -1114,14 +1115,14 @@ ul.flat-unstyled li > ul > li > a {
 
 .box-cart .inner-box .dropdown-box > ul > li {
 	position:relative;
-	margin-bottom:30px;
+	margin-bottom:25px;
 }
 
 .box-cart .inner-box .dropdown-box > ul > li .img-product {
 	float:left;
 	margin-right:20px;
 	width:64px;
-	height:64px;
+	height:auto;
 	border:2px solid transparent;
 	border-radius:8px;
 	text-align:center;
@@ -1138,8 +1139,9 @@ ul.flat-unstyled li > ul > li > a {
 .box-cart .inner-box .dropdown-box > ul > li .info-product .name {
 	margin-bottom:3px;
 	color:#484848;
-	font-size:12px;
+	font-size:13px;
 	line-height:20px;
+	padding-right:10px;
 }
 
 .box-cart .inner-box .dropdown-box > ul > li .info-product .price {
@@ -1173,19 +1175,21 @@ ul.flat-unstyled li > ul > li > a {
 
 .box-cart .inner-box .dropdown-box .btn-cart {
 	margin-top:30px;
+	padding:0 30px;
 	overflow:hidden;
 }
 
 .box-cart .inner-box .dropdown-box .btn-cart a.view-cart {
+	display:block;
 	padding:10px 33px;
 	color:#f92400;
 	border:2px solid #f92400;
 	border-radius:30px;
 	font-size:14px;
 	font-weight:500;
-	float:left;
 	position:relative;
 	overflow:hidden;
+	text-align:center;
 	z-index:5;
 }
 

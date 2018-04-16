@@ -2,8 +2,6 @@
 
 namespace ELCA\Nano\Controller;
 
-use TYPO3\CMS\Core\Error\Http\PageNotFoundException;
-
 /**
  * Cart controller
  */
@@ -57,11 +55,21 @@ class CartController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 
   /**
    * Show list products in cart
-   *
+   * @return void
    */
   public function indexAction() {
     $this->cart = $this->cartUtility->getCartFromSession($this->settings);
     
+    $this->view->assign('products', $this->cart->getProducts());
+  }
+  
+  /**
+   * Show mini cart
+   * @return void
+   */
+  public function miniCartAction() {
+    $this->cart = $this->cartUtility->getCartFromSession($this->settings);
+    $this->view->assign('total', $this->cart->getTotalProducts());
     $this->view->assign('products', $this->cart->getProducts());
   }
 
@@ -76,6 +84,21 @@ class CartController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
     
     $this->cartUtility->writeCartToSession($this->cart, $this->settings);
     
+    $this->view->assign('total', $this->cart->getTotalProducts());
+    $this->view->assign('products', $this->cart->getProducts());
+  }
+  
+  /**
+   * Update product from cart
+   * @param string $uid
+   * @param string $quantity
+   */
+  public function updateProductAction($uid, $quantity = 1) {
+    $this->cart = $this->cartUtility->getCartFromSession($this->settings);
+    
+    $this->cart->updateProductByUid($uid, $quantity);
+    $this->cartUtility->writeCartToSession($this->cart, $this->settings);
+
     return $this->redirectToUri($this->getCartIndexUri($this->settings['cartPid']));
   }
   
@@ -94,32 +117,15 @@ class CartController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
   }
   
   /**
-   * Order successfully
-   * @param string $hash 
-   */
-  public function checkoutSuccessAction($hash = '') {
-    /* @var \ELCA\Nano\Domain\Model\Order $order */
-    if(!empty($hash) && ($order = $this->orderRepository->findByHash($hash))) {
-      $this->view->assign('order', $order);
-    } else {
-      $message = 'The requested page does not exist!';
-      throw new PageNotFoundException($message, 1301648781);
-    }
-    
-    //$this->cart = $this->cartUtility->getNewCart($this->settings);
-    //$this->sessionHandler->writeToSession($this->cart, $this->settings['cartPid']);
-  }
-
-  /**
    * Clear Cart
    */
   public function clearCartAction() {
-    $this->cart = $this->cartUtility->getNewCart($this->settings);    
+    $this->cart = $this->cartUtility->getNewCart($this->settings);
     $this->sessionHandler->writeToSession($this->cart, $this->settings['cartPid']);
     
     return $this->redirectToUri($this->getCartIndexUri($this->settings['cartPid']));
   }
-  
+
   protected function getCartIndexUri($cartPid) {
     return $this->uriBuilder
       ->setTargetPageUid($cartPid)

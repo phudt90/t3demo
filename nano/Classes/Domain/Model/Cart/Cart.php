@@ -60,6 +60,15 @@ class Cart {
   }
   
   /**
+   * Get total products
+   * @return int
+   *
+   */
+  public function getTotalProducts() {
+    return count($this->getProducts());
+  }
+  
+  /**
    * Add product to cart
    * @param mixed $product
    */
@@ -103,6 +112,17 @@ class Cart {
     
     if($product = $this->getProduct($uid)) {
       $product->setQuantity($newQuantity);
+      $this->products[$uid] = $product;
+    }
+  }
+  
+  /**
+   * @param int $uid
+   * @param int $quantity
+   */
+  public function updateProductByUid($uid, $quantity) {
+    if($product = $this->getProduct($uid)) {
+      $product->setQuantity($quantity);
       $this->products[$uid] = $product;
     }
   }

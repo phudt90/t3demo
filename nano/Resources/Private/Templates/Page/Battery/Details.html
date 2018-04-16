@@ -21,10 +21,10 @@
 			<div class="product-detail style3">
 				<f:render partial="BatteryDetails/Specifications" arguments="{battery:battery}" />
 				<div class="content-detail"></div>
-				<div class="footer-detail" style="display:none;">
+				<div class="footer-detail">
 					<div class="box-cart style2">
 						<div class="btn-add-cart">
-							<a href="javascript:;" title=""><img src="{f:uri.resource(path: 'Nano/images/icons/add-cart.png', extensionName: 'nano')}" alt="">0165 2533 905</a>
+							<f:cObject typoscriptObjectPath="lib.cartProduct.addToCartButton" data="{uid:'{battery.uid}'}"/>
 						</div>
 					</div>
 				</div>

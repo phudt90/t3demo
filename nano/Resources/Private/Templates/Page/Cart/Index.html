@@ -3,61 +3,75 @@
 	data-namespace-typo3-fluid="true">
 <section class="flat-shop-cart">
   <f:flashMessages />
-	<div class="flat-row-title style1">
+	<div class="flat-row-title">
 		<h3>Giỏ hàng</h3>
 	</div>
-	<div class="table-cart">
-		<f:if condition="{products}">
-			<f:then>
-				<table>
-					<thead>
-						<tr>
-							<th>Sản phẩm</th>
-							<th colspan="2">Số lượng</th>
-						</tr>
-					</thead>
-					<tbody>
-						<f:for each="{products}" as="product">
-							<tr>
-								<td>
-									<div class="img-product">
-										<f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:'{product.uid}'}">
-											<f:if condition="{product.thumb}">
-												<f:alias map="{mediaElement: '{product.thumb}'}">
-													<f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="100"/>
-												</f:alias>
-											</f:if>
-										</f:link.action>
-									</div>
-									<div class="name-product">
-										<f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:'{product.uid}'}">
-											{product.title}
-										</f:link.action>
-									</div>
-								</td>
-								<td>
-									<div class="quanlity">
-										<select name="quantity" class="form-control">
-											<v:iterator.for from="1" to="99" iteration="i">
-  												<option value="{i.index}" {f:if(condition:'{i.index}=={product.quantity}}', then: 'selected="selected"')}>{i.index}</option>
-											</v:iterator.for>
-										</select>
-									</div>
-								</td>
-								<td>
-									<f:link.action pageUid="{settings.cartPid}" action="removeProduct" arguments="{uid:'{product.uid}'}" noCacheHash="1" title="Xóa"> 
-										<img src="{f:uri.resource(path:'Nano/images/icons/delete.png')}" alt="">
-									</f:link.action>
-								</td>
-							</tr>
-						</f:for>
-					</tbody>
-				</table>
-			</f:then>
-			<f:else>
-				<div class="table-cart-empty">Giỏ hàng của bạn đang trống.</div>
-			</f:else>
-		</f:if>
-	</div>
+	<f:if condition="{products}">
+		<f:then>
+			<div class="row">
+				<div class="col-md-9">
+					<div class="table-cart">
+						<table>
+							<thead>
+								<tr>
+									<th>Sản phẩm</th>
+									<th colspan="2">Số lượng</th>
+								</tr>
+							</thead>
+							<tbody>
+								<f:for each="{products}" as="product">
+									<tr>
+										<td>
+											<div class="img-product">
+												<f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:'{product.uid}'}">
+													<f:if condition="{product.thumb}">
+														<f:alias map="{mediaElement: '{product.thumb}'}">
+															<f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="100"/>
+														</f:alias>
+													</f:if>
+												</f:link.action>
+											</div>
+											<div class="name-product">
+												<f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:'{product.uid}'}">
+													{product.title}
+												</f:link.action>
+											</div>
+										</td>
+										<td>
+											<div class="quanlity">
+												<select name="quantity" class="form-control" onchange="window.location.href = this.options[this.selectedIndex].getAttribute('data-url');">
+													<v:iterator.for from="1" to="99" iteration="i">
+		  											<option value="{i.index}" {f:if(condition:'{i.index}=={product.quantity}}', then: 'selected="selected"')} data-url="{f:uri.action(pageUid:'{settings.cartPid}', action: 'updateProduct', noCacheHash: '1',  arguments:'{uid: product.uid, quantity: i.index}')}">{i.index}</option>
+													</v:iterator.for>
+												</select>
+											</div>
+										</td>
+										<td>
+											<f:link.action pageUid="{settings.cartPid}" action="removeProduct" arguments="{uid:'{product.uid}'}" noCacheHash="1" title="Xóa"> 
+												<img src="{f:uri.resource(path:'Nano/images/icons/delete.png')}" alt="">
+											</f:link.action>
+										</td>
+									</tr>
+								</f:for>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="cart-totals">
+						<h3>Đặt hàng</h3>
+						<div class="btn-cart-totals">
+							<f:link.page pageUid="{settings.checkoutPid}" noCacheHash="1" class="checkout" title="Đặt hàng ngay">Đặt hàng ngay</f:link.page>
+							<a href="https://acquynano.com/" class="update" title="Tiếp tục mua hàng">Tiếp tục mua hàng</a>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+		</f:then>
+		<f:else>
+			<div class="table-cart-empty">Giỏ hàng của bạn đang trống.</div>
+		</f:else>
+	</f:if>
 </section>
 </html>
