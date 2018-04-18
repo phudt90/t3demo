@@ -13,6 +13,7 @@ defined('TYPO3_MODE') or die();
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'PageCheckout', 'Page: Checkout');
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'WidgetMiniCart', 'Widget: Mini Cart');
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'WidgetSelectedBatteries', 'Widget: Selected Batteries');
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'WidgetBatteryByApplication', 'Widget: Ắc quy theo loại xe');
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('nano', 'WidgetSearchByVehicalTerms', 'Widget: Search by vehical terms');
 
@@ -24,6 +25,10 @@ defined('TYPO3_MODE') or die();
 $pluginSignature = 'nano_widgetbatterybyapplication';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:nano/Configuration/FlexForms/flexform_nano.xml');
+
+$pluginSignature = 'nano_widgetselectedbatteries';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:nano/Configuration/FlexForms/nano_selected_batteries.xml');
 
 /**
  * *********************************

@@ -1540,7 +1540,7 @@ ul.flat-unstyled li > ul > li > a {
 #mainnav ul.menu > li > a:after {
 	content:'';
 	position:absolute;
-	bottom:-21px;
+	bottom:-19px;
 	left:-1px;
 	opacity:0;
 	background-color:#fff;

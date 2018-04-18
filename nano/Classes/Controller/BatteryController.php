@@ -6,6 +6,7 @@ use ELCA\Nano\Domain\Model\Application as ApplicationModel;
 use ELCA\Nano\Domain\Model\Brand as BrandModel;
 use ELCA\Nano\Domain\Model\Vbrand;
 use ELCA\Nano\Domain\Model\Vmodel;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use ELCA\Nano\Domain\Model\Battery as BatteryModel;
 
 /**
@@ -114,7 +115,6 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
   
   /**
    * Battery Details
-   * @param BatteryModel
    */
   public function detailsAction(BatteryModel $battery) {
     $this->setPageTitle($battery->getTitle());
@@ -122,8 +122,23 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
   }
   
   /**
+   * Output a list of selected batteries
+   *
+   */
+  public function selectedBatteriesAction() {
+    $settings = $this->settings;
+    $batteries = null;
+    if(!empty($settings['batteries'])) {
+      $uids = GeneralUtility::trimExplode(',', $settings['batteries'], true);
+      $batteries = $this->batteryRepository->findByUids($uids);
+    } else {
+      // TODO throw exception
+    }
+    $this->view->assign('batteries', $batteries);
+  }
+  
+  /**
    * Output a list view of batteries by application
-   * @param ApplicationModel
    *
    */
   public function batteryByApplicationAction() {

@@ -8,7 +8,7 @@
 			<p>&nbsp;</p>
 			<f:if condition="{batteries -> f:count()} > 0">
 				<f:then>
-					<f:render partial="BatteryList/Grid4Columns" arguments="{batteries:batteries}" />
+					<f:render partial="BatteryList/PaginatedGrid4Columns" arguments="{batteries:batteries}" />
 				</f:then>
 				<f:else>
         	<f:translate key="nano.messages.listIsEmpty" />

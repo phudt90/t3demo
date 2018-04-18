@@ -18,9 +18,9 @@ TCEFORM {
             }
         }
         layout {
-            removeItems = 2,3
             altLabels {
       				1 = 10/12 columns center
+      				2 = Home widget block
     				}
             disableNoMatchingValueElement = 1
             types {

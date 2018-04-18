@@ -31,6 +31,10 @@ defined('TYPO3_MODE') or die();
   'Cart' => 'miniCart',
 ]);
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'WidgetSelectedBatteries', [
+  'Battery' => 'selectedBatteries',
+], []);
+
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'WidgetBatteryByApplication', [
   'Battery' => 'batteryByApplication',
 ], []);

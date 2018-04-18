@@ -12,6 +12,24 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
  */
 class BatteryRepository extends \ELCA\Nano\Domain\Repository\AbstractDemandedRepository
 {
+  /**
+   * Returns the list of batteries by uids
+   *
+   * @param array $uids
+   * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+   */
+  public function findByUids($uids = array()) {
+    $query = $this->createQuery();
+    
+    $query->getQuerySettings()->setRespectStoragePage(false);
+    
+    $query->matching($query->in('uid', $uids));
+    
+    $query->setLimit(100);
+    
+    return $query->execute();
+  }
+  
   protected function createConstraintsFromDemand(QueryInterface $query, DemandInterface $demand) {
     /** @var \ELCA\Nano\Domain\Model\BatteryDemand $demand */
     $constraints = [];
@@ -23,7 +41,6 @@ class BatteryRepository extends \ELCA\Nano\Domain\Repository\AbstractDemandedRep
     if($brand = $demand->getBrand()) {
       $constraints['brand'] = $query->equals('brand', $brand);
     }
-    
     
     if($vbrand = $demand->getVbrand()) {
       /** @var \TYPO3\CMS\Core\Database\Query\QueryBuilder $queryBuilder */
