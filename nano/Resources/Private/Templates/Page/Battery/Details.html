@@ -13,7 +13,11 @@
 		<div class="col-lg-4 col-md-6">
 			<div class="product-detail style2">
 				<f:render partial="BatteryDetails/HeaderInfo" arguments="{battery:battery}" />
-				
+				<div class="box-cart style2">
+						<div class="btn-add-cart">
+							<f:cObject typoscriptObjectPath="lib.cartProduct.addToCartButton" data="{uid:'{battery.uid}'}"/>
+						</div>
+					</div>
 				<f:render partial="BatteryDetails/HeaderTeaser" arguments="{battery:battery}" />
 			</div>
 		</div>
@@ -21,13 +25,7 @@
 			<div class="product-detail style3">
 				<f:render partial="BatteryDetails/Specifications" arguments="{battery:battery}" />
 				<div class="content-detail"></div>
-				<div class="footer-detail">
-					<div class="box-cart style2">
-						<div class="btn-add-cart">
-							<f:cObject typoscriptObjectPath="lib.cartProduct.addToCartButton" data="{uid:'{battery.uid}'}"/>
-						</div>
-					</div>
-				</div>
+				<div class="footer-detail"></div>
 			</div>
 		</div>
 	</div>

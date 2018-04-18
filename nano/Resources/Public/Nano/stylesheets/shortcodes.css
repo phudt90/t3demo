@@ -4536,6 +4536,19 @@ input[type="checkbox"]:checked + label:before {
 	font-size:16px;
 	font-weight:600;
 }
+.box-cart.style2 .btn-add-cart a:before {
+	content: "";
+	display: inline-block;
+	width: 23px;
+	height: 22px;
+	background-image: url('../images/icons/add-cart.png');
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-size: cover;
+	vertical-align: middle;
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
 
 .box-cart.style2 .btn-add-cart a:hover {
 	background-color:#2d2d2d;

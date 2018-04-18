@@ -19,6 +19,7 @@ plugin.tx_nano_widgetminicart {
 	settings {
 		cartPid = {$plugin.cartPid}
 		checkoutPid = {$plugin.checkoutPid}
+		detailsPid = {$plugin.detailsPid}
 		orderStoragePid = {$plugin.orderStoragePid}
 		checkoutFormUid = {$plugin.checkoutFormUid}
 	}
@@ -43,6 +44,7 @@ lib.miniCart {
 	settings {
 		cartPid = {$plugin.cartPid}
 		checkoutPid = {$plugin.checkoutPid}
+		detailsPid = {$plugin.detailsPid}
 		orderStoragePid = {$plugin.orderStoragePid}
 		checkoutFormUid = {$plugin.checkoutFormUid}
 	}		

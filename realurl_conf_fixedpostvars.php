@@ -139,8 +139,28 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl']['_DEFAULT']['fixedPostVars'] =
       ],
     ],
   ],
-  
+  'PageCheckoutConfiguration' => [
+    [
+      'GETvar' => 'tx_nano_pagecheckout[controller]',
+      'valueMap' => [
+        'Checkout' => ''
+      ],
+      'noMatch' => 'bypass'
+    ],
+    [
+      'GETvar' => 'tx_nano_pagecheckout[action]',
+      'valueMap' => [
+        'index' => '',
+        'create' => 'create',
+        'success' => 'success'
+      ],
+    ],
+    [
+      'GETvar' => 'tx_nano_pagecheckout[hash]',
+    ],
+  ],
   '3' => 'PageBatteryDetailsConfiguration',
   '14' => 'PageBatteryListConfiguration',
   '4' => 'PageBatterySearchByVehicalConfiguration',
+  '21' => 'PageCheckoutConfiguration',
 ];
