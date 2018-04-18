@@ -115,9 +115,12 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
   
   /**
    * Battery Details
+   * @param BatteryModel $battery
    */
   public function detailsAction(BatteryModel $battery) {
-    $this->setPageTitle($battery->getTitle());
+    $title = (!empty($battery->getSeoTitle())) ? $battery->getSeoTitle() : $battery->getTitle();
+    //$this->getPageRenderer()->setTitle($title);
+    //$GLOBALS['TSFE']->indexedDocTitle = $title;
     $this->view->assign('battery', $battery);
   }
   

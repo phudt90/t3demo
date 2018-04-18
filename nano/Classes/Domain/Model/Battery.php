@@ -181,6 +181,12 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
    *
    * @var string
    */
+  protected $seoTitle;
+  
+  /**
+   *
+   * @var string
+   */
   protected $seoKeywords;
   
   /**
@@ -559,6 +565,22 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
    */
   public function setGuarantee($guarantee) {
     $this->guarantee = $guarantee;
+  }
+
+  /**
+   *
+   * @return string
+   */
+  public function getSeoTitle() {
+    return $this->seoTitle;
+  }
+
+  /**
+   *
+   * @param string $seoTitle
+   */
+  public function setSeoTitle($seoTitle) {
+    $this->seoTitle = $seoTitle;
   }
 
   /**
