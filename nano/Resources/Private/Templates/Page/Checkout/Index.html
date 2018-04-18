@@ -7,14 +7,14 @@
 		<f:then>
 			<f:form
 				action="create"
-				name="field"
+				name="order"
 				noCacheHash="1"
 				enctype="multipart/form-data"
 				additionalAttributes="{vh:Validation.EnableParsleyAndAjax(form:form)}"
 				class="powermail_form powermail_form_{form.uid} {form.css} {settings.styles.framework.formClasses} {vh:Misc.MorestepClass(activate:settings.main.moresteps)}">
 
 				<f:form.hidden name="mail[form]" value="{form.uid}" class="powermail_form_uid" />
-
+				
 				<div class="row">
 					<div class="col-md-7">
 						<f:for each="{form.pages}" as="page">
@@ -25,10 +25,10 @@
 									</f:if>
 									<f:alias map="{fields: '{page.fieldsByFieldMarker}'}">
 										<div class="fields-content">
-											<f:if condition="{fields.hoten}">
+											<f:if condition="{fields.fullname}">
 												<div class="field-row">
 													<vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
-														<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.hoten.type)}" arguments="{field:fields.hoten}" />
+														<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.fullname.type)}" arguments="{field:fields.fullname}" />
 													</vh:misc.createRowTags>
 												</div>
 											</f:if>
@@ -40,26 +40,26 @@
 														</vh:misc.createRowTags>
 													</div>
 												</f:if>
-												<f:if condition="{fields.email}">
+												<f:if condition="{fields.phone}">
 													<div class="field-one-half">
 														<vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
-															<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.sodienthoai.type)}" arguments="{field:fields.sodienthoai}" />
+															<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.phone.type)}" arguments="{field:fields.phone}" />
 														</vh:misc.createRowTags>
 													</div>
 												</f:if>
 												<div class="clearfix"></div>
 											</div>
-											<f:if condition="{fields.diachi}">
+											<f:if condition="{fields.address}">
 												<div class="field-row">
 													<vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
-														<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.diachi.type)}" arguments="{field:fields.diachi}" />
+														<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.address.type)}" arguments="{field:fields.address}" />
 													</vh:misc.createRowTags>
 												</div>
 											</f:if>
-											<f:if condition="{fields.ghichudonhang}">
+											<f:if condition="{fields.comment}">
 												<div class="field-row">
 													<vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
-														<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.ghichudonhang.type)}" arguments="{field:fields.ghichudonhang}" />
+														<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.comment.type)}" arguments="{field:fields.comment}" />
 													</vh:misc.createRowTags>
 												</div>
 											</f:if>
