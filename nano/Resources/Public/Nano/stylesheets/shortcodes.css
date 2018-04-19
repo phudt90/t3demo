@@ -6858,10 +6858,12 @@ table.product thead tr th:last-child {
 	background-color:#f5f5f5;
 	padding:34px 47px 46px;
 	border-radius:8px;
+	font-size: 16px;
+  font-weight: 300;
 }
 
 .box-contact ul li {
-	margin-bottom:35px;
+	margin-bottom:15px;
 }
 
 .box-contact ul li:last-child {
@@ -6869,7 +6871,7 @@ table.product thead tr th:last-child {
 }
 
 .box-contact ul li.address {
-	margin-bottom:32px;
+	margin-bottom:15px;
 }
 
 .box-contact ul li h3 {

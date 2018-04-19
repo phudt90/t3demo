@@ -1,43 +1,91 @@
 {namespace vh=In2code\Powermail\ViewHelpers}
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-  data-namespace-typo3-fluid="true">
-  
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
-
-Render Powermail Form
-{form} 			All Forms with their Pages and their Fields
-{ttContentData}		All values from content element with plugin
 
 <f:section name="main">
 	<f:alias map="{flashMessageClass:'powermail_message_error'}">
 		<f:render partial="Misc/FlashMessages" arguments="{_all}" />
 	</f:alias>
-  <div class="cart-totals">
-		<f:if condition="{form}">
-			<f:then>
-				<f:form action="{action}" section="c{ttContentData.uid}" name="field"
-					enctype="multipart/form-data"
-					additionalAttributes="{vh:Validation.EnableParsleyAndAjax(form:form)}"
-					addQueryString="{settings.misc.addQueryString}"
-					class="powermail_form powermail_form_{form.uid} {form.css} {settings.styles.framework.formClasses} {vh:Misc.MorestepClass(activate:settings.main.moresteps)}">
-	
-					<f:if condition="{form.css} != 'nolabel'">
-						<h3>{form.title}</h3>
-					</f:if>
-					<f:render partial="Misc/FormError" arguments="{_all}" />
-	
-					<f:for each="{form.pages}" as="page">
-						<f:render partial="Form/Page" arguments="{_all}" />
-					</f:for>
-	
-					<f:form.hidden name="mail[form]" value="{form.uid}" class="powermail_form_uid" />
-					<f:render partial="Misc/HoneyPod" arguments="{form:form}" />
-				</f:form>
-			</f:then>
-			<f:else>
-				<f:translate key="error_no_form" />
-			</f:else>
-		</f:if>
-	</div>
+  
+  <f:if condition="{form}">
+    <f:then>
+      <f:form
+        action="{action}"
+        section="c{ttContentData.uid}"
+        name="field"
+        enctype="multipart/form-data"
+        additionalAttributes="{vh:Validation.EnableParsleyAndAjax(form:form)}"
+        addQueryString="{settings.misc.addQueryString}"
+        class="powermail_form powermail_form_{form.uid} layout-{form.css} {settings.styles.framework.formClasses} {vh:Misc.MorestepClass(activate:settings.main.moresteps)}">
+      
+			  <f:switch expression="{form.css}">
+			    <f:case value="1">
+			     <h3>{form.title}</h3>
+			     <f:for each="{form.pages}" as="page">
+			       <f:alias map="{fields: '{page.fieldsByFieldMarker}'}">
+			         <div class="row">
+			           <f:if condition="fields.hoten">
+				           <div class="col-md-6">
+	                    <vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
+	                      <f:render partial="Form/Field/{vh:String.Upper(string:fields.hoten.type)}" arguments="{field:fields.hoten}" />
+	                    </vh:misc.createRowTags>
+				           </div>
+			           </f:if>
+			           <f:if condition="fields.email">
+				           <div class="col-md-6">
+				             <vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
+	                      <f:render partial="Form/Field/{vh:String.Upper(string:fields.email.type)}" arguments="{field:fields.email}" />
+	                    </vh:misc.createRowTags>
+				           </div>
+			           </f:if>
+			         </div>
+			         <f:if condition="fields.sodienthoai">
+				         <div class="row">
+				           <div class="col-md-12">
+				             <vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
+	                     <f:render partial="Form/Field/{vh:String.Upper(string:fields.sodienthoai.type)}" arguments="{field:fields.sodienthoai}" />
+	                   </vh:misc.createRowTags>
+				           </div>
+				         </div>
+			         </f:if>
+			         <f:if condition="fields.noidunglienhe">
+				         <div class="row">
+	                 <div class="col-md-12">
+	                   <vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
+	                     <f:render partial="Form/Field/{vh:String.Upper(string:fields.noidunglienhe.type)}" arguments="{field:fields.noidunglienhe}" />
+	                   </vh:misc.createRowTags>
+	                 </div>
+	               </div>
+               </f:if>
+               <f:if condition="fields.gui">
+	               <div class="row">
+	                 <div class="col-md-3">
+	                   <vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
+	                     <f:render partial="Form/Field/{vh:String.Upper(string:fields.gui.type)}" arguments="{field:fields.gui}" />
+	                   </vh:misc.createRowTags>
+	                 </div>
+	               </div>
+               </f:if>
+			       </f:alias>
+			     </f:for>
+			    </f:case>
+			    <f:defaultCase>
+		        <h3>{form.title}</h3>
+		        <f:render partial="Misc/FormError" arguments="{_all}" />
+		
+		        <f:for each="{form.pages}" as="page">
+		          <f:render partial="Form/Page" arguments="{_all}" />
+		        </f:for>
+			    </f:defaultCase>
+			  </f:switch>
+			  <f:form.hidden name="mail[form]" value="{form.uid}" class="powermail_form_uid" />
+        <f:render partial="Misc/HoneyPod" arguments="{form:form}" />
+		  </f:form>
+		</f:then>
+		<f:else>
+			<f:translate key="error_no_form" />
+		</f:else>
+	</f:if>
+
 </f:section>
 </html>

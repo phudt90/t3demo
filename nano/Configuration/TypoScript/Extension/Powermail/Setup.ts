@@ -1,5 +1,9 @@
 plugin.tx_powermail {
-  
+  view {
+    templateRootPaths.0 = EXT:nano/Resources/Private/Templates/PowerMail/
+    partialRootPaths.0 = EXT:nano/Resources/Private/Partials/PowerMail/
+    layoutRootPaths.0 = EXT:nano/Resources/Private/Layouts/PowerMail/
+  }
   
   settings.setup {
     validation {

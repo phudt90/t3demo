@@ -9,10 +9,10 @@ form fieldset legend{
 }
 
 .powermail_fieldwrap{
-	margin-bottom:10px;
+	margin-bottom:15px;
 }
 .powermail_fieldwrap.powermail_fieldwrap_type_submit{
-	margin-top:20px;
+	margin-top:10px;
   padding: 0 20px;
 }
 .powermail_fieldwrap label{

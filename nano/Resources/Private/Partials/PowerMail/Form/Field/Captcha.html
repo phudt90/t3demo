@@ -1,7 +1,7 @@
 {namespace vh=In2code\Powermail\ViewHelpers}
 
 <div class="powermail_fieldwrap powermail_fieldwrap_type_captcha powermail_fieldwrap_{field.marker} {field.css} {settings.styles.framework.fieldAndLabelWrappingClasses}">
-	<f:render partial="PowerMail/Form/FieldLabel" arguments="{_all}" />
+	<f:render partial="Form/FieldLabel" arguments="{_all}" />
 
 	<div class="{settings.styles.framework.fieldWrappingClasses} {vh:Validation.ErrorClass(field:field, class: 'powermail_field_error')}">
 		<f:form.textfield

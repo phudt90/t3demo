@@ -152,20 +152,20 @@ $formsTca = [
                         ''
                     ],
                     [
-                        'LLL:EXT:powermail/Resources/Private/Language/locallang_db.xlf:' . Form::TABLE_NAME . '.css.1',
-                        'layout1'
+                        'Contact',
+                        '1'
                     ],
                     [
                         'LLL:EXT:powermail/Resources/Private/Language/locallang_db.xlf:' . Form::TABLE_NAME . '.css.2',
-                        'layout2'
+                        '2'
                     ],
                     [
                         'LLL:EXT:powermail/Resources/Private/Language/locallang_db.xlf:' . Form::TABLE_NAME . '.css.3',
-                        'layout3'
+                        '3'
                     ],
                     [
                         'LLL:EXT:powermail/Resources/Private/Language/locallang_db.xlf:' . Form::TABLE_NAME . '.css.4',
-                        'nolabel'
+                        '4'
                     ],
                 ],
                 'size' => 1,

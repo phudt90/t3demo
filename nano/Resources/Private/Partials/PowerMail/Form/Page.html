@@ -1,6 +1,4 @@
 {namespace vh=In2code\Powermail\ViewHelpers}
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-  data-namespace-typo3-fluid="true">
 <fieldset class="powermail_fieldset powermail_fieldset_{page.uid} {page.css}">
 	<f:if condition="{page.css} != 'nolabel'">
 		<legend class="powermail_legend">{page.title}</legend>
@@ -8,8 +6,7 @@
 
 	<f:for each="{page.fields}" as="field" iteration="iteration">
 		<vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
-			<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:field.type)}" arguments="{field:field}" />
+			<f:render partial="Form/Field/{vh:String.Upper(string:field.type)}" arguments="{field:field}" />
 		</vh:misc.createRowTags>
 	</f:for>
 </fieldset>
-</html>
