@@ -175,7 +175,7 @@
 				<source>Number to high or to low!</source>
 			</trans-unit>
 			<trans-unit id="validationerror_validation.9">
-				<source>Your input is not valid (too many or too less signs)</source>
+				<source>Bạn chưa nhập hoặc thông tin quá dài</source>
 			</trans-unit>
 			<trans-unit id="validationerror_validation.10">
 				<source>Error in validation!</source>

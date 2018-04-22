@@ -25,7 +25,7 @@ return [
     ],
     'searchFields' => 'title',
     'default_sortby' => 'ORDER BY crdate DESC',
-    'sortby' => 'sorting'
+    //'sortby' => 'crdate'
   ],
   'interface' => [
     'showRecordFieldList' => 'title,fullname,email,phone,address,province,district,status,comment'

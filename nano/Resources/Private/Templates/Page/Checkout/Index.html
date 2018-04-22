@@ -3,6 +3,9 @@
 	xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
 	data-namespace-typo3-fluid="true">
 <div class="flat-checkout">
+  <f:alias map="{flashMessageClass:'powermail_message_error'}">
+    <f:render partial="PowerMail/Misc/FlashMessages" arguments="{_all}" />
+  </f:alias>
 	<f:if condition="{form}">
 		<f:then>
 			<f:form
@@ -28,7 +31,7 @@
 											<f:if condition="{fields.fullname}">
 												<div class="field-row">
 													<vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
-														<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.fullname.type)}" arguments="{field:fields.fullname}" />
+														<f:render partial="Checkout/Form/Field/{vh:String.Upper(string:fields.fullname.type)}" arguments="{field:fields.fullname}" />
 													</vh:misc.createRowTags>
 												</div>
 											</f:if>
@@ -36,14 +39,14 @@
 												<f:if condition="{fields.email}">
 													<div class="field-one-half">
 														<vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
-															<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.email.type)}" arguments="{field:fields.email}" />
+															<f:render partial="Checkout/Form/Field/{vh:String.Upper(string:fields.email.type)}" arguments="{field:fields.email}" />
 														</vh:misc.createRowTags>
 													</div>
 												</f:if>
 												<f:if condition="{fields.phone}">
 													<div class="field-one-half">
 														<vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
-															<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.phone.type)}" arguments="{field:fields.phone}" />
+															<f:render partial="Checkout/Form/Field/{vh:String.Upper(string:fields.phone.type)}" arguments="{field:fields.phone}" />
 														</vh:misc.createRowTags>
 													</div>
 												</f:if>
@@ -52,14 +55,14 @@
 											<f:if condition="{fields.address}">
 												<div class="field-row">
 													<vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
-														<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.address.type)}" arguments="{field:fields.address}" />
+														<f:render partial="Checkout/Form/Field/{vh:String.Upper(string:fields.address.type)}" arguments="{field:fields.address}" />
 													</vh:misc.createRowTags>
 												</div>
 											</f:if>
 											<f:if condition="{fields.comment}">
 												<div class="field-row">
 													<vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
-														<f:render partial="PowerMail/Form/Field/{vh:String.Upper(string:fields.comment.type)}" arguments="{field:fields.comment}" />
+														<f:render partial="Checkout/Form/Field/{vh:String.Upper(string:fields.comment.type)}" arguments="{field:fields.comment}" />
 													</vh:misc.createRowTags>
 												</div>
 											</f:if>

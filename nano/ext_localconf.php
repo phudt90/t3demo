@@ -43,6 +43,14 @@ defined('TYPO3_MODE') or die();
   'SearchByVehical' => 'showForm',
 ], []);
 
+$signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
+$signalSlotDispatcher->connect(
+  \In2code\Powermail\Domain\Service\Mail\SendMailService::class,
+  'sendTemplateEmailBeforeSend',
+  \ELCA\Nano\Hook\SendMailHook::class,
+  'prepareAndSend'
+);
+
 // Disable caching on development enviroment
 if(\TYPO3\CMS\Core\Utility\GeneralUtility::getApplicationContext()->isDevelopment()) {
   foreach ($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'] as $cacheName => $cacheConfiguration) {
