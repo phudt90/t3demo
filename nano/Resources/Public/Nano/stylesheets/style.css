@@ -2458,9 +2458,12 @@ article.main-post.style1:last-child {
 
 article.main-post.style1 .featured-post {
 	float:left;
+	max-width:250px;
 	margin-right:35px;
 }
-
+article.main-post.style1 .content-post{
+	padding-left:285px;
+}
 article.main-post.style1 .content-post h3.title-post {
 	line-height:26px;
 	margin-bottom:16px;

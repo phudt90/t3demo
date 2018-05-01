@@ -159,8 +159,43 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl']['_DEFAULT']['fixedPostVars'] =
       'GETvar' => 'tx_nano_pagecheckout[hash]',
     ],
   ],
+  'PageNews' => [
+    [
+      'GETvar' => 'tx_news_pi1[controller]',
+      'valueMap' => [
+        'News' => ''
+      ],
+      'noMatch' => 'bypass'
+    ],
+    [
+      'GETvar' => 'tx_news_pi1[action]',
+      'valueMap' => [
+        'detail' => '',
+      ],
+      'noMatch' => 'bypass'
+    ],
+    [
+      'GETvar' => 'tx_news_pi1[news]',
+      'lookUpTable' => [
+        'table' => 'tx_news_domain_model_news',
+        'id_field' => 'uid',
+        'alias_field' => 'title',
+        'addWhereClause' => ' AND NOT deleted',
+        'useUniqueCache' => 1,
+        'useUniqueCache_conf' => [
+          'strtolower' => 1,
+          'spaceCharacter' => '-'
+        ],
+        'languageGetVar' => 'L',
+        'languageExceptionUids' => '',
+        'languageField' => 'sys_language_uid',
+        'transOrigPointerField' => 'l10n_parent'
+      ],
+    ],
+  ],
   '3' => 'PageBatteryDetailsConfiguration',
   '14' => 'PageBatteryListConfiguration',
   '4' => 'PageBatterySearchByVehicalConfiguration',
   '21' => 'PageCheckoutConfiguration',
+  '7' => 'PageNews',
 ];

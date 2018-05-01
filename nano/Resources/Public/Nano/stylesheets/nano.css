@@ -365,3 +365,29 @@ ul.list-checked li{
   font-weight: 500;
 }
 .checkout-info .checkout-infobox .checkout-infobox-body{}
+
+.widget-d {
+	border-bottom: 1px solid #e5e5e5;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+.widget-d .widget-d--item {
+  color: #000;
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom:20px;
+}
+.widget-d .widget-d--item h4 {
+	margin: 0 0 8px;
+	font-size: 15px;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+.widget-d .widget-d--item h5 {
+	margin: 0 0 5px;
+	font-size: 14px;
+	font-weight: 500;
+}
+.widget-d .widget-d--item .fa {
+	width:15px;
+}

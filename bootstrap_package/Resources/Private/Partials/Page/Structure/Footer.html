@@ -2,6 +2,36 @@
 <f:if condition="{showFooter}">
 	<footer>
 		<div class="container">
+		  <div class="widget-d">
+        <div class="row">
+          <div class="col-lg-4 col-md-4">
+            <div class="widget-d--item">
+              <h4><strong>Nhà phân phối GIA LAI - KONTUM</strong></h4>
+              <h5>ẮC QUY PHÚC THỊNH</h5>
+              <div class="widget-d--info"><i class="fa fa-map-marker"></i> 22D Phan Đình Phùng, Phường Tây Sơn, TP Pleiku, Gia Lai</div>
+              <div class="widget-d--info"><i class="fa fa-phone"></i> 0988 378 114</div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4">
+            <div class="widget-d--item">
+              <h4><strong>Nhà phân phối BÌNH ĐỊNH</strong></h4>
+              <h5>ẮC QUY TÂN THỜI ĐẠI</h5>
+              <div class="widget-d--info"><i class="fa fa-map-marker"></i> 75 Nguyễn Du, TP Quy Nhơn, Bình Định</div>
+              <div class="widget-d--info"><i class="fa fa-phone"></i> 0935 251 617</div>
+              <div class="widget-d--info"><i class="fa fa-phone"></i> (0256) 3 818 353 </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4">
+            <div class="widget-d--item">
+              <h4><strong>Nhà phân phối CẦN THƠ</strong></h4>
+              <h5>ẮC QUY CÁT LÂM</h5>
+              <div class="widget-d--info"><i class="fa fa-map-marker"></i> 91C Quốc lộ 91B, Phường Hưng Lợi, Quận Ninh Kiều, TP Cần Thơ</div>
+              <div class="widget-d--info"><i class="fa fa-phone"></i> 0917 122 102</div>
+              <div class="widget-d--info"><i class="fa fa-phone"></i> (0292) 3 783 748</div>
+            </div>
+          </div>
+        </div>
+      </div>
 			<div class="row">
 				<div class="col-lg-6 col-md-4">
 					<div class="widget-ft widget-about">
@@ -24,55 +54,53 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-4" style="display:none;">
+				<div class="col-lg-3 col-md-4">
 					<div class="widget-ft widget-menu">
 						<div class="widget-title">
-							<h3>Sản phẩm ắc quy</h3>
+							<h3>Danh mục ắc quy</h3>
 						</div>
 						<ul class="cat-list-ft">
-							<li><a href="javascript:;" title="">Ắc quy ô tô truyền thống</a></li>
-							<li><a href="javascript:;" title="">Ắc quy dân dụng</a></li>
-							<li><a href="javascript:;" title="">Ắc quy công nghiệp</a></li>
-							<li><a href="javascript:;" title="">Ắc quy xe gắn máy</a></li>
-							<li><a href="javascript:;" title="">Ắc quy xe điện</a></li>
-						</ul>
-					</div>
-					<div class="widget-ft widget-menu">
-						<div class="widget-title">
-							<h3>Thương hiệu ắc quy</h3>
-						</div>
-						<ul class="cat-list-ft">
-							<li><a href="javascript:;" title="">Ắc quy Daewoo</a></li>
-							<li><a href="javascript:;" title="">Ắc quy Toplite</a></li>
-							<li><a href="javascript:;" title="">Ắc quy Yuasa</a></li>
-							<li><a href="javascript:;" title="">Ắc quy Powerline</a></li>
-							<li><a href="javascript:;" title="">Ắc quy GS</a></li>
+							<li><f:link.action pageUid="14" extensionName="Nano" pluginName="PageBatteryList" controller="Battery" action="list" 
+                arguments="{application:1}" title="Ắc quy ô tô">
+                Ắc quy ô tô
+              </f:link.action></li>
+              <li><f:link.action pageUid="14" extensionName="Nano" pluginName="PageBatteryList" controller="Battery" action="list" 
+                arguments="{application:9}" title="Ắc quy ô tô truyền thống">
+                Ắc quy ô tô truyền thống
+              </f:link.action></li>
+              <li><f:link.action pageUid="14" extensionName="Nano" pluginName="PageBatteryList" controller="Battery" action="list" 
+                arguments="{application:2}" title="Ắc quy xe phân khối lớn">
+                Ắc quy xe phân khối lớn
+              </f:link.action></li>
+              <li><f:link.action pageUid="14" extensionName="Nano" pluginName="PageBatteryList" controller="Battery" action="list" 
+                arguments="{application:4}" title="Ắc quy năng lượng">
+                Ắc quy năng lượng
+              </f:link.action></li>
+              <li><f:link.action pageUid="14" extensionName="Nano" pluginName="PageBatteryList" controller="Battery" action="list" 
+                arguments="{application:5}" title="Ắc quy xe điện">
+                Ắc quy xe điện
+              </f:link.action></li>
 						</ul>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-4" style="display:none;">
+				<div class="col-lg-3 col-md-4">
 					<div class="widget-ft widget-menu">
 						<div class="widget-title">
-							<h3>Thông tin công ty</h3>
+							<h3>Thông tin</h3>
 						</div>
 						<ul>
-							<li><a href="javascript:;" title="">Giới thiệu</a></li>
-							<li><a href="javascript:;" title="">Thành tựu</a></li>
-							<li><a href="javascript:;" title="">Ban lãnh đạo</a></li>
-							<li><a href="javascript:;" title="">Đơn vị thành viên</a></li>
-							<li><a href="javascript:;" title="">Chất lượng</a></li>
-						</ul>
-					</div>
-					<div class="widget-ft widget-menu">
-						<div class="widget-title">
-							<h3>Hỗ trợ khách hàng</h3>
-						</div>
-						<ul class="cat-list-ft">
-							<li><a href="javascript:;" title="">Chính sách bảo hành</a></li>
-							<li><a href="javascript:;" title="">Thư viện hỗ trợ</a></li>
-							<li><a href="javascript:;" title="">Tư vấn sử dụng</a></li>
-							<li><a href="javascript:;" title="">Ắc quy và đời sống</a></li>
-							<li><a href="javascript:;" title="">Hệ thống phân phối</a></li>
+							<li><f:link.page pageUid="13" title="Giới thiệu">
+                Giới thiệu
+              </f:link.page></li>
+              <li><f:link.page pageUid="9" title="Dịch vụ">
+                Dịch vụ
+              </f:link.page></li>
+              <li><f:link.page pageUid="17" title="Giỏ hàng">
+                Giỏ hàng
+              </f:link.page></li>
+              <li><f:link.page pageUid="12" title="Liên hệ">
+                Liên hệ
+              </f:link.page></li>
 						</ul>
 					</div>
 				</div>

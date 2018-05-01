@@ -1,0 +1,85 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	  xmlns:rx="http://typo3.org/ns/Reelworx/RxShariff/ViewHelper"
+	  data-namespace-typo3-fluid="true">
+
+<f:layout name="Detail" />
+
+<!--
+	=====================
+		News/Detail.html
+-->
+
+<f:section name="content">
+	<f:if condition="{newsItem}">
+		<f:then>
+			<n:format.nothing>
+				<n:excludeDisplayedNews newsItem="{newsItem}" />
+				<f:if condition="{newsItem.alternativeTitle}">
+					<f:then>
+						<n:titleTag>
+							<f:format.htmlentitiesDecode>{newsItem.alternativeTitle}</f:format.htmlentitiesDecode>
+						</n:titleTag>
+					</f:then>
+					<f:else>
+						<n:titleTag>
+							<f:format.htmlentitiesDecode>{newsItem.title}</f:format.htmlentitiesDecode>
+						</n:titleTag>
+					</f:else>
+				</f:if>
+				<f:render partial="Detail/Opengraph" arguments="{newsItem: newsItem, settings:settings}" />
+			</n:format.nothing>
+			<f:if condition="{settings.detail.showPrevNext}">
+				<n:simplePrevNext pidList="{newsItem.pid}" news="{newsItem}" as="paginated" sortField="datetime">
+					<f:if condition="{paginated}">
+						<ul class="pager">
+							<f:if condition="{paginated.prev}">
+								<li class="previous">
+									<n:link newsItem="{paginated.prev}" settings="{settings}">
+										<span aria-hidden="true">&larr; </span>{paginated.prev.title}
+									</n:link>
+								</li>
+							</f:if>
+							<f:if condition="{paginated.next}">
+								<li class="next">
+									<n:link newsItem="{paginated.next}" settings="{settings}" class="next">
+										{paginated.next.title} <span aria-hidden="true"> &rarr;</span>
+									</n:link>
+								</li>
+							</f:if>
+						</ul>
+					</f:if>
+				</n:simplePrevNext>
+			</f:if>
+			<h3 class="title-post" itemprop="headline">
+        {newsItem.title}
+      </h3>
+      <ul class="meta-post">
+        <f:if condition="{newsItem.categories}">
+        <li>
+          <f:render partial="Category/Items" arguments="{categories:newsItem.categories, settings:settings}" />
+        </li>
+        </f:if>
+        <li class="date">
+          <!-- date -->
+          <span class="news-list-date">
+            <time datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
+              <f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
+              <meta itemprop="datePublished" content="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}" />
+            </time>
+          </span>
+        </li>
+      </ul>
+		
+			<!-- main text -->
+      <div class="news-text-wrap entry-post" itemprop="articleBody">
+        <f:format.html>{newsItem.bodytext}</f:format.html>
+      </div>
+
+		</f:then>
+		<f:else>
+
+		</f:else>
+	</f:if>
+</f:section>
+</html>
