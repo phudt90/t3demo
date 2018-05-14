@@ -40,6 +40,8 @@ CREATE TABLE tx_nano_domain_model_battery (
 	brand int(11) DEFAULT '0' NOT NULL,
 	categories int(11) DEFAULT '0' NOT NULL,
 	code varchar(32) DEFAULT '' NOT NULL,
+	price double(11,2) DEFAULT '0.00' NOT NULL,
+	price_regular double(11,2) DEFAULT '0.00' NOT NULL,
 	terminal_type tinyint(1) DEFAULT '0' NOT NULL,
 	terminal_layout tinyint(1) DEFAULT '0' NOT NULL,
 	voltage int(4) DEFAULT '0' NOT NULL,

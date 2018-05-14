@@ -21,6 +21,12 @@
 			<trans-unit id="tx_nano_domain_model_battery.code.label">
 				<source>Mã sản phẩm</source>
 			</trans-unit>
+			<trans-unit id="tx_nano_domain_model_battery.price.label">
+        <source>Giá</source>
+      </trans-unit>
+      <trans-unit id="tx_nano_domain_model_battery.price_regular.label">
+        <source>Giá thị trường</source>
+      </trans-unit>
 			<trans-unit id="tx_nano_domain_model_battery.terminal_type.label">
 				<source>Kiểu cọc</source>
 			</trans-unit>

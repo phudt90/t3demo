@@ -11,7 +11,7 @@
 		<f:if condition="{newsItem.mediaPreviews}">
 	    <!-- media preview element -->
 	    <f:then>
-	      <div class="news-img-wrap">
+	      <div class="news-img-wrap clearfix">
 	        <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
 	          <f:alias map="{mediaElement: '{newsItem.mediaPreviews.0}'}">
 	            <f:if condition="{mediaElement.originalResource.type} == 2">

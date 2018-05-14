@@ -4516,10 +4516,18 @@ input[type="checkbox"]:checked + label:before {
 .box-cart.style2 {
 	text-align:left;
 	padding:0;
-	margin-top:39px;
-	margin-bottom:48px;
+	margin-top:20px;
+	margin-bottom:28px;
 }
-
+.box-cart.style2 .price {
+  position:relative;
+}
+.box-cart.style2 .price .regular{}
+.box-cart.style2 .price .sale{
+  font-size:35px;
+  margin-bottom: 20px;
+  display:inline-block;
+}
 .box-cart.style2 .btn-add-cart {
 	display:inline-block;
 }
@@ -4632,7 +4640,9 @@ input[type="checkbox"]:checked + label:before {
 	margin-top:23px;
 	margin-bottom:10px;
 }
-
+.product-detail.style2 .content-detail .info-text p {
+  margin-bottom:5px;
+}
 .product-detail.style2 .footer-detail {
 	margin-top:27px;
 }

@@ -107,6 +107,18 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   
   /**
    *
+   * @var double
+   */
+  protected $price;
+  
+  /**
+   *
+   * @var double
+   */
+  protected $priceRegular;
+  
+  /**
+   *
    * @var int
    */
   protected $terminalType;
@@ -349,6 +361,46 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   }
   
   /**
+   *
+   * @param string $code
+   */
+  public function setCode($code) {
+    $this->code = $code;
+  }
+
+  /**
+   *
+   * @return number
+   */
+  public function getPrice() {
+    return $this->price;
+  }
+
+  /**
+   *
+   * @param number $price
+   */
+  public function setPrice($price) {
+    $this->price = $price;
+  }
+
+  /**
+   *
+   * @return number
+   */
+  public function getPriceRegular() {
+    return $this->priceRegular;
+  }
+
+  /**
+   *
+   * @param number $priceRegular
+   */
+  public function setPriceRegular($priceRegular) {
+    $this->priceRegular = $priceRegular;
+  }
+
+  /**
    * Get categories
    *
    * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\ELCA\Nano\Domain\Model\Category>
@@ -365,14 +417,6 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
    */
   public function setCategories($categories) {
     $this->categories = $categories;
-  }
-
-  /**
-   *
-   * @param string $code
-   */
-  public function setCode($code) {
-    $this->code = $code;
   }
 
   /**

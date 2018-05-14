@@ -14,7 +14,22 @@
 			<div class="product-detail style2">
 				<f:render partial="BatteryDetails/HeaderInfo" arguments="{battery:battery}" />
 				<div class="box-cart style2">
-						<div class="btn-add-cart">
+          <div class="price">
+            <f:if condition="{battery.price}">
+              <f:then>
+                <f:if condition="{battery.priceRegular}">
+                  <div class="regular">
+                    <f:format.currency currencySign="đ" decimalSeparator="." thousandsSeparator="," decimals="0">{battery.priceRegular}</f:format.currency>
+                  </div>
+                </f:if>
+                <div class="sale"><f:format.currency currencySign="đ" decimalSeparator="." thousandsSeparator="," decimals="0">{battery.price}</f:format.currency></div>
+              </f:then>
+              <f:else>
+                <a href="tel:0903377985" class="sale">0903 377 985</a>
+              </f:else>
+            </f:if>
+          </div>
+          <div class="btn-add-cart">
 							<f:cObject typoscriptObjectPath="lib.cartProduct.addToCartButton" data="{uid:'{battery.uid}'}"/>
 						</div>
 					</div>

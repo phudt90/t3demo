@@ -35,6 +35,10 @@ header .element-header {
   margin: 0 0 8px;
 }
 
+#header .header-bottom{
+	min-height: 54px;
+}
+
 .list-paragraph{}
 .list-paragraph li{
 	margin-bottom: 10px;

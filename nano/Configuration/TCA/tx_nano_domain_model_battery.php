@@ -229,6 +229,24 @@ return [
         'eval' => 'trim,required'
       ]
     ],
+    'price' => [
+      'exclude' => 0,
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.price.label',
+      'config' => [
+        'type' => 'input',
+        'size' => 30,
+        'eval' => 'double2'
+      ],
+    ],
+    'price_regular' => [
+      'exclude' => 0,
+      'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.price_regular.label',
+      'config' => [
+        'type' => 'input',
+        'size' => 30,
+        'eval' => 'double2'
+      ],
+    ],
     'terminal_type' => [
       'exclude' => 0,
       'label' => 'LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.terminal_type.label',
@@ -437,7 +455,7 @@ return [
   ],
   'palettes' => [
     'paletteCore' => [
-      'showitem' => 'code,hidden,--linebreak--,applications,--linebreak--,brand',
+      'showitem' => 'code,price,price_regular,hidden,--linebreak--,applications,--linebreak--,brand',
     ],
     'paletteSpecs' => [
       'showitem' => 'terminal_type,terminal_layout,voltage,technology,capacity_20,cca_en,cca_sae,length,width,height,guarantee'
