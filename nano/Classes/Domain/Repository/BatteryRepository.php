@@ -24,9 +24,8 @@ class BatteryRepository extends \ELCA\Nano\Domain\Repository\AbstractDemandedRep
     $query->getQuerySettings()->setRespectStoragePage(false);
     
     $query->matching($query->in('uid', $uids));
-    
     $query->setLimit(100);
-    
+    //$this->debugQuery($query);
     return $query->execute();
   }
   

@@ -21,6 +21,18 @@
               <div class="product-name">
                 <f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:battery}">{battery.title}</f:link.action>
               </div>
+              <f:if condition="{battery.price}">
+	              <div class="price">
+                  <span class="sale">
+                    <f:format.currency currencySign="đ" decimalSeparator="." thousandsSeparator="," decimals="0">{battery.price}</f:format.currency>
+                  </span>
+                  <f:if condition="{battery.priceRegular}">
+                    <span class="regular">
+                      <f:format.currency currencySign="đ" decimalSeparator="." thousandsSeparator="," decimals="0">{battery.priceRegular}</f:format.currency>
+                    </span>
+                  </f:if>
+	              </div>
+              </f:if>
             </div>
             <div class="box-bottom">
               <div class="btn-add-cart">

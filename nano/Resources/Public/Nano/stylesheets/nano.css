@@ -254,8 +254,6 @@ ul.flat-pagination li a.paginate-btn i.paginate-prev{
 }
 .product-box.style-nano .imagebox .box-image{
 	overflow: hidden;
-	line-height: 250px;
-	height: 250px;
 }
 .product-box.style-nano .imagebox .box-content .cat-name a:after{
 	right:0;
