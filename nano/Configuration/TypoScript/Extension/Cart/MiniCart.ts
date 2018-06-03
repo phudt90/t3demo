@@ -28,7 +28,7 @@ plugin.tx_nano_widgetminicart {
 lib.miniCart = USER
 lib.miniCart {
 	userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
-  vendorName = ELCA
+  vendorName = DTP
   extensionName = Nano
   pluginName = WidgetMiniCart
   switchableControllerActions {

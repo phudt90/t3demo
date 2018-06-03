@@ -1,42 +1,52 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:if condition="{batteries -> f:count()} > 0">
-	<div class="row">
+<div class="list-products list-products-grid">
+  <div class="slds-grid slds-wrap slds-gutters">
     <f:for each="{batteries}" as="battery">
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="product-box style-nano">
-          <div class="imagebox">
+      <div class="list-products__item slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_4-of-12 slds-x-large-size_3-of-12">
+        <div class="list-products__item-info">
+          <div class="list-products__item-inner">
             <div class="box-image">
-              <f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:battery}">
+              <f:link.action class="product-image-container" pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:battery}">                 
                 <f:if condition="{battery.mediaPreviews}">
-                  <f:alias map="{mediaElement: '{battery.mediaPreviews.0}'}">
-                    <f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="350"/>
-                  </f:alias>
+                  <span class="product-image-wrapper"> 
+                    <f:alias map="{mediaElement: '{battery.mediaPreviews.0}'}">
+                      <f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="350"/>
+                    </f:alias>
+                  </span>
                 </f:if>
               </f:link.action>
             </div>
-            <div class="box-content">
-              <div class="cat-name">
-                <f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:battery}">{battery.brand.title}</f:link.action>
-              </div>
-              <div class="product-name">
-                <f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:battery}">{battery.title}</f:link.action>
-              </div>
-              <f:if condition="{battery.price}">
-	              <div class="price">
-                  <span class="sale">
-                    <f:format.currency currencySign="đ" decimalSeparator="." thousandsSeparator="," decimals="0">{battery.price}</f:format.currency>
-                  </span>
+            <div class="list-products__item-details">
+              <h2 class="product-name">
+                <f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:battery}">
+                  {battery.title}
+                </f:link.action>
+              </h2>
+              <div class="list-products__item-price">
+                <span class="price-wrapper">
+                  <f:if condition="{battery.price}">
+                    <f:then>
+                    <span class="price price--final">
+                      <f:format.currency currencySign="đ" decimalSeparator="." thousandsSeparator="," decimals="0">{battery.price}</f:format.currency>
+                    </span>
+                    </f:then>
+                    <f:else>
+                      <span class="price price--final">Liên hệ</span>
+                    </f:else>
+                  </f:if>
                   <f:if condition="{battery.priceRegular}">
-                    <span class="regular">
+                    <span class="price price--old">
                       <f:format.currency currencySign="đ" decimalSeparator="." thousandsSeparator="," decimals="0">{battery.priceRegular}</f:format.currency>
                     </span>
                   </f:if>
-	              </div>
-              </f:if>
-            </div>
-            <div class="box-bottom">
-              <div class="btn-add-cart">
-                <f:cObject typoscriptObjectPath="lib.cartProduct.addToCartButton" data="{uid:'{battery.uid}'}"/>
+                </span>
+              </div>
+
+              <div class="list-products__item-actions">
+                <div class="add-to-cart">
+                  <f:cObject typoscriptObjectPath="lib.cartProduct.addToCartButton" data="{uid:'{battery.uid}'}"/>
+                </div>
               </div>
             </div>
           </div>
@@ -44,5 +54,6 @@
       </div>
     </f:for>
   </div>
+</div>
 </f:if>
 </html>

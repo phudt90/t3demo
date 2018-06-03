@@ -1,15 +1,15 @@
 <?php
 
-namespace ELCA\Nano\Domain\Model;
+namespace DTP\Nano\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
  * Vmodel Demand
  */
-class VmodelDemand extends AbstractEntity implements \ELCA\Nano\Domain\Model\DemandInterface {
+class VmodelDemand extends AbstractEntity implements \DTP\Nano\Domain\Model\DemandInterface {
   
-  /** @var \ELCA\Nano\Domain\Model\Vbrand */
+  /** @var \DTP\Nano\Domain\Model\Vbrand */
   protected $vbrand;
   
   /** @var int */
@@ -20,7 +20,7 @@ class VmodelDemand extends AbstractEntity implements \ELCA\Nano\Domain\Model\Dem
 
   /**
    *
-   * @return \ELCA\Nano\Domain\Model\Vbrand
+   * @return \DTP\Nano\Domain\Model\Vbrand
    */
   public function getVbrand() {
     return $this->vbrand;
@@ -28,7 +28,7 @@ class VmodelDemand extends AbstractEntity implements \ELCA\Nano\Domain\Model\Dem
 
   /**
    *
-   * @param \ELCA\Nano\Domain\Model\Vbrand $vbrand
+   * @param \DTP\Nano\Domain\Model\Vbrand $vbrand
    */
   public function setVbrand($vbrand) {
     $this->vbrand = $vbrand;

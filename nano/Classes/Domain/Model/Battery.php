@@ -1,6 +1,6 @@
 <?php
 
-namespace ELCA\Nano\Domain\Model;
+namespace DTP\Nano\Domain\Model;
 
 /**
  * Battery model
@@ -80,21 +80,21 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   
   /**
    *
-   * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\ELCA\Nano\Domain\Model\Application>
+   * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\DTP\Nano\Domain\Model\Application>
    * @lazy
    */
   protected $applications;
   
   /**
    *
-   * @var \ELCA\Nano\Domain\Model\Brand
+   * @var \DTP\Nano\Domain\Model\Brand
    */
   protected $brand;
   
   /**
    * categories
    *
-   * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\ELCA\Nano\Domain\Model\Category>
+   * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\DTP\Nano\Domain\Model\Category>
    * @lazy
    */
   protected $categories;
@@ -244,7 +244,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   /**
    * Initialize applications and media relation
    *
-   * @return \ELCA\Nano\Domain\Model\Battery
+   * @return \DTP\Nano\Domain\Model\Battery
    */
   public function __construct() {
     $this->applications = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
@@ -312,7 +312,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   /**
    * Get applications
    *
-   * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\ELCA\Nano\Domain\Model\Application>
+   * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\DTP\Nano\Domain\Model\Application>
    */
   public function getApplications() {
     return $this->applications;
@@ -330,15 +330,15 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   /**
    * Adds a application to this applications.
    *
-   * @param \ELCA\Nano\Domain\Model\Application $application
+   * @param \DTP\Nano\Domain\Model\Application $application
    */
-  public function addApplication(\ELCA\Nano\Domain\Model\Application $application) {
+  public function addApplication(\DTP\Nano\Domain\Model\Application $application) {
     $this->getApplications()->attach($application);
   }
 
   /**
    *
-   * @return \ELCA\Nano\Domain\Model\Brand
+   * @return \DTP\Nano\Domain\Model\Brand
    */
   public function getBrand() {
     return $this->brand;
@@ -346,7 +346,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
   /**
    *
-   * @param \ELCA\Nano\Domain\Model\Brand $brand
+   * @param \DTP\Nano\Domain\Model\Brand $brand
    */
   public function setBrand($brand) {
     $this->brand = $brand;
@@ -403,7 +403,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   /**
    * Get categories
    *
-   * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\ELCA\Nano\Domain\Model\Category>
+   * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\DTP\Nano\Domain\Model\Category>
    */
   public function getCategories() {
     return $this->categories;

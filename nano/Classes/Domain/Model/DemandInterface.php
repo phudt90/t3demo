@@ -1,6 +1,6 @@
 <?php
 
-namespace ELCA\Nano\Domain\Model;
+namespace DTP\Nano\Domain\Model;
 
 /**
  * Demanded repository interface

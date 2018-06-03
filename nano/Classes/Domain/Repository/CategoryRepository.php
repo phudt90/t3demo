@@ -1,6 +1,6 @@
 <?php
 
-namespace ELCA\Nano\Domain\Repository;
+namespace DTP\Nano\Domain\Repository;
 
 /**
  * Category repository

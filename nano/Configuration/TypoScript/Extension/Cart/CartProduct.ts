@@ -5,6 +5,7 @@ lib.cartProduct.addToCartButton {
 	typolink {
 		parameter = {$plugin.cartPid}
 		ATagBeforeWrap = 1
+		ATagParams = class="btn btn-action btn-cart btn-sm"
 		useCacheHash = 0
 		additionalParams.field = uid
 		additionalParams.wrap = &type=231990&tx_nano_pageshoppingcart[controller]=Cart&tx_nano_pageshoppingcart[action]=addProduct&tx_nano_pageshoppingcart[product]=|

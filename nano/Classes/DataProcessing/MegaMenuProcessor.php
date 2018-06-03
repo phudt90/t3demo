@@ -1,6 +1,6 @@
 <?php
 
-namespace ELCA\Nano\DataProcessing;
+namespace DTP\Nano\DataProcessing;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;

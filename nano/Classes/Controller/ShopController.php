@@ -1,8 +1,8 @@
 <?php
 
-namespace ELCA\Nano\Controller;
+namespace DTP\Nano\Controller;
 
-use ELCA\Nano\Domain\Model\Battery as BatteryModel;
+use DTP\Nano\Domain\Model\Battery as BatteryModel;
 
 /**
  * Shop controller
@@ -10,16 +10,16 @@ use ELCA\Nano\Domain\Model\Battery as BatteryModel;
 class ShopController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
   /**
    *
-   * @var \ELCA\Nano\Domain\Repository\BatteryRepository
+   * @var \DTP\Nano\Domain\Repository\BatteryRepository
    */
   protected $batteryRepository;
 
   /**
    * Inject a battery repository to enable DI
    *
-   * @param \ELCA\Nano\Domain\Repository\BatteryRepository $batteryRepository
+   * @param \DTP\Nano\Domain\Repository\BatteryRepository $batteryRepository
    */
-  public function injectBatteryRepository(\ELCA\Nano\Domain\Repository\BatteryRepository $batteryRepository) {
+  public function injectBatteryRepository(\DTP\Nano\Domain\Repository\BatteryRepository $batteryRepository) {
     $this->batteryRepository = $batteryRepository;
   }
 

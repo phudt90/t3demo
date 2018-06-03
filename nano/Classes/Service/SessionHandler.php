@@ -1,6 +1,6 @@
 <?php
 
-namespace ELCA\Nano\Service;
+namespace DTP\Nano\Service;
 
 use TYPO3\CMS\Core\SingletonInterface;
 
@@ -20,7 +20,7 @@ class SessionHandler implements SingletonInterface {
    *
    * @param string $key
    *
-   * @return \ELCA\Nano\Domain\Model\Cart\Cart
+   * @return \DTP\Nano\Domain\Model\Cart\Cart
    */
   public function restoreFromSession($key) {
     $sessionData = $GLOBALS['TSFE']->fe_user->getKey('ses', $this->prefixKey . $key);
@@ -30,12 +30,12 @@ class SessionHandler implements SingletonInterface {
   /**
    * Writes an object into the PHP session
    *
-   * @param \ELCA\Nano\Domain\Model\Cart\Cart $cart
+   * @param \DTP\Nano\Domain\Model\Cart\Cart $cart
    * @param string $key
    * 
    * @return SessionHandler $this
    */
-  public function writeToSession(\ELCA\Nano\Domain\Model\Cart\Cart $cart, $key) {
+  public function writeToSession(\DTP\Nano\Domain\Model\Cart\Cart $cart, $key) {
     $sessionData = serialize($cart);
     $GLOBALS['TSFE']->fe_user->setKey('ses', $this->prefixKey . $key, $sessionData);
     $GLOBALS['TSFE']->fe_user->storeSessionData();

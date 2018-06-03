@@ -1,16 +1,16 @@
 <?php
 
-namespace ELCA\Nano\Domain\Repository;
+namespace DTP\Nano\Domain\Repository;
 
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
-use ELCA\Nano\Domain\Model\DemandInterface;
+use DTP\Nano\Domain\Model\DemandInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 
 /**
  * Battery repository
  */
-class BatteryRepository extends \ELCA\Nano\Domain\Repository\AbstractDemandedRepository
+class BatteryRepository extends \DTP\Nano\Domain\Repository\AbstractDemandedRepository
 {
   /**
    * Returns the list of batteries by uids
@@ -30,7 +30,7 @@ class BatteryRepository extends \ELCA\Nano\Domain\Repository\AbstractDemandedRep
   }
   
   protected function createConstraintsFromDemand(QueryInterface $query, DemandInterface $demand) {
-    /** @var \ELCA\Nano\Domain\Model\BatteryDemand $demand */
+    /** @var \DTP\Nano\Domain\Model\BatteryDemand $demand */
     $constraints = [];
     
     if($application = $demand->getApplication()) {

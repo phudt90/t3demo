@@ -1,14 +1,14 @@
 <?php
 
-namespace ELCA\Nano\Domain\Repository;
+namespace DTP\Nano\Domain\Repository;
 
-use ELCA\Nano\Domain\Model\DemandInterface;
+use DTP\Nano\Domain\Model\DemandInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
 /**
  * Order repository
  */
-class OrderRepository extends \ELCA\Nano\Domain\Repository\AbstractDemandedRepository
+class OrderRepository extends \DTP\Nano\Domain\Repository\AbstractDemandedRepository
 {
   public function findByHash($hash) {
     $query = $this->createQuery();

@@ -1,6 +1,6 @@
 <?php
 
-namespace ELCA\Nano\Extbase\Error;
+namespace DTP\Nano\Extbase\Error;
 
 /**
  * Class CartIsEmptyError

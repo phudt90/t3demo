@@ -1,6 +1,6 @@
 <?php
 
-namespace ELCA\Nano\Domain\Model;
+namespace DTP\Nano\Domain\Model;
 
 /**
  * Order model
@@ -110,7 +110,7 @@ class Order extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   
   /**
    *
-   * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\ELCA\Nano\Domain\Model\OrderProduct>
+   * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\DTP\Nano\Domain\Model\OrderProduct>
    * @lazy
    */
   protected $products;
@@ -273,7 +273,7 @@ class Order extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   /**
    * Get products
    *
-   * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\ELCA\Nano\Domain\Model\OrderProduct>
+   * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\DTP\Nano\Domain\Model\OrderProduct>
    */
   public function getProducts() {
     return $this->products;
@@ -291,9 +291,9 @@ class Order extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   /**
    * Adds a product to this products
    *
-   * @param \ELCA\Nano\Domain\Model\OrderProduct $product
+   * @param \DTP\Nano\Domain\Model\OrderProduct $product
    */
-  public function addProduct(\ELCA\Nano\Domain\Model\OrderProduct $product) {
+  public function addProduct(\DTP\Nano\Domain\Model\OrderProduct $product) {
     $this->getProducts()->attach($product);
   }
 

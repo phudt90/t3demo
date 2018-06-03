@@ -1,14 +1,14 @@
 <?php
 
-namespace ELCA\Nano\Domain\Repository;
+namespace DTP\Nano\Domain\Repository;
 
-use ELCA\Nano\Domain\Model\DemandInterface;
+use DTP\Nano\Domain\Model\DemandInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
 /**
  * Application repository
  */
-class ApplicationRepository extends \ELCA\Nano\Domain\Repository\AbstractDemandedRepository
+class ApplicationRepository extends \DTP\Nano\Domain\Repository\AbstractDemandedRepository
 {
   protected function createConstraintsFromDemand(QueryInterface $query, DemandInterface $demand) {
     $constraints = [];

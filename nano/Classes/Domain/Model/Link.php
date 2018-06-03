@@ -1,5 +1,5 @@
 <?php
-namespace ELCA\Nano\Domain\Model;
+namespace DTP\Nano\Domain\Model;
 
 /**
  * Link model

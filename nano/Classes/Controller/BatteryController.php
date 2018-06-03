@@ -1,13 +1,13 @@
 <?php
 
-namespace ELCA\Nano\Controller;
+namespace DTP\Nano\Controller;
 
-use ELCA\Nano\Domain\Model\Application as ApplicationModel;
-use ELCA\Nano\Domain\Model\Brand as BrandModel;
-use ELCA\Nano\Domain\Model\Vbrand;
-use ELCA\Nano\Domain\Model\Vmodel;
+use DTP\Nano\Domain\Model\Application as ApplicationModel;
+use DTP\Nano\Domain\Model\Brand as BrandModel;
+use DTP\Nano\Domain\Model\Vbrand;
+use DTP\Nano\Domain\Model\Vmodel;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use ELCA\Nano\Domain\Model\Battery as BatteryModel;
+use DTP\Nano\Domain\Model\Battery as BatteryModel;
 
 /**
  * Battery controller
@@ -15,28 +15,28 @@ use ELCA\Nano\Domain\Model\Battery as BatteryModel;
 class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
   /**
    *
-   * @var \ELCA\Nano\Domain\Repository\ApplicationRepository
+   * @var \DTP\Nano\Domain\Repository\ApplicationRepository
    * @inject
    */
   protected $applicationRepository;
   
   /**
    *
-   * @var \ELCA\Nano\Domain\Repository\BatteryRepository
+   * @var \DTP\Nano\Domain\Repository\BatteryRepository
    * @inject
    */
   protected $batteryRepository;
   
   /**
    *
-   * @var \ELCA\Nano\Domain\Repository\VbrandRepository
+   * @var \DTP\Nano\Domain\Repository\VbrandRepository
    * @inject
    */
   protected $vbrandRepository;
   
   /**
    *
-   * @var \ELCA\Nano\Domain\Repository\VmodelRepository
+   * @var \DTP\Nano\Domain\Repository\VmodelRepository
    * @inject
    */
   protected $vmodelRepository;
@@ -45,11 +45,11 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
    * Create the demand object which define which records will get shown
    *
    * @param array $settings
-   * @return \ELCA\Nano\Domain\Model\BatteryDemand
+   * @return \DTP\Nano\Domain\Model\BatteryDemand
    */
   protected function createDemandObjectFromSettings($settings) {
-    /* @var $demand \ELCA\Nano\Domain\Model\BatteryDemand */
-    $demand = $this->objectManager->get(\ELCA\Nano\Domain\Model\BatteryDemand::class, $settings);
+    /* @var $demand \DTP\Nano\Domain\Model\BatteryDemand */
+    $demand = $this->objectManager->get(\DTP\Nano\Domain\Model\BatteryDemand::class, $settings);
     
     if ($settings['orderBy']) {
       $demand->setOrder($settings['orderBy'] . ' ' . $settings['orderDirection']);
@@ -149,7 +149,7 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     $heading = null;
     $batteries = [];
     $demand = $this->createDemandObjectFromSettings($this->settings);
-    /* @var \ELCA\Nano\Domain\Model\Application $application */
+    /* @var \DTP\Nano\Domain\Model\Application $application */
     if($application = $this->applicationRepository->findByUid($this->settings['applications'])) {
       $heading = sprintf($application->getTitle());
       $demand->setApplication($application);

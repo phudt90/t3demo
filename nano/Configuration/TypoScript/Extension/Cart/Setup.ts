@@ -46,7 +46,7 @@ widget_ajax_addtocart {
   10 = USER
   10 {
     userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
-    vendorName = ELCA
+    vendorName = DTP
     extensionName = Nano
     pluginName = PageShoppingCart    
     switchableControllerActions {
@@ -70,7 +70,7 @@ widget_ajax_addtocart {
 }
 
 config.tx_extbase.persistence.classes {
-  ELCA\Nano\Domain\Model\OrderProduct {
+  DTP\Nano\Domain\Model\OrderProduct {
     mapping {
       tableName = tx_nano_domain_model_order_product
     }

@@ -1,9 +1,52 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<section id="header" class="header">
-	<f:render partial="Structure/HeaderTop" arguments="{_all}"/>
 
-	<f:render partial="Structure/HeaderMiddle" arguments="{_all}"/>
-	
-	<f:render partial="Structure/HeaderBottom" arguments="{_all}"/>
-</section>
+<header id="header" class="site-header">
+  
+  <div class="site-header__main">
+    <div class="container">
+      <div class="slds-grid slds-wrap slds-gutters slds-grid_vertical-align-center">
+        <div class="slds-col slds-size_12-of-12 slds-large-size_3-of-12">
+          <div class="site-header__main-left">
+            <f:render partial="Block/Logo" arguments="{_all}"/>
+            
+            <div class="megamenu-toggle">
+              <button type="button" class="megamenu-toggle__button navbar-toggle offcanvas-toggle" 
+                data-toggle="offcanvas"
+                data-target="#js-mainnav-offcanvas">
+                <i class="fa fa-lg fa-bars megamenu-toggle__icon megamenu-toggle__icon--open"></i>
+                <i class="fa fa-lg fa-times megamenu-toggle__icon megamenu-toggle__icon--close"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="slds-col slds-size_12-of-12 slds-large-size_9-of-12">
+          <div class="site-header__main-right">
+            <div class="slds-grid slds-gutters_xx-small slds-grid_vertical-align-center">
+              <div class="slds-col slds-size_9-of-12">
+                <!-- <f:cObject typoscriptObjectPath="lib.widgetSearchByVehical.searchForm" /> -->
+              </div>
+              <div class="slds-col slds-size_3-of-12">
+                <f:cObject typoscriptObjectPath="lib.miniCart" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-header__navigation navbar-offcanvas navbar-offcanvas-touch" id="js-mainnav-offcanvas">
+    <div class="container">
+      <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_12-of-12 slds-large-size_3-of-12">
+          <f:render partial="Navigation/Categories" arguments="{_all}"/>
+        </div>
+        <div class="slds-col slds-size_12-of-12 slds-large-size_9-of-12">
+          <f:render partial="Navigation/MainMenu" arguments="{_all}"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
 </html>

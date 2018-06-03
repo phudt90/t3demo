@@ -1,6 +1,6 @@
 <?php
 
-namespace ELCA\Nano\Controller;
+namespace DTP\Nano\Controller;
 
 /**
  * SearchByVehical controller
@@ -8,31 +8,31 @@ namespace ELCA\Nano\Controller;
 class SearchByVehicalController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
   /**
    *
-   * @var \ELCA\Nano\Domain\Repository\VbrandRepository
+   * @var \DTP\Nano\Domain\Repository\VbrandRepository
    */
   protected $vbrandRepository;
   
   /**
    *
-   * @var \ELCA\Nano\Domain\Repository\VmodelRepository
+   * @var \DTP\Nano\Domain\Repository\VmodelRepository
    */
   protected $vmodelRepository;
 
   /**
    * Inject a repository to enable DI
    *
-   * @param \ELCA\Nano\Domain\Repository\VbrandRepository $vbrandRepository
+   * @param \DTP\Nano\Domain\Repository\VbrandRepository $vbrandRepository
    */
-  public function injectVbrandRepository(\ELCA\Nano\Domain\Repository\VbrandRepository $vbrandRepository) {
+  public function injectVbrandRepository(\DTP\Nano\Domain\Repository\VbrandRepository $vbrandRepository) {
     $this->vbrandRepository = $vbrandRepository;
   }
   
   /**
    * Inject a repository to enable DI
    *
-   * @param \ELCA\Nano\Domain\Repository\VmodelRepository $vmodelRepository
+   * @param \DTP\Nano\Domain\Repository\VmodelRepository $vmodelRepository
    */
-  public function injectVmodelRepository(\ELCA\Nano\Domain\Repository\VmodelRepository $vmodelRepository) {
+  public function injectVmodelRepository(\DTP\Nano\Domain\Repository\VmodelRepository $vmodelRepository) {
     $this->vmodelRepository = $vmodelRepository;
   }
   
@@ -44,7 +44,7 @@ class SearchByVehicalController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
     $vbrands = $this->vbrandRepository->findAll();
     $vmodels = $this->vmodelRepository->findAll();
     $values = [];
-    /* @var \ELCA\Nano\Domain\Model\Vmodel $vmodel */
+    /* @var \DTP\Nano\Domain\Model\Vmodel $vmodel */
     foreach($vmodels as $vmodel) {
       array_push($values, [
         'id' => $vmodel->getUid(),

@@ -1,6 +1,6 @@
 <?php
 
-namespace ELCA\Nano\Domain\Model\Cart;
+namespace DTP\Nano\Domain\Model\Cart;
 
 /**
  * Cart Model
@@ -10,7 +10,7 @@ class Cart {
   /**
    * Products
    *
-   * @var \ELCA\Nano\Domain\Model\Cart\CartProduct[]
+   * @var \DTP\Nano\Domain\Model\Cart\CartProduct[]
    */
   protected $products;
 
@@ -25,7 +25,7 @@ class Cart {
 
   /**
    * Get products in cart
-   * @return \ELCA\Nano\Domain\Model\Cart\CartProduct[]
+   * @return \DTP\Nano\Domain\Model\Cart\CartProduct[]
    */
   public function getProducts() {
     return $this->products;
@@ -34,7 +34,7 @@ class Cart {
   /**
    *
    * @param int $uid
-   * @return \ELCA\Nano\Domain\Model\Cart\CartProduct
+   * @return \DTP\Nano\Domain\Model\Cart\CartProduct
    */
   public function getProductByUid($uid) {
     return $this->products[$uid];
@@ -43,7 +43,7 @@ class Cart {
   /**
    * Get a product in cart
    * @param int $uid 
-   * @return \ELCA\Nano\Domain\Model\Battery
+   * @return \DTP\Nano\Domain\Model\Battery
    *
    */
   public function getProduct($uid) {
@@ -74,7 +74,7 @@ class Cart {
    */
   public function addProduct($product) {
     $uid = $product->getUid();
-    if($product instanceof \ELCA\Nano\Domain\Model\Battery) {
+    if($product instanceof \DTP\Nano\Domain\Model\Battery) {
       $newProduct = $this->createCartProductFromBatteryObject($product);      
     } else {
       // TODO throw exception
@@ -88,10 +88,10 @@ class Cart {
   }
   
   /**
-   * @param \ELCA\Nano\Domain\Model\Battery $product
+   * @param \DTP\Nano\Domain\Model\Battery $product
    */
   protected function createCartProductFromBatteryObject($product) {
-    $cartProduct = new \ELCA\Nano\Domain\Model\Cart\CartProduct();
+    $cartProduct = new \DTP\Nano\Domain\Model\Cart\CartProduct();
     $cartProduct->setUid($product->getUid());
     $cartProduct->setTitle($product->getTitle());
     $cartProduct->setThumb($product->getFirstFalMedia());
@@ -102,8 +102,8 @@ class Cart {
   }
   
   /**
-   * @param \ELCA\Nano\Domain\Model\Cart\CartProduct $existingProduct
-   * @param \ELCA\Nano\Domain\Model\Cart\CartProduct $newProduct
+   * @param \DTP\Nano\Domain\Model\Cart\CartProduct $existingProduct
+   * @param \DTP\Nano\Domain\Model\Cart\CartProduct $newProduct
    */
   public function changeProduct($existingProduct, $newProduct)
   {
@@ -145,7 +145,7 @@ class Cart {
   
   /**
    * Remove product from cart
-   * @param \ELCA\Nano\Domain\Model\Cart\CartProduct $product
+   * @param \DTP\Nano\Domain\Model\Cart\CartProduct $product
    */
   public function removeProduct($product) {
     $uid = $product->getUid();

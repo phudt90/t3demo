@@ -2,7 +2,7 @@ plugin.tx_powermail {
   settings.setup {    
     finishers {
       1 {
-        class = ELCA\Nano\Finisher\CheckoutFinisher
+        class = DTP\Nano\Finisher\CheckoutFinisher
         
         config {
           cartPid = {$plugin.cartPid}

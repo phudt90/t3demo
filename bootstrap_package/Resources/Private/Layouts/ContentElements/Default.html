@@ -15,31 +15,53 @@
 			<f:variable name="itemStyle">{itemStyleImage}</f:variable>
 			<f:variable name="backgroundImageClass">{f:if(condition: itemStyleImage, then: 'frame-has-backgroundimage', else: 'frame-no-backgroundimage')}</f:variable>
 			<f:switch expression="{data.layout}">
-				<f:case value="1">
+				<f:case value="2">
 					<div id="c{data.uid}" class="frame {frameClass} {typeClass} {layoutClass} {backgroundClass} {backgroundImageClass} {spaceBeforeClass} {spaceAfterClass}">
 						<div class="frame-container">
 							<div class="frame-inner">
-								<div class="row">
-									<div class="col-md-10 offset-md-1">
-										<f:render section="Before" optional="true">
-											<f:render partial="DropIn/Before/All" arguments="{_all}" />
-										</f:render>
-										<f:render section="Header" optional="true">
-											<f:render partial="Header/All" arguments="{_all}" />
-										</f:render>
-										<f:render section="Main" optional="true" />
-										<f:render section="Footer" optional="true">
-											<f:render partial="Footer/All" arguments="{_all}" />
-										</f:render>
-										<f:render section="After" optional="true">
-											<f:render partial="DropIn/After/All" arguments="{_all}" />
-										</f:render>
-										</div>
-									</div>
-								</div>
+								<f:render section="Before" optional="true">
+									<f:render partial="DropIn/Before/All" arguments="{_all}" />
+								</f:render>
+								<f:render section="Header" optional="true">
+									<f:render partial="Header/All" arguments="{_all}" />
+								</f:render>
+								<f:render section="Main" optional="true" />
+								<f:render section="Footer" optional="true">
+									<f:render partial="Footer/All" arguments="{_all}" />
+								</f:render>
+								<f:render section="After" optional="true">
+									<f:render partial="DropIn/After/All" arguments="{_all}" />
+								</f:render>
 							</div>
-						</div>
-					</f:case>
+            </div>
+					</div>
+				</f:case>
+        <f:case value="3">
+          <div id="c{data.uid}" class="frame {frameClass} {typeClass} {layoutClass} {backgroundClass} {backgroundImageClass} {spaceBeforeClass} {spaceAfterClass}">
+            <div class="frame-container container">
+              <div class="frame-inner">
+                <div class="slds-grid slds-wrap slds-gutters">
+                  <div class="slds-col slds-size_12-of-12 slds-large-size_3-of-12"></div>
+                  <div class="slds-col slds-size_12-of-12 slds-large-size_9-of-12">
+                    <f:render section="Before" optional="true">
+                      <f:render partial="DropIn/Before/All" arguments="{_all}" />
+                    </f:render>
+                    <f:render section="Header" optional="true">
+                      <f:render partial="Header/All" arguments="{_all}" />
+                    </f:render>
+                    <f:render section="Main" optional="true" />
+                    <f:render section="Footer" optional="true">
+                      <f:render partial="Footer/All" arguments="{_all}" />
+                    </f:render>
+                    <f:render section="After" optional="true">
+                      <f:render partial="DropIn/After/All" arguments="{_all}" />
+                    </f:render>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </f:case>  
 				<f:defaultCase>
 					<div id="c{data.uid}" class="frame {frameClass} {typeClass} {layoutClass} {backgroundClass} {backgroundImageClass} {spaceBeforeClass} {spaceAfterClass}" {f:if(condition: itemStyle, then: ' style=""')}>
 						<div class="frame-container">

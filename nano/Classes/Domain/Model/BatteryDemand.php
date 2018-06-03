@@ -1,27 +1,27 @@
 <?php
 
-namespace ELCA\Nano\Domain\Model;
+namespace DTP\Nano\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
  * Battery Demand
  */
-class BatteryDemand extends AbstractEntity implements \ELCA\Nano\Domain\Model\DemandInterface {
+class BatteryDemand extends AbstractEntity implements \DTP\Nano\Domain\Model\DemandInterface {
   
-  /** @var \ELCA\Nano\Domain\Model\Application */
+  /** @var \DTP\Nano\Domain\Model\Application */
   protected $application;
   
-  /** @var \ELCA\Nano\Domain\Model\Brand */
+  /** @var \DTP\Nano\Domain\Model\Brand */
   protected $brand;
   
-  /** @var \ELCA\Nano\Domain\Model\Vbrand */
+  /** @var \DTP\Nano\Domain\Model\Vbrand */
   protected $vbrand;
   
-  /** @var \ELCA\Nano\Domain\Model\Vmodel */
+  /** @var \DTP\Nano\Domain\Model\Vmodel */
   protected $vmodel;
   
-  /** @var \ELCA\Nano\Domain\Model\Category */
+  /** @var \DTP\Nano\Domain\Model\Category */
   protected $category;
   
   /** @var int */
@@ -32,16 +32,16 @@ class BatteryDemand extends AbstractEntity implements \ELCA\Nano\Domain\Model\De
 
   /**
    *
-   * @param \ELCA\Nano\Domain\Model\Application $application
+   * @param \DTP\Nano\Domain\Model\Application $application
    */
-  public function setApplication(\ELCA\Nano\Domain\Model\Application $application) {
+  public function setApplication(\DTP\Nano\Domain\Model\Application $application) {
     $this->application = $application;
     return $this;
   }
 
   /**
    *
-   * @return \ELCA\Nano\Domain\Model\Application
+   * @return \DTP\Nano\Domain\Model\Application
    */
   public function getApplication() {
     return $this->application;
@@ -49,7 +49,7 @@ class BatteryDemand extends AbstractEntity implements \ELCA\Nano\Domain\Model\De
 
   /**
    *
-   * @return \ELCA\Nano\Domain\Model\Brand
+   * @return \DTP\Nano\Domain\Model\Brand
    */
   public function getBrand() {
     return $this->brand;
@@ -57,7 +57,7 @@ class BatteryDemand extends AbstractEntity implements \ELCA\Nano\Domain\Model\De
 
   /**
    *
-   * @param \ELCA\Nano\Domain\Model\Brand $brand
+   * @param \DTP\Nano\Domain\Model\Brand $brand
    */
   public function setBrand($brand) {
     $this->brand = $brand;
@@ -65,7 +65,7 @@ class BatteryDemand extends AbstractEntity implements \ELCA\Nano\Domain\Model\De
 
   /**
    *
-   * @return \ELCA\Nano\Domain\Model\Vbrand
+   * @return \DTP\Nano\Domain\Model\Vbrand
    */
   public function getVbrand() {
     return $this->vbrand;
@@ -73,7 +73,7 @@ class BatteryDemand extends AbstractEntity implements \ELCA\Nano\Domain\Model\De
 
   /**
    *
-   * @param \ELCA\Nano\Domain\Model\Vbrand $vbrand
+   * @param \DTP\Nano\Domain\Model\Vbrand $vbrand
    */
   public function setVbrand($vbrand) {
     $this->vbrand = $vbrand;
@@ -81,7 +81,7 @@ class BatteryDemand extends AbstractEntity implements \ELCA\Nano\Domain\Model\De
 
   /**
    *
-   * @return \ELCA\Nano\Domain\Model\Vmodel
+   * @return \DTP\Nano\Domain\Model\Vmodel
    */
   public function getVmodel() {
     return $this->vmodel;
@@ -89,7 +89,7 @@ class BatteryDemand extends AbstractEntity implements \ELCA\Nano\Domain\Model\De
 
   /**
    *
-   * @param \ELCA\Nano\Domain\Model\Vmodel $vmodel
+   * @param \DTP\Nano\Domain\Model\Vmodel $vmodel
    */
   public function setVmodel($vmodel) {
     $this->vmodel = $vmodel;
@@ -97,7 +97,7 @@ class BatteryDemand extends AbstractEntity implements \ELCA\Nano\Domain\Model\De
 
   /**
    *
-   * @return \ELCA\Nano\Domain\Model\Category
+   * @return \DTP\Nano\Domain\Model\Category
    */
   public function getCategory() {
     return $this->category;
@@ -105,7 +105,7 @@ class BatteryDemand extends AbstractEntity implements \ELCA\Nano\Domain\Model\De
 
   /**
    *
-   * @param \ELCA\Nano\Domain\Model\Category $category
+   * @param \DTP\Nano\Domain\Model\Category $category
    */
   public function setCategory($category) {
     $this->category = $category;

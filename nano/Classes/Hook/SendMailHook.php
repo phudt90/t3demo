@@ -1,6 +1,6 @@
 <?php
 
-namespace ELCA\Nano\Hook;
+namespace DTP\Nano\Hook;
 
 use TYPO3\CMS\Core\Mail\MailMessage;
 use In2code\Powermail\Domain\Service\Mail\SendMailService;

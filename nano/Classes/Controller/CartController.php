@@ -1,6 +1,6 @@
 <?php
 
-namespace ELCA\Nano\Controller;
+namespace DTP\Nano\Controller;
 
 /**
  * Cart controller
@@ -9,7 +9,7 @@ class CartController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
   /**
    * Session Handler
    *
-   * @var \ELCA\Nano\Service\SessionHandler
+   * @var \DTP\Nano\Service\SessionHandler
    * @inject
    */
   protected $sessionHandler;
@@ -17,7 +17,7 @@ class CartController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
   /**
    * Cart Utility
    *
-   * @var \ELCA\Nano\Utility\CartUtility
+   * @var \DTP\Nano\Utility\CartUtility
    * @inject
    */
   protected $cartUtility;
@@ -32,7 +32,7 @@ class CartController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
   /**
    * Order Repository
    *
-   * @var \ELCA\Nano\Domain\Repository\OrderRepository
+   * @var \DTP\Nano\Domain\Repository\OrderRepository
    * @inject
    */
   protected $orderRepository;
@@ -40,7 +40,7 @@ class CartController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
   /**
    * Cart product
    *
-   * @var \ELCA\Nano\Domain\Model\Cart\Cart
+   * @var \DTP\Nano\Domain\Model\Cart\Cart
    */
   protected $cart;
 
@@ -75,9 +75,9 @@ class CartController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 
   /**
    * Add product to cart
-   * @param \ELCA\Nano\Domain\Model\Battery $product
+   * @param \DTP\Nano\Domain\Model\Battery $product
    */
-  public function addProductAction(\ELCA\Nano\Domain\Model\Battery $product) {
+  public function addProductAction(\DTP\Nano\Domain\Model\Battery $product) {
     $this->cart = $this->cartUtility->getCartFromSession($this->settings);
     
     $this->cart->addProduct($product);

@@ -1,6 +1,6 @@
 <?php
 
-namespace ELCA\Nano\Utility;
+namespace DTP\Nano\Utility;
 
 /**
  * Cart Utility
@@ -17,7 +17,7 @@ class CartUtility {
   /**
    * Session Handler
    *
-   * @var \ELCA\Nano\Service\SessionHandler
+   * @var \DTP\Nano\Service\SessionHandler
    * @inject
    */
   protected $sessionHandler;
@@ -27,7 +27,7 @@ class CartUtility {
    *
    * @param array $cartSettings
    *
-   * @return \ELCA\Nano\Domain\Model\Cart\Cart
+   * @return \DTP\Nano\Domain\Model\Cart\Cart
    */
   public function getCartFromSession(array $cartSettings) {
     $cart = $this->sessionHandler->restoreFromSession($cartSettings['cartPid']);
@@ -40,7 +40,7 @@ class CartUtility {
   /**
    * Restore cart from session or creates a new one
    *
-   * @param \ELCA\Nano\Domain\Model\Cart\Cart $cart
+   * @param \DTP\Nano\Domain\Model\Cart\Cart $cart
    * @param array $cartSettings
    */
   public function writeCartToSession($cart, $cartSettings) {
@@ -52,10 +52,10 @@ class CartUtility {
    *
    * @param array $cartSettings
    * 
-   * @return \ELCA\Nano\Domain\Model\Cart\Cart
+   * @return \DTP\Nano\Domain\Model\Cart\Cart
    */
   public function getNewCart(array $cartSettings) {
-    $cart = $this->objectManager->get(\ELCA\Nano\Domain\Model\Cart\Cart::class);
+    $cart = $this->objectManager->get(\DTP\Nano\Domain\Model\Cart\Cart::class);
 
     return $cart;
   }

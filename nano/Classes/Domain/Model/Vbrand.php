@@ -1,6 +1,6 @@
 <?php
 
-namespace ELCA\Nano\Domain\Model;
+namespace DTP\Nano\Domain\Model;
 
 /**
  * Vehical brand model
@@ -74,7 +74,7 @@ class Vbrand extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   
   /**
    *
-   * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\ELCA\Nano\Domain\Model\Vmodel>
+   * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\DTP\Nano\Domain\Model\Vmodel>
    * @lazy
    */
   protected $vmodels;
@@ -132,7 +132,7 @@ class Vbrand extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   /**
    * Get vehical models
    *
-   * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\ELCA\Nano\Domain\Model\Vmodel>
+   * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\DTP\Nano\Domain\Model\Vmodel>
    */
   public function getVmodels() {
     return $this->vmodels;
@@ -150,9 +150,9 @@ class Vbrand extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   /**
    * Adds a vehicel model to thisvehicel models.
    *
-   * @param \ELCA\Nano\Domain\Model\Vmodel $vmodel
+   * @param \DTP\Nano\Domain\Model\Vmodel $vmodel
    */
-  public function addVmodel(\ELCA\Nano\Domain\Model\Vmodel $vmodel) {
+  public function addVmodel(\DTP\Nano\Domain\Model\Vmodel $vmodel) {
     $this->getVmodels()->attach($vmodel);
   }
 

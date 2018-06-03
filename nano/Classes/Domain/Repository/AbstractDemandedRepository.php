@@ -1,8 +1,8 @@
 <?php
 
-namespace ELCA\Nano\Domain\Repository;
+namespace DTP\Nano\Domain\Repository;
 
-use ELCA\Nano\Domain\Model\DemandInterface;
+use DTP\Nano\Domain\Model\DemandInterface;
 
 /**
  * Abstract demanded repository

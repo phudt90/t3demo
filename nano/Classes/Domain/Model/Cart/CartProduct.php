@@ -1,6 +1,6 @@
 <?php
 
-namespace ELCA\Nano\Domain\Model\Cart;
+namespace DTP\Nano\Domain\Model\Cart;
 
 /**
  * CartProduct Model
@@ -17,7 +17,7 @@ class CartProduct {
   /**
    * Cart
    *
-   * @var \ELCA\Nano\Domain\Model\Cart\Cart
+   * @var \DTP\Nano\Domain\Model\Cart\Cart
    */
   protected $cart = null;
   
@@ -74,7 +74,7 @@ class CartProduct {
 
   /**
    *
-   * @return \ELCA\Nano\Domain\Model\Cart\Cart
+   * @return \DTP\Nano\Domain\Model\Cart\Cart
    */
   public function getCart() {
     return $this->cart;
@@ -82,7 +82,7 @@ class CartProduct {
 
   /**
    *
-   * @param \ELCA\Nano\Domain\Model\Cart\Cart $cart
+   * @param \DTP\Nano\Domain\Model\Cart\Cart $cart
    */
   public function setCart($cart) {
     $this->cart = $cart;

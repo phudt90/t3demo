@@ -1,20 +1,20 @@
 <?php
 
-namespace ELCA\Nano\Domain\Repository;
+namespace DTP\Nano\Domain\Repository;
 
-use ELCA\Nano\Domain\Model\DemandInterface;
+use DTP\Nano\Domain\Model\DemandInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
 /**
  * Vehical model repository
  */
-class VmodelRepository extends \ELCA\Nano\Domain\Repository\AbstractDemandedRepository
+class VmodelRepository extends \DTP\Nano\Domain\Repository\AbstractDemandedRepository
 {  
   protected $defaultOrderings = [
     'title' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
   ];
   
-  public function findByVehicalBrand(\ELCA\Nano\Domain\Model\Vbrand $vbrand) {
+  public function findByVehicalBrand(\DTP\Nano\Domain\Model\Vbrand $vbrand) {
     $query = $this->createQuery();
     
     $query->getQuerySettings()->setRespectStoragePage(false);
@@ -25,7 +25,7 @@ class VmodelRepository extends \ELCA\Nano\Domain\Repository\AbstractDemandedRepo
   }
   
   protected function createConstraintsFromDemand(QueryInterface $query, DemandInterface $demand) {
-    /** @var \ELCA\Nano\Domain\Model\VmodelDemand $demand */
+    /** @var \DTP\Nano\Domain\Model\VmodelDemand $demand */
     $constraints = [];
     
     if($demand->getVbrand() != null) {

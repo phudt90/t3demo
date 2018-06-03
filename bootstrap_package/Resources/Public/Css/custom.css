@@ -1,0 +1,47 @@
+.backendlayout-special_start .nav-categories .cmm{
+  display: block;
+  top: 100%;
+  margin-top: 10px;
+  border-radius: 4px 0 0 4px;
+}
+
+.widget-heading {
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+.widget-heading:before {
+  content: "";
+  width: 70px;
+  height: 3px;
+  display: inline-block;
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  border-color: #f92400 !important;
+  background-image: none !important;
+  background-color: #f92400 !important;
+  color: #fff !important;
+}
+
+.frame.frame-space-before-small {
+  margin-top: 10px;
+}
+.frame.frame-after-before-small {
+  margin-bottom: 10px;
+}
+.frame.frame-space-before-medium {
+  margin-top: 20px;
+}
+.frame.frame-after-before-medium {
+  margin-bottom: 20px;
+}
+.frame.frame-space-before-large {
+  margin-top: 40px;
+}
+.frame.frame-after-before-large {
+  margin-bottom: 40px;
+}

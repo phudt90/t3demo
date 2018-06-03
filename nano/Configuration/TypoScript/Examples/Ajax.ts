@@ -14,7 +14,7 @@ widget_searchbyterms_ajax_vehicalmodel_page {
   10 = USER
   10 {
     userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
-    vendorName = ELCA
+    vendorName = DTP
     extensionName = Nano
     pluginName = WidgetSearchByVehicalTerms
     resolveMainShortcut = 1

@@ -1,45 +1,45 @@
 <?php
 defined('TYPO3_MODE') or die();
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'PageBatteryList', [
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('DTP.nano', 'PageBatteryList', [
   'Battery' => 'list',
 ], []);
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'PageBatteryDetails', [
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('DTP.nano', 'PageBatteryDetails', [
   'Battery' => 'details',
 ], []);
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'PageBatterySearchByVehical', [
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('DTP.nano', 'PageBatterySearchByVehical', [
   'Battery' => 'search',
 ], []);
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'PageShoppingCart', [
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('DTP.nano', 'PageShoppingCart', [
   'Cart' => 'index, addProduct, removeProduct, updateProduct, clearCart',
 ], [
   'Cart' => 'index, addProduct, removeProduct, updateProduct, clearCart'
 ]);
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'PageCheckout', [
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('DTP.nano', 'PageCheckout', [
   'Checkout' => 'index, create, success',
 ], [
   'Checkout' => 'index, create, success',
 ]);
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'WidgetMiniCart', [
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('DTP.nano', 'WidgetMiniCart', [
   'Cart' => 'miniCart',
 ], [
   'Cart' => 'miniCart',
 ]);
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'WidgetSelectedBatteries', [
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('DTP.nano', 'WidgetSelectedBatteries', [
   'Battery' => 'selectedBatteries',
 ], []);
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'WidgetBatteryByApplication', [
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('DTP.nano', 'WidgetBatteryByApplication', [
   'Battery' => 'batteryByApplication',
 ], []);
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('ELCA.nano', 'WidgetSearchByVehicalTerms', [
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('DTP.nano', 'WidgetSearchByVehicalTerms', [
   'SearchByVehical' => 'showForm',
 ], []);
 
@@ -47,7 +47,7 @@ $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TY
 $signalSlotDispatcher->connect(
   \In2code\Powermail\Domain\Service\Mail\SendMailService::class,
   'sendTemplateEmailBeforeSend',
-  \ELCA\Nano\Hook\SendMailHook::class,
+  \DTP\Nano\Hook\SendMailHook::class,
   'prepareAndSend'
 );
 

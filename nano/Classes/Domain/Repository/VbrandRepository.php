@@ -1,14 +1,14 @@
 <?php
 
-namespace ELCA\Nano\Domain\Repository;
+namespace DTP\Nano\Domain\Repository;
 
-use ELCA\Nano\Domain\Model\DemandInterface;
+use DTP\Nano\Domain\Model\DemandInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
 /**
  * Vehical brand repository
  */
-class VbrandRepository extends \ELCA\Nano\Domain\Repository\AbstractDemandedRepository
+class VbrandRepository extends \DTP\Nano\Domain\Repository\AbstractDemandedRepository
 {
   protected $defaultOrderings = [
     'title' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING

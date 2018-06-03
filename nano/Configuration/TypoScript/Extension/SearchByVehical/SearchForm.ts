@@ -2,7 +2,7 @@ lib.widgetSearchByVehical = COA
 lib.widgetSearchByVehical.searchForm = USER
 lib.widgetSearchByVehical.searchForm {
   userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
-  vendorName = ELCA
+  vendorName = DTP
   extensionName = Nano
   pluginName = WidgetSearchByVehicalTerms
   

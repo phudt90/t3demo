@@ -1,6 +1,6 @@
 <?php
 
-namespace ELCA\Nano\Controller;
+namespace DTP\Nano\Controller;
 
 use In2code\Powermail\Utility\SessionUtility;
 use TYPO3\CMS\Core\Error\Http\PageNotFoundException;
@@ -13,7 +13,7 @@ class CheckoutController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
   /**
    * Session Handler
    *
-   * @var \ELCA\Nano\Service\SessionHandler
+   * @var \DTP\Nano\Service\SessionHandler
    * @inject
    */
   protected $sessionHandler;
@@ -21,7 +21,7 @@ class CheckoutController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
   /**
    * Cart Utility
    *
-   * @var \ELCA\Nano\Utility\CartUtility
+   * @var \DTP\Nano\Utility\CartUtility
    * @inject
    */
   protected $cartUtility;
@@ -56,7 +56,7 @@ class CheckoutController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
   /**
    * Order Repository
    *
-   * @var \ELCA\Nano\Domain\Repository\OrderRepository
+   * @var \DTP\Nano\Domain\Repository\OrderRepository
    * @inject
    */
   protected $orderRepository;
@@ -64,7 +64,7 @@ class CheckoutController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
   /**
    * OrderProduct Repository
    *
-   * @var \ELCA\Nano\Domain\Repository\OrderProductRepository
+   * @var \DTP\Nano\Domain\Repository\OrderProductRepository
    * @inject
    */
   protected $orderProductRepository;
@@ -90,7 +90,7 @@ class CheckoutController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
   /**
    * Cart product
    *
-   * @var \ELCA\Nano\Domain\Model\Cart\Cart
+   * @var \DTP\Nano\Domain\Model\Cart\Cart
    */
   protected $cart;
 
@@ -148,10 +148,10 @@ class CheckoutController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 
   /**
    * Action create entry
-   * @param \ELCA\Nano\Domain\Model\Order $order
+   * @param \DTP\Nano\Domain\Model\Order $order
    * @return void
    */
-  public function createAction(\ELCA\Nano\Domain\Model\Order $order) {
+  public function createAction(\DTP\Nano\Domain\Model\Order $order) {
     $settings = $this->settings;
     $arguments = $this->request->getArguments();
     $this->cart = $this->cartUtility->getCartFromSession($settings);
@@ -162,7 +162,7 @@ class CheckoutController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
       $order->setPid($settings['orderStoragePid']);
       if($cartProducts = $this->cart->getProducts()) {
         foreach($cartProducts as $cartProduct) {
-          $orderProduct = new \ELCA\Nano\Domain\Model\OrderProduct();
+          $orderProduct = new \DTP\Nano\Domain\Model\OrderProduct();
           $orderProduct->setOrder($order);
           $orderProduct->setTitle($cartProduct->getTitle());
           $orderProduct->setModel($cartProduct->getCode());
@@ -199,7 +199,7 @@ class CheckoutController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
    */
   public function successAction($hash = '') {
     $settings = $this->settings;
-    /* @var \ELCA\Nano\Domain\Model\Order $order */
+    /* @var \DTP\Nano\Domain\Model\Order $order */
     if(!empty($hash) && ($order = $this->orderRepository->findByHash($hash))) {
       $this->view->assign('order', $order);
     } else {

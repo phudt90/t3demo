@@ -1,9 +1,9 @@
 <?php
 
-namespace ELCA\Nano\Domain\Validator;
+namespace DTP\Nano\Domain\Validator;
 
 use In2code\Powermail\Domain\Validator\AbstractValidator;
-use ELCA\Nano\Extbase\Error\CartIsEmptyError;
+use DTP\Nano\Extbase\Error\CartIsEmptyError;
 use TYPO3\CMS\Extbase\Error\Result;
 
 /**
@@ -13,7 +13,7 @@ class CheckoutValidator extends AbstractValidator {
   /**
    * Session Handler
    *
-   * @var \ELCA\Nano\Service\SessionHandler
+   * @var \DTP\Nano\Service\SessionHandler
    * @inject
    */
   protected $sessionHandler;
@@ -21,7 +21,7 @@ class CheckoutValidator extends AbstractValidator {
   /**
    * Cart Utility
    *
-   * @var \ELCA\Nano\Utility\CartUtility
+   * @var \DTP\Nano\Utility\CartUtility
    * @inject
    */
   protected $cartUtility;
@@ -29,7 +29,7 @@ class CheckoutValidator extends AbstractValidator {
   /**
    * Cart product
    *
-   * @var \ELCA\Nano\Domain\Model\Cart\Cart
+   * @var \DTP\Nano\Domain\Model\Cart\Cart
    */
   protected $cart;
   

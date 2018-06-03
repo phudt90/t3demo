@@ -1,6 +1,6 @@
 <?php
 
-namespace ELCA\Nano\Finisher;
+namespace DTP\Nano\Finisher;
 
 use In2code\Powermail\Finisher\AbstractFinisher;
 use TYPO3\CMS\Core\Messaging\AbstractMessage;
@@ -21,7 +21,7 @@ class CheckoutFinisher extends AbstractFinisher {
   /**
    * Session Handler
    *
-   * @var \ELCA\Nano\Service\SessionHandler
+   * @var \DTP\Nano\Service\SessionHandler
    * @inject
    */
   protected $sessionHandler;
@@ -29,7 +29,7 @@ class CheckoutFinisher extends AbstractFinisher {
   /**
    * Cart Utility
    *
-   * @var \ELCA\Nano\Utility\CartUtility
+   * @var \DTP\Nano\Utility\CartUtility
    * @inject
    */
   protected $cartUtility;
@@ -43,7 +43,7 @@ class CheckoutFinisher extends AbstractFinisher {
   /**
    * Order Repository
    *
-   * @var \ELCA\Nano\Domain\Repository\OrderRepository
+   * @var \DTP\Nano\Domain\Repository\OrderRepository
    * @inject
    */
   protected $orderRepository;
@@ -51,7 +51,7 @@ class CheckoutFinisher extends AbstractFinisher {
   /**
    * Order Product Repository
    *
-   * @var \ELCA\Nano\Domain\Repository\OrderProductRepository
+   * @var \DTP\Nano\Domain\Repository\OrderProductRepository
    * @inject
    */
   protected $orderProductRepository;
@@ -59,7 +59,7 @@ class CheckoutFinisher extends AbstractFinisher {
   /**
    * Cart
    *
-   * @var \ELCA\Nano\Domain\Model\Cart\Cart
+   * @var \DTP\Nano\Domain\Model\Cart\Cart
    */
   protected $cart;
   
@@ -89,7 +89,7 @@ class CheckoutFinisher extends AbstractFinisher {
     $answers = $mail->getAnswersByFieldMarker();
     $this->cart = $this->cartUtility->getCartFromSession($configuration);
     if(count($this->cart->getProducts()) > 0) {
-      $order = new \ELCA\Nano\Domain\Model\Order;
+      $order = new \DTP\Nano\Domain\Model\Order;
       $order->setTitle('Đơn đặt hàng ' . date('d-m-Y H:i:s'));
       if(isset($answers['hoten'])) {
         $order->setFullname($answers['hoten']->getValue());
@@ -112,7 +112,7 @@ class CheckoutFinisher extends AbstractFinisher {
       
       $cartProducts = $this->cart->getProducts();
       foreach($cartProducts as $cartProduct) {
-        $orderProduct = new \ELCA\Nano\Domain\Model\OrderProduct();
+        $orderProduct = new \DTP\Nano\Domain\Model\OrderProduct();
         $orderProduct->setOrder($order);
         $orderProduct->setTitle($cartProduct->getTitle());
         $orderProduct->setModel($cartProduct->getCode());
