@@ -370,7 +370,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
   /**
    *
-   * @return number
+   * @return double
    */
   public function getPrice() {
     return $this->price;
@@ -378,7 +378,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
   /**
    *
-   * @param number $price
+   * @param double $price
    */
   public function setPrice($price) {
     $this->price = $price;
@@ -386,7 +386,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
   /**
    *
-   * @return number
+   * @return double
    */
   public function getPriceRegular() {
     return $this->priceRegular;
@@ -394,7 +394,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
   /**
    *
-   * @param number $priceRegular
+   * @param double $priceRegular
    */
   public function setPriceRegular($priceRegular) {
     $this->priceRegular = $priceRegular;

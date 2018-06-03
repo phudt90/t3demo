@@ -1,73 +1,81 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 	xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
 	data-namespace-typo3-fluid="true">
-<section class="flat-shop-cart">
-	<f:if condition="{products}">
-		<f:then>
-			<div class="row">
-				<div class="col-md-8">
-					<div class="table-cart">
-						<table>
-							<thead>
-								<tr>
-									<th>Sản phẩm</th>
-									<th colspan="2">Số lượng</th>
-								</tr>
-							</thead>
-							<tbody>
-								<f:for each="{products}" as="product">
-									<tr>
-										<td>
-											<div class="img-product">
-												<f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:'{product.uid}'}">
-													<f:if condition="{product.thumb}">
-														<f:alias map="{mediaElement: '{product.thumb}'}">
-															<f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="100"/>
-														</f:alias>
-													</f:if>
-												</f:link.action>
-											</div>
-											<div class="name-product">
-												<f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:'{product.uid}'}">
-													{product.title}
-												</f:link.action>
-											</div>
-										</td>
-										<td>
-											<div class="quanlity">
-												<select name="quantity" class="form-control" onchange="window.location.href = this.options[this.selectedIndex].getAttribute('data-url');">
-													<v:iterator.for from="1" to="99" iteration="i">
-		  											<option value="{i.index}" {f:if(condition:'{i.index}=={product.quantity}}', then: 'selected="selected"')} data-url="{f:uri.action(pageUid:'{settings.cartPid}', action: 'updateProduct', noCacheHash: '1',  arguments:'{uid: product.uid, quantity: i.index}')}">{i.index}</option>
-													</v:iterator.for>
-												</select>
-											</div>
-										</td>
-										<td>
-											<f:link.action pageUid="{settings.cartPid}" action="removeProduct" arguments="{uid:'{product.uid}'}" noCacheHash="1" title="Xóa"> 
-												<img src="{f:uri.resource(path:'Nano/images/icons/delete.png')}" alt="">
-											</f:link.action>
-										</td>
-									</tr>
-								</f:for>
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="cart-totals">
-						<h3>Đặt hàng</h3>
-						<div class="btn-cart-totals">
-							<f:link.page pageUid="{settings.checkoutPid}" noCacheHash="1" class="checkout" title="Đặt hàng ngay">Đặt hàng ngay</f:link.page>
-							<a href="https://acquynano.com/" class="update" title="Tiếp tục mua hàng">Tiếp tục mua hàng</a>
-						</div>
-					</div>
-				</div>
-			</div>
-	
-		</f:then>
-		<f:else>
-			<div class="table-cart-empty">Giỏ hàng của bạn đang trống.</div>
-		</f:else>
-	</f:if>
-</section>
+<v:asset.script path="EXT:bootstrap_package/Resources/Public/JavaScript/Libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js" dependencies="jquery" />
+<div class="shopping-cart mb-4">
+  <f:if condition="{products}">
+    <f:then>
+      <div class="slds-grid slds-wrap slds-gutters">
+        <div class="slds-col slds-size_12-of-12 slds-large-size_8-of-12">
+          <div class="shopping-cart__items">
+            <f:for each="{products}" as="product">
+            <div class="shopping-cart__item">
+              <div class="slds-grid slds-grid_vertical-align-center slds-wrap slds-gutters">
+                <div class="slds-col slds-size_12-of-12 slds-large-size_2-of-12">
+                  <div class="shopping-cart__item-thumb">
+                    <f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:'{product.uid}'}">
+                      <f:if condition="{product.thumb}">
+                        <f:alias map="{mediaElement: '{product.thumb}'}">
+                          <f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="100"/>
+                        </f:alias>
+                      </f:if>
+                    </f:link.action>
+                  </div>
+                </div>
+                <div class="slds-col slds-size_12-of-12 slds-large-size_6-of-12">
+                  <div class="shopping-cart__item-info">
+                    <h3 class="item-name">
+                      <f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:'{product.uid}'}">
+                        {product.title}
+                      </f:link.action>
+                    </h3>
+                    <p class="item-actions">
+                      <f:link.action pageUid="{settings.cartPid}" action="removeProduct" arguments="{uid:'{product.uid}'}" class="btn btn-xs red"> 
+                        Xóa
+                      </f:link.action>
+                    </p>
+                  </div>
+                </div>
+                <div class="slds-col slds-size_12-of-12 slds-large-size_2-of-12">
+                  <div class="shopping-cart__item-price">
+                    <div class="price-wrap">
+                      <f:if condition="{product.price}">
+                        <f:then>
+                        <span class="price price--final">
+                          <f:format.currency currencySign="đ" decimalSeparator="." thousandsSeparator="," decimals="0">{product.price}</f:format.currency>
+                        </span>
+                        <f:if condition="{product.priceRegular}">
+                          <span class="price price--old">
+                            <f:format.currency currencySign="đ" decimalSeparator="." thousandsSeparator="," decimals="0">{product.priceRegular}</f:format.currency>
+                          </span>
+                        </f:if>
+                        </f:then>
+                        <f:else>
+                          <span class="price price--final">Liên hệ</span>
+                        </f:else>
+                      </f:if>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-col slds-size_12-of-12 slds-large-size_2-of-12">
+                  <input type="text" value="{product.quantity}" name="quantity" class="touchspin_cart form-control">
+                </div>
+              </div>
+            </div>
+            </f:for>
+          </div>
+        </div>
+        <div class="slds-col slds-size_12-of-12 slds-large-size_4-of-12">
+          <div class="shopping-cart__actions">
+            <f:link.page pageUid="{settings.checkoutPid}" class="btn btn-md btn-block red mb-3" title="Đặt hàng ngay">Đặt hàng ngay</f:link.page>
+            <a href="https://acquynano.com/" class="btn btn-md btn-block grey-salsa"><span>Tiếp tục mua hàng</span></a>
+          </div>
+        </div>
+      </div>
+    </f:then>
+    <f:else>
+      <div class="shopping-cart__empty">Giỏ hàng của bạn đang trống!</div>
+    </f:else>
+  </f:if>
+</div>
 </html>

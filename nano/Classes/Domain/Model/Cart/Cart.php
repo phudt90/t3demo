@@ -97,6 +97,8 @@ class Cart {
     $cartProduct->setThumb($product->getFirstFalMedia());
     $cartProduct->setCode($product->getCode());
     $cartProduct->setBrand($product->getBrand()->getTitle());
+    $cartProduct->setPrice($product->getPrice());
+    $cartProduct->setPriceRegular($product->getPriceRegular());
     $cartProduct->setQuantity(1);
     return $cartProduct;
   }

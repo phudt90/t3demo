@@ -47,5 +47,5 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl']['_DEFAULT'] = [
 ];
 
 include(__DIR__ . '/realurl_conf_fixedpostvars.php');
-#include(__DIR__ . '/realurl_conf_postvarsets.php');
+include(__DIR__ . '/realurl_conf_postvarsets.php');
 #include(__DIR__ . '/realurl_conf_filename.php');

@@ -2,8 +2,6 @@
 
 namespace DTP\Nano\Controller;
 
-use DTP\Nano\Domain\Model\Application as ApplicationModel;
-use DTP\Nano\Domain\Model\Brand as BrandModel;
 use DTP\Nano\Domain\Model\Vbrand;
 use DTP\Nano\Domain\Model\Vmodel;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -51,11 +49,31 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     /* @var $demand \DTP\Nano\Domain\Model\BatteryDemand */
     $demand = $this->objectManager->get(\DTP\Nano\Domain\Model\BatteryDemand::class, $settings);
     
-    if ($settings['orderBy']) {
+    if(isset($settings['application']) && !empty($settings['application'])) {
+      $demand->setApplication($settings['application']);
+    }
+    
+    if(isset($settings['brand']) && !empty($settings['brand'])) {
+      $demand->setBrand($settings['brand']);
+    }
+    
+    if(isset($settings['vbrand']) && !empty($settings['vbrand'])) {
+      $demand->setVbrand($settings['vbrand']);
+    }
+    
+    if(isset($settings['vmodel']) && !empty($settings['vmodel'])) {
+      $demand->setVmodel($settings['vmodel']);
+    }
+    
+    if (isset($settings['orderBy']) && !empty($settings['orderBy'])) {
       $demand->setOrder($settings['orderBy'] . ' ' . $settings['orderDirection']);
     }
-    $demand->setLimit($settings['limit']);
-    $demand->setOffset($settings['offset']);
+    if(isset($settings['limit'])) {
+      $demand->setLimit($settings['limit']);
+    }
+    if(isset($settings['offset'])) {
+      $demand->setOffset($settings['offset']);
+    }
     
     return $demand;
   }
@@ -63,28 +81,13 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
   /**
    * Output a list view of batteries
    * 
-   * @param ApplicationModel $application
-   * @param BrandModel $brand 
    */
-  public function listAction(ApplicationModel $application = null, BrandModel $brand = null) {
+  public function listAction() {
     $demand = $this->createDemandObjectFromSettings($this->settings);
-    
-    $title = 'Sản phẩm';
-    if($application) {
-      $title = "{$application->getTitle()}";
-      $demand->setApplication($application);
-    }
-    
-    if($brand) {
-      $title .= " {$brand->getTitle()}";
-      $demand->setBrand($brand);
-    }
-    
-    $records = $this->batteryRepository->findDemanded($demand);
 
-    $this->setPageTitle($title);
-    $this->view->assign('heading', $title);
-    $this->view->assign('batteries', $records);
+    $batteries = $this->batteryRepository->findDemanded($demand);
+
+    $this->view->assign('batteries', $batteries);
   }
 
   /**
@@ -137,27 +140,6 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     } else {
       // TODO throw exception
     }
-    $this->view->assign('batteries', $batteries);
-  }
-  
-  /**
-   * Output a list view of batteries by application
-   *
-   */
-  public function batteryByApplicationAction() {
-    $application = null;
-    $heading = null;
-    $batteries = [];
-    $demand = $this->createDemandObjectFromSettings($this->settings);
-    /* @var \DTP\Nano\Domain\Model\Application $application */
-    if($application = $this->applicationRepository->findByUid($this->settings['applications'])) {
-      $heading = sprintf($application->getTitle());
-      $demand->setApplication($application);
-      $batteries = $this->batteryRepository->findDemanded($demand);
-    }
-    
-    $this->view->assign('application', $application);
-    $this->view->assign('heading', $heading);
     $this->view->assign('batteries', $batteries);
   }
 

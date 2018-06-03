@@ -84,11 +84,14 @@ var Layout = function() {
 	var handleFlexSlider = function() {
 		$('.flexslider').each(function() {
 			let _self = $(this);
-			let interval = _self.data('interval'); console.log(interval);
+			let speed = _self.data('speed');
+			let controlNav = _self.data('controlnav');
+			
 			_self.flexslider({
 				animation : "slide",
-				slideshowSpeed: interval,
-				directionNav: true,
+				controlNav: controlNav,
+				slideshowSpeed: speed,
+				directionNav: false,
 			});
 		});
 	};
@@ -115,14 +118,41 @@ var Layout = function() {
 			});
 		});
 	};
+	
+	var handleAddToCart = function() {
+		$('.btn-add-cart a').click(function(e) {
+			e.preventDefault();
+			let _self = $(this);
+			$.ajax({
+				url: _self.attr('href'),
+				dataType: 'html',
+				beforeSend: function() {
+					_self.attr('disabled', true);
+				},	
+				complete: function() {
+					_self.attr('disabled', false);
+				},				
+				success: function(html) {
+					$('#minicart').html(html);
+					let duration = 300;
+					$('html, body').animate({
+						scrollTop: 0
+					}, duration);
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				}
+			});
+		})
+	};
 
 	return {
 		init : function() {
+			handleAddToCart();
 			handleFlexSlider();
 			//handleHeaderSearch();
-			//handleFlexImages();
 			//handleZoomImages();
-			//handleTouchSpin();
+			handleTouchSpin();
 		}
 	};
 }();

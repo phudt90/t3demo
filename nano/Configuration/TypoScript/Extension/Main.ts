@@ -44,16 +44,3 @@ plugin.tx_nano_pagebatterydetails {
 		detailsPid = {$plugin.detailsPid}
 	}
 }
-
-plugin.tx_nano_widgetbatterybyapplication {
-	view {
-    templateRootPaths.0 = EXT:nano/Resources/Private/Templates/Page/
-    partialRootPaths.0 = EXT:nano/Resources/Private/Partials/Page/
-    layoutRootPaths.0 = EXT:nano/Resources/Private/Layouts/Page/
-  }
-  
-	settings {
-		listPid = {$plugin.listPid}
-		detailsPid = {$plugin.detailsPid}
-	}
-}

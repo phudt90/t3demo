@@ -50,6 +50,18 @@ class CartProduct {
   protected $brand;
   
   /**
+   *
+   * @var double
+   */
+  protected $price;
+  
+  /**
+   *
+   * @var double
+   */
+  protected $priceRegular;
+  
+  /**
    * Quantity
    *
    * @var int
@@ -150,6 +162,38 @@ class CartProduct {
    */
   public function setBrand($brand) {
     $this->brand = $brand;
+  }
+  
+  /**
+   *
+   * @return double
+   */
+  public function getPrice() {
+    return $this->price;
+  }
+  
+  /**
+   *
+   * @param double $price
+   */
+  public function setPrice($price) {
+    $this->price = $price;
+  }
+  
+  /**
+   *
+   * @return double
+   */
+  public function getPriceRegular() {
+    return $this->priceRegular;
+  }
+  
+  /**
+   *
+   * @param double $priceRegular
+   */
+  public function setPriceRegular($priceRegular) {
+    $this->priceRegular = $priceRegular;
   }
 
   /**

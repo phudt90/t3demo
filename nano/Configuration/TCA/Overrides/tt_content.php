@@ -30,6 +30,10 @@ $pluginSignature = 'nano_widgetselectedbatteries';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:nano/Configuration/FlexForms/nano_selected_batteries.xml');
 
+$pluginSignature = 'nano_pagebatterylist';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:nano/Configuration/FlexForms/nano_list_batteries.xml');
+
 /**
  * *********************************
  * Allow tables for insert records

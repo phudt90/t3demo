@@ -4,7 +4,8 @@
 
   <f:if condition="{records}">
     <div id="flexslider-{data.uid}" class="carousel-transition-{data.pi_flexform.transition} flexslider" 
-      data-interval="{data.pi_flexform.interval}" 
+      data-speed="{data.pi_flexform.interval}" 
+      data-controlnav="paging" 
       data-wrap="{f:if(condition:data.pi_flexform.wrap,then:'true',else:'false')}" 
       data-ride="carousel">
         <ul class="slides list-unstyled">

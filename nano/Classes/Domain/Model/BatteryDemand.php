@@ -9,16 +9,16 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  */
 class BatteryDemand extends AbstractEntity implements \DTP\Nano\Domain\Model\DemandInterface {
   
-  /** @var \DTP\Nano\Domain\Model\Application */
+  /** @var int */
   protected $application;
   
-  /** @var \DTP\Nano\Domain\Model\Brand */
+  /** @var int */
   protected $brand;
   
-  /** @var \DTP\Nano\Domain\Model\Vbrand */
+  /** @var int */
   protected $vbrand;
   
-  /** @var \DTP\Nano\Domain\Model\Vmodel */
+  /** @var int */
   protected $vmodel;
   
   /** @var \DTP\Nano\Domain\Model\Category */
@@ -31,17 +31,17 @@ class BatteryDemand extends AbstractEntity implements \DTP\Nano\Domain\Model\Dem
   protected $offset;
 
   /**
-   *
-   * @param \DTP\Nano\Domain\Model\Application $application
+   * 
+   * @param int $application
    */
-  public function setApplication(\DTP\Nano\Domain\Model\Application $application) {
+  public function setApplication($application) {
     $this->application = $application;
     return $this;
   }
 
   /**
    *
-   * @return \DTP\Nano\Domain\Model\Application
+   * @return int
    */
   public function getApplication() {
     return $this->application;
@@ -49,23 +49,24 @@ class BatteryDemand extends AbstractEntity implements \DTP\Nano\Domain\Model\Dem
 
   /**
    *
-   * @return \DTP\Nano\Domain\Model\Brand
+   * @param int $brand
+   */
+  public function setBrand($brand) {
+    $this->brand = $brand;
+  }
+  
+  /**
+   *
+   * @return int
    */
   public function getBrand() {
     return $this->brand;
   }
 
-  /**
-   *
-   * @param \DTP\Nano\Domain\Model\Brand $brand
-   */
-  public function setBrand($brand) {
-    $this->brand = $brand;
-  }
 
   /**
    *
-   * @return \DTP\Nano\Domain\Model\Vbrand
+   * @return int
    */
   public function getVbrand() {
     return $this->vbrand;
@@ -73,7 +74,7 @@ class BatteryDemand extends AbstractEntity implements \DTP\Nano\Domain\Model\Dem
 
   /**
    *
-   * @param \DTP\Nano\Domain\Model\Vbrand $vbrand
+   * @param int $vbrand
    */
   public function setVbrand($vbrand) {
     $this->vbrand = $vbrand;
@@ -81,7 +82,7 @@ class BatteryDemand extends AbstractEntity implements \DTP\Nano\Domain\Model\Dem
 
   /**
    *
-   * @return \DTP\Nano\Domain\Model\Vmodel
+   * @return int
    */
   public function getVmodel() {
     return $this->vmodel;
@@ -89,7 +90,7 @@ class BatteryDemand extends AbstractEntity implements \DTP\Nano\Domain\Model\Dem
 
   /**
    *
-   * @param \DTP\Nano\Domain\Model\Vmodel $vmodel
+   * @param int $vmodel
    */
   public function setVmodel($vmodel) {
     $this->vmodel = $vmodel;

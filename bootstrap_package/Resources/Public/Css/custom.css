@@ -1,3 +1,6 @@
+html:before {
+  display:none!important;
+}
 .backendlayout-special_start .nav-categories .cmm{
   display: block;
   top: 100%;
@@ -5,6 +8,7 @@
   border-radius: 4px 0 0 4px;
 }
 
+.frame .element-header,
 .widget-heading {
   font-size: 1.125rem;
   font-weight: 500;
@@ -13,6 +17,7 @@
   margin-top: 40px;
   margin-bottom: 30px;
 }
+.frame .element-header:before,
 .widget-heading:before {
   content: "";
   width: 70px;
@@ -36,12 +41,18 @@
 .frame.frame-space-before-medium {
   margin-top: 20px;
 }
-.frame.frame-after-before-medium {
+.frame.frame-space-after-medium {
   margin-bottom: 20px;
 }
 .frame.frame-space-before-large {
   margin-top: 40px;
 }
-.frame.frame-after-before-large {
+.frame.frame-space-after-large {
   margin-bottom: 40px;
+}
+
+.product__cart .btn-cart{
+  color: #fff;
+  background-color: #f92400;
+  margin-top: 0;
 }

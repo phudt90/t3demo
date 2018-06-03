@@ -27,24 +27,24 @@
                 <span class="price-wrapper">
                   <f:if condition="{battery.price}">
                     <f:then>
-                    <span class="price price--final">
-                      <f:format.currency currencySign="đ" decimalSeparator="." thousandsSeparator="," decimals="0">{battery.price}</f:format.currency>
-                    </span>
+                      <span class="price price--final">
+                        <f:format.currency currencySign="đ" decimalSeparator="." thousandsSeparator="," decimals="0">{battery.price}</f:format.currency>
+                      </span>
+                      <f:if condition="{battery.priceRegular}">
+                        <span class="price price--old">
+                          <f:format.currency currencySign="đ" decimalSeparator="." thousandsSeparator="," decimals="0">{battery.priceRegular}</f:format.currency>
+                        </span>
+                      </f:if>
                     </f:then>
                     <f:else>
                       <span class="price price--final">Liên hệ</span>
                     </f:else>
                   </f:if>
-                  <f:if condition="{battery.priceRegular}">
-                    <span class="price price--old">
-                      <f:format.currency currencySign="đ" decimalSeparator="." thousandsSeparator="," decimals="0">{battery.priceRegular}</f:format.currency>
-                    </span>
-                  </f:if>
                 </span>
               </div>
 
               <div class="list-products__item-actions">
-                <div class="add-to-cart">
+                <div class="btn-add-cart">
                   <f:cObject typoscriptObjectPath="lib.cartProduct.addToCartButton" data="{uid:'{battery.uid}'}"/>
                 </div>
               </div>

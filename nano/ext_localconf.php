@@ -2,7 +2,7 @@
 defined('TYPO3_MODE') or die();
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('DTP.nano', 'PageBatteryList', [
-  'Battery' => 'list',
+  'Battery' => 'list'
 ], []);
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('DTP.nano', 'PageBatteryDetails', [
@@ -33,10 +33,6 @@ defined('TYPO3_MODE') or die();
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('DTP.nano', 'WidgetSelectedBatteries', [
   'Battery' => 'selectedBatteries',
-], []);
-
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('DTP.nano', 'WidgetBatteryByApplication', [
-  'Battery' => 'batteryByApplication',
 ], []);
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('DTP.nano', 'WidgetSearchByVehicalTerms', [

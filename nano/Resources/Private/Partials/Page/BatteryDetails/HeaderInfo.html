@@ -1,14 +1,9 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<div class="header-detail">
-	<h1 class="product-name">{battery.title}</h1>
-	<f:if condition="{battery.brand}">
-	<div class="category">{battery.brand.title}</div>
-	</f:if>
-	<f:if condition="{battery.code}">
-	<div class="product-id">
-		<f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.code.label" />: 
-		<span class="id">{battery.code}</span>
-	</div>
-	</f:if>
+<div class="product__main-info">
+  <h1 class="product__name" itemprop="name">{battery.title}</h1>
+  <div class="product__terms">
+    <div><span>Thương hiệu:</span> <a target="_blank" href="javascript:;">{battery.brand.title}</a></div>
+    <div><span>Mã sản phẩm:</span> {battery.code}</div>
+  </div>
 </div>
 </html>

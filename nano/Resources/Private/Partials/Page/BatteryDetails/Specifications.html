@@ -1,83 +1,41 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<div class="tecnical-specs">
-	<h3>Thông số kỹ thuật</h3>
-	<table>
-		<tbody>
-			<f:if condition="{battery.terminalType}">
-				<tr>
-					<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.terminal_type.label" /></td>
-					<td><span class="nano-terminal-type nano-terminal-type--{battery.terminalType}"></span></td>
-				</tr>
-			</f:if>
-			<f:if condition="{battery.terminalLayout}">
-				<tr>
-					<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.terminal_layout.label" /></td>
-					<td><span class="nano-terminal-layout nano-terminal-layout--{battery.terminalLayout}"></span></td>
-				</tr>
-			</f:if>
-			<f:if condition="{battery.voltage}">
-				<tr>
-					<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.voltage.label" /></td>
-					<td>{battery.voltage}</td>
-				</tr>
-			</f:if>
-			<f:if condition="{battery.technology}">
-				<tr>
-					<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.technology.label" /></td>
-					<td>
-						<f:switch expression="{battery.technology}">
-							<f:case value="1">Miễn bảo dưỡng</f:case>
-							<f:case value="2">AGM</f:case>
-							<f:case value="3">Xả sâu</f:case>
-							<f:case value="4">Truyền thống</f:case>
-							<f:defaultCase>{battery.technology}</f:defaultCase>
-						</f:switch>
-					</td>
-				</tr>
-			</f:if>
-			<f:if condition="{battery.capacity20}">
-				<tr>
-					<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.capacity_20.label" /></td>
-					<td>{battery.capacity20}</td>
-				</tr>
-			</f:if>
-			<f:if condition="{battery.ccaEn}">
-				<tr>
-					<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.cca_en.label" /></td>
-					<td>{battery.ccaEn}</td>
-				</tr>
-			</f:if>
-			<f:if condition="{battery.ccaSae}">
-				<tr>
-					<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.cca_sae.label" /></td>
-					<td>{battery.ccaSae}</td>
-				</tr>
-			</f:if>
-			<f:if condition="{battery.length}">
-				<tr>
-					<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.length.label" /></td>
-					<td>{battery.length}</td>
-				</tr>
-			</f:if>
-			<f:if condition="{battery.width}">
-				<tr>
-					<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.width.label" /></td>
-					<td>{battery.width}</td>
-				</tr>
-			</f:if>
-			<f:if condition="{battery.height}">
-				<tr>
-					<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.height.label" /></td>
-					<td>{battery.height}</td>
-				</tr>
-			</f:if>
-			<f:if condition="{battery.guarantee}">
-				<tr>
-					<td><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.guarantee.label" /></td>
-					<td>{battery.guarantee} tháng</td>
-				</tr>
-			</f:if>
-		</tbody>
-	</table>
+<div class="product__section">
+  <h5 class="product__section__heading h4">Thông số kỹ thuật</h5>
+  <dl class="dl-props">
+    <f:if condition="{battery.terminalType}">
+    <dt class="dl-props__label"><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.terminal_type.label" /></dt>
+    <dd class="dl-props__value"><span class="nano-terminal-type nano-terminal-type--{battery.terminalType}">{battery.terminalType}</span></dd>
+    </f:if>
+    
+    <f:if condition="{battery.terminalLayout}">
+    <dt class="dl-props__label"><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.terminal_layout.label" /></dt>
+    <dd class="dl-props__value"><span class="nano-terminal-layout nano-terminal-layout--{battery.terminalLayout}">{battery.terminalLayout}</span></dd>
+    </f:if>
+    
+    <f:if condition="{battery.voltage}">
+    <dt class="dl-props__label"><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.voltage.label" /></dt>
+    <dd class="dl-props__value">{battery.voltage} V</dd>
+    </f:if>
+    
+    <f:if condition="{battery.capacity20}">
+    <dt class="dl-props__label"><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.capacity_20.label" /></dt>
+    <dd class="dl-props__value">{battery.capacity20} Ah</dd>
+    </f:if>
+    
+    <f:if condition="{battery.ccaEn}">
+    <dt class="dl-props__label"><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.cca_en.label" /></dt>
+    <dd class="dl-props__value">{battery.ccaSae} Ah</dd>
+    </f:if>
+    
+    <f:if condition="{battery.ccaSae}">
+    <dt class="dl-props__label"><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.cca_sae.label" /></dt>
+    <dd class="dl-props__value">{battery.ccaSae} Ah</dd>
+    </f:if>
+    
+    <f:if condition="{battery.length} && {battery.width} && {battery.height}">
+    <dt class="dl-props__label">Kích thước:</dt>
+    <dd class="dl-props__value">{battery.length} x {battery.width} x {battery.height} mm</dd>
+    </f:if>
+  </dl>
 </div>
 </html>

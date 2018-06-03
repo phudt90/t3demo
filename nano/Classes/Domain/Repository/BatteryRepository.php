@@ -25,7 +25,7 @@ class BatteryRepository extends \DTP\Nano\Domain\Repository\AbstractDemandedRepo
     
     $query->matching($query->in('uid', $uids));
     $query->setLimit(100);
-    //$this->debugQuery($query);
+    
     return $query->execute();
   }
   
@@ -49,13 +49,14 @@ class BatteryRepository extends \DTP\Nano\Domain\Repository\AbstractDemandedRepo
       
       $where = $queryBuilder->expr()->andX(
         $queryBuilder->expr()->eq('mm.tablenames', "'tx_nano_domain_model_vbrand'"),
-        $queryBuilder->expr()->eq('mm.uid_foreign', $vbrand->getUid()),
+        $queryBuilder->expr()->eq('mm.uid_foreign', $vbrand),
         $queryBuilder->expr()->eq('sys.parent', 0)
       );
+      
       if($vmodel = $demand->getVModel()) {
         $where = $queryBuilder->expr()->andX(
           $queryBuilder->expr()->eq('mm.tablenames', "'tx_nano_domain_model_vmodel'"),
-          $queryBuilder->expr()->eq('mm.uid_foreign', $vmodel->getUid()),
+          $queryBuilder->expr()->eq('mm.uid_foreign', $vmodel),
           $queryBuilder->expr()->neq('sys.parent', 0)
         );
       }

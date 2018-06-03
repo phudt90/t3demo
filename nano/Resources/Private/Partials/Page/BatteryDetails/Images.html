@@ -1,15 +1,19 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:if condition="{battery.mediaPreviews">	
-	<div class="flexslider style3">
-		<ul class="slides">
-			<f:for each="{battery.mediaPreviews}" as="item">
-				<li data-thumb="{item.originalResource.publicUrl}">
-					<a href="javascript:;" id="zoom{item.uid}" class="zoom">
-						<f:image image="{item}" maxWidth="400" />
-					</a>
-				</li>
-			</f:for>
-		</ul>
-	</div>
+  <div class="product__media">
+    <div class="flexslider" 
+      data-speed="4000"
+      data-controlnav="thumbnails">
+      <ul class="slides list-unstyled">
+        <f:for each="{battery.mediaPreviews}" as="item">
+          <li data-thumb="{f:uri.image(image:item, width:50, height:50)}" data-zoom="{item.originalResource.publicUrl}">
+            <a href="javascript:;" class="zoom">
+              <f:image image="{item}" maxWidth="400" />
+            </a>
+          </li>
+        </f:for>
+      </ul>
+    </div>
+  </div>
 </f:if>
 </html>

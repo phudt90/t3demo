@@ -14,12 +14,12 @@ class VmodelRepository extends \DTP\Nano\Domain\Repository\AbstractDemandedRepos
     'title' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
   ];
   
-  public function findByVehicalBrand(\DTP\Nano\Domain\Model\Vbrand $vbrand) {
+  public function findByVehicalBrand($vbrand) {
     $query = $this->createQuery();
     
     $query->getQuerySettings()->setRespectStoragePage(false);
     
-    $query->equals('vbrand', $vbrand);
+    $query->matching($query->equals('vbrand', $vbrand));
     
     return $query->execute();
   }
