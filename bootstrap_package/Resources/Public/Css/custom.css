@@ -1,6 +1,17 @@
 html:before {
   display:none!important;
 }
+
+body.layout-3 {
+  background:#fff;
+}
+
+@media (min-width: 64em) {
+  .backendlayout-2_columns_8_4 .sidebar{
+    margin-top: 70px;
+  }
+}
+
 .backendlayout-special_start .nav-categories .cmm{
   display: block;
   top: 100%;
@@ -8,16 +19,14 @@ html:before {
   border-radius: 4px 0 0 4px;
 }
 
-.frame .element-header,
 .widget-heading {
   font-size: 1.125rem;
   font-weight: 500;
   text-transform: uppercase;
   position: relative;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 30px;
 }
-.frame .element-header:before,
 .widget-heading:before {
   content: "";
   width: 70px;
@@ -30,25 +39,6 @@ html:before {
   background-image: none !important;
   background-color: #f92400 !important;
   color: #fff !important;
-}
-
-.frame.frame-space-before-small {
-  margin-top: 10px;
-}
-.frame.frame-after-before-small {
-  margin-bottom: 10px;
-}
-.frame.frame-space-before-medium {
-  margin-top: 20px;
-}
-.frame.frame-space-after-medium {
-  margin-bottom: 20px;
-}
-.frame.frame-space-before-large {
-  margin-top: 40px;
-}
-.frame.frame-space-after-large {
-  margin-bottom: 40px;
 }
 
 .product__cart .btn-cart{

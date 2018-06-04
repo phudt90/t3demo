@@ -5,12 +5,14 @@
 
 	<div class="section section-default">
 		<div class="container">
-			<div class="row">
-				<main class="col-md-8 maincontent-wrap" role="main"> 
+			<div class="slds-grid slds-wrap slds-gutters">
+				<main class="slds-col slds-size_12-of-12 slds-large-size_8-of-12 maincontent-wrap" role="main"> 
 				  <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '0'}" /> 
 				</main>
-				<div class="col-md-4 subcontent-wrap">
-					<f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '2'}" />
+				<div class="slds-col slds-size_12-of-12 slds-large-size_4-of-12">
+					<div class="sidebar">
+            <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '2'}" />
+          </div>
 				</div>
 			</div>
 		</div>

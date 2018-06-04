@@ -21,7 +21,6 @@
       
 			  <f:switch expression="{form.css}">
 			    <f:case value="1">
-			     <h3>{form.title}</h3>
 			     <f:for each="{form.pages}" as="page">
 			       <f:alias map="{fields: '{page.fieldsByFieldMarker}'}">
 			         <div class="row">
