@@ -46,17 +46,17 @@
 					</f:if>
 				</n:simplePrevNext>
 			</f:if>
-			<h3 class="title-post" itemprop="headline">
+			<h1 class="blog-post__title" itemprop="headline">
         {newsItem.title}
-      </h3>
-      <ul class="meta-post">
+      </h1>
+      <f:render partial="Detail/MediaContainer" arguments="{media: newsItem.media, settings:settings}" />
+      <ul class="blog-post__meta list-unstyled">
         <f:if condition="{newsItem.categories}">
-        <li>
-          <f:render partial="Category/Items" arguments="{categories:newsItem.categories, settings:settings}" />
-        </li>
+          <li>
+            <f:render partial="Category/Items" arguments="{categories:newsItem.categories, settings:settings}" />
+          </li>
         </f:if>
-        <li class="date">
-          <!-- date -->
+        <li class="meta-post-date">
           <span class="news-list-date">
             <time datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
               <f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
@@ -67,7 +67,7 @@
       </ul>
 		
 			<!-- main text -->
-      <div class="news-text-wrap entry-post" itemprop="articleBody">
+      <div class="blog-post__content" itemprop="articleBody">
         <f:format.html>{newsItem.bodytext}</f:format.html>
       </div>
 

@@ -174,6 +174,25 @@ class CheckoutController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
       $this->orderRepository->add($order);
       $this->persistenceManager->persistAll();
       
+      $br = PHP_EOL;
+      $subject = $order->getTitle();
+      $body = "";
+      $body .= $order->getTitle() . $br;
+      $body .= "Email: " . $order->getEmail() . $br;
+      $body .= "SĐT: " . $order->getPhone() . $br;
+      $body .= "Địa chỉ: " . $order->getAddress() . $br;
+      if($order->getComment()) {
+        $body .= "Ghi chú: " . $order->getComment() . $br;
+      }
+      if($products = $this->cart->getProducts()) {
+        $body .= $br . "Danh sách sản phẩm:" .  $br;
+        foreach($products as $product) {
+          $body .= $product->getTitle() . " x" . $product->getQuantity() . $br;
+        }
+      }
+      //\In2code\Powermail\Utility\MailUtility::sendPlainMail('phudt90@gmail.com', 'phudt900@gmail.com', $subject, $body);
+      //\In2code\Powermail\Utility\MailUtility::sendPlainMail('acquynano247@gmail.com', 'phudt900@gmail.com', $subject, $body);
+      
       $this->uriBuilder->reset()
         ->setTargetPageUid($settings['checkoutPid'])
         ->setUseCacheHash(0)

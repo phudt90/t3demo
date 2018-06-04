@@ -5,13 +5,13 @@
 
 	<div class="{settings.styles.framework.fieldWrappingClasses}">
 		<f:form.textarea
-				cols="20"
-				rows="5"
-				id="powermail_field_{field.marker}"
-				property="{field.marker}"
-				placeholder="{field.placeholder}"
-				value="{vh:Misc.PrefillField(field:field, mail:mail)}"
-				additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
-				class="powermail_textarea {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}" />
+			cols="20"
+			rows="5"
+			id="powermail_field_{field.marker}"
+			property="{field.marker}"
+			placeholder="{field.placeholder}"
+			value="{vh:Misc.PrefillField(field:field, mail:mail)}"
+			additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
+			class="form-control powermail_textarea {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')}" />
 		</div>
 </div>

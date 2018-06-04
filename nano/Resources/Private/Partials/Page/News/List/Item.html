@@ -1,13 +1,9 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
 	  data-namespace-typo3-fluid="true">
-<!--
-	=====================
-		Partials/List/Item.html
--->
-<article class="article main-post style1 articletype-{newsItem.type}{f:if(condition: newsItem.istopnews, then: ' topnews')}" itemscope="itemscope" itemtype="http://schema.org/Article">
+<article class="blog-list__article article main-post style1 articletype-{newsItem.type}{f:if(condition: newsItem.istopnews, then: ' topnews')}" itemscope="itemscope" itemtype="http://schema.org/Article">
 	<n:excludeDisplayedNews newsItem="{newsItem}"/>
-	<div class="featured-post">
+	<div class="blog-list__img-wrap">
 		<f:if condition="{newsItem.mediaPreviews}">
 	    <!-- media preview element -->
 	    <f:then>
@@ -40,20 +36,20 @@
 	    </f:else>
 	  </f:if>
   </div>
-	<div class="content-post">
-		<h3 class="title-post">
+	<div class="blog-list__content-post">
+		<h3 class="blog-list__title-post">
 			<n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
         <span itemprop="headline">{newsItem.title}</span>
       </n:link>
 		</h3>
-		<ul class="meta-post">
+		<ul class="blog-list__meta-post">
 		  <f:if condition="{newsItem.firstCategory}">
-			<li class="comment">
-        <!-- first category -->
-        <span class="news-list-category">{newsItem.firstCategory.title}</span>
-      </li>
+  			<li class="comment">
+          <!-- first category -->
+          <span class="news-list-category">{newsItem.firstCategory.title}</span>
+        </li>
       </f:if>
-			<li class="date">
+			<li class="meta-post-date">
         <!-- date -->
 	      <span class="news-list-date">
 	        <time datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
@@ -63,7 +59,7 @@
 	      </span>
       </li>
 		</ul>
-		<div class="entry-post">
+		<div class="blog-list__entry-post">
 			<n:removeMediaTags>
 	    <f:if condition="{newsItem.teaser}">
 	      <f:then>
@@ -74,12 +70,6 @@
 	      </f:else>
 	    </f:if>
 	    </n:removeMediaTags>
-			<div class="more-link">
-				<n:link newsItem="{newsItem}" settings="{settings}" class="more" title="{newsItem.title}">
-          Chi tiết
-          <span><img src="{f:uri.resource(extensionName: 'nano', path: 'Nano/images/icons/right-2.png')}" alt=""></span>
-        </n:link>
-			</div>
 		</div>
 	</div>
 </article>

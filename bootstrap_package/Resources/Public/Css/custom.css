@@ -56,3 +56,57 @@ html:before {
   background-color: #f92400;
   margin-top: 0;
 }
+
+.parsley-errors-list {}
+.parsley-errors-list li{
+  display: block;
+  color: #d04437;
+  margin: 5px 0 0 0;
+  padding: 0;
+  font-size: 13px;
+  font-weight:300;
+}
+
+.checkout-success{}
+.checkout-success .thank-you-note .check-mark {
+  width: 80px;
+  height: 80px;
+  margin: 20px auto 40px;
+  display: block;
+}
+.checkout-success .thank-you-note .check-mark .circle, 
+.checkout-success .thank-you-note .check-mark .check{
+  stroke: #34a46c;
+  stroke-width: 4px;
+}
+.checkout-success .thank-you-note .sub-title{
+  font-size: 20px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.checkout-success .continue-shopping{
+  text-align:center;
+  margin-top:30px;
+}
+.checkout-success .continue-shopping a {
+  background-image: none;
+  background-color: #40c781;
+  text-align: center;
+  font-size:15px;
+  font-weight:500;
+  line-height:24px;
+  color: #fff;
+  border-radius: 3px;
+  text-decoration: none;
+  border: 0px solid rgba(0, 0, 0, 0.15);
+  border-bottom-width: 2px;
+  padding: 10px 25px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s;
+}
+.checkout-success .continue-shopping a:hover{
+  background-color: #34a46c;
+  cursor: pointer;
+}
+.slds-table.slds-table-width-auto {
+  width: auto;
+}

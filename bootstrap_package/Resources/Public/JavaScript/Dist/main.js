@@ -151,7 +151,7 @@ var Layout = function() {
 			handleAddToCart();
 			handleFlexSlider();
 			//handleHeaderSearch();
-			//handleZoomImages();
+			handleZoomImages();
 			handleTouchSpin();
 		}
 	};

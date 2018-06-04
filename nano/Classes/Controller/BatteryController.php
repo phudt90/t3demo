@@ -136,7 +136,15 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     $batteries = null;
     if(!empty($settings['batteries'])) {
       $uids = GeneralUtility::trimExplode(',', $settings['batteries'], true);
-      $batteries = $this->batteryRepository->findByUids($uids);
+      $batteries = $this->batteryRepository->findByUids($uids)->toArray();
+      usort($batteries, function($b1, $b2) use ($uids) {
+        $found1 = array_search($b1->getUid(), $uids);
+        $found2 = array_search($b2->getUid(), $uids);
+        if(($found1 !== FALSE) && ($found2 !== FALSE)) {
+          return ($found1 <= $found2) ? -1 : 1;
+        }
+        return;
+      });
     } else {
       // TODO throw exception
     }

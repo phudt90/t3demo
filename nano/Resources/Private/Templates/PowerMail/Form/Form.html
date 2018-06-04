@@ -6,7 +6,8 @@
 	<f:alias map="{flashMessageClass:'powermail_message_error'}">
 		<f:render partial="Misc/FlashMessages" arguments="{_all}" />
 	</f:alias>
-  
+<div class="portlet">
+  <div class="portlet-body">
   <f:if condition="{form}">
     <f:then>
       <f:form
@@ -16,7 +17,7 @@
         enctype="multipart/form-data"
         additionalAttributes="{vh:Validation.EnableParsleyAndAjax(form:form)}"
         addQueryString="{settings.misc.addQueryString}"
-        class="powermail_form powermail_form_{form.uid} layout-{form.css} {settings.styles.framework.formClasses} {vh:Misc.MorestepClass(activate:settings.main.moresteps)}">
+        class="slds-form slds-form_stacked powermail_form powermail_form_{form.uid} layout-{form.css} {settings.styles.framework.formClasses} {vh:Misc.MorestepClass(activate:settings.main.moresteps)}">
       
 			  <f:switch expression="{form.css}">
 			    <f:case value="1">
@@ -86,6 +87,7 @@
 			<f:translate key="error_no_form" />
 		</f:else>
 	</f:if>
-
+  </div>
+</div>
 </f:section>
 </html>

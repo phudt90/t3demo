@@ -1,60 +1,82 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
   data-namespace-typo3-fluid="true">  
-<div class="checkout-success">
+<div class="checkout-success mb-4">
 	<div class="row">
 	  <div class="col-md-8 offset-md-2">
-			<div class="thank-you-note">
-				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2" class="check-mark">
-				  <circle class="path circle" fill="none" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"></circle>
-				  <polyline class="path check" fill="none" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "></polyline>
-				</svg>
-		
-				<h2 class="sub-title">Cám ơn bạn đã cho Ắc quy Nano cơ hội được phục vụ!</h2>
-				<p>Chúng tôi đã nhận được thông tin đặt hàng của bạn. Trong vòng 1h, nhân viên sẽ gọi cho bạn để xác nhận đơn hàng.</p>
-				<p>Mã số đơn hàng: <strong>#{order.number}</strong>.</p>
-			</div>
-			
-			<div class="checkout-info">
-		    <f:if condition="{order.products}">
-			    <div class="checkout-infobox">
-			      <h3>Thông tin sản phẩm</h3>
-			      <div class="checkout-infobox-body">
-			        <table class="info">
-			           <thead>
-			             <tr>
-			               <th>Sản phẩm</th>
-			               <th>Số lượng</th>
-			             </tr>
-			           </thead>
-			           <tbody>
-			            <f:for each="{order.products}" as="product">
-			             <tr>
-			               <td>{product.title}</td>
-			               <td>{product.quantity}</td>
-			             </tr>
-			            </f:for>
-			           </tbody>
-			         </table>
-			      </div>
-			    </div>
-		    </f:if>
-		    <div class="checkout-infobox">
-		      <h3>Thông tin đơn hàng</h3>
-		      <div class="checkout-infobox-body">
-		       <strong>Họ tên:</strong> {order.fullname} <br/>
-		       <strong>Email:</strong> {order.email} <br/>
-		       <strong>Số điện thoại:</strong> {order.phone} <br/>
-		       <strong>Địa chỉ:</strong> {order.address} <br/>
-		       <f:if condition="{order.comment}">
-		        <strong>Ghi chú đơn hàng:</strong> {order.comment}
-		       </f:if>
-		      </div>
-		     </div>
-		     
-		  </div>
-		  <p class="continue-shopping">
-		    <a href="https://acquynano.com/" class="">Tiếp tục mua hàng</a>
-		  </p>
+      <div class="portlet">
+        <div class="portlet-body">
+    			<div class="thank-you-note">
+    				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2" class="check-mark">
+    				  <circle class="path circle" fill="none" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"></circle>
+    				  <polyline class="path check" fill="none" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "></polyline>
+    				</svg>
+    		
+    				<h2 class="sub-title">Cám ơn bạn đã cho Ắc quy Nano cơ hội được phục vụ!</h2>
+    				<p>Chúng tôi đã nhận được thông tin đặt hàng của bạn. Trong vòng 1h, nhân viên sẽ gọi điện thoại để xác nhận đơn hàng.</p>
+    				<p>Mã số đơn hàng: <strong>#{order.number}</strong>.</p>
+    			</div>
+    			
+    			<div class="checkout-info">
+    		    <f:if condition="{order.products}">
+    			    <div class="checkout-infobox">
+    			      <h3 class="h2">Thông tin sản phẩm</h3>
+    			      <div class="checkout-infobox-body">
+    			        <table class="slds-table">
+    			           <thead>
+    			             <tr>
+    			               <th>Sản phẩm</th>
+    			               <th>Số lượng</th>
+    			             </tr>
+    			           </thead>
+    			           <tbody>
+    			            <f:for each="{order.products}" as="product">
+    			             <tr>
+    			               <td>{product.title}</td>
+    			               <td>{product.quantity}</td>
+    			             </tr>
+    			            </f:for>
+    			           </tbody>
+    			         </table>
+    			      </div>
+    			    </div>
+    		    </f:if>
+    		    <div class="checkout-infobox">
+    		      <h3 class="h2">Thông tin đơn hàng</h3>
+    		      <div class="checkout-infobox-body">
+                <table class="slds-table slds-table-width-auto">
+                 <tbody>
+                   <tr>
+                     <td class="sbold">Họ tên:</td>
+                     <td>{order.fullname}</td>
+                   </tr>
+                   <tr>
+                     <td class="sbold">Email:</td>
+                     <td>{order.email}</td>
+                   </tr>
+                   <tr>
+                     <td class="sbold">Số điện thoại:</td>
+                     <td>{order.phone}</td>
+                   </tr>
+                   <tr>
+                     <td class="sbold">Địa chỉ:</td>
+                     <td>{order.address}</td>
+                   </tr>
+                   <f:if condition="{order.comment}">
+                   <tr>
+                     <td class="sbold">Ghi chú đơn hàng:</td>
+                     <td>{order.comment}</td>
+                   </tr>
+                   </f:if>
+                 </tbody>
+               </table>
+    		      </div>
+    		     </div>
+    		  </div>
+    		  <p class="continue-shopping">
+    		    <a href="https://acquynano.com/" class="">Tiếp tục mua hàng</a>
+    		  </p>
+        </div>
+      </div>
 	  </div>
 	</div>
 	

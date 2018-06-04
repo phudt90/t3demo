@@ -1,0 +1,49 @@
+{namespace vh=In2code\Powermail\ViewHelpers}
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+  xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+  data-namespace-typo3-fluid="true">
+<div class="checkout__order-products">
+  <f:if condition="{products}">
+    <table class="slds-table slds-no-row-hover">
+      <thead>
+        <tr>
+          <th colspan="2">Sản phẩm</th>
+          <th align="right">Số lượng</th>
+        </tr>
+      </thead>
+      <tbody>
+        <f:for each="{products}" as="product">
+          <tr>
+            <td class="thumb">
+              <f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:'{product.uid}'}">
+                <f:if condition="{product.thumb}">
+                  <f:alias map="{mediaElement: '{product.thumb}'}">
+                    <f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="50" />
+                  </f:alias>
+                </f:if>
+              </f:link.action>
+            </td>
+            <td class="name">
+              <f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:'{product.uid}'}">
+                {product.title}
+              </f:link.action>
+            </td>
+            <td class="qty">{product.quantity}</td>
+          </tr>
+        </f:for>
+      </tbody>
+    </table>
+  </f:if>
+  <f:for each="{form.pages}" as="page">
+    <f:alias map="{fields: '{page.fieldsByFieldMarker}'}">
+      <f:if condition="{fields.guithongtindathang}">
+        <div class="text-center">
+          <vh:misc.createRowTags columns="{settings.styles.numberOfColumns}" class="{settings.styles.framework.rowClasses}" iteration="{iteration}">
+            <f:render partial="Checkout/Form/Field/{vh:String.Upper(string:fields.guithongtindathang.type)}" arguments="{field:fields.guithongtindathang}" />
+          </vh:misc.createRowTags>
+        </div>
+      </f:if>
+    </f:alias>
+  </f:for>
+</div>
+</html>

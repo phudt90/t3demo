@@ -2,31 +2,31 @@
 	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
 	  data-namespace-typo3-fluid="true">
 <f:layout name="General" />
-<!--
-	=====================
-		Templates/News/List.html
--->
 
 <f:section name="content">
-<section class="main-blog">
+<section class="blog-list">
   <!--TYPO3SEARCH_end-->
   <f:if condition="{news}">
     <f:then>
-      <div class="post-wrap" id="news-container-{contentObjectData.uid}">
-        <f:if condition="{settings.hidePagination}">
-          <f:then>
-            <f:for each="{news}" as="newsItem" iteration="iterator">
-              <f:render partial="News/List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
-            </f:for>
-          </f:then>
-          <f:else>
-            <n:widget.paginate objects="{news}" as="paginatedNews" configuration="{settings.list.paginate}" initial="{offset:settings.offset,limit:settings.limit,recordId:contentObjectData.uid}">
-              <f:for each="{paginatedNews}" as="newsItem" iteration="iterator">
-                <f:render partial="News/List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+      <div class="post-wrap slds-grid slds-wrap slds-gutters" id="news-container-{contentObjectData.uid}">
+          <f:if condition="{settings.hidePagination}">
+            <f:then>
+              <f:for each="{news}" as="newsItem" iteration="iterator">
+                <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                  <f:render partial="News/List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+                </div>
               </f:for>
-            </n:widget.paginate>
-          </f:else>
-        </f:if>
+            </f:then>
+            <f:else>
+              <n:widget.paginate objects="{news}" as="paginatedNews" configuration="{settings.list.paginate}" initial="{offset:settings.offset,limit:settings.limit,recordId:contentObjectData.uid}">
+                <f:for each="{paginatedNews}" as="newsItem" iteration="iterator">
+                  <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                    <f:render partial="News/List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+                  </div>
+                </f:for>
+              </n:widget.paginate>
+            </f:else>
+          </f:if>
       </div>
     </f:then>
     <f:else>

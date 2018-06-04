@@ -49,15 +49,13 @@ class BatteryRepository extends \DTP\Nano\Domain\Repository\AbstractDemandedRepo
       
       $where = $queryBuilder->expr()->andX(
         $queryBuilder->expr()->eq('mm.tablenames', "'tx_nano_domain_model_vbrand'"),
-        $queryBuilder->expr()->eq('mm.uid_foreign', $vbrand),
-        $queryBuilder->expr()->eq('sys.parent', 0)
+        $queryBuilder->expr()->eq('mm.uid_foreign', $vbrand)
       );
       
-      if($vmodel = $demand->getVModel()) {
+      if($vmodel = $demand->getVmodel()) {
         $where = $queryBuilder->expr()->andX(
           $queryBuilder->expr()->eq('mm.tablenames', "'tx_nano_domain_model_vmodel'"),
-          $queryBuilder->expr()->eq('mm.uid_foreign', $vmodel),
-          $queryBuilder->expr()->neq('sys.parent', 0)
+          $queryBuilder->expr()->eq('mm.uid_foreign', $vmodel)
         );
       }
       
