@@ -223,6 +223,7 @@ page {
                     isTrue = {$page.theme.meta.navigationValue}
                 }
             }
+            60 = DTP\Nano\DataProcessing\MegaMenuProcessor
         }
 
         ################

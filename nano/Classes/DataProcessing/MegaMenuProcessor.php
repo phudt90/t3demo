@@ -3,9 +3,9 @@
 namespace DTP\Nano\DataProcessing;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
+use TYPO3\CMS\Core\Database\ConnectionPool;
 
 class MegaMenuProcessor implements DataProcessorInterface {
   /**
@@ -23,6 +23,14 @@ class MegaMenuProcessor implements DataProcessorInterface {
   protected $processorConfiguration;
   
   /**
+   * The database connection;
+   *
+   * @var ConnectionPool
+   */
+  protected $connectionPool;
+  
+  
+  /**
    * The storage page id
    *
    * @var int
@@ -35,6 +43,14 @@ class MegaMenuProcessor implements DataProcessorInterface {
    * @var int
    */
   protected $listPid;
+  
+  /**
+   * Constructs a new MegaMenuProcessor
+   * 
+   */
+  public function __construct() {
+    $this->connectionPool = GeneralUtility::makeInstance(ConnectionPool::class);
+  }
   
   /**
    *
@@ -51,39 +67,42 @@ class MegaMenuProcessor implements DataProcessorInterface {
   public function process(ContentObjectRenderer $cObj, array $contentObjectConfiguration, array $processorConfiguration, array $processedData) {    
     $this->cObj = $cObj;
     $this->processorConfiguration = $processorConfiguration;
-    $this->storagePid = $this->getConfigurationValue('storagePid');
-    $this->listPid = $this->getConfigurationValue('listPid');
+    
+    $rootUid = 14;
+    $rootCategoryUid = 511;
+    $pages = \TYPO3\CMS\Core\Category\Collection\CategoryCollection::load($rootCategoryUid, true, 'pages')->getItems();
+
+    /** @var \TYPO3\CMS\Core\Database\Query\QueryBuilder $queryBuilder */
+    /* $queryBuilder = $this->connectionPool->getQueryBuilderForTable('sys_category_record_mm');
+    $queryBuilder->getRestrictions()->removeAll();
+    
+    $where = $queryBuilder->expr()->andX(
+      $queryBuilder->expr()->eq('mm.tablenames', "'pages'"),
+      $queryBuilder->expr()->in('mm.uid_foreign', array_column($pages, 'uid')),
+      $queryBuilder->expr()->eq('sys.parent', $rootCategoryUid) 
+    );
+    $queryBuilder->select('sys.uid', 'sys.title', 'sys.parent', 'mm.uid_foreign')
+    ->from('sys_category', 'sys')
+    ->leftJoin('sys', 'sys_category_record_mm', 'mm', 'sys.uid=mm.uid_local')
+    ->where($where)
+    ;
+    $categories = $queryBuilder->execute()->fetchAll(); */
     
     $megamenu = [];
-    $applications = $this->processApplicationData();
-    $brands = $this->processBrandData();
-    foreach($applications as $appUid=>$appTitle) {
-      $megamenu[$appUid] = [
-        'title' => $appTitle,
-        'link' => $cObj->typoLink_URL([
-          'parameter' => $this->listPid,
-          'title' => $appTitle,
-          'additionalParams' => '&tx_nano_pagebatterylist[application]='.$appUid,
+    $categoriesOne = array_filter($pages, function($page) use ($rootUid) {
+      return ($page['pid'] == $rootUid);
+    });
+    if($categoriesOne) {
+      foreach($categoriesOne as $category) {
+        $megamenu[] = $cObj->typoLink_URL([
+          'parameter' => $category['uid'],
+          'title' => $category['title'],
           'useCacheHash' => true,
           'forceAbsoluteUrl' => true,
-        ])
-      ];
-      if($brands) {
-        $megamenu[$appUid]['brands'] = [];
-        foreach($brands as $brandUid => $brandTitle) {
-          $megamenu[$appUid]['brands'][$brandUid] = [
-            'title' => $brandTitle,
-            'link' => $cObj->typoLink_URL([
-              'parameter' => $this->listPid,
-              'title' => $brandTitle,
-              'additionalParams' => '&tx_nano_pagebatterylist[application]='.$appUid.'&tx_nano_pagebatterylist[brand]='.$brandUid,
-              'useCacheHash' => true,
-              'forceAbsoluteUrl' => true,
-            ])
-          ];
-        }
+        ]);
       }
     }
+    d($megamenu);
     
     // Return processed data
     $processedData['megamenu'] = $megamenu;
@@ -91,43 +110,65 @@ class MegaMenuProcessor implements DataProcessorInterface {
   }
   
   /**
-   * Get battery application records for render megamenu
+   * Groups an array by a given key.
    *
-   * @return array
+   * Groups an array into arrays by a given key, or set of keys, shared between all array members.
+   *
+   * Based on {@author Jake Zatecky}'s {@link https://github.com/jakezatecky/array_group_by array_group_by()} function.
+   * This variant allows $key to be closures.
+   *
+   * @param array $array   The array to have grouping performed on.
+   * @param mixed $key,... The key to group or split by. Can be a _string_,
+   *                       an _integer_, a _float_, or a _callable_.
+   *
+   *                       If the key is a callback, it must return
+   *                       a valid key from the array.
+   *
+   *                       If the key is _NULL_, the iterated element is skipped.
+   *
+   *                       ```
+   *                       string|int callback ( mixed $item )
+   *                       ```
+   *
+   * @return array|null Returns a multidimensional array or `null` if `$key` is invalid.
    */
-  protected function processApplicationData () {
-    $records = [];
-    if($items = $this->cObj->getRecords('tx_nano_domain_model_application', [
-      'pidInList' => $this->storagePid,
-      'selectFields' => 'uid,title',
-      'orderBy' => 'sorting',
-      'where' => 'hidden!=1'
-    ])) {
-      foreach($items as $item) {
-        $records[$item['uid']] = $item['title'];
+  protected function arrayGroupBy(array $array, $key) {
+    if (! is_string($key) && ! is_int($key) && ! is_float($key) && ! is_callable($key)) {
+      trigger_error('array_group_by(): The key should be a string, an integer, or a callback', E_USER_ERROR);
+      return null;
+    }
+    $func = (! is_string($key) && is_callable($key) ? $key : null);
+    $_key = $key;
+    // Load the new array, splitting by the target key
+    $grouped = [];
+    foreach ($array as $value) {
+      $key = null;
+      if (is_callable($func)) {
+        $key = call_user_func($func, $value);
+      }
+      elseif (is_object($value) && isset($value->{$_key})) {
+        $key = $value->{$_key};
+      }
+      elseif (isset($value[$_key])) {
+        $key = $value[$_key];
+      }
+      if ($key === null) {
+        continue;
+      }
+      $grouped[$key][] = $value;
+    }
+    // Recursively build a nested grouping if more parameters are supplied
+    // Each grouped array value is grouped according to the next sequential key
+    if (func_num_args() > 2) {
+      $args = func_get_args();
+      foreach ($grouped as $key => $value) {
+        $params = array_merge([
+          $value
+        ], array_slice($args, 2, func_num_args()));
+        $grouped[$key] = call_user_func_array('array_group_by', $params);
       }
     }
-    return $records;
-  }
-  
-  /**
-   * Get battery brand records for render megamenu
-   *
-   * @return array
-   */
-  protected function processBrandData () {
-    $records = [];
-    if($items = $this->cObj->getRecords('tx_nano_domain_model_brand', [
-      'pidInList' => $this->storagePid,
-      'selectFields' => 'uid,title',
-      'orderBy' => 'sorting',
-      'where' => 'hidden!=1'
-    ])) {
-      foreach($items as $item) {
-        $records[$item['uid']] = $item['title'];
-      }
-    }
-    return $records;
+    return $grouped;
   }
   
   /**
@@ -139,14 +180,5 @@ class MegaMenuProcessor implements DataProcessorInterface {
   protected function getConfigurationValue($key)
   {
     return $this->cObj->stdWrapValue($key, $this->processorConfiguration);
-  }
-  
-  /**
-   * Get Uri Builder
-   *
-   * @return UriBuilder
-   */
-  protected function getUriBuilder() {
-    return GeneralUtility::makeInstance(UriBuilder::class);
   }
 }
