@@ -3,7 +3,7 @@
   <nav id="js-nav-main" class="main-nav mmm-container js-cmm-container">
     <ul class="mmm mmm--horizontal js-cmm">
       <f:for each="{mainnavigation}" as="mainnavigationItem">
-        <li class="mmm__item {f:if(condition: mainnavigationItem.active, then:'mmm__item--current')} {f:if(condition: mainnavigationItem.children, then:'mmm__item--has-content cmm-item-has-children')}">
+        <li class="mmm__item {f:if(condition: mainnavigationItem.active, then:'mmm__item--current')} {f:if(condition: mainnavigationItem.children, then:'mmm__item--has-content mmm-item-has-children')}">
           <a href="{mainnavigationItem.link}" title="{mainnavigationItem.title}" class="mmm__nav-link">
             <span class="mmm__item__label">{mainnavigationItem.title}</span>
           </a>

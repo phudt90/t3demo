@@ -1,58 +1,26 @@
 <?php
 defined('TYPO3_MODE') or die();
 
-// Adding title tag field to pages TCA
-$additionalColumns = array(
-  'tx_seo_titletag' => array(
+// Adding field to pages TCA
+$additionalColumns = [
+  'tx_nano_nav_position' => [
     'exclude' => 1,
-    'label' => 'LLL:EXT:nano/Resources/Private/Language/db.xml:pages.titletag',
-    'config' => array(
-      'type' => 'input',
-      'size' => 70,
-      'eval' => 'trim'
-    )
-  ),
-  'tx_seo_canonicaltag' => array(
-    'exclude' => 1,
-    'label' => 'LLL:EXT:nano/Resources/Private/Language/db.xml:pages.canonicaltag',
-    'config' => array(
-      'type' => 'input',
-      'size' => 70,
-      'eval' => 'trim'
-    )
-  ),
-  'tx_seo_robots' => array(
-    'exclude' => 1,
-    'label' => 'LLL:EXT:nano/Resources/Private/Language/db.xml:pages.tx_seo_robots',
-    'config' => array(
+    'label'   => 'Vị trí cột',
+    'config' => [
       'type' => 'select',
       'renderType' => 'selectSingle',
+      'size' => 30,
       'minitems' => 1,
       'maxitems' => 1,
-      'size' => 1,
-      'items' => array(
-        array(
-          'LLL:EXT:nano/Resources/Private/Language/db.xml:pages.tx_seo_robots.I.0',
-          '0'
-        ),
-        array(
-          'LLL:EXT:nano/Resources/Private/Language/db.xml:pages.tx_seo_robots.I.1',
-          '1'
-        ),
-        array(
-          'LLL:EXT:nano/Resources/Private/Language/db.xml:pages.tx_seo_robots.I.2',
-          '2'
-        ),
-        array(
-          'LLL:EXT:nano/Resources/Private/Language/db.xml:pages.tx_seo_robots.I.3',
-          '3'
-        )
-      )
-    )
-  )
-);
+      'items' => [
+        ['', 0],
+        ['1', 1],
+        ['2', 2],
+        ['3', 3],
+      ],
+    ]
+  ],
+];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('pages_language_overlay', $additionalColumns);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('pages_language_overlay', 'tx_seo_titletag, tx_seo_canonicaltag, tx_seo_robots', '1', 'before:keywords');
-
-$GLOBALS['TCA']['pages_language_overlay']['interface']['showRecordFieldList'] .= ',tx_seo_titletag, tx_seo_canonicaltag, tx_seo_robots';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('pages_language_overlay', 'tx_nano_nav_position', '1', 'after:nav_icon');

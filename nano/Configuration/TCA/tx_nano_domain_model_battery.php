@@ -215,7 +215,7 @@ return [
         'renderType' => 'selectSingle',
         'foreign_table' => 'tx_nano_domain_model_brand',
         'foreign_table_where' => 'ORDER BY tx_nano_domain_model_brand.sorting',
-        'size' => '6',
+        'size' => '1',
         'minitems' => '1',
         'maxitems' => '1',
       ]

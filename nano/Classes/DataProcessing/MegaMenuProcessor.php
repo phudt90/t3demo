@@ -89,20 +89,55 @@ class MegaMenuProcessor implements DataProcessorInterface {
     $categories = $queryBuilder->execute()->fetchAll(); */
     
     $megamenu = [];
+    $groupTitles = [
+      0 => '', 
+      1 => 'Theo thương hiệu ắc quy', 
+      2 => 'Theo thương hiệu xe', 
+      3 => 'Theo thương hiệu xe'
+    ];
     $categoriesOne = array_filter($pages, function($page) use ($rootUid) {
       return ($page['pid'] == $rootUid);
     });
     if($categoriesOne) {
-      foreach($categoriesOne as $category) {
-        $megamenu[] = $cObj->typoLink_URL([
-          'parameter' => $category['uid'],
-          'title' => $category['title'],
-          'useCacheHash' => true,
-          'forceAbsoluteUrl' => true,
-        ]);
+      foreach($categoriesOne as $categoryOne) {
+        $megamenuItem = [
+          'title' => $categoryOne['title'],
+          'link' => $cObj->typoLink_URL([
+            'parameter' => $categoryOne['uid'],
+            'useCacheHash' => true,
+            'forceAbsoluteUrl' => true,
+          ]),
+        ];
+        
+        $categoriesTwo = array_filter($pages, function($page) use ($categoryOne) {
+          return ($page['pid'] == $categoryOne['uid']);
+        });
+        $children = [];
+        if($categoriesTwo) {
+          if($categoryGroups = $this->arrayGroupBy($categoriesTwo, 'tx_nano_nav_position')) {
+            foreach($categoryGroups as $i=>$categoryGroup) {
+              $group = [
+                'title' => $groupTitles[$i],
+                'items' => []
+              ];
+              foreach($categoryGroup as $groupItem) {
+                $group['items'][] = [
+                  'title' => $groupItem['title'],
+                  'link' => $cObj->typoLink_URL([
+                    'parameter' => $groupItem['uid'],
+                    'useCacheHash' => true,
+                    'forceAbsoluteUrl' => true,
+                  ]),
+                ];
+              }
+              $children[] = $group;
+            }
+          }
+        }
+        $megamenuItem['children'] = $children;
+        $megamenu[] = $megamenuItem;
       }
     }
-    d($megamenu);
     
     // Return processed data
     $processedData['megamenu'] = $megamenu;

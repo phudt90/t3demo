@@ -410,3 +410,17 @@ CREATE TABLE tx_nano_domain_model_order_product (
 	KEY parent (pid,sorting),
 	KEY language (l18n_parent,sys_language_uid)
 );
+
+#
+# Add fields for table 'pages'
+#
+CREATE TABLE pages (
+  tx_nano_nav_position tinyint(4) DEFAULT '0' NOT NULL
+);
+
+#
+# Add fields for table 'pages_language_overlay'
+#
+CREATE TABLE pages_language_overlay (
+  tx_nano_nav_position tinyint(4) DEFAULT '0' NOT NULL
+);
