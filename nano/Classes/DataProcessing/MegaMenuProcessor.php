@@ -71,7 +71,7 @@ class MegaMenuProcessor implements DataProcessorInterface {
     $rootUid = 14;
     $rootCategoryUid = 511;
     $pages = \TYPO3\CMS\Core\Category\Collection\CategoryCollection::load($rootCategoryUid, true, 'pages')->getItems();
-
+    
     /** @var \TYPO3\CMS\Core\Database\Query\QueryBuilder $queryBuilder */
     /* $queryBuilder = $this->connectionPool->getQueryBuilderForTable('sys_category_record_mm');
     $queryBuilder->getRestrictions()->removeAll();
@@ -116,6 +116,9 @@ class MegaMenuProcessor implements DataProcessorInterface {
         if($categoriesTwo) {
           if($categoryGroups = $this->arrayGroupBy($categoriesTwo, 'tx_nano_nav_position')) {
             foreach($categoryGroups as $i=>$categoryGroup) {
+              usort($categoryGroup, function($a, $b) {
+                return ($a['sorting'] < $b['sorting']) ? -1 : 1;
+              });
               $group = [
                 'title' => $groupTitles[$i],
                 'items' => []
