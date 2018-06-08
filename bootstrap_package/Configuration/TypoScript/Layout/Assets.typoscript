@@ -10,7 +10,7 @@ page {
   #}
 
   includeCSS {
-    #bootstrap = EXT:bootstrap_package/Resources/Public/Less/Bootstrap/bootstrap.less
+    select2 = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/select2/css/select2.min.css
     main = EXT:bootstrap_package/Resources/Public/Css/main.css
     custom = EXT:bootstrap_package/Resources/Public/Css/custom.css
   }
@@ -27,10 +27,9 @@ page {
     responsiveimages = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/jquery.responsiveimages.min.js
     bootstrap = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/bootstrap/bootstrap.min.js
     bootstrap_offcanvas = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/bootstrap-offcanvas/bootstrap.offcanvas.min.js
+    select2 = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/select2/js/select2.min.js
     flexslider = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/jquery.flexslider-min.js
-    
-    #photoswipe_core = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/photoswipe.min.js
-    #photoswipe_ui = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/photoswipe-ui-default.min.js
+    lodash = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/lodash.min.js
 
     #### Add swipe support for boostrap components
     #hammerjs = EXT:bootstrap_package/Resources/Public/JavaScript/Libs/hammer.min.js

@@ -71,23 +71,7 @@ class MegaMenuProcessor implements DataProcessorInterface {
     $rootUid = 14;
     $rootCategoryUid = 511;
     $pages = \TYPO3\CMS\Core\Category\Collection\CategoryCollection::load($rootCategoryUid, true, 'pages')->getItems();
-    
-    /** @var \TYPO3\CMS\Core\Database\Query\QueryBuilder $queryBuilder */
-    /* $queryBuilder = $this->connectionPool->getQueryBuilderForTable('sys_category_record_mm');
-    $queryBuilder->getRestrictions()->removeAll();
-    
-    $where = $queryBuilder->expr()->andX(
-      $queryBuilder->expr()->eq('mm.tablenames', "'pages'"),
-      $queryBuilder->expr()->in('mm.uid_foreign', array_column($pages, 'uid')),
-      $queryBuilder->expr()->eq('sys.parent', $rootCategoryUid) 
-    );
-    $queryBuilder->select('sys.uid', 'sys.title', 'sys.parent', 'mm.uid_foreign')
-    ->from('sys_category', 'sys')
-    ->leftJoin('sys', 'sys_category_record_mm', 'mm', 'sys.uid=mm.uid_local')
-    ->where($where)
-    ;
-    $categories = $queryBuilder->execute()->fetchAll(); */
-    
+
     $megamenu = [];
     $groupTitles = [
       0 => '', 
@@ -99,15 +83,11 @@ class MegaMenuProcessor implements DataProcessorInterface {
       return ($page['pid'] == $rootUid);
     });
     if($categoriesOne) {
+      usort($categoriesOne, function($a, $b) {
+        return ($a['sorting'] < $b['sorting']) ? -1 : 1;
+      });
       foreach($categoriesOne as $categoryOne) {
-        $megamenuItem = [
-          'title' => $categoryOne['title'],
-          'link' => $cObj->typoLink_URL([
-            'parameter' => $categoryOne['uid'],
-            'useCacheHash' => true,
-            'forceAbsoluteUrl' => true,
-          ]),
-        ];
+        $megamenuItem = $this->buildTypoLinkURL($categoryOne);
         
         $categoriesTwo = array_filter($pages, function($page) use ($categoryOne) {
           return ($page['pid'] == $categoryOne['uid']);
@@ -124,14 +104,7 @@ class MegaMenuProcessor implements DataProcessorInterface {
                 'items' => []
               ];
               foreach($categoryGroup as $groupItem) {
-                $group['items'][] = [
-                  'title' => $groupItem['title'],
-                  'link' => $cObj->typoLink_URL([
-                    'parameter' => $groupItem['uid'],
-                    'useCacheHash' => true,
-                    'forceAbsoluteUrl' => true,
-                  ]),
-                ];
+                $group['items'][] = $this->buildTypoLinkURL($groupItem);
               }
               $children[] = $group;
             }
@@ -145,6 +118,23 @@ class MegaMenuProcessor implements DataProcessorInterface {
     // Return processed data
     $processedData['megamenu'] = $megamenu;
     return $processedData;
+  }
+  
+  /**
+   * Build Typo link URL item from page
+   * @return array|null Returns a multidimensional array or `null` if $cObj is empty.
+   */
+  protected function buildTypoLinkURL(array $item) {
+    if($this->cObj) {
+      return [
+        'title' => $item['title'],
+        'link' => $this->cObj->typoLink_URL([
+          'parameter' => $item['uid'],
+          'useCacheHash' => true,
+          'forceAbsoluteUrl' => true,
+        ]),
+      ];
+    }
   }
   
   /**
@@ -218,5 +208,23 @@ class MegaMenuProcessor implements DataProcessorInterface {
   protected function getConfigurationValue($key)
   {
     return $this->cObj->stdWrapValue($key, $this->processorConfiguration);
+  }
+  
+  private function codeExamples() {
+    /** @var \TYPO3\CMS\Core\Database\Query\QueryBuilder $queryBuilder */
+    /* $queryBuilder = $this->connectionPool->getQueryBuilderForTable('sys_category_record_mm');
+     $queryBuilder->getRestrictions()->removeAll();
+     
+     $where = $queryBuilder->expr()->andX(
+     $queryBuilder->expr()->eq('mm.tablenames', "'pages'"),
+     $queryBuilder->expr()->in('mm.uid_foreign', array_column($pages, 'uid')),
+     $queryBuilder->expr()->eq('sys.parent', $rootCategoryUid)
+     );
+     $queryBuilder->select('sys.uid', 'sys.title', 'sys.parent', 'mm.uid_foreign')
+     ->from('sys_category', 'sys')
+     ->leftJoin('sys', 'sys_category_record_mm', 'mm', 'sys.uid=mm.uid_local')
+     ->where($where)
+     ;
+     $categories = $queryBuilder->execute()->fetchAll(); */
   }
 }

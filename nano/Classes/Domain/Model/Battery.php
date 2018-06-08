@@ -143,13 +143,13 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
   
   /**
    *
-   * @var int
+   * @var float
    */
   protected $capacity20;
   
   /**
    *
-   * @var int
+   * @var float
    */
   protected $capacity100;
   
@@ -485,7 +485,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
   /**
    *
-   * @return number
+   * @return float
    */
   public function getCapacity20() {
     return $this->capacity20;
@@ -493,7 +493,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
   /**
    *
-   * @param number $capacity20
+   * @param float $capacity20
    */
   public function setCapacity20($capacity20) {
     $this->capacity20 = $capacity20;
@@ -501,7 +501,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
   /**
    *
-   * @return number
+   * @return float
    */
   public function getCapacity100() {
     return $this->capacity100;
@@ -509,7 +509,7 @@ class Battery extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
   /**
    *
-   * @param number $capacity100
+   * @param float $capacity100
    */
   public function setCapacity100($capacity100) {
     $this->capacity100 = $capacity100;

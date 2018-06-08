@@ -1,59 +1,54 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" 
    xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
    data-namespace-typo3-fluid="true">
-   
-<v:asset.style path="EXT:nano/Resources/Public/Nano/libraries/select2/css/select2.min.css" name="select2" dependencies="main" />
-<v:asset.script path="EXT:nano/Resources/Public/Nano/libraries/select2/js/select2.min.js" dependencies="jquery" />
-<v:asset.script path="EXT:nano/Resources/Public/Nano/libraries/select2/js/i18n/vi.js" dependencies="jquery" />
-<v:asset.script path="EXT:nano/Resources/Public/Nano/javascript/lodash.min.js" dependencies="jquery" />
-<div id="NanoTopSearch" class="top-search nano-top-search">
-  <form action="#" method="get" class="form-search" accept-charset="utf-8">
-    <f:for each="{vbrands}" as="vbrand">
-      <input type="hidden" name="vbrands[{vbrand.uid}]" value="{f:uri.action(pageUid:settings.searchPid, extensionName:'Nano', pluginName:'PageBatterySearchByVehical', controller:'Battery', action: 'search', arguments:'{vbrand:vbrand.uid}')}" />
-    </f:for>
-    <f:for each="{vmodels}" as="vmodel">
-      <input type="hidden" name="vmodels[{vmodel.uid}]" data-vbrand="{vmodel.vbrand.uid}" value="{f:uri.action(pageUid:settings.searchPid, extensionName:'Nano', pluginName:'PageBatterySearchByVehical', controller:'Battery', action: 'search', arguments:'{vbrand:vmodel.vbrand.uid, vmodel:vmodel.uid}')}" />
-    </f:for>
-    <div class="quick-search">
-      <div class="quick-search-inner">
-      	<div class="row">
-      		<div class="col-md-2 quick-search-col hidden-xs-down">
-	        	<h3 class="quick-search-heading">Tìm ắc quy</h3>
-	        </div>
-	        <div class="col-md-5 col-6 quick-search-col">
-		        <div class="quick-search-field">
-		        	<f:if condition="{vbrands}">
-		            <select id="SearchFieldVehicalBrand" 
-		              name="vbrand" 
-		              class="form-control fc-vbrand" 
-		              data-placeholder="-- Thương hiệu xe --"
-		              data-allow-clear="true">
-		              <option></option>
-		              <f:for each="{vbrands}" as="vbrand">
-		                <option value="{vbrand.uid}">{vbrand.title}</option>
-		              </f:for>
-		            </select>
-		        	</f:if>
-		        </div>
-	        </div>
-	        <div class="col-md-5 col-6 quick-search-col">
-		        <div class="quick-search-field">
-		          <select id="SearchFieldVehicalModel" 
-		            name="vmodel" 
-		            class="form-control fc-vmodel"
-		            data-placeholder="-- Dòng xe --"
-		            data-allow-clear="true"
-		            data-options="{vmodel_options}">
-		            <option></option>
-		          </select>
-		        </div>
-	        </div>
+
+<div class="header-search">
+  <div class="form-search-wrapper">
+    <form action="javascript:;" method="GET" class="form-search slds-form slds-form_compound">
+      <f:for each="{vbrands}" as="vbrand">
+        <input type="hidden" name="vbrands[{vbrand.uid}]" value="{f:uri.action(pageUid:settings.searchPid, extensionName:'Nano', pluginName:'PageBatterySearchByVehical', controller:'Battery', action: 'search', arguments:'{vbrand:vbrand.uid}')}" />
+      </f:for>
+      <f:for each="{vmodels}" as="vmodel">
+        <input type="hidden" name="vmodels[{vmodel.uid}]" data-vbrand="{vmodel.vbrand.uid}" value="{f:uri.action(pageUid:settings.searchPid, extensionName:'Nano', pluginName:'PageBatterySearchByVehical', controller:'Battery', action: 'search', arguments:'{vbrand:vmodel.vbrand.uid, vmodel:vmodel.uid}')}" />
+      </f:for>
+      <div class="form-search__wrap">
+        <div class="form-search__input">
+          <div class="q-search slds-form-element__group">
+            <div class="q-search__inner slds-form-element__row slds-grid_vertical-align-center slds-gutters_xxx-small">
+              <div class="slds-form-element slds-size_5-of-12">
+                <div class="q-search__element">
+                  <select name="vbrand" class="form-control fc-vbrand" 
+                    data-placeholder="-- Chọn thương hiệu xe --"
+                    data-allow-clear="true">
+                    <option></option>
+                    <f:for each="{vbrands}" as="vbrand">
+                      <option value="{vbrand.uid}">{vbrand.title}</option>
+                    </f:for>
+                  </select>
+                </div>
+              </div>
+              <div class="slds-form-element slds-size_5-of-12">
+                <div class="q-search__element">
+                  <select name="vmodel" class="form-control fc-vmodel"
+                    data-placeholder="-- Chọn dòng xe --"
+                    data-allow-clear="true"
+                    data-options="{vmodel_options}">
+                    <option></option>
+                  </select>
+                </div>
+              </div>
+              <div class="slds-form-element slds-size_2-of-12">
+                <div class="form-search__actions typeahead__button">
+                  <button type="submit" class="btn btn-search red">
+                    <i class="fa fa-search"></i> <span>Tìm kiếm</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <span class="btn-search">
-        <button type="submit" class="waves-effect"><img src="{f:uri.resource(path:'Nano/images/icons/search-2.png', extensionName: 'nano')}" alt=""></button>
-      </span>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
 </html>

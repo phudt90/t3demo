@@ -3,33 +3,41 @@
   <h5 class="product__section__heading h4">Thông số kỹ thuật</h5>
   <dl class="dl-props">
     <f:if condition="{battery.terminalType}">
-    <dt class="dl-props__label"><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.terminal_type.label" /></dt>
-    <dd class="dl-props__value"><span class="nano-terminal-type nano-terminal-type--{battery.terminalType}">{battery.terminalType}</span></dd>
+      <dt class="dl-props__label nano-terminal-label"><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.terminal_type.label" /></dt>
+      <dd class="dl-props__value">
+        <span class="nano-terminal-type nano-terminal-type--{battery.terminalType}"></span>
+      </dd>
     </f:if>
     
     <f:if condition="{battery.terminalLayout}">
-    <dt class="dl-props__label"><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.terminal_layout.label" /></dt>
-    <dd class="dl-props__value"><span class="nano-terminal-layout nano-terminal-layout--{battery.terminalLayout}">{battery.terminalLayout}</span></dd>
+      <dt class="dl-props__label nano-terminal-label"><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.terminal_layout.label" /></dt>
+      <dd class="dl-props__value">
+        <span class="nano-terminal-layout nano-terminal-layout--{battery.terminalLayout}"></span>
+      </dd>
     </f:if>
     
     <f:if condition="{battery.voltage}">
     <dt class="dl-props__label"><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.voltage.label" /></dt>
     <dd class="dl-props__value">{battery.voltage} V</dd>
     </f:if>
-    
+  
     <f:if condition="{battery.capacity20}">
-    <dt class="dl-props__label"><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.capacity_20.label" /></dt>
-    <dd class="dl-props__value">{battery.capacity20} Ah</dd>
+      <dt class="dl-props__label">
+        <f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.capacity_20.label" />
+      </dt>
+      <dd class="dl-props__value">
+        {battery.capacity20} Ah
+      </dd>
     </f:if>
     
     <f:if condition="{battery.ccaEn}">
     <dt class="dl-props__label"><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.cca_en.label" /></dt>
-    <dd class="dl-props__value">{battery.ccaSae} Ah</dd>
+    <dd class="dl-props__value">{battery.ccaEn} A</dd>
     </f:if>
     
     <f:if condition="{battery.ccaSae}">
     <dt class="dl-props__label"><f:translate key="LLL:EXT:nano/Resources/Private/Language/locallang_nano.xlf:tx_nano_domain_model_battery.cca_sae.label" /></dt>
-    <dd class="dl-props__value">{battery.ccaSae} Ah</dd>
+    <dd class="dl-props__value">{battery.ccaSae}</dd>
     </f:if>
     
     <f:if condition="{battery.length} && {battery.width} && {battery.height}">

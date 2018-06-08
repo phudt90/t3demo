@@ -1,20 +1,16 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<div id="shop">
-	<div class="main-shop">
-		<div class="wrap-imagebox">
-			<div class="flat-row-title">
-				<h1 class="heading-nano">{heading}</h1> 
-			</div>
-			<p>&nbsp;</p>
-			<f:if condition="{batteries -> f:count()} > 0">
-				<f:then>
-					<f:render partial="BatteryList/PaginatedGrid4Columns" arguments="{batteries:batteries}" />
-				</f:then>
-				<f:else>
-        	<f:translate key="nano.messages.listIsEmpty" />
-    		</f:else>
-			</f:if>
-		</div>
-	</div>
+<div>
+  <header>
+    <h1 class="element-header">{heading}</h1>
+  </header>
+  
+	<f:if condition="{batteries -> f:count()} > 0">
+		<f:then>
+			<f:render partial="BatteryList/PaginatedGrid4Columns" arguments="{batteries:batteries}" />
+		</f:then>
+		<f:else>
+    	<f:render partial="BatteryList/Empty" />
+		</f:else>
+	</f:if>
 </div>
 </html>

@@ -40,6 +40,49 @@ var Layout = function() {
 	    debug: true
 		});
 	};
+	
+	var handleHeaderSearch2 = function() {
+		let vmodelOptions = $('.q-search .fc-vmodel').data('options');
+		let vbrand = $('.q-search .fc-vbrand').select2({
+			language: 'vi',
+			placeholder: "-- Chọn thương hiệu xe --",
+			allowClear: true
+		});
+		let vmodel = $('.q-search .fc-vmodel').select2({
+			language: 'vi',
+			placeholder: "-- Chọn dòng xe --",
+			allowClear: true
+		});
+		
+		vbrand.on('select2:select', function(e) {
+			vmodel.empty().trigger("change");
+			vmodel.select2({
+				data : _.filter(vmodelOptions, function(obj) {
+					return obj.parent == e.params.data.id;
+				}),
+				language : 'vi',
+				placeholder: "-- Chọn dòng xe --",
+				allowClear: true
+			});
+			vmodel.val(null).trigger('change');
+		});
+		
+		$('#header form.form-search').on('submit', function(e) {
+			e.preventDefault();
+			let $_form = $(this);
+			let vbrandUid = vbrand.val();
+			let vmodelUid = vmodel.val();
+			var href = '';
+			if (vmodelUid) {
+				href = $_form.find('input[name="vmodels\[' + vmodelUid + '\]"]').attr('value');
+			} else if (vbrandUid) {
+				href = $_form.find('input[name="vbrands\[' + vbrandUid + '\]"]').attr('value');
+			}
+			if (href != '') {
+				window.location.href = href;
+			}
+		});
+	};
 
 	// Handles the go to top button at the footer
 	var handleGoTop = function() {
@@ -150,7 +193,7 @@ var Layout = function() {
 		init : function() {
 			handleAddToCart();
 			handleFlexSlider();
-			//handleHeaderSearch();
+			handleHeaderSearch2();
 			handleZoomImages();
 			handleTouchSpin();
 		}

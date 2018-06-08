@@ -311,7 +311,7 @@ return [
       'config' => [
         'type' => 'input',
         'size' => 30,
-        'eval' => 'trim,int'
+        'eval' => 'trim,double2'
       ]
     ],
     'capacity_100' => [
@@ -320,7 +320,7 @@ return [
       'config' => [
         'type' => 'input',
         'size' => 30,
-        'eval' => 'trim,int'
+        'eval' => 'trim,double2'
       ]
     ],
     'cca_en' => [

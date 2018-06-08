@@ -102,16 +102,14 @@ class BatteryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     $title = 'Tìm ắc quy';
     if($vbrand) {
       $title .= " xe {$vbrand->getTitle()}";
-      $demand->setVbrand($vbrand);
+      $demand->setVbrand($vbrand->getUid());
       if($vmodel && ($vmodel->getVbrand()->getUid() === $vbrand->getUid())) {
         $title .= " {$vmodel->getTitle()}";
-        $demand->setVmodel($vmodel);
+        $demand->setVmodel($vmodel->getUid());
       }
     }
     
     $batteries = $this->batteryRepository->findDemanded($demand);
-    
-    $this->setPageTitle($title);
     $this->view->assign('heading', $title);
     $this->view->assign('batteries', $batteries);
   }
