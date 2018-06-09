@@ -29,21 +29,6 @@ class MegaMenuProcessor implements DataProcessorInterface {
    */
   protected $connectionPool;
   
-  
-  /**
-   * The storage page id
-   *
-   * @var int
-   */
-  protected $storagePid;
-  
-  /**
-   * The list page id
-   *
-   * @var int
-   */
-  protected $listPid;
-  
   /**
    * Constructs a new MegaMenuProcessor
    * 
@@ -67,7 +52,8 @@ class MegaMenuProcessor implements DataProcessorInterface {
   public function process(ContentObjectRenderer $cObj, array $contentObjectConfiguration, array $processorConfiguration, array $processedData) {    
     $this->cObj = $cObj;
     $this->processorConfiguration = $processorConfiguration;
-    
+    /** @var \TYPO3\CMS\Frontend\Resource\FileCollector $fileCollector */
+    $fileCollector = GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\Resource\FileCollector::class);
     $rootUid = 14;
     $rootCategoryUid = 511;
     $pages = \TYPO3\CMS\Core\Category\Collection\CategoryCollection::load($rootCategoryUid, true, 'pages')->getItems();
@@ -82,12 +68,15 @@ class MegaMenuProcessor implements DataProcessorInterface {
     $categoriesOne = array_filter($pages, function($page) use ($rootUid) {
       return ($page['pid'] == $rootUid);
     });
+    
     if($categoriesOne) {
       usort($categoriesOne, function($a, $b) {
         return ($a['sorting'] < $b['sorting']) ? -1 : 1;
       });
       foreach($categoriesOne as $categoryOne) {
-        $megamenuItem = $this->buildTypoLinkURL($categoryOne);
+        if($categoryOne['hidden'] == 1) { continue; }
+        
+        $megamenuItem = $this->buildTypoLinkItem($categoryOne);
         
         $categoriesTwo = array_filter($pages, function($page) use ($categoryOne) {
           return ($page['pid'] == $categoryOne['uid']);
@@ -95,6 +84,9 @@ class MegaMenuProcessor implements DataProcessorInterface {
         $children = [];
         if($categoriesTwo) {
           if($categoryGroups = $this->arrayGroupBy($categoriesTwo, 'tx_nano_nav_position')) {
+            if($categoryOne['uid'] == 106) {
+              //d($categoryGroups);
+            }
             foreach($categoryGroups as $i=>$categoryGroup) {
               usort($categoryGroup, function($a, $b) {
                 return ($a['sorting'] < $b['sorting']) ? -1 : 1;
@@ -104,7 +96,9 @@ class MegaMenuProcessor implements DataProcessorInterface {
                 'items' => []
               ];
               foreach($categoryGroup as $groupItem) {
-                $group['items'][] = $this->buildTypoLinkURL($groupItem);
+                if($groupItem['hidden'] == 1) { continue; }
+                
+                $group['items'][] = $this->buildTypoLinkItem($groupItem);
               }
               $children[] = $group;
             }
@@ -115,6 +109,9 @@ class MegaMenuProcessor implements DataProcessorInterface {
       }
     }
     
+    
+    $fileCollector->
+    
     // Return processed data
     $processedData['megamenu'] = $megamenu;
     return $processedData;
@@ -124,15 +121,18 @@ class MegaMenuProcessor implements DataProcessorInterface {
    * Build Typo link URL item from page
    * @return array|null Returns a multidimensional array or `null` if $cObj is empty.
    */
-  protected function buildTypoLinkURL(array $item) {
+  protected function buildTypoLinkItem(array $item) {
     if($this->cObj) {
       return [
         'title' => $item['title'],
+        'seo_title' => $item['tx_seo_titletag'],
         'link' => $this->cObj->typoLink_URL([
           'parameter' => $item['uid'],
           'useCacheHash' => true,
           'forceAbsoluteUrl' => true,
         ]),
+        'layout' => $item['tx_nano_nav_layout'],
+        'position' => $item['tx_nano_nav_position'],
       ];
     }
   }

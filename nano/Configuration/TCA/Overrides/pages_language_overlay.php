@@ -3,13 +3,41 @@ defined('TYPO3_MODE') or die();
 
 // Adding field to pages TCA
 $additionalColumns = [
-  'tx_nano_nav_position' => [
+  'tx_nano_nav_layout' => [
     'exclude' => 1,
-    'label'   => 'Vị trí cột',
+    'label'   => 'Menu Layout',
     'config' => [
       'type' => 'select',
       'renderType' => 'selectSingle',
-      'size' => 30,
+      'minitems' => 1,
+      'maxitems' => 1,
+      'items' => [
+        ['Default', 0],
+        ['3 Columns', 1],
+        ['Horizontal', 2],
+      ],
+    ]
+  ],
+  'tx_nano_nav_type' => [
+    'exclude' => 1,
+    'label'   => 'Link Type',
+    'config' => [
+      'type' => 'select',
+      'renderType' => 'selectSingle',
+      'minitems' => 1,
+      'maxitems' => 1,
+      'items' => [
+        ['Default', 0],
+        ['Image', 1],
+      ],
+    ]
+  ],
+  'tx_nano_nav_position' => [
+    'exclude' => 1,
+    'label'   => 'Position',
+    'config' => [
+      'type' => 'select',
+      'renderType' => 'selectSingle',
       'minitems' => 1,
       'maxitems' => 1,
       'items' => [
@@ -23,4 +51,9 @@ $additionalColumns = [
 ];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('pages_language_overlay', $additionalColumns);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('pages_language_overlay', 'tx_nano_nav_position', '1', 'after:nav_icon');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+  'pages_language_overlay', 
+  'tx_nano_nav_layout,tx_nano_nav_type,tx_nano_nav_position', 
+  '1', 
+  'after:nav_icon'
+);

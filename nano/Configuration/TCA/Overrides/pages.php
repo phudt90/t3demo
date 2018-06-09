@@ -18,9 +18,38 @@ $extensionKey = 'nano';
 );
 
 $additionalColumns = [
+  'tx_nano_nav_layout' => [
+    'exclude' => 1,
+    'label'   => 'Menu Layout',
+    'config' => [
+      'type' => 'select',
+      'renderType' => 'selectSingle',
+      'minitems' => 1,
+      'maxitems' => 1,
+      'items' => [
+        ['Default', 0],
+        ['3 Columns', 1],
+        ['Horizontal', 2],
+      ],
+    ]
+  ],
+  'tx_nano_nav_type' => [
+    'exclude' => 1,
+    'label'   => 'Link Type',
+    'config' => [
+      'type' => 'select',
+      'renderType' => 'selectSingle',
+      'minitems' => 1,
+      'maxitems' => 1,
+      'items' => [
+        ['Default', 0],
+        ['Image', 1],
+      ],
+    ]
+  ],
   'tx_nano_nav_position' => [
     'exclude' => 1,
-    'label'   => 'Vị trí cột',
+    'label'   => 'Position',
     'config' => [
       'type' => 'select',
       'renderType' => 'selectSingle',
@@ -41,7 +70,7 @@ $additionalColumns = [
 // Make fields visible in the TCEforms
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
   'pages',
-  'tx_nano_nav_position',
+  'tx_nano_nav_layout,tx_nano_nav_type,tx_nano_nav_position',
   '1',
   'after:nav_icon'
 );

@@ -223,7 +223,23 @@ page {
                     isTrue = {$page.theme.meta.navigationValue}
                 }
             }
-            60 = DTP\Nano\DataProcessing\MegaMenuProcessor
+            
+            70 = DTP\Nano\DataProcessing\CategoriesMenuProcessor
+            70 {
+              special = list
+              special.value = 14
+              levels = 3
+              includeSpacer = 1
+              includeNotInMenu = 1
+              as = navcategories
+              dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10 {
+                  references.fieldName = nav_icon
+                  as = icon
+                }
+              }
+            }
         }
 
         ################

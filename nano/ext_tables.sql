@@ -415,12 +415,16 @@ CREATE TABLE tx_nano_domain_model_order_product (
 # Add fields for table 'pages'
 #
 CREATE TABLE pages (
-  tx_nano_nav_position tinyint(4) DEFAULT '0' NOT NULL
+  tx_nano_nav_layout tinyint(4) DEFAULT '0' NOT NULL,
+  tx_nano_nav_type tinyint(4) DEFAULT '0' NOT NULL,
+  tx_nano_nav_position tinyint(4) DEFAULT '0' NOT NULL  
 );
 
 #
 # Add fields for table 'pages_language_overlay'
 #
 CREATE TABLE pages_language_overlay (
+  tx_nano_nav_layout tinyint(4) DEFAULT '0' NOT NULL,
+  tx_nano_nav_type tinyint(4) DEFAULT '0' NOT NULL,
   tx_nano_nav_position tinyint(4) DEFAULT '0' NOT NULL
 );

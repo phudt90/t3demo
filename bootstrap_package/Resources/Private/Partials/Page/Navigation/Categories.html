@@ -1,33 +1,79 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{navcategories}">
 <nav id="js-nav-categories" class="nav-categories js-cmm-container" role="navigation">
   <a href="javascript:" class="nav-categories__toggle">
     <i class="nav-categories__toggle__icon"></i>
     <span class="nav-categories__toggle__text nav-categories__toggle__text--long">DANH MỤC SẢN PHẨM</span>
   </a>
-  
   <ul class="cmm js-cmm">
-    <f:for each="{megamenu}" as="megamenuItem">
-      <li class="cmm__item {f:if(condition: megamenuItem.children, then:'cmm__item--has-content cmm-item-has-children')}">
-        <a href="{megamenuItem.link}" title="{megamenuItem.title}" class="cmm__nav-link">
-          <span class="cmm__item__label">{megamenuItem.title}</span>
+    <f:for each="{navcategories}" as="navItem">
+      <li class="cmm__item {f:if(condition: navItem.children, then:'cmm__item--has-content cmm-item-has-children')}">
+        <a href="{navItem.link}" 
+          title="{f:if(condition: navItem.seotitle, then: navItem.seotitle, else: navItem.title)}" 
+          class="cmm__nav-link">
+          <span class="cmm__item__label">{navItem.title}</span>
         </a>
-        <f:if condition="{megamenuItem.children}">
-        <div class="cmm__submenu js-cmm-submenu">
+        <f:if condition="{navItem.children}">
+        <div class="cmm__submenu cmm__submenu__layout--{navItem.layout} js-cmm-submenu">
           <div class="cmm__submenu-wrapper">
-            <div class="row">
-              <f:for each="{megamenuItem.children}" as="child">
-                <f:if condition="{child.items}">
-                <div class="col-lg-4 col-md-12 col-sm-12 col-12">
-                  <ul>
-                    <li><span class="sbold">{child.title}</span></li>
-                    <f:for each="{child.items}" as="item">
-                      <li><a href="{item.link}" title="{item.title}">{item.title}</a></li>
+            <f:switch expression="{navItem.layout}">
+              <f:case value="1">
+                <f:if condition="{navItem.childrenColumns}">
+                  <div class="slds-grid slds-wrap slds-gutters">
+                    <f:for each="{navItem.childrenColumns}" as="columnItem">
+                      <div class="cmm__horizontal__item slds-col slds-size_12-of-12 slds-large-size_4-of-12">
+                        <ul class="cmm__horizontal">
+                          <li><span class="sbold">{columnItem.title}</span></li>
+                          <f:for each="{columnItem.items}" as="item">
+                            <li class="cmm__horizontal__item">
+                              <a href="{item.link}" 
+                                title="{f:if(condition: item.seotitle, then: item.seotitle, else: item.title)}" 
+                                class="cmm__horizontal__link">
+                                <span>{item.title}</span>
+                              </a>
+                            </li>
+                          </f:for>
+                        </ul>
+                      </div>
                     </f:for>
-                  </ul>
-                </div>
+                  </div>
                 </f:if>
-              </f:for>
-            </div>
+              </f:case>
+              <f:case value="2">
+                <ul class="cmm__horizontal slds-grid slds-wrap slds-gutters slds-grid_vertical-align-center">
+                  <f:for each="{navItem.children}" as="item">
+                    <li class="cmm__horizontal__item slds-col slds-size_6-of-12 slds-large-size_3-of-12">
+                      <f:if condition="({item.type}=='1') && {item.icon}">
+                        <f:then>
+                          <a href="{item.link}" 
+                            title="{f:if(condition: item.seotitle, then: item.seotitle, else: item.title)}" 
+                            class="cmm__horizontal__link cmm__horizontal__link--image"
+                            style="background-image:url({f:uri.image(image: item.icon.0)});">
+                            <span>{item.title}</span>
+                          </a>
+                        </f:then>
+                        <f:else>
+                          <a href="{item.link}" title="{item.title}" class="cmm__horizontal__link">
+                            <span>{item.title}</span>
+                          </a>
+                        </f:else>
+                      </f:if>
+                    </li>
+                  </f:for>
+                </ul>
+              </f:case>
+              <f:defaultCase>
+                <ul class="cmm__horizontal">
+                  <f:for each="{navItem.children}" as="item">
+                    <li class="cmm__horizontal__item">
+                      <a href="{item.link}" title="{f:if(condition: item.seotitle, then: item.seotitle, else: item.title)}" class="cmm__horizontal__link">
+                        <span>{item.title}</span>
+                      </a>
+                    </li>  
+                  </f:for>
+                </ul>
+              </f:defaultCase>
+            </f:switch>
           </div>
         </div>
         </f:if>
@@ -35,4 +81,5 @@
     </f:for>
   </ul>
 </nav>
+</f:if>
 </html>
