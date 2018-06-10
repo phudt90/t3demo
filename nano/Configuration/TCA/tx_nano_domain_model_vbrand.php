@@ -149,8 +149,8 @@ return [
         'foreign_table' => 'tx_nano_domain_model_vmodel',
         'foreign_field' => 'vbrand',
         'foreign_sortby' => 'sorting',
-        'minitems' => 1,
-        'maxitems' => 99,
+        'minitems' => 0,
+        'maxitems' => 999,
         'appearance' => [
           'collapseAll' => 1,
           'expandSingle' => 1,
