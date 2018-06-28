@@ -18,13 +18,13 @@
           <div class="cmm__submenu-wrapper">
             <f:switch expression="{navItem.layout}">
               <f:case value="1">
-                <f:if condition="{navItem.childrenColumns}">
-                  <div class="slds-grid slds-wrap slds-gutters">
-                    <f:for each="{navItem.childrenColumns}" as="columnItem">
-                      <div class="cmm__horizontal__item slds-col slds-size_12-of-12 slds-large-size_4-of-12">
-                        <ul class="cmm__horizontal">
-                          <li><span class="sbold">{columnItem.title}</span></li>
-                          <f:for each="{columnItem.items}" as="item">
+                <div class="slds-grid slds-wrap slds-gutters">
+                  <f:for each="{navItem.children}" as="child">
+                    <div class="cmm__horizontal__item slds-col slds-size_12-of-12 slds-large-size_4-of-12">
+                      <ul class="cmm__horizontal">
+                        <li><span class="sbold">{child.title}</span></li>
+                        <f:if condition="{child.children}">
+                          <f:for each="{child.children}" as="item">
                             <li class="cmm__horizontal__item">
                               <a href="{item.link}" 
                                 title="{f:if(condition: item.seotitle, then: item.seotitle, else: item.title)}" 
@@ -33,11 +33,11 @@
                               </a>
                             </li>
                           </f:for>
-                        </ul>
-                      </div>
-                    </f:for>
-                  </div>
-                </f:if>
+                        </f:if>
+                      </ul>
+                    </div>
+                  </f:for>
+                </div>
               </f:case>
               <f:case value="2">
                 <ul class="cmm__horizontal slds-grid slds-wrap slds-gutters slds-grid_vertical-align-center">

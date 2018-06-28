@@ -49,7 +49,7 @@ $additionalColumns = [
   ],
   'tx_nano_nav_position' => [
     'exclude' => 1,
-    'label'   => 'Position',
+    'label'   => 'Columns',
     'config' => [
       'type' => 'select',
       'renderType' => 'selectSingle',
@@ -57,7 +57,6 @@ $additionalColumns = [
       'maxitems' => 1,
       'items' => [
         ['', 0],
-        ['1', 1],
         ['2', 2],
         ['3', 3],
       ],

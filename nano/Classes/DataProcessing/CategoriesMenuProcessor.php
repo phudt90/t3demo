@@ -16,22 +16,20 @@ class CategoriesMenuProcessor extends MenuProcessor {
   public function process(ContentObjectRenderer $cObj, array $contentObjectConfiguration, array $processorConfiguration, array $processedData) {
     $processedData = parent::process($cObj, $contentObjectConfiguration, $processorConfiguration, $processedData);
     $processedData[$this->menuTargetVariableName] = $processedData[$this->menuTargetVariableName][0]['children'];
-    
-    $columnTitles = [
-      0 => '',
-      1 => 'Theo thương hiệu ắc quy',
-      2 => 'Theo thương hiệu xe',
-      3 => 'Theo thương hiệu xe'
-    ];
-    foreach($processedData[$this->menuTargetVariableName] as $i=>$menuItem) {
-      if($menuItem['children'] && ($menuItem['layout'] == 1)) {
-        $processedData[$this->menuTargetVariableName][$i]['childrenColumns'] = [];
-        $childrenColumns = $this->arrayGroupBy($menuItem['children'], 'position');
-        foreach($childrenColumns as $pos => $childrenColumn) {
-          $processedData[$this->menuTargetVariableName][$i]['childrenColumns'][] = [
-            'title' => $columnTitles[$pos],
-            'items' => $childrenColumn
-          ];
+
+    foreach($processedData[$this->menuTargetVariableName] as $i => $menuItem) {
+      if($menuItem['children']) {
+        foreach($menuItem['children'] as $j => $menuItem1st) {
+          if(($menuItem1st['position'] > 0) && (count($menuItem1st['children']) > $menuItem1st['position'])) {
+            unset($processedData[$this->menuTargetVariableName][$i]['children'][$j]);
+            $childrenGroups = array_chunk($menuItem1st['children'], ceil(count($menuItem1st['children'])/$menuItem1st['position']));
+            $count = $j;
+            foreach($childrenGroups as $childrenGroup) {
+              $newMenuItem = $menuItem1st;
+              $newMenuItem['children'] = $childrenGroup;
+              $processedData[$this->menuTargetVariableName][$i]['children'][$count++] = $newMenuItem;
+            }
+          }
         }
       }
     }
