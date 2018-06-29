@@ -23,9 +23,9 @@ TCEFORM {
     }
     layout {
       altLabels {
-				1 = 10/12 columns center
-				2 = Home widget block
-				3 = Home widget slides
+				1 = Layout 1
+				2 = Layout 2
+				3 = Layout 3
 			}
       disableNoMatchingValueElement = 1
       types {

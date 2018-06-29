@@ -2,7 +2,7 @@
 <div>
 	<f:if condition="{batteries -> f:count()} > 0">
 		<f:then>
-			<f:render partial="BatteryList/PaginatedGrid4Columns" arguments="{batteries:batteries}" />
+			<f:render partial="BatteryList/PaginatedGrid" arguments="{batteries:batteries, settings: settings}" />
 		</f:then>
 		<f:else>
 			<f:render partial="BatteryList/Empty" />

@@ -97,6 +97,30 @@
             </TCEforms>
           </settings.vmodel>
           
+          <!-- itemsPerRow -->
+          <settings.itemsPerRow>
+            <TCEforms>
+              <label>Items per row</label>
+              <config>
+                <type>select</type>
+                <renderType>selectSingle</renderType>
+                <items>
+                  <numIndex index="0" type="array">
+                    <numIndex index="0">3</numIndex>
+                    <numIndex index="1">4</numIndex>
+                  </numIndex>
+                  <numIndex index="1">
+                    <numIndex index="0">4</numIndex>
+                    <numIndex index="1">3</numIndex>
+                  </numIndex>
+                </items>
+                <default>3</default>
+                <minitems>1</minitems>
+                <maxitems>1</maxitems>
+              </config>
+            </TCEforms>
+          </settings.itemsPerRow>
+          
           <!-- order -->
           <settings.orderBy>
             <TCEforms>
