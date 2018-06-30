@@ -60,7 +60,7 @@
                 <type>select</type>
                 <render_type>selectSingle</render_type>
                 <foreign_table>tx_nano_domain_model_vbrand</foreign_table>
-                <foreign_table_where>ORDER BY tx_nano_domain_model_vbrand.sorting</foreign_table_where>
+                <foreign_table_where>ORDER BY tx_nano_domain_model_vbrand.title ASC</foreign_table_where>
                 <items>
                   <numIndex index="0" type="array">
                     <numIndex index="0"></numIndex>
@@ -114,7 +114,7 @@
                     <numIndex index="1">3</numIndex>
                   </numIndex>
                 </items>
-                <default>3</default>
+                <default>4</default>
                 <minitems>1</minitems>
                 <maxitems>1</maxitems>
               </config>

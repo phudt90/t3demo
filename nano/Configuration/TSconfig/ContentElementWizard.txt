@@ -1,0 +1,12 @@
+mod.wizards.newContentElement.wizardItems.plugins {
+	elements {
+		nano_list {
+			title = Danh mục ắc quy
+			description = List of batteries
+			tt_content_defValues {
+				CType = list
+				list_type = nano_pagebatterylist
+			}
+		}
+	}
+}
