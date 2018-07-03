@@ -14,4 +14,8 @@ plugin.tx_seo {
 
 	# cat=plugin.seo/string; type=boolean; label= Enable the canonical tag: Adds a new tag for showing the unique URL for this page.
 	enableCanonicalTag = 1
+	
+	defaultKeywords = ac quy binh tan, ac quy quan 6, ắc quy, binh ac quy, ac quy o to, ac quy xe phan khoi lon, ac quy xe mo to, ac quy ups, ac quy nang luong, ac quy xe dien, ac quy xe nang, ac quy gs, ac quy dong nai, ac quy tai tp hcm
+	
+	defaultDescription = Ắc quy NANO là nhà phân phối ắc quy DAEWOO - Made in Korea, TOPLITE - Made in Taiwan. Chúng tôi chuyên cung cấp ắc quy dùng cho xe ô tô, xe phân khối lớn, xe tải, tàu thuyền, xe điện, ups, năng lượng tại Việt Nam với giá cả cạnh tranh và dịch vụ hậu mãi chuyên nghiệp
 }

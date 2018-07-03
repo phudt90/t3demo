@@ -33,6 +33,7 @@ plugin.tx_seobasics {
 	30 = TEXT 
 	30 < .10
 	30.data = page:keywords
+	30.stdWrap.ifEmpty = {$plugin.tx_seo.defaultKeywords}
 	30.stdWrap.noTrimWrap = {$plugin.tx_seo.keywordsWrap}
 	30.stdWrap.stdWrap >
 	30.required = 1
@@ -43,6 +44,7 @@ plugin.tx_seobasics {
 	40 = TEXT
 	40 < .30
 	40.data = page:description
+	40.stdWrap.ifEmpty = {$plugin.tx_seo.defaultDescription}
 	40.stdWrap.noTrimWrap = {$plugin.tx_seo.descriptionWrap}
 	40.wrap = <meta name="description" content="|" />
 
@@ -95,7 +97,9 @@ tx_seo_xmlsitemaps {
 	config.renderCharset = utf-8
 	config.additionalHeaders.10.header = Content-type: text/xml
 	config.xhtml_cleaning = 0
+	config.no_cache = 1
 	10 = USER
 	10.userFunc = B13\SeoBasics\Controller\SitemapController->renderXMLSitemap
 	10.resolveMainShortcut = 1
+	10.useDomain = current
 }

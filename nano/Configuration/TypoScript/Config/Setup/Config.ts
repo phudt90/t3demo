@@ -3,11 +3,11 @@ config {
 
   // To be able to support both http and https
   absRefPrefix = /
-  cache_clearAtMidnight = 1
-
-  // Cache: 1 week
-  cache_period = 604800
-
+  
+  // Cache: 2 weeks: 3600 x 24 x 14 
+  cache_period = 1209600
+  cache_clearAtMidnight = 0
+  
   concatenateCss = {$site.concatenateCss}
   concatenateJs = {$site.concatenateJs}
   compressJs = {$site.compressJs}
