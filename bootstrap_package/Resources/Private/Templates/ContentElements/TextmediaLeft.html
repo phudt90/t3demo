@@ -4,12 +4,12 @@
 <f:section name="Header" />
 <f:section name="Main">
 
-	<div class="row">
-		<div class="col-md-6 col-xs-12">
+	<div class="slds-grid slds-wrap slds-gutters">
+		<div class="slds-col slds-size_12-of-12 slds-large-size_6-of-12 slds-large-order_2">
 			<f:render partial="Header/All" arguments="{_all}" />
 			<f:format.html>{data.bodytext}</f:format.html>
 		</div>
-		<div class="col-md-6 col-xs-12">
+		<div class="slds-col slds-size_12-of-12 slds-large-size_6-of-12 slds-large-order_1">
 			<f:render partial="Media/Gallery" arguments="{_all}" />
 		</div>
 	</div>
