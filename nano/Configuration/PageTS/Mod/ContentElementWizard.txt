@@ -1,0 +1,24 @@
+mod.wizards.newContentElement.wizardItems {
+  nano.header = LLL:EXT:nano/Resources/Private/Language/backend.xlf:content_group.nano
+  nano.elements {
+    nano_list {
+      iconIdentifier = content-bootstrappackage-carousel
+      title = LLL:EXT:nano/Resources/Private/Language/backend.xlf:content_element.nano_list.title
+      description = LLL:EXT:nano/Resources/Private/Language/backend.xlf:content_element.nano_list.description
+      tt_content_defValues {
+        CType = list
+        list_type = nano_pagebatterylist
+      }
+    }
+    carousel_products {
+      iconIdentifier = content-bootstrappackage-carousel
+      title = LLL:EXT:nano/Resources/Private/Language/backend.xlf:content_element.carousel_products.title
+      description = LLL:EXT:nano/Resources/Private/Language/backend.xlf:content_element.carousel_products.description
+      tt_content_defValues {
+        CType = carousel_products
+      }
+    }
+  }
+  nano.show := addToList(nano_list)
+  nano.show := addToList(carousel_products)
+}

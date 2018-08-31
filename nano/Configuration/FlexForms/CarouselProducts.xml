@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+    <meta>
+        <langDisable>1</langDisable>
+    </meta>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Plugin Options</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <!-- Batteries -->
+                    <settings.batteries>
+                        <TCEforms>
+                            <label>Batteries</label>
+                            <config>
+                                <type>group</type>
+                                <internal_type>db</internal_type>
+                                <allowed>tx_nano_domain_model_battery</allowed>
+                                <size>3</size>
+                                <minitems>0</minitems>
+                                <maxitems>99</maxitems>
+                                <wizards>
+                                    <suggest>
+                                        <type>suggest</type>
+                                        <default>
+                                            <searchWholePhrase>1</searchWholePhrase>
+                                        </default>
+                                    </suggest>
+                                </wizards>
+                            </config>
+                        </TCEforms>
+                    </settings.batteries>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

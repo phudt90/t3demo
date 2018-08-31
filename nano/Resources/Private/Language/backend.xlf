@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+	<file t3:id="1415814790" source-language="en" datatype="plaintext" original="messages" date="2011-10-17T20:22:32Z" product-name="nano">
+		<header/>
+		<body>
+		  <trans-unit id="content_group.nano">
+        <source>Nano</source>
+      </trans-unit>
+      <trans-unit id="content_element.nano_list.title">
+        <source>Catalog</source>
+      </trans-unit>
+      <trans-unit id="content_element.nano_list.description">
+        <source>Show list of products</source>
+      </trans-unit>
+			<trans-unit id="content_element.carousel_products.title">
+				<source>Carousel Products</source>
+			</trans-unit>
+			<trans-unit id="content_element.carousel_products.description">
+        <source>Insert carousel element that display slide of products</source>
+      </trans-unit>
+      <trans-unit id="content_element.carousel_products.options">
+        <source>Options</source>
+      </trans-unit>
+		</body>
+	</file>
+</xliff>

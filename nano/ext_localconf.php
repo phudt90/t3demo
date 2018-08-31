@@ -47,9 +47,7 @@ $signalSlotDispatcher->connect(
   'prepareAndSend'
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
-  <INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TSconfig/ContentElementWizard.txt">
-');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/PageTS/Mod/ContentElementWizard.txt">');
 
 // Disable caching on development enviroment
 if(\TYPO3\CMS\Core\Utility\GeneralUtility::getApplicationContext()->isDevelopment()) {
