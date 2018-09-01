@@ -1,0 +1,24 @@
+###########################################
+#### CTYPE: CAROUSEL PRODUCTS ####
+###########################################
+
+tt_content.carousel_products >
+tt_content.carousel_products =< lib.contentElement
+tt_content.carousel_products {
+  ################
+  ### TEMPLATE ###
+  ################
+  templateName = CarouselProducts
+
+  ##########################
+  ### DATA PREPROCESSING ###
+  ##########################
+  dataProcessing {
+    10 = DTP\Nano\DataProcessing\CarouselProductsProcessor
+  }
+
+  settings {
+    cartPid = {$plugin.cartPid}
+    detailsPid = {$plugin.detailsPid}
+  }
+}

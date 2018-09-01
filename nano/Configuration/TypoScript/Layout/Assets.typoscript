@@ -1,0 +1,35 @@
+page {
+  includeCSSLibs {
+    select2 = EXT:nano/Resources/Public/Plugins/select2/css/select2.min.css
+    owl-carousel = EXT:nano/Resources/Public/Plugins/owl-carousel/owl.carousel.min.css
+    owl-carousel-theme = EXT:nano/Resources/Public/Plugins/owl-carousel/owl.theme.default.min.css
+  }
+
+  includeCSS {
+    main = EXT:nano/Resources/Public/Css/main.css
+    custom = EXT:nano/Resources/Public/Css/custom.css
+  }
+
+  includeJSLibs {
+    modernizr = EXT:bootstrap_package/Resources/Public/JavaScript/Dist/modernizr.min.js
+    modernizr.forceOnTop = 1
+    modernizr.async = 1
+  }
+
+  includeJSFooterlibs {
+    jquery = EXT:nano/Resources/Public/Plugins/jquery.min.js
+    jquery.forceOnTop = 1
+    responsiveimages = EXT:nano/Resources/Public/Plugins/jquery.responsiveimages.min.js
+    bootstrap = EXT:nano/Resources/Public/Plugins/bootstrap/bootstrap.min.js
+    bootstrap_offcanvas = EXT:nano/Resources/Public/Plugins/bootstrap-offcanvas/bootstrap.offcanvas.min.js
+    select2 = EXT:nano/Resources/Public/Plugins/select2/js/select2.min.js
+    flexslider = EXT:nano/Resources/Public/Plugins/jquery.flexslider-min.js
+    lodash = EXT:nano/Resources/Public/Plugins/lodash.min.js
+    owl-carousel = EXT:nano/Resources/Public/Plugins/owl-carousel/owl.carousel.min.js
+  }
+
+  includeJSFooter {
+    megamenu = EXT:nano/Resources/Public/JavaScript/megamenu.js
+    main = EXT:nano/Resources/Public/JavaScript/main.js
+  }
+}

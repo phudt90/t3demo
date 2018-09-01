@@ -12,6 +12,7 @@ lib.contentElement {
     templateRootPaths {
         0 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements/
         10 = {$plugin.bootstrap_package_contentelements.view.templateRootPath}
+        20 = EXT:nano/Resources/Private/Templates/ContentElements/
     }
     partialRootPaths {
         0 = EXT:bootstrap_package/Resources/Private/Partials/ContentElements/

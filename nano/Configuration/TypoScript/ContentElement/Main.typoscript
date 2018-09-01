@@ -1,0 +1,20 @@
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/ContentElement/CarouselProducts.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nano/Configuration/TypoScript/ContentElement/Clients.typoscript">
+
+lib.contentElement = FLUIDTEMPLATE
+lib.contentElement {
+
+  ################
+  ### TEMPLATE ###
+  ################
+  templateName = Default
+  templateRootPaths {
+    20 = EXT:nano/Resources/Private/Templates/ContentElements/
+  }
+  partialRootPaths {
+    20 = EXT:nano/Resources/Private/Partials/ContentElements/
+  }
+  layoutRootPaths {
+    20 = EXT:nano/Resources/Private/Layouts/ContentElements/
+  }
+}

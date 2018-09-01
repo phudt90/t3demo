@@ -1,0 +1,35 @@
+###########################################
+#### CTYPE: CLIENTS ####
+###########################################
+
+tt_content.clients >
+tt_content.clients =< lib.contentElement
+tt_content.clients {
+  ################
+  ### TEMPLATE ###
+  ################
+  templateName = Clients
+
+  ##########################
+  ### DATA PREPROCESSING ###
+  ##########################
+  dataProcessing {
+    20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+    20 {
+      table = tx_nano_client_item
+      pidInList.field = pid
+      where {
+        data = field:uid
+        intval = 1
+        wrap = tt_content=|
+      }
+      orderBy = sorting
+      dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+          references.fieldName = image
+        }
+      }
+    }
+  }
+}

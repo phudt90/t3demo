@@ -10,6 +10,7 @@ mod.wizards.newContentElement.wizardItems {
         list_type = nano_pagebatterylist
       }
     }
+
     carousel_products {
       iconIdentifier = content-bootstrappackage-carousel
       title = LLL:EXT:nano/Resources/Private/Language/backend.xlf:content_element.carousel_products.title
@@ -18,7 +19,17 @@ mod.wizards.newContentElement.wizardItems {
         CType = carousel_products
       }
     }
+
+    clients {
+      iconIdentifier = content-bootstrappackage-carousel
+      title = LLL:EXT:nano/Resources/Private/Language/backend.xlf:content_element.clients.title
+      description = LLL:EXT:nano/Resources/Private/Language/backend.xlf:content_element.clients.description
+      tt_content_defValues {
+        CType = clients
+      }
+    }
   }
   nano.show := addToList(nano_list)
   nano.show := addToList(carousel_products)
+  nano.show := addToList(clients)
 }

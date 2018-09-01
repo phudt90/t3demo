@@ -63,7 +63,7 @@
 
 
 #### BOOTSTRAP PACKAGE ASSETS
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Layout/Assets.typoscript">
+//<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/Layout/Assets.typoscript">
 
 ###################################
 #### BOOSTRAP PACKAGE SETTINGS ####

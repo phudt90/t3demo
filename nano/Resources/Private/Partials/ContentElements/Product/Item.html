@@ -1,0 +1,46 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="list-products__item">
+  <div class="list-products__item-info">
+    <div class="list-products__item-inner">
+      <div class="box-image">
+        <f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:battery}" class="product-image-container">
+          <f:if condition="{battery.mediaPreviews}">
+            <span class="product-image-wrapper">
+              <f:alias map="{mediaElement: '{battery.mediaPreviews.0}'}">
+                <f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" maxWidth="350"/>
+              </f:alias>
+            </span>
+          </f:if>
+        </f:link.action>
+      </div>
+
+      <div class="list-products__item-details">
+        <h4 class="product-name">
+          <f:link.action pageUid="{settings.detailsPid}" extensionName="Nano" pluginName="PageBatteryDetails" controller="Battery" action="details" arguments="{battery:battery}">
+            {battery.title}
+          </f:link.action>
+        </h4>
+        <div class="list-products__item-price">
+          <span class="price-wrapper">
+            <f:if condition="{battery.price}">
+              <f:then>
+                <span class="price price--final">
+                  <f:format.currency currencySign="đ" decimalSeparator="." thousandsSeparator="," decimals="0">{battery.price}</f:format.currency>
+                </span>
+                <f:if condition="{battery.priceRegular}">
+                  <span class="price price--old">
+                    <f:format.currency currencySign="đ" decimalSeparator="." thousandsSeparator="," decimals="0">{battery.priceRegular}</f:format.currency>
+                  </span>
+                </f:if>
+              </f:then>
+              <f:else>
+                <span class="price price--final">Liên hệ</span>
+              </f:else>
+            </f:if>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</html>

@@ -21,6 +21,30 @@
       <trans-unit id="content_element.carousel_products.options">
         <source>Options</source>
       </trans-unit>
+      <trans-unit id="content_element.clients.title">
+        <source>Clients</source>
+      </trans-unit>
+      <trans-unit id="content_element.clients.description">
+        <source>Insert clients element</source>
+      </trans-unit>
+      <trans-unit id="client_item">
+        <source>Client Item</source>
+      </trans-unit>
+      <trans-unit id="client_item.tt_content">
+        <source>Clients</source>
+      </trans-unit>
+      <trans-unit id="client_item.header">
+        <source>Header</source>
+      </trans-unit>
+      <trans-unit id="client_item.link">
+        <source>Link</source>
+      </trans-unit>
+      <trans-unit id="client_item.nav_title">
+        <source>Navigation title</source>
+      </trans-unit>
+      <trans-unit id="client_item.image">
+        <source>Image</source>
+      </trans-unit>
 		</body>
 	</file>
 </xliff>

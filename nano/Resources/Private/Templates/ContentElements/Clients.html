@@ -1,0 +1,27 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+  <f:if condition="{records}">
+    <div class="w-clients w-clients--3columns" id="c{data.uid}">
+      <div class="slds-grid slds-wrap slds-grid_vertical-align-center">
+        <f:for each="{records}" as="record" iteration="iteration">
+          <f:link.page pageUid="{record.data.link}"
+                       title="{record.data.nav_title}"
+                       class="w-clients__item slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+            <div class="w-clients__image">
+              <div class="box-img">
+                <f:if condition="{record.files.0}">
+                  <f:image
+                    image="{record.files.0}"
+                    title="{record.files.0.title}"
+                    alt="{record.files.0.alternative}" />
+                </f:if>
+              </div>
+            </div>
+          </f:link.page>
+        </f:for>
+      </div>
+    </div>
+  </f:if>
+</f:section>
+</html>

@@ -1,0 +1,161 @@
+html:before {
+  display:none!important;
+}
+
+body.layout-3 {
+  background:#fff;
+}
+
+@media (min-width: 64em) {
+  .backendlayout-2_columns_8_4 .sidebar{
+    margin-top: 70px;
+  }
+}
+
+.backendlayout-special_start .nav-categories .cmm{
+  display: block;
+  top: 100%;
+  margin-top: 10px;
+  border-radius: 4px 0 0 4px;
+}
+
+.widget-heading {
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.widget-heading:before {
+  content: "";
+  width: 70px;
+  height: 3px;
+  display: inline-block;
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  border-color: #f92400 !important;
+  background-image: none !important;
+  background-color: #f92400 !important;
+  color: #fff !important;
+}
+
+.product__cart .btn-cart{
+  color: #fff;
+  background-color: #f92400;
+  margin-top: 0;
+}
+
+.parsley-errors-list {}
+.parsley-errors-list li{
+  display: block;
+  color: #d04437;
+  margin: 5px 0 0 0;
+  padding: 0;
+  font-size: 13px;
+  font-weight:300;
+}
+
+.checkout-success{}
+.checkout-success .thank-you-note .check-mark {
+  width: 80px;
+  height: 80px;
+  margin: 20px auto 40px;
+  display: block;
+}
+.checkout-success .thank-you-note .check-mark .circle, 
+.checkout-success .thank-you-note .check-mark .check{
+  stroke: #34a46c;
+  stroke-width: 4px;
+}
+.checkout-success .thank-you-note .sub-title{
+  font-size: 20px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.checkout-success .continue-shopping{
+  text-align:center;
+  margin-top:30px;
+}
+.checkout-success .continue-shopping a {
+  background-image: none;
+  background-color: #40c781;
+  text-align: center;
+  font-size:15px;
+  font-weight:500;
+  line-height:24px;
+  color: #fff;
+  border-radius: 3px;
+  text-decoration: none;
+  border: 0px solid rgba(0, 0, 0, 0.15);
+  border-bottom-width: 2px;
+  padding: 10px 25px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s;
+}
+.checkout-success .continue-shopping a:hover{
+  background-color: #34a46c;
+  cursor: pointer;
+}
+.slds-table.slds-table-width-auto {
+  width: auto;
+}
+
+.dl-props .nano-terminal-label {
+  padding-top:12px;
+}
+.dl-props .nano-terminal-type{
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: contain;
+}
+.dl-props .nano-terminal-type.nano-terminal-type--1{
+  background-image: url(../img/terminals/terminal_type_1.jpg);
+  width: 80px;
+  height: 42px;
+}
+.dl-props .nano-terminal-type.nano-terminal-type--2{
+  background-image: url(../img/terminals/terminal_type_2.jpg);
+  width: 80px;
+  height: 42px;
+}
+.dl-props .nano-terminal-type.nano-terminal-type--3{
+  background-image: url(../img/terminals/terminal_type_3.jpg);
+  width: 50px;
+  height: 50px;
+}
+.dl-props .nano-terminal-type.nano-terminal-type--4{
+  background-image: url(../img/terminals/terminal_type_4.jpg);
+  width: 50px;
+  height: 50px;
+}
+
+.dl-props .nano-terminal-layout{
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: contain;
+}
+.dl-props .nano-terminal-layout.nano-terminal-layout--1{
+  background-image: url(../img/terminals/terminal_layout_1.jpg);
+  width: 51px;
+  height: 50px;
+}
+.dl-props .nano-terminal-layout.nano-terminal-layout--2{
+  background-image: url(../img/terminals/terminal_layout_2.jpg);
+  width: 51px;
+  height: 50px;
+}
+.dl-props .nano-terminal-layout.nano-terminal-layout--3{
+  background-image: url(../img/terminals/terminal_layout_3.jpg);
+  width: 75px;
+  height: 50px;
+}
+.dl-props .nano-terminal-layout.nano-terminal-layout--4{
+  background-image: url(../img/terminals/terminal_layout_4.jpg);
+  width: 63px;
+  height: 50px;
+}
